@@ -77,7 +77,12 @@ def procesar_archivos_json(rutas_json):
 
         # Crear procesador y procesar los mensajes
         procesador = Procesador()
+        # Ordenar por la columna 'timestamp' en orden ascendente (si querés descendente poné 'False')
+        df = df.sort_values(by='timestamp', ascending=True)
+        # Reiniciar el índice para que quede ordenado y no haya saltos en los índices
+        df = df.reset_index(drop=True)
         procesador.procesar_dataframe(df)
+
         
         # Mostrar resultados del procesamiento
         print(f"✅ Procesamiento completado para el archivo {idx}")
@@ -100,3 +105,4 @@ procesar_archivos_json(rutas_json)
 # procesador.preguntas_cerradas
 # procesador.mensajes_sueltos
 # procesador.respuestas_sueltas
+

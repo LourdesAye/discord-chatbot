@@ -40,8 +40,8 @@ class Mensaje:
         # Aquí estamos creando un objeto Mensaje usando los datos de la fila
         return cls(  
             id_mensaje=row["id"],
-            autor=row["autor"],
-            contenido=row["contenido"],
+            autor=row["author"],
+            contenido=row["content"],
             timestamp=row["timestamp"],
             attachments=row.get("attachments", []))
 
