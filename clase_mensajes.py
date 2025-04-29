@@ -9,7 +9,7 @@ frases_claves_preguntas = [
     "qué pasa si", "tengo una consulta", "tengo una duda", "tengo una pregunta",
     "mi duda es", "mi consulta es", "quisiera consultar", 
     "quería saber si", "me surgió la duda", "necesito saber si", "me pregunto si",
-    "alguien sabe", "una duda", "una consulta","necesito ayuda", "es posible"
+    "alguien sabe", "una duda", "una consulta","necesito ayuda", "es posible", "qué debería", "que debería"
 ]
 
 # lista de mensajes de cierre de docentes
@@ -34,6 +34,7 @@ class Mensaje:
         self.contenido = contenido
         self.timestamp = timestamp
         self.attachments = attachments
+        self.es_dudoso= False
 
     @classmethod # para indicar que es un método de clase, afecta a la clase no al objeto necesariamente
     def from_dataframe_row(cls, row): # Usamos 'cls' para referirnos a la clase, es como self para una instancia u objeto

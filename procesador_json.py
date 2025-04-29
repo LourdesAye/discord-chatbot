@@ -81,6 +81,12 @@ def procesar_archivos_json(rutas_json):
         df = df.sort_values(by='timestamp', ascending=True)
         # Reiniciar el índice para que quede ordenado y no haya saltos en los índices
         df = df.reset_index(drop=True)
+        # Esto configura pandas para que no corte columnas ni contenido
+        pd.set_option('display.max_columns', None)     # muestra todas las columnas
+        pd.set_option('display.max_colwidth', None)     # muestra el contenido completo de cada celda
+        pd.set_option('display.width', None)            # ajusta el ancho total automáticamente
+        pd.set_option('display.expand_frame_repr', False)  # evita que corte el frame en varias líneas
+        print(df.head(5))
         procesador.procesar_dataframe(df)
 
         
