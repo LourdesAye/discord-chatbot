@@ -1,7 +1,7 @@
 # ESTRUCTURAS BASES PARA CLASIFICAR MENSAJES + funciones auxiliares +  CLASE MENSAJE 
 
 # lista de docentes
-docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier"]
+docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier", "facuherrera_8", "ryan129623"]
 
 # lista de frases comunes para detectar preguntas explícitas o implícitas
 frases_claves_preguntas = [
