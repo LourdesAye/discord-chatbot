@@ -87,7 +87,7 @@ def procesar_archivos_json(rutas_json):
         pd.set_option('display.width', None)            # ajusta el ancho total automáticamente
         pd.set_option('display.expand_frame_repr', False)  # evita que corte el frame en varias líneas
         print(df.head(5))
-        procesador.procesar_dataframe(df)
+        procesador.procesar_dataframe(df,ruta_json)
 
         
         # Mostrar resultados del procesamiento

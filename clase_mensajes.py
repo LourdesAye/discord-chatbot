@@ -34,17 +34,18 @@ class Mensaje:
         self.contenido = contenido
         self.timestamp = timestamp
         self.attachments = attachments
-        self.es_dudoso= False
+       # self.es_dudoso= False
 
     @classmethod # para indicar que es un método de clase, afecta a la clase no al objeto necesariamente
-    def from_dataframe_row(cls, row): # Usamos 'cls' para referirnos a la clase, es como self para una instancia u objeto
+    def from_dataframe_row(cls, row, ruta_json): # Usamos 'cls' para referirnos a la clase, es como self para una instancia u objeto
         # Aquí estamos creando un objeto Mensaje usando los datos de la fila
         return cls(  
             id_mensaje=row["id"],
             autor=row["author"],
             contenido=row["content"],
             timestamp=row["timestamp"],
-            attachments=row.get("attachments", []))
+            attachments=row.get("attachments", []),
+            origen=ruta_json)
 
     def es_autor_docente(self) -> bool:
         return self.autor.lower() in docentes

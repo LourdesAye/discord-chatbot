@@ -16,13 +16,13 @@ class Procesador:
         self.preguntas_a_cerrar = []
         self.contador_mensajes = 0
 
-    def procesar_dataframe(self, df):
+    def procesar_dataframe(self, df, ruta_json):
         print("🔵 Iniciando procesamiento del DataFrame...")
         for _, row in df.iterrows():
             self.contador_mensajes=self.contador_mensajes+1
             print()
             print(f"procesando mensaje número{self.contador_mensajes}")
-            mensaje = Mensaje.from_dataframe_row(row)
+            mensaje = Mensaje.from_dataframe_row(row, ruta_json)
             print(f"     ...   cuyo contenido es {mensaje.contenido}")
             self.procesar_mensaje(mensaje)
         print(f"✅ Procesamiento finalizado. {len(self.preguntas_abiertas)} preguntas abiertas, {len(self.preguntas_cerradas)} preguntas cerradas.")
