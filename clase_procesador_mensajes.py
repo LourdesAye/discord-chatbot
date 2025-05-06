@@ -7,7 +7,7 @@ from dateutil.parser import isoparse
 
 
 #Redirigir prints a un archivo
-sys.stdout = open('log_procesamiento.txt', 'w', encoding='utf-8')
+#sys.stdout = open('log_procesamiento.txt', 'w', encoding='utf-8')
 
 class Procesador:
     def __init__(self):

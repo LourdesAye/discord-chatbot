@@ -63,6 +63,9 @@ def guardar_csvs(df, visuales_df, sin_numeros_solos_df, nombre_base):
 
 # Función principal para procesar los JSONs
 def procesar_archivos_json(rutas_json):
+
+    procesadores = []  # Lista para guardar cada Procesador
+
     for idx, ruta_json in enumerate(rutas_json, start=1):
         # Cargar JSON y convertir a DataFrame
         df = procesar_json(ruta_json)
@@ -89,27 +92,13 @@ def procesar_archivos_json(rutas_json):
         pd.set_option('display.expand_frame_repr', False)  # evita que corte el frame en varias líneas
         print(df.head(5))
         procesador.procesar_dataframe(df,ruta_json)
-        # preparación de los datos necesarios para la conexión con la base de datos
-        config = {
-                    "dbname": "base_de_conocimiento_chatbot",
-                    "user": "postgres",
-                    "password": "0909casajardinpaz0707",
-                    "host": "localhost",
-                    "port": "5432",
-                    "docentes": [
-                        "ezequieloescobar", "aylenmsandoval",
-                        "lucassaclier", "facuherrera_8", "ryan129623"
-                    ]
-                }
-        bd = GestorBD(config) # establece conexión con la base de datos
-        bd.persistir_preguntas(procesador.preguntas_cerradas) # hace la parte de persistencia de mensaje, pregunta, respuesta, archivos adjuntos
-        bd.cerrar_conexion()  # Esta línea guarda todo y cierra la conexión
-
+        procesadores.append(procesador)
         # Mostrar resultados del procesamiento
         print(f"✅ Procesamiento completado para el archivo {idx}")
         print(f"📂 Archivos guardados para el archivo {idx}: {nombre_base}_emojis_gifs_descartados.csv, {nombre_base}_numeros_descartados.csv, {nombre_base}_json_sin_frases_cortas.csv")
         print(f"📊 Resultados de procesamiento: {len(procesador.preguntas_abiertas)} preguntas abiertas, {len(procesador.preguntas_cerradas)} preguntas cerradas")
-
+    
+    return procesadores
 
 # Rutas a los archivos JSON
 rutas_json = [
@@ -118,12 +107,33 @@ rutas_json = [
     r"C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1221091674248446003\chat.json"
 ]
 
-# Llamar a la función principal para procesar todos los archivos JSON
-procesar_archivos_json(rutas_json)
 
-# Ahora se tiene:
-# procesador.preguntas_abiertas
-# procesador.preguntas_cerradas
-# procesador.mensajes_sueltos
-# procesador.respuestas_sueltas
+# Llamar a la función principal para procesar todos los archivos JSON
+procesadores = procesar_archivos_json(rutas_json)
+print(f"🔍 Cantidad de procesadores generados: {len(procesadores)}")
+
+config = {
+    "dbname": "base_de_conocimiento_chatbot",
+    "user": "postgres",
+    "password": "0909casajardinpaz0707",
+    "host": "localhost",
+    "port": "5432",
+    "docentes": [
+        "ezequieloescobar", "aylenmsandoval",
+        "lucassaclier", "facuherrera_8", "ryan129623"
+    ]
+}
+
+print("🗃️ Conectándose a la base de datos...")
+bd = GestorBD(config)
+
+# Persistir preguntas de todos los procesadores
+for p in procesadores:
+    print(f"tenes {len(procesadores)} para procesar")
+    print("vas a ingresar a la posible carga de datos")
+    print(f"antes validamos cantidad de preguntas cerradas {len(p.preguntas_cerradas)}")
+    bd.persistir_preguntas(p.preguntas_cerradas)
+
+bd.cerrar_conexion()
+print("💾 Conexión cerrada y datos guardados.")
 

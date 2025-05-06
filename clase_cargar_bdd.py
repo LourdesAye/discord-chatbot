@@ -6,7 +6,6 @@ from dateutil.parser import isoparse
 import sys
 from psycopg2.extras import RealDictCursor
 
-sys.stdout = open('log_procesamiento_base_de_datos.txt', 'w', encoding='utf-8')
 class GestorBD:
     def __init__(self, config):
         self.conn = connect(
@@ -17,6 +16,7 @@ class GestorBD:
             port=config["port"],
         )
         self.conn.cursor(cursor_factory=RealDictCursor)
+        print(f"Te conectaste a la base de datos")
 
 
         self.docentes = config["docentes"]
@@ -108,10 +108,16 @@ class GestorBD:
         return isoparse(timestamp_str)
     
     def persistir_preguntas(self,preguntas_cerradas: list[Pregunta]):
+        print(" ... ingresando a la persistencia de datos ... ")
+        print(f"🧠 Persistiendo {len(preguntas_cerradas)} preguntas cerradas en la base de datos...")
         try:    
             print(f"🧠 Persistiendo {len(preguntas_cerradas)} preguntas cerradas en la base de datos...")
             for idx, pregunta in enumerate(preguntas_cerradas, start=1):
                 print(f"\n📌 [{idx}/{len(preguntas_cerradas)}] Procesando un mensaje que es pregunta: {pregunta.contenido} del autor {pregunta.autor}")
+                print(f"🔍 Pregunta a persistir: {pregunta}")
+                print(f"Tipo de pregunta: {type(pregunta)}")
+                print(f"Contenido de la pregunta: {pregunta.contenido}")
+                print(f"Atributos de la pregunta: {dir(pregunta)}")
                 autor_id = self.insertar_o_obtener_autor(pregunta.autor)
                 mensaje_id = self.insertar_mensaje(
                     id_mensaje_discord=pregunta.id_pregunta,
@@ -133,9 +139,12 @@ class GestorBD:
                 print(f" ✅ Pregunta insertada con id_pregunta : {id_pregunta} asociado al mensaje_id: {mensaje_id})")
 
                 respuestas_ordenadas = sorted(pregunta.respuestas, key=lambda r: self.convertir_a_datetime(r.timestamp))
-                for orden, respuesta in enumerate(pregunta.respuestas):
+                for orden, respuesta in enumerate(respuestas_ordenadas):
                     print("... Comenzando con el procesamiento de las respuestas...")
                     print(f"\n📌 [{orden}/{len(pregunta.respuestas)}] Procesando un mensaje que es respuesta: {respuesta.contenido} del autor {respuesta.autor}")
+                    print(f"Tipo de pregunta: {type(respuesta)}")
+                    print(f"Contenido de la pregunta: {respuesta.contenido}")
+                    print(f"Atributos de la pregunta: {dir(respuesta)}")
                     autor_id_r = self.insertar_o_obtener_autor(respuesta.autor)
                     mensaje_id_r = self.insertar_mensaje(
                         id_mensaje_discord=respuesta.id_respuesta,
@@ -153,6 +162,7 @@ class GestorBD:
                     self.insertar_respuesta(respuesta, mensaje_id_r, id_pregunta, orden)
                     print(f"✅ Respuesta insertada : {respuesta.contenido}")
                     print()
+            self.conn.commit()
         except Exception as e:
             print(f"Error al persistir las preguntas y respuestas: {e}")
             if self.conn:

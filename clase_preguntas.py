@@ -1,6 +1,10 @@
 from clase_respuestas import Respuesta 
 from clase_mensajes import Mensaje
 
+# ¿¿¿ por qué self en todas las definiciones de los métodos ??? 
+# En Python, todos los métodos de instancia deben tener self como primer parámetro para poder acceder 
+# a los atributos del objeto actual.
+
 # lista de docentes
 docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier", "facuherrera_8", "ryan129623"]
 
@@ -14,11 +18,12 @@ class Pregunta:
         self.respuestas = []
         self.cerrada = False
 
-    def verificar_validez(respuesta: Respuesta):
+    def verificar_validez(self,respuesta: Respuesta):
         if respuesta.autor in docentes:
             respuesta.validar()
 
-    def agregar_respuesta(self, respuesta: Respuesta):
+    def agregar_respuesta(self,mensaje: Mensaje):
+        respuesta= Respuesta(mensaje)
         self.respuestas.append(respuesta)
         self.verificar_validez(respuesta)
 
