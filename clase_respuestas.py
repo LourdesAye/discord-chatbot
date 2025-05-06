@@ -8,5 +8,10 @@ class Respuesta:
         self.timestamp = mensaje.timestamp
         self.attachments= mensaje.attachments
         self.es_validada = False
+    
+
+    def validar(self):
+        self.es_validada=True
+
 
         

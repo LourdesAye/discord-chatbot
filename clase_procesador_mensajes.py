@@ -3,6 +3,8 @@ from clase_preguntas import Pregunta
 from clase_respuestas import Respuesta
 from datetime import datetime, timedelta
 import sys
+from dateutil.parser import isoparse
+
 
 #Redirigir prints a un archivo
 sys.stdout = open('log_procesamiento.txt', 'w', encoding='utf-8')
@@ -15,6 +17,7 @@ class Procesador:
         self.preguntas_cerradas = []
         self.preguntas_a_cerrar = []
         self.contador_mensajes = 0
+
 
     def procesar_dataframe(self, df, ruta_json):
         print("🔵 Iniciando procesamiento del DataFrame...")
@@ -41,6 +44,9 @@ class Procesador:
         if self.preguntas_abiertas: # si hay elementos en la lista 
             
             for pregunta in self.preguntas_abiertas: # por cada pregunta
+                ultima_respuesta = pregunta.obtener_ultima_respuesta()  # creás este método en la clase Pregunta
+                if ultima_respuesta and ultima_respuesta.autor != mensaje.autor:
+                    ultima_respuesta.validada = True
                 pregunta.agregar_respuesta(mensaje) # agrega respuesta a cada pregunta abierta
                 if mensaje.es_cierre_docente(): # si es de cierre el mensaje
                     pregunta.cerrar() # se cierra mensaje
@@ -80,7 +86,7 @@ class Procesador:
         print(f"cantidad de preguntas abiertas: {len(self.preguntas_abiertas)}")
         if self.preguntas_abiertas: # si hay elementos en la lista 
             print(f"Hay preguntas abiertas: {len(self.preguntas_abiertas)}")
-            autores_preguntas = {pregunta.autor for pregunta in self.preguntas_abiertas} # obtengo los auores de las preguntas abiertas
+            autores_preguntas = {pregunta.autor for pregunta in self.preguntas_abiertas} # obtengo los autores de las preguntas abiertas
             if mensaje.autor in autores_preguntas:
                 print(f"El autor posee preguntas pendientes")
             # ver si hay alguna pregunta de este autor
@@ -128,6 +134,8 @@ class Procesador:
                     print(f"🔶 Mensaje de alumno que no es pregunta y no es respuesta : '{mensaje.contenido}' del docente '{mensaje.autor.lower().strip()}' ")
                     self.mensajes_sueltos.append(mensaje)
 
+
+
 def guardar_pregunta_y_respuestas_en_log(pregunta, numero_pregunta, ruta_archivo="log_preguntas_respuestas.txt"):
     with open(ruta_archivo, "a", encoding="utf-8") as f:
         f.write("═══════════════════════════════════════════════════════\n")
@@ -162,7 +170,7 @@ def guardar_respuestas_sin_pregunta(respuestas_huerfanas, ruta_archivo="log_resp
 
 # convertir texto a datetime
 def convertir_a_datetime(cadena_fecha):
-    return datetime.strptime(cadena_fecha, "%Y-%m-%dT%H:%M:%S.%fZ")
+      return isoparse(cadena_fecha) # convierte la cadena en un objeto datetime
 
 # Función para calcular la diferencia de tiempo
 def tiempo_transcurrido(pregunta_timestamp, mensaje_timestamp):
@@ -191,3 +199,4 @@ def cerrar_preguntas_por_cantidad_mensajes(procedasor: Procesador, max_mensajes_
             procedasor.preguntas_abiertas.remove(pregunta)
             procedasor.preguntas_cerradas.append(pregunta)
             print(f"Pregunta cerrada por límite de mensajes: {pregunta.contenido}")
+

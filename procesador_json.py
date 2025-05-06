@@ -4,6 +4,7 @@ import re
 import os
 from datetime import datetime, timedelta
 from clase_procesador_mensajes import Procesador
+from clase_cargar_bdd import GestorBD
 
 # Clase para Filtrado de Contenidos
 class FiltradorContenido:
@@ -88,8 +89,22 @@ def procesar_archivos_json(rutas_json):
         pd.set_option('display.expand_frame_repr', False)  # evita que corte el frame en varias líneas
         print(df.head(5))
         procesador.procesar_dataframe(df,ruta_json)
+        # preparación de los datos necesarios para la conexión con la base de datos
+        config = {
+                    "dbname": "base_de_conocimiento_chatbot",
+                    "user": "postgres",
+                    "password": "0909casajardinpaz0707",
+                    "host": "localhost",
+                    "port": "5432",
+                    "docentes": [
+                        "ezequieloescobar", "aylenmsandoval",
+                        "lucassaclier", "facuherrera_8", "ryan129623"
+                    ]
+                }
+        bd = GestorBD(config) # establece conexión con la base de datos
+        bd.persistir_preguntas(procesador.preguntas_cerradas) # hace la parte de persistencia de mensaje, pregunta, respuesta, archivos adjuntos
+        bd.cerrar_conexion()  # Esta línea guarda todo y cierra la conexión
 
-        
         # Mostrar resultados del procesamiento
         print(f"✅ Procesamiento completado para el archivo {idx}")
         print(f"📂 Archivos guardados para el archivo {idx}: {nombre_base}_emojis_gifs_descartados.csv, {nombre_base}_numeros_descartados.csv, {nombre_base}_json_sin_frases_cortas.csv")

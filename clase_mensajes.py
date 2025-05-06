@@ -1,5 +1,5 @@
 # ESTRUCTURAS BASES PARA CLASIFICAR MENSAJES + funciones auxiliares +  CLASE MENSAJE 
-
+import os
 # lista de docentes
 docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier", "facuherrera_8", "ryan129623"]
 
@@ -27,29 +27,41 @@ def contar_palabras(texto):
       palabras = texto.split()
       return len(palabras)
 
+
+
 class Mensaje:
-    def __init__(self, id_mensaje, autor, contenido, timestamp,attachments):
+    def __init__(self, id_mensaje, autor, contenido, timestamp,attachments,origen):
         self.id = id_mensaje
         self.autor = autor
         self.contenido = contenido
         self.timestamp = timestamp
         self.attachments = attachments
-       # self.es_dudoso= False
+        self.origen = origen
 
     @classmethod # para indicar que es un método de clase, afecta a la clase no al objeto necesariamente
     def from_dataframe_row(cls, row, ruta_json): # Usamos 'cls' para referirnos a la clase, es como self para una instancia u objeto
-        # Aquí estamos creando un objeto Mensaje usando los datos de la fila
+        # Aquí estamos creando un objeto Mensaje usando los datos de la fila, row es un diccionario
         return cls(  
-            id_mensaje=row["id"],
+            id_mensaje=row["id"], # row es diccionario por lo que se toma par clave: valor
             autor=row["author"],
             contenido=row["content"],
             timestamp=row["timestamp"],
-            attachments=row.get("attachments", []),
+            attachments=cls.procesar_attachments(row.get("attachments", [])), # Busca "attachments" en el diccionario row. Si existe, devuelve su valor sino [] (una lista vacía).
             origen=ruta_json)
+    
+    @staticmethod # para indicar que es un método de clase, afecta a la clase no al objeto necesariamente
+    def procesar_attachments(lista_adjuntos_json):
+        resultado = []
+        for ruta in lista_adjuntos_json:
+            nombre_archivo = os.path.basename(ruta) # "1223680537604915200_image.png" para obtener solo el nombre del archivo sin la ruta completa.
+            tipo = nombre_archivo.split(".")[-1] # "png" Separa el nombre del archivo por "." y toma el último elemento ([-1]), que representa la extensión del archivo.
+            resultado.append((nombre_archivo, tipo))
+        return resultado # lista de tupla (nombre_archivo,tipo)
 
+    
     def es_autor_docente(self) -> bool:
         return self.autor.lower() in docentes
-   
+
     def es_pregunta(self):
         texto = self.contenido.lower().strip() # convierte el mensaje que esta en texto para pasarlo a minúscula y le quita los espacios que pueda tener al incio y al final
 
