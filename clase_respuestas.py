@@ -7,6 +7,7 @@ class Respuesta:
         self.contenido = mensaje.contenido
         self.timestamp = mensaje.timestamp
         self.attachments= mensaje.attachments
+        self.origen = mensaje.origen
         self.es_validada = False
     
 

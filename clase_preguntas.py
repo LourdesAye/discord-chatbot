@@ -15,6 +15,7 @@ class Pregunta:
         self.contenido = mensaje.contenido
         self.timestamp = mensaje.timestamp
         self.attachments = mensaje.attachments
+        self.origen = mensaje.origen
         self.respuestas = []
         self.cerrada = False
 
