@@ -47,5 +47,14 @@ class Pregunta:
         if self.respuestas:
          return self.respuestas[-1]
         return None
+    
+    def tiene_respuestas(self):
+        return bool(self.respuestas)
+    
+    def concatenar_contenido(self, nuevo_texto):
+        self.contenido = f"{self.contenido.rstrip()} {nuevo_texto.lstrip()}"
+        # rstrip(): Elimina los espacios en blanco (incluyendo saltos de línea) que puedan estar al final
+        # lstrip(): Elimina los espacios en blanco al inicio
+
 
     

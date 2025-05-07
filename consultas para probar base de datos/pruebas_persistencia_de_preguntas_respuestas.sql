@@ -1,0 +1,10 @@
+--select generales para ver las tablas
+-- select * from preguntas -- 486 -- analizar repetidos en lo almacenado
+-- select * from respuestas -- 1000 -- analizar los repetidos en lo almacenado
+-- select * from mensajes -- 1000 -- empieza del numero 1 pero saltea  cada tanto
+-- chequear preguntas cerradas y preguntas almacenadas
+-- chequear cantidad de respuestas por preguntas
+-- select * from autores -- 153 -- analizar repetidos -- analizar docentes -- analizar alumnos
+-- select * from adjuntos -- 276 analizar distintos aunque aca puede haber repetidos, 
+-- ver el tema del nombre porque quedo nombre.tipo en nombre y tipo solo la extensión
+-- analizar si están todos

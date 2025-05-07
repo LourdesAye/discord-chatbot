@@ -5,10 +5,18 @@ from datetime import datetime, timedelta
 import sys
 from dateutil.parser import isoparse
 from utilidades_logs import setup_logger
+from datetime import datetime
+from dateutil.parser import parse as parse_date
 
-
-#Redirigir prints a un archivo
+# Redirigir prints a un archivo
 logger_msj = setup_logger('proc_mensaj','logs_procesar_mensajes.txt')
+
+# Agregando restricciones de tiempo entre mensajes consecutivos de un mismo autor 
+MAX_DELTA_SEGUNDOS_MSJ = 360
+
+# convertir texto a datetime
+def convertir_a_datetime(cadena_fecha):
+      return isoparse(cadena_fecha) # convierte la cadena en un objeto datetime
 
 class Procesador:
     def __init__(self):
@@ -18,6 +26,8 @@ class Procesador:
         self.preguntas_cerradas = []
         self.preguntas_a_cerrar = []
         self.contador_mensajes = 0
+
+
 
 
     def procesar_dataframe(self, df, ruta_json):
@@ -92,6 +102,9 @@ class Procesador:
             # ver si hay alguna pregunta de este autor
                 for pregunta in self.preguntas_abiertas: # por cada pregunta
                     if pregunta.tiene_mismo_autor(mensaje): # si el autor coincide 
+                        if not pregunta.tiene_respuestas() and (convertir_a_datetime(mensaje.timestamp) - convertir_a_datetime(pregunta.timestamp)).total_seconds() < MAX_DELTA_SEGUNDOS_MSJ:
+                            pregunta.concatenar_contenido(mensaje.contenido)
+                            logger_msj.debug(f"🔵 El mensaje fue concatenado a la pregunta anterior: {pregunta.contenido}")
                         if mensaje.es_cierre_alumno(): # si es de cierre el mensaje
                             logger_msj.debug(f" ⚪ Hubo un mensaje de cierre : {mensaje.contenido.lower().strip()} del alumno: {mensaje.autor.lower().strip()}")
                             pregunta.cerrar() # se cierra mensaje
@@ -100,7 +113,7 @@ class Procesador:
                             #self.preguntas_abiertas.remove(pregunta) # se quita pregunta de lista de preguntas_abiertas
                             #self.preguntas_cerradas.append(pregunta)# se agrega pregunta a lista preguntas cerradas
                             self.preguntas_a_cerrar.append(pregunta)
-                            logger_msj.debug("🟢 pasó a cerrarse la pregunta por respuesta de cierre de un alumno")
+                            logger_msj.debug(" 🟢 pasó a cerrarse la pregunta por respuesta de cierre de un alumno")
                             guardar_pregunta_y_respuestas_en_log(pregunta,self.contador_preguntas)
                         else:
                             pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
@@ -168,9 +181,7 @@ def guardar_respuestas_sin_pregunta(respuestas_huerfanas, ruta_archivo="log_resp
                 f.write(f"Contenido: {respuesta.contenido}\n")
                 f.write("-------------------------------------------------------\n\n")
 
-# convertir texto a datetime
-def convertir_a_datetime(cadena_fecha):
-      return isoparse(cadena_fecha) # convierte la cadena en un objeto datetime
+
 
 # Función para calcular la diferencia de tiempo
 def tiempo_transcurrido(pregunta_timestamp, mensaje_timestamp):

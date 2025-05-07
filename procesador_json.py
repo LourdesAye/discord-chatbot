@@ -134,9 +134,14 @@ bd = GestorBD(config)
 logger_proc.debug(f"tenes {len(procesadores)} para procesar")
 logger_proc.debug("vas a ingresar a la posible carga de datos")
 
+cont_respuestas=0
 # Persistir preguntas de todos los procesadores
 for index,proc in enumerate(procesadores,start=1):
     logger_proc.debug(f"Cantidad de Preguntas Cerradas {len(proc.preguntas_cerradas)}")
+    for index,pregunta in enumerate(proc.pregunta_cerradas,start=1):
+        logger_proc.debug(f"La pregunta {index} posee {len(pregunta.respuestas)} respuestas")
+        cont_respuestas=cont_respuestas+1
+    logger_proc.debug(f"La cantidad total de respuestas es {cont_respuestas}")
     bd.persistir_preguntas(proc.preguntas_cerradas)
 
 bd.cerrar_conexion()

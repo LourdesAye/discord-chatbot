@@ -1,0 +1,13 @@
+"pregunta_id","pregunta_texto","autor_id","nombre_autor","respuesta_id","respuesta_texto"
+1739,"Buenas tardes, una duda muy pequeña:",72,"nicolasbru",1740,"En el seminario de java se habla de dependencia. Es un sinonimo de biblioteca o se diferencia en algo?"
+1742,"Buenas noches, disculpen las molestias. Una consulta:",72,"nicolasbru",1743,"En el seminario JAVA hablan de una version y la muestran en el powershell, pero a la hora de instalar lo que dice el aula virtual es otra version distinta"
+63,"la clase Main, deberia seguir existiendo?",15,"shuko97",64,"es decir, entonces dentro de la carpeta **src** creo una carpeta **Main**, y en esta carpeta meto las 4 clases que tengo"
+303,"Hola Buenas una consulta",17,"juampi_gal",304,"El repo par el TPA lo creamos nosotros?"
+367,"ya tengo acceso al repo de alguna manera?",42,"felipe.3838",368,"con los links no pude y no lo encontre en github"
+2181,"Buenas! Consulta, que aula tenemos hoy?",81,"skalusti",2182,"Porque nos dieron a nosotros y Sistemas Operativos la 277"
+2199,"buenas noches, tengo una consulta en cuanto a testing",112,"lord_bardo",2200,"no tiene sentido armar test, que van a dejar de funcionar cuando se cambie una variable no?"
+1365,"Buenas tardes, todo bien?",38,"cypher.punk",1366,"Les quería consultar si los script files funcionan son simple-persistence-unit para poder popular la db durante la creación 
+
+https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#schema-generation-script-files"
+1386,"buenas noches, todo bien?",38,"cypher.punk",1387,"les podría hacer una consulta? hay algún patrón de diseño que exista para implementar toasts de notificaciones en javalin?"
+1596,"Buenas <@757767776159924335> <@1219766711415209984> en qué aula es el recuperatorio?",26,"fede_silva",1597,"En bedelía decía 618 pero están para paradigmas también acá"
