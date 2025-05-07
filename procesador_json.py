@@ -5,6 +5,10 @@ import os
 from datetime import datetime, timedelta
 from clase_procesador_mensajes import Procesador
 from clase_cargar_bdd import GestorBD
+from utilidades_logs import setup_logger
+
+# agregando logger para seguimiento de la carga de datos
+logger_proc= setup_logger('carga_procesador','log_carga_de_procesador_con_preguntas_cerradas.txt')
 
 # Clase para Filtrado de Contenidos
 class FiltradorContenido:
@@ -33,23 +37,30 @@ def procesar_json(ruta_json):
 
 # Función para filtrar los mensajes irrelevantes
 def filtrar_mensajes(df):
+
+    logger_proc.debug(f" cantidad de mensajes en el json: {len(df)}")
     # Asegurarse de que 'content' exista y convertir a string (por si hay None)
     df["content"] = df["content"].astype(str).str.strip()
 
     # Filtrar: se queda solo con los que tienen texto real (no vacío)
     df = df[df["content"] != ""]
+    logger_proc.debug(f"cantidad de mensajes no vacios: {len(df)}")
 
     # Filtrar los mensajes irrelevantes visualmente
     visuales_df = df[df["content"].apply(FiltradorContenido.es_contenido_irrelevante_visual)]
+    logger_proc.debug(f"cantidad de mensajes irrelevantes como gifs: {len(visuales_df)}")
 
     # Filtrar DataFrame sin vacios, quitandole los mensajes visuales irrelevantes (emojis, gifs, etc.)
     df = df[~df["content"].apply(FiltradorContenido.es_contenido_irrelevante_visual)]
+    logger_proc.debug(f"cantidad de mensajes del json sin irrelevantes como gifs: {len(df)}")
 
     # Filtrar los mensajes que tienen solo combinación de números + signos
     sin_numeros_solos_df = df[df["content"].apply(FiltradorContenido.es_solo_numeros_signos)]
+    logger_proc.debug(f"cantidad de mensajes con signos raros: {len(sin_numeros_solos_df)}")
 
     # Filtrar los mensajes que no tengan solo combinación de números + signos
     df = df[~df["content"].apply(FiltradorContenido.es_solo_numeros_signos)]
+    logger_proc.debug(f"cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: {len(df)}")
 
     return df, visuales_df, sin_numeros_solos_df
 
@@ -58,7 +69,7 @@ def filtrar_mensajes(df):
 def guardar_csvs(df, visuales_df, sin_numeros_solos_df, nombre_base):
     visuales_df[["content"]].to_csv(f"{nombre_base}_emojis_gifs_descartados.csv", index=False, encoding="utf-8")
     sin_numeros_solos_df[["content"]].to_csv(f"{nombre_base}_numeros_descartados.csv", index=False, encoding="utf-8")
-    df[["content"]].to_csv(f"{nombre_base}_json_sin_mensajes_irrelevantes.csv", index=False, encoding="utf-8")
+    df[["content"]].to_csv(f"{nombre_base}_json_limpio.csv", index=False, encoding="utf-8")
 
 
 # Función principal para procesar los JSONs
@@ -85,19 +96,13 @@ def procesar_archivos_json(rutas_json):
         df = df.sort_values(by='timestamp', ascending=True)
         # Reiniciar el índice para que quede ordenado y no haya saltos en los índices
         df = df.reset_index(drop=True)
-        # Esto configura pandas para que no corte columnas ni contenido
-        pd.set_option('display.max_columns', None)     # muestra todas las columnas
-        pd.set_option('display.max_colwidth', None)     # muestra el contenido completo de cada celda
-        pd.set_option('display.width', None)            # ajusta el ancho total automáticamente
-        pd.set_option('display.expand_frame_repr', False)  # evita que corte el frame en varias líneas
-        print(df.head(5))
         procesador.procesar_dataframe(df,ruta_json)
         procesadores.append(procesador)
         # Mostrar resultados del procesamiento
-        print(f"✅ Procesamiento completado para el archivo {idx}")
-        print(f"📂 Archivos guardados para el archivo {idx}: {nombre_base}_emojis_gifs_descartados.csv, {nombre_base}_numeros_descartados.csv, {nombre_base}_json_sin_frases_cortas.csv")
-        print(f"📊 Resultados de procesamiento: {len(procesador.preguntas_abiertas)} preguntas abiertas, {len(procesador.preguntas_cerradas)} preguntas cerradas")
-    
+        logger_proc.debug(f"✅ Procesamiento completado para el archivo {idx}")
+        logger_proc.debug(f"📂 Archivos guardados para el archivo {idx}: {nombre_base}_emojis_gifs_descartados.csv, {nombre_base}_numeros_descartados.csv, {nombre_base}_json_sin_frases_cortas.csv")
+        logger_proc.debug(f"📊 Resultados de procesamiento: {len(procesador.preguntas_abiertas)} preguntas abiertas, {len(procesador.preguntas_cerradas)} preguntas cerradas")
+        logger_proc.debug(f" ")
     return procesadores
 
 # Rutas a los archivos JSON
@@ -110,7 +115,7 @@ rutas_json = [
 
 # Llamar a la función principal para procesar todos los archivos JSON
 procesadores = procesar_archivos_json(rutas_json)
-print(f"🔍 Cantidad de procesadores generados: {len(procesadores)}")
+logger_proc.debug(f"🔍 Cantidad de procesadores generados: {len(procesadores)}")
 
 config = {
     "dbname": "base_de_conocimiento_chatbot",
@@ -124,16 +129,16 @@ config = {
     ]
 }
 
-print("🗃️ Conectándose a la base de datos...")
+logger_proc.debug("🗃️ Conectándose a la base de datos...")
 bd = GestorBD(config)
+logger_proc.debug(f"tenes {len(procesadores)} para procesar")
+logger_proc.debug("vas a ingresar a la posible carga de datos")
 
 # Persistir preguntas de todos los procesadores
-for p in procesadores:
-    print(f"tenes {len(procesadores)} para procesar")
-    print("vas a ingresar a la posible carga de datos")
-    print(f"antes validamos cantidad de preguntas cerradas {len(p.preguntas_cerradas)}")
-    bd.persistir_preguntas(p.preguntas_cerradas)
+for index,proc in enumerate(procesadores,start=1):
+    logger_proc.debug(f"Cantidad de Preguntas Cerradas {len(proc.preguntas_cerradas)}")
+    bd.persistir_preguntas(proc.preguntas_cerradas)
 
 bd.cerrar_conexion()
-print("💾 Conexión cerrada y datos guardados.")
+logger_proc.debug("💾 Conexión cerrada y datos guardados.")
 
