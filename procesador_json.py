@@ -131,26 +131,34 @@ config = {
 
 logger_proc.debug("🗃️ Conectándose a la base de datos...")
 bd = GestorBD(config)
-logger_proc.debug(f"tenes {len(procesadores)} para procesar")
 logger_proc.debug("vas a ingresar a la posible carga de datos")
 
-cont_respuestas=0
 total_reg_resp = 0
 total_reg_preguntas =0
+total_reg_adj_preg = 0
+total_reg_adj_resp= 0
+
 # Persistir preguntas de todos los procesadores
 for index,proc in enumerate(procesadores,start=1):
     total_reg_preguntas=total_reg_preguntas + len(proc.preguntas_cerradas)
+    logger_proc.debug(f" ")
     logger_proc.debug(f"analizando el json número : {index}")
     logger_proc.debug(f"Cantidad de Preguntas Cerradas {len(proc.preguntas_cerradas)}")
-    for index,pregunta in enumerate(proc.pregunta_cerradas,start=1):
-        logger_proc.debug(f"La pregunta {index} posee {len(pregunta.respuestas)} respuestas")
-        cont_respuestas=cont_respuestas+len(pregunta.respuestas)
-    logger_proc.debug(f"La cantidad total de respuestas en el json {index} es {cont_respuestas}")
-    bd.persistir_preguntas(proc.preguntas_cerradas)
-    total_reg_resp=total_reg_resp+cont_respuestas
+    cant_resp= 0
+    for index,pregunta in enumerate(proc.preguntas_cerradas,start=1):
+        #logger_proc.debug(f"La pregunta {index} posee {len(pregunta.respuestas)} respuestas")
+        cant_resp=cant_resp+len(pregunta.respuestas)
+        total_reg_adj_preg=total_reg_adj_preg + len(pregunta.attachments)
+        for respuesta in pregunta.respuestas:
+            total_reg_adj_resp=total_reg_resp+ len(respuesta.attachments)
+    total_reg_resp = total_reg_resp + cant_resp
+    logger_proc.debug(f"La cantidad total de respuestas en el json {index} es {cant_resp}")
+    #bd.persistir_preguntas(proc.preguntas_cerradas)
 
-logger_proc.debug(f"La cantidad total de respuestas: {total_reg_resp}")
 logger_proc.debug(f"La cantidad total de preguntas : {total_reg_preguntas}")
+logger_proc.debug(f"La cantidad total de respuestas: {total_reg_resp}")
+logger_proc.debug(f"La cantidad total archivos adjuntos de preguntas : {total_reg_adj_preg}")
+logger_proc.debug(f"La cantidad total archivos adjuntos de respuestas : {total_reg_adj_resp}")
 
 bd.cerrar_conexion()
 logger_proc.debug("💾 Conexión cerrada y datos guardados.")
