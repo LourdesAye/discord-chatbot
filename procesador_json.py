@@ -145,7 +145,7 @@ for index,proc in enumerate(procesadores,start=1):
             total_reg_adj_resp=total_reg_resp+ len(respuesta.attachments)
     total_reg_resp = total_reg_resp + cant_resp
     logger_proc.debug(f"La cantidad total de respuestas en el json {index} es {cant_resp}")
-    #bd.persistir_preguntas(proc.preguntas_cerradas)
+    bd.persistir_preguntas(proc.preguntas_cerradas)
 
 logger_proc.debug(f"La cantidad total de preguntas : {total_reg_preguntas}")
 logger_proc.debug(f"La cantidad total de respuestas: {total_reg_resp}")
