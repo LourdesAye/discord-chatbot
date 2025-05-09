@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from clase_procesador_mensajes import Procesador
 from clase_cargar_bdd import GestorBD
 from utilidades_logs import setup_logger
+from admin_rutas import rutas_json
 
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_carga_de_procesador_con_preguntas_cerradas.txt')
@@ -27,9 +28,8 @@ class FiltradorContenido:
 
 # Función para procesar el archivo JSON y convertirlo a DataFrame
 def procesar_json(ruta_json):
-    with open(ruta_json, "r", encoding="utf-8") as f:
-        datos = json.load(f)
-    
+
+    datos = ruta_json.leer_json()
     # Convertir a DataFrame
     df = pd.DataFrame(datos)
     return df
@@ -104,14 +104,6 @@ def procesar_archivos_json(rutas_json):
         logger_proc.debug(f"📊 Resultados de procesamiento: {len(procesador.preguntas_abiertas)} preguntas abiertas, {len(procesador.preguntas_cerradas)} preguntas cerradas")
         logger_proc.debug(f" ")
     return procesadores
-
-# Rutas a los archivos JSON
-rutas_json = [
-    r"C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1221091721383903262\chat.json",
-    r"C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1219817856288686083\chat.json",
-    r"C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1221091674248446003\chat.json"
-]
-
 
 # Llamar a la función principal para procesar todos los archivos JSON
 procesadores = procesar_archivos_json(rutas_json)

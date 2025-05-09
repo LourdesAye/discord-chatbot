@@ -26,10 +26,44 @@ class Procesador:
         self.preguntas_cerradas = []
         self.preguntas_a_cerrar = []
         self.contador_mensajes = 0
+    
+    def transformar_respuesta(pregunta_anterior, pregunta):
+        mensaje_nuevo = Mensaje(pregunta.id_pregunta,pregunta.autor,pregunta.contenido,pregunta.timestamp,pregunta.attachments,pregunta.origen)
+        respuesta_nueva = Respuesta(mensaje_nuevo)
+        pregunta_anterior.respuestas.append(respuesta_nueva)
+        # Agregar también sus respuestas (si las tenía)
+        pregunta_anterior.respuestas.extend(pregunta.respuestas)
 
+    def procesar_preguntas_cortas(self, preguntas_cerradas):
+        # Aseguramos que la lista esté ordenada cronológicamente por timestamp (o por id si es secuencial)
+        preguntas_cerradas.sort(key=lambda p: convertir_a_datetime(p.timestamp))
+        preguntas_filtradas = []
+        transformadas = 0
 
+        for i in range(len(preguntas_cerradas)):
+            pregunta = preguntas_cerradas[i]
 
+            # Separar palabras del contenido
+            palabras = pregunta.contenido.strip().split()
 
+            if len(palabras) <= 4 and i > 0:
+                pregunta_anterior = preguntas_cerradas[i - 1]
+
+                if pregunta.autor == pregunta_anterior.autor:
+
+                    self.transformar_respuesta(pregunta_anterior, pregunta)
+                    transformadas += 1
+                    continue  # No agregar esta pregunta a la nueva lista
+            # Si no es una pregunta corta o no cumple condición, conservarla
+            preguntas_filtradas.append(pregunta)
+
+        # Reemplazar la lista original con la filtrada
+        preguntas_cerradas[:] = preguntas_filtradas
+
+        print(f"Preguntas transformadas en respuesta: {transformadas}")
+        print(f"Preguntas finales para procesar: {len(preguntas_cerradas)}")
+
+    
     def procesar_dataframe(self, df, ruta_json):
         logger_msj.debug("🔵 Iniciando procesamiento del DataFrame...")
         for _, row in df.iterrows():
@@ -38,6 +72,9 @@ class Procesador:
             mensaje = Mensaje.from_dataframe_row(row, ruta_json)
             logger_msj.debug(f"     ...   cuyo contenido es {mensaje.contenido}")
             self.procesar_mensaje(mensaje)
+        for pregunta in self.preguntas_cerradas:
+            pregunta.contenido
+        self.procesar_preguntas_cortas(self.preguntas_cerradas)
         logger_msj.debug(f"✅ Procesamiento finalizado. {len(self.preguntas_abiertas)} preguntas abiertas, {len(self.preguntas_cerradas)} preguntas cerradas.")
         logger_msj.debug(f"\n✅ Se cerraron {self.contador_preguntas} preguntas en total.\n")
         guardar_respuestas_sin_pregunta(self.mensajes_sueltos)

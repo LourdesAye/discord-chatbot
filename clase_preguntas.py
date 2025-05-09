@@ -57,4 +57,6 @@ class Pregunta:
         # lstrip(): Elimina los espacios en blanco al inicio
 
 
+
+
     
