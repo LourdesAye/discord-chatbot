@@ -8,8 +8,12 @@ from clase_cargar_bdd import GestorBD
 from utilidades_logs import setup_logger
 from admin_rutas import rutas_json
 
+# ------------------------------------------------- LOGGER -------------------------------------------------------------#
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_carga_de_procesador_con_preguntas_cerradas.txt')
+
+
+# -------------------- FILTRADO DE MENSAJES VACIOS,CON GIF, EMOTICON, GIF, SIMBOLOS CON NUMEROS -----------------------#
 
 # Clase para Filtrado de Contenidos
 class FiltradorContenido:
@@ -52,7 +56,6 @@ def filtrar_mensajes(df):
 
     # Filtrar DataFrame sin vacios, quitandole los mensajes visuales irrelevantes (emojis, gifs, etc.)
     df = df[~df["content"].apply(FiltradorContenido.es_contenido_irrelevante_visual)]
-    logger_proc.debug(f"cantidad de mensajes del json sin irrelevantes como gifs: {len(df)}")
 
     # Filtrar los mensajes que tienen solo combinación de números + signos
     sin_numeros_solos_df = df[df["content"].apply(FiltradorContenido.es_solo_numeros_signos)]
@@ -71,8 +74,8 @@ def guardar_csvs(df, visuales_df, sin_numeros_solos_df, nombre_base):
     sin_numeros_solos_df[["content"]].to_csv(f"{nombre_base}_numeros_descartados.csv", index=False, encoding="utf-8")
     df[["content"]].to_csv(f"{nombre_base}_json_limpio.csv", index=False, encoding="utf-8")
 
-
-# Función principal para procesar los JSONs
+#-------------------------------------------Función de PROCESAMIENTO-------------------------------------------------------#
+#  Función principal para procesar los JSONs
 def procesar_archivos_json(rutas_json):
 
     procesadores = []  # Lista para guardar cada Procesador
@@ -84,31 +87,44 @@ def procesar_archivos_json(rutas_json):
         # Obtener nombre base para los archivos
         nombre_base = f"chat_{idx}"
         
-        # Filtrar los mensajes
+        # Filtrar 3 dataframes
+              # dataframe con mensajes que no sean solo gifs, sticker, emoticones y simbolos como +1
+              # dataframe con mensajes que son solo gifs, sticker y emoticones 
+              # dataframe con mensjaes que son solo simbolos más numero como +1
         df, visuales_df, sin_numeros_solos_df = filtrar_mensajes(df)
 
-        # Guardar los CSVs
+        # Guardar los dataframes en CSVs para su control visual
         guardar_csvs(df, visuales_df, sin_numeros_solos_df, nombre_base)
 
-        # Crear procesador y procesar los mensajes
-        procesador = Procesador()
-        # Ordenar por la columna 'timestamp' en orden ascendente (si querés descendente poné 'False')
+        # Crear procesador de archivo
+        nombre_log = f"log_json_{idx:02d}.txt" # se va a tener un log por cada archivo json procesado
+        procesador = Procesador(nombre_log)
+
+        # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)
         df = df.sort_values(by='timestamp', ascending=True)
-        # Reiniciar el índice para que quede ordenado y no haya saltos en los índices
+
+        # se reinicia el índice del Dataframe para que quede ordenado y no haya saltos en los índices
         df = df.reset_index(drop=True)
-        procesador.procesar_dataframe(df,ruta_json)
+
+        # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas
+        procesador.procesar_dataframe(df,str(ruta_json))
+
+        # se deben guardar los procesadores en una lista ya que se crea uno por cada JSON que se analiza
         procesadores.append(procesador)
-        # Mostrar resultados del procesamiento
+
+        # Registrar resultados del procesamiento
         logger_proc.debug(f"✅ Procesamiento completado para el archivo {idx}")
         logger_proc.debug(f"📂 Archivos guardados para el archivo {idx}: {nombre_base}_emojis_gifs_descartados.csv, {nombre_base}_numeros_descartados.csv, {nombre_base}_json_sin_frases_cortas.csv")
         logger_proc.debug(f"📊 Resultados de procesamiento: {len(procesador.preguntas_abiertas)} preguntas abiertas, {len(procesador.preguntas_cerradas)} preguntas cerradas")
         logger_proc.debug(f" ")
     return procesadores
 
-# Llamar a la función principal para procesar todos los archivos JSON
-procesadores = procesar_archivos_json(rutas_json)
-logger_proc.debug(f"🔍 Cantidad de procesadores generados: {len(procesadores)}")
+# ----------------------------------------------- PROCESAMIENTO PRINICPAL ---------------------------------------------------------- #
+procesadores = procesar_archivos_json(rutas_json) # Llamar a la función principal para procesar todos los archivos JSON
 
+
+#-------------------------------------------------- CONEXIÓN de python CON BDD ---------------------------------------------------------------#
+logger_proc.debug(f"🔍 Cantidad de procesadores generados: {len(procesadores)}")
 config = {
     "dbname": "base_de_conocimiento_chatbot",
     "user": "postgres",
@@ -119,10 +135,10 @@ config = {
         "ezequieloescobar", "aylenmsandoval",
         "lucassaclier", "facuherrera_8", "ryan129623"
     ]
-}
+} 
 
 logger_proc.debug("🗃️ Conectándose a la base de datos...")
-bd = GestorBD(config)
+bd = GestorBD(config) 
 logger_proc.debug("vas a ingresar a la posible carga de datos")
 
 total_reg_resp = 0
@@ -130,27 +146,24 @@ total_reg_preguntas =0
 total_reg_adj_preg = 0
 total_reg_adj_resp= 0
 
+# --------------------------------------- PERSISTENCIA DE DATOS ---------------------------------------------------------------------#
 # Persistir preguntas de todos los procesadores
-for index,proc in enumerate(procesadores,start=1):
-    total_reg_preguntas=total_reg_preguntas + len(proc.preguntas_cerradas)
+for index,proc in enumerate(procesadores,start=1): # por cada procesador 
+    total_reg_preguntas=total_reg_preguntas + len(proc.preguntas_cerradas) # se acumulan cantidad de preguntas cerradas en cada procesamiento de archivo
     logger_proc.debug(f" ")
     logger_proc.debug(f"analizando el json número : {index}")
     logger_proc.debug(f"Cantidad de Preguntas Cerradas {len(proc.preguntas_cerradas)}")
     cant_resp= 0
-    for index,pregunta in enumerate(proc.preguntas_cerradas,start=1):
-        #logger_proc.debug(f"La pregunta {index} posee {len(pregunta.respuestas)} respuestas")
+    
+    for index,pregunta in enumerate(proc.preguntas_cerradas,start=1): # se van acumulando la cantidad de respuestas totales
         cant_resp=cant_resp+len(pregunta.respuestas)
-        total_reg_adj_preg=total_reg_adj_preg + len(pregunta.attachments)
-        for respuesta in pregunta.respuestas:
-            total_reg_adj_resp=total_reg_resp+ len(respuesta.attachments)
     total_reg_resp = total_reg_resp + cant_resp
+   
     logger_proc.debug(f"La cantidad total de respuestas en el json {index} es {cant_resp}")
-    bd.persistir_preguntas(proc.preguntas_cerradas)
+    bd.persistir_preguntas(proc.preguntas_cerradas) # persistencia de datos
 
 logger_proc.debug(f"La cantidad total de preguntas : {total_reg_preguntas}")
 logger_proc.debug(f"La cantidad total de respuestas: {total_reg_resp}")
-logger_proc.debug(f"La cantidad total archivos adjuntos de preguntas : {total_reg_adj_preg}")
-logger_proc.debug(f"La cantidad total archivos adjuntos de respuestas : {total_reg_adj_resp}")
 
 bd.cerrar_conexion()
 logger_proc.debug("💾 Conexión cerrada y datos guardados.")

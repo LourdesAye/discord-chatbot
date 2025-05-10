@@ -29,6 +29,8 @@ conteo_por_carpeta = {}
 # Actualmente los archivos adjuntos no se usan, por lo tanto no se sincronizan ni se limpian.
 # Si en el futuro se requiere usar imágenes, PDF, etc., revisar esta parte.
 
+from utilidades_logs import setup_logger
+log_adjuntos= setup_logger('log_adj','auditoria_archivos_adjuntos.txt')
 #ingresando a cada objeto ruta
 for ruta in rutas_imagen:
     extensiones = [
@@ -51,18 +53,18 @@ for ruta in rutas_imagen:
     conteo_total.update(conteo)
 
 # Mostrar por carpeta
-print("Conteo por carpeta:")
+log_adjuntos.debug("Conteo por carpeta:")
 for ruta_str, conteo in conteo_por_carpeta.items(): # método que devuelve pares clave-valor, lo que permite recorrer el diccionario.
-    print(f"\n{ruta_str}")
+    log_adjuntos.debug(f"\n{ruta_str}")
     for ext, cant in conteo.items(): # el conteo es un counter que es un diccionario clave-valor: tipo de archivo o extensión - cantidad
-        print(f"  {ext}: {cant}")
+        log_adjuntos.debug(f"  {ext}: {cant}")
 
 # Mostrar total
-print("\nConteo total:")
+log_adjuntos.debug("\nConteo total:")
 for ext, cant in conteo_total.items(): # es un diccionario clave-valor: tipo o extensión : cantidad
-    print(f"{ext}: {cant}")
+    log_adjuntos.debug(f"{ext}: {cant}")
 
-print()
+log_adjuntos.debug(" ")
 
 import pandas as pd
 import json
@@ -82,4 +84,4 @@ for indice,ruta_json in enumerate(rutas_json,start=1):
     # Contar cuántos archivos hay de cada tipo
     ext_counts = df_exploded["extension"].value_counts()
 
-    print(f"en el json {indice} existen {ext_counts}")
+    log_adjuntos.debug(f"en el json {indice} existen {ext_counts}")

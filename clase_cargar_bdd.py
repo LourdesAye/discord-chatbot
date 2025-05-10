@@ -19,7 +19,6 @@ class GestorBD:
             host=config["host"],
             port=config["port"],
         )
-        logger_db.debug(f"✅ Te conectaste a la base de datos")
         self.docentes = config["docentes"]
 
     def es_docente(self, nombre_usuario):
@@ -118,7 +117,7 @@ class GestorBD:
 
     def persistir_preguntas(self, preguntas_cerradas: list[Pregunta]):
         logger_db.debug(" ... ingresando a la persistencia de datos ... ")
-        logger_db.debug(f"🧠 Se van a persistir {len(preguntas_cerradas)} preguntas cerradas en la base de datos...")
+        logger_db.debug(f" ... SE VAN A PERSISTIR {len(preguntas_cerradas)} PREGUNTAS CERRADAS EN LA BASE DE DATOS ...")
         try:
             for idx, pregunta in enumerate(preguntas_cerradas, start=1):
                
@@ -172,5 +171,3 @@ class GestorBD:
     def cerrar_conexion(self):
         self.conn.commit()
         self.conn.close()
-        logger_db.debug("🧾 Conexión a la base de datos cerrada y cambios guardados.")
-        print("🧾 Conexión a la base de datos cerrada y cambios guardados.")
