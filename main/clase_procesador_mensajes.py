@@ -1,10 +1,10 @@
-from clase_mensajes import Mensaje
-from clase_preguntas import Pregunta
-from clase_respuestas import Respuesta
+from main.clase_mensajes import Mensaje
+from main.clase_preguntas import Pregunta
+from main.clase_respuestas import Respuesta
 from datetime import datetime, timedelta
 import sys
 from dateutil.parser import isoparse
-from utilidades_logs import setup_logger
+from utilidades.utilidades_logs import setup_logger
 from datetime import datetime
 from dateutil.parser import parse as parse_date
 
@@ -86,15 +86,16 @@ class Procesador:
     
     def procesar_dataframe(self, df, ruta_json):
         logger_msj.debug("🔵 Iniciando procesamiento del DataFrame...")
-        for _, row in df.iterrows():
+        # obtener cada fila del dataframe
+        for _, row in df.iterrows(): # iterrows() devuelve tupla (indice, serie). serie es un objeto que se accede como un diccionario, pero no es un diccionario
             self.contador_mensajes=self.contador_mensajes+1
             logger_msj.debug(f"procesando mensaje número{self.contador_mensajes}")
+            #convierte una fila (objeto serie) del dataframe en una instancia de la clase Mensaje
             mensaje = Mensaje.from_dataframe_row(row, ruta_json)
             logger_msj.debug(f"     ...   cuyo contenido es {mensaje.contenido}")
             self.procesar_mensaje(mensaje)
-        self.procesar_preguntas_cortas(self.preguntas_cerradas)
+        #self.procesar_preguntas_cortas(self.preguntas_cerradas)
         logger_msj.debug(f"\n✅ Se registraron {self.contador_preguntas} preguntas en total.\n")
-        logger_msj.debug(f"Se convirtieron en respuestas {self.contador_de_preguntas_ajustadas} preguntas")
         logger_msj.debug(f"✅ Procesamiento finalizado. {len(self.preguntas_abiertas)} preguntas abiertas, {len(self.preguntas_cerradas)} preguntas cerradas.")
         guardar_respuestas_sin_pregunta(self.mensajes_sueltos)
 
@@ -151,41 +152,55 @@ class Procesador:
           # si no hay pregunta de él, ver si puede ser pregunta nueva de él y si no tiene aspecto de pregunta es respuesta a todas la pendiente
         logger_msj.debug(f"cantidad de preguntas abiertas: {len(self.preguntas_abiertas)}")
         if self.preguntas_abiertas: # si hay elementos en la lista 
-            logger_msj.debug(f"Hay preguntas abiertas: {len(self.preguntas_abiertas)}")
-            autores_preguntas = {pregunta.autor for pregunta in self.preguntas_abiertas} # obtengo los autores de las preguntas abiertas
-            if mensaje.autor in autores_preguntas:
-                logger_msj.debug(f"El autor posee preguntas pendientes")
-            # ver si hay alguna pregunta de este autor
-                for pregunta in self.preguntas_abiertas: # por cada pregunta
-                    if pregunta.tiene_mismo_autor(mensaje): # si el autor coincide 
-                        if not pregunta.tiene_respuestas() and (convertir_a_datetime(mensaje.timestamp) - convertir_a_datetime(pregunta.timestamp)).total_seconds() < MAX_DELTA_SEGUNDOS_MSJ:
-                            pregunta.concatenar_contenido(mensaje.contenido)
-                            logger_msj.debug(f"🔵 El mensaje fue concatenado a la pregunta anterior: {pregunta.contenido}")
-                        if mensaje.es_cierre_alumno(): # si es de cierre el mensaje
-                            logger_msj.debug(f"⚪ Hubo un mensaje de cierre : {mensaje.contenido.lower().strip()} del alumno: {mensaje.autor.lower().strip()}")
-                            pregunta.cerrar() # se cierra mensaje
-                            self.contador_preguntas += 1  # Subo el contador
-                            #puede traer conflictos lo comento y aplico la otra forma
-                            #self.preguntas_abiertas.remove(pregunta) # se quita pregunta de lista de preguntas_abiertas
-                            #self.preguntas_cerradas.append(pregunta)# se agrega pregunta a lista preguntas cerradas
-                            self.preguntas_a_cerrar.append(pregunta)
-                            logger_msj.debug("🟢 pasó a cerrarse la pregunta por respuesta de cierre de un alumno")
-                            guardar_pregunta_y_respuestas_en_log(pregunta,self.contador_preguntas,self.nombre_log)
-                        else:
-                            pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
-                
-                for pregunta in self.preguntas_a_cerrar:
-                    if pregunta in self.preguntas_abiertas:  # Verifica si existe antes de eliminar
-                        self.preguntas_abiertas.remove(pregunta)
-                        self.preguntas_cerradas.append(pregunta)
-            else: # no hay preguntas pendientes de ese autor 
-                if mensaje.es_pregunta(): # ese mensaje puede ser pregunta o respuesta
-                    nueva_pregunta = Pregunta(mensaje)
-                    self.preguntas_abiertas.append(nueva_pregunta)
-                    logger_msj.debug(f"🟡 Nueva Pregunta Abierta: {nueva_pregunta.contenido.lower().strip()}")
-                else: # si no es pregunta se asume como respuesta a preguntas abiertas
-                    for pregunta in self.preguntas_abiertas: # por cada pregunta abierta que no es del autor del mensaje
-                        pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas
+            
+            # detección manual de dos preguntas por revisión
+            # if mensaje.es_pregunta_reconocida_manual(): # preguntas reconocidas manualmente por pruebas de muestreo
+            #     preguntas_a_cerrar = list(self.preguntas_abiertas)  # se copia la lista de preguntas abiertas que se deben cerrar
+            #     for pregunta in preguntas_a_cerrar: # se cierran las preguntas
+            #         pregunta.cerrar()
+            #         self.contador_preguntas += 1 # contando las pregunta cerradas
+            #         self.preguntas_abiertas.remove(pregunta) # se eliminan de lista de preguntas abiertas
+            #         self.preguntas_cerradas.append(pregunta) # se agregan a lista de preguntas cerradas
+            #     nueva_pregunta = Pregunta(mensaje) # se da origen a una nueva pregunta
+            #     self.preguntas_abiertas.append(nueva_pregunta) # se agrega a lista de preguntas abiertas
+            #     logger_msj.debug(f"🟡 Nueva Pregunta Abierta (manual): {nueva_pregunta.contenido.lower().strip()}")  
+            # else:
+            
+                logger_msj.debug(f"Hay preguntas abiertas: {len(self.preguntas_abiertas)}")
+                autores_preguntas = {pregunta.autor for pregunta in self.preguntas_abiertas} # obtengo los autores de las preguntas abiertas
+                if mensaje.autor in autores_preguntas:
+                    logger_msj.debug(f"El autor posee preguntas pendientes")
+                # ver si hay alguna pregunta de este autor
+                    for pregunta in self.preguntas_abiertas: # por cada pregunta
+                        if pregunta.tiene_mismo_autor(mensaje): # si el autor coincide 
+                            if not pregunta.tiene_respuestas() and (convertir_a_datetime(mensaje.timestamp) - convertir_a_datetime(pregunta.timestamp)).total_seconds() < MAX_DELTA_SEGUNDOS_MSJ:
+                                pregunta.concatenar_contenido(mensaje.contenido)
+                                logger_msj.debug(f"🔵 El mensaje fue concatenado a la pregunta anterior: {pregunta.contenido}")
+                            if mensaje.es_cierre_alumno(): # si es de cierre el mensaje
+                                logger_msj.debug(f"⚪ Hubo un mensaje de cierre : {mensaje.contenido.lower().strip()} del alumno: {mensaje.autor.lower().strip()}")
+                                pregunta.cerrar() # se cierra mensaje
+                                self.contador_preguntas += 1  # Subo el contador
+                                #puede traer conflictos lo comento y aplico la otra forma
+                                #self.preguntas_abiertas.remove(pregunta) # se quita pregunta de lista de preguntas_abiertas
+                                #self.preguntas_cerradas.append(pregunta)# se agrega pregunta a lista preguntas cerradas
+                                self.preguntas_a_cerrar.append(pregunta)
+                                logger_msj.debug("🟢 pasó a cerrarse la pregunta por respuesta de cierre de un alumno")
+                                guardar_pregunta_y_respuestas_en_log(pregunta,self.contador_preguntas,self.nombre_log)
+                            else:
+                                pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
+                    
+                    for pregunta in self.preguntas_a_cerrar:
+                        if pregunta in self.preguntas_abiertas:  # Verifica si existe antes de eliminar
+                            self.preguntas_abiertas.remove(pregunta)
+                            self.preguntas_cerradas.append(pregunta)
+                else: # no hay preguntas pendientes de ese autor 
+                    if mensaje.es_pregunta(): # ese mensaje puede ser pregunta o respuesta
+                        nueva_pregunta = Pregunta(mensaje)
+                        self.preguntas_abiertas.append(nueva_pregunta)
+                        logger_msj.debug(f"🟡 Nueva Pregunta Abierta: {nueva_pregunta.contenido.lower().strip()}")
+                    else: # si no es pregunta se asume como respuesta a preguntas abiertas
+                        for pregunta in self.preguntas_abiertas: # por cada pregunta abierta que no es del autor del mensaje
+                            pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas
         else: # no hay preguntas pendientes 
             if mensaje.es_pregunta():
                 nueva_pregunta = Pregunta(mensaje)

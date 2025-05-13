@@ -1,7 +1,7 @@
 # ESTRUCTURAS BASES PARA CLASIFICAR MENSAJES + funciones auxiliares +  CLASE MENSAJE 
 import os
 # lista de docentes
-docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier", "facuherrera_8", "ryan129623"]
+docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio","valentinaalberio"]
 
 # lista de frases comunes para detectar preguntas explícitas o implícitas
 frases_claves_preguntas = [
@@ -9,7 +9,8 @@ frases_claves_preguntas = [
     "qué pasa si", "tengo una consulta", "tengo una duda", "tengo una pregunta",
     "mi duda es", "mi consulta es", "quisiera consultar", 
     "quería saber si", "me surgió la duda", "necesito saber si", "me pregunto si",
-    "alguien sabe", "una duda", "una consulta","necesito ayuda", "es posible", "qué debería", "que debería"
+    "alguien sabe", "una duda", "una consulta","necesito ayuda", "es posible", "qué debería", "que debería",
+    "duda diferente","otro problema"
 ]
 
 # lista de mensajes de cierre de docentes
@@ -38,11 +39,11 @@ class Mensaje:
         self.attachments = attachments
         self.origen = origen
 
-    @classmethod # para indicar que es un método de clase, afecta a la clase no al objeto necesariamente
-    def from_dataframe_row(cls, row, ruta_json): # Usamos 'cls' para referirnos a la clase, es como self para una instancia u objeto
-        # Aquí estamos creando un objeto Mensaje usando los datos de la fila, row es un diccionario
-        return cls(  
-            id_mensaje=row["id"], # row es diccionario por lo que se toma par clave: valor
+    @classmethod # para indicar que es un método de clase, afecta a la clase no a la instancia
+    def from_dataframe_row(cls, row, ruta_json): # 'cls' es la clase, es como self para una instancia
+        #se crea una nueva instancia de la clase usando una fila (row) (objeto serie) de un DataFrame como fuente de datos.
+        return cls(   # Esto llama al constructor de la clase (es como hacer Clase(...)) para crear una nueva instancia.
+            id_mensaje=row["id"], # row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
             autor=row["author"],
             contenido=row["content"],
             timestamp=row["timestamp"],
@@ -71,10 +72,20 @@ class Mensaje:
 
         # Si contiene alguna frase típica
         for frase in frases_claves_preguntas:
-            if frase in texto:
+            if frase.lower() in texto:
                 return True
 
         return False
+    
+    def es_pregunta_reconocida_manual(self):
+        frase_detectada_pregunta_manual = ["duda diferente","otro problema"]
+        texto = self.contenido.lower().strip() # convierte el mensaje que esta en texto para pasarlo a minúscula y le quita los espacios que pueda tener al incio y al final
+          # Si contiene alguna frase típica
+        for frase in frase_detectada_pregunta_manual:
+            if frase.lower() in texto.lower():
+                return True
+        return False
+            
 
     def es_cierre_alumno(self):
         mensaje= self.contenido.lower().strip()

@@ -1,4 +1,4 @@
-from clase_mensajes import Mensaje
+from main.clase_mensajes import Mensaje
 
 class Respuesta:
     def __init__(self, mensaje:Mensaje):

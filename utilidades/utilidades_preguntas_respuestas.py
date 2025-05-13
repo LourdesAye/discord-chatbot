@@ -5,7 +5,11 @@ import os
 from datetime import datetime, timedelta
 
 # usuarios docentes que solo responden no preguntan
-usuarios_docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier"]
+usuarios_docentes = [
+        "ezequieloescobar", "aylenmsandoval",
+        "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio",
+        "valentinaalberio" # DOCENTE DETECTADOS EN CONVERSACIONES
+        ]
 
 # Frases comunes para detectar preguntas explícitas o implícitas
 frases_clave_preguntas = [

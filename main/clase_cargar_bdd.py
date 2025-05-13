@@ -1,11 +1,11 @@
 import os
 from psycopg2 import connect
-from clase_preguntas import Pregunta
-from clase_respuestas import Respuesta
+from main.clase_preguntas import Pregunta
+from main.clase_respuestas import Respuesta
 from dateutil.parser import isoparse
 import sys
 from psycopg2.extras import RealDictCursor
-from utilidades_logs import setup_logger
+from utilidades.utilidades_logs import setup_logger
 
 # agregando logger para seguimiento de la carga de datos
 logger_db= setup_logger('carga_db','log_persistencia_de_datos.txt')

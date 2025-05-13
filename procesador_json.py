@@ -3,10 +3,10 @@ import json
 import re
 import os
 from datetime import datetime, timedelta
-from clase_procesador_mensajes import Procesador
-from clase_cargar_bdd import GestorBD
-from utilidades_logs import setup_logger
-from admin_rutas import rutas_json
+from main.clase_procesador_mensajes import Procesador
+from main.clase_cargar_bdd import GestorBD
+from utilidades.utilidades_logs import setup_logger
+from main.admin_rutas import rutas_json
 
 # ------------------------------------------------- LOGGER -------------------------------------------------------------#
 # agregando logger para seguimiento de la carga de datos
@@ -133,7 +133,8 @@ config = {
     "port": "5432",
     "docentes": [
         "ezequieloescobar", "aylenmsandoval",
-        "lucassaclier", "facuherrera_8", "ryan129623"
+        "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio",
+        "valentinaalberio" # DOCENTE DETECTADOS EN CONVERSACIONES
     ]
 } 
 

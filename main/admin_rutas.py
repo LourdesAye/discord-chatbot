@@ -1,7 +1,7 @@
 # MANEJO DE RUTAS
 
 #MANEJO DE RUTAS JSON para procesarlos (clasificar mensaje como preguntas y respuestas) y persistirlos 
-from clase_ruta import Ruta
+from main.clase_ruta import Ruta
 # Se pueden definir, se pueden modificar rutas una sola vez y no ir buscando en todo el código. 
 ruta_json_1 = Ruta(r"C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1221091721383903262\chat.json")
 ruta_json_2 = Ruta(r"C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1219817856288686083\chat.json")
@@ -29,7 +29,7 @@ conteo_por_carpeta = {}
 # Actualmente los archivos adjuntos no se usan, por lo tanto no se sincronizan ni se limpian.
 # Si en el futuro se requiere usar imágenes, PDF, etc., revisar esta parte.
 
-from utilidades_logs import setup_logger
+from utilidades.utilidades_logs import setup_logger
 log_adjuntos= setup_logger('log_adj','auditoria_archivos_adjuntos.txt')
 #ingresando a cada objeto ruta
 for ruta in rutas_imagen:
