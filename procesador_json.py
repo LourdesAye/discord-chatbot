@@ -7,6 +7,7 @@ from main.clase_procesador_mensajes import Procesador
 from main.clase_cargar_bdd import GestorBD
 from utilidades.utilidades_logs import setup_logger
 from main.admin_rutas import rutas_json
+from main.clase_autores import docentes
 
 # ------------------------------------------------- LOGGER -------------------------------------------------------------#
 # agregando logger para seguimiento de la carga de datos
@@ -131,11 +132,7 @@ config = {
     "password": "0909casajardinpaz0707",
     "host": "localhost",
     "port": "5432",
-    "docentes": [
-        "ezequieloescobar", "aylenmsandoval",
-        "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio",
-        "valentinaalberio" # DOCENTE DETECTADOS EN CONVERSACIONES
-    ]
+    "docentes":docentes
 } 
 
 logger_proc.debug("🗃️ Conectándose a la base de datos...")

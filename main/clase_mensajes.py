@@ -1,7 +1,6 @@
 # ESTRUCTURAS BASES PARA CLASIFICAR MENSAJES + funciones auxiliares +  CLASE MENSAJE 
+from main.clase_autores import docentes
 import os
-# lista de docentes
-docentes = ["ezequieloescobar", "aylenmsandoval", "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio","valentinaalberio"]
 
 # lista de frases comunes para detectar preguntas explícitas o implícitas
 frases_claves_preguntas = [

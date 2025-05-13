@@ -3,13 +3,7 @@ import pandas as pd
 import re
 import os
 from datetime import datetime, timedelta
-
-# usuarios docentes que solo responden no preguntan
-usuarios_docentes = [
-        "ezequieloescobar", "aylenmsandoval",
-        "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio",
-        "valentinaalberio" # DOCENTE DETECTADOS EN CONVERSACIONES
-        ]
+from main.clase_autores import docentes
 
 # Frases comunes para detectar preguntas explícitas o implícitas
 frases_clave_preguntas = [
@@ -26,7 +20,7 @@ frases_validacion_docente ={"perfecto", "exacto","buenísimo"}
 frases_cierre_alumnos = {"gracias","perfecto","buenísimo","genial","muchas","joya"}
 
 def es_docente(autor: str) -> bool:
-    return autor.lower() in usuarios_docentes
+    return autor.lower() in docentes
 
 # si un mensaje completo es una pregunta.
 # La función toma una fila completa del DataFrame para analizar si el mensaje es pregunta 
@@ -47,7 +41,7 @@ def es_pregunta(mensaje: str) -> bool:
 
 def es_respuesta_docente(autor: str)-> bool:
     autor = autor.lower().strip() #lleva el autor a minuscula y le quita los espacios al inicio y al final
-    return autor in usuarios_docentes # verificacion directa con in sin usar for
+    return autor in docentes # verificacion directa con in sin usar for
 
 def es_mensaje_de_cierre_alumno(mensaje: str) -> bool:
     texto = mensaje.lower().strip()
