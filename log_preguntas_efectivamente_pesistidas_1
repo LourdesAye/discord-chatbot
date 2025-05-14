@@ -10,17 +10,6 @@ Buenas tardes, que debería tildar para instalar IntelliJ correctamente.
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 1]
-Buenas tardes, que debería tildar para instalar IntelliJ correctamente.
-2024-03-26T18:48:25.845Z
-
-[RESPUESTAS]
-  → Fecha de Respuesta 1: 2024-03-26T19:14:19.885Z
-      → Autor Respuesta 1: ezequieloescobar
-          → Respuesta 1: Elian, buenas tardes! Con que selecciones la opción de asociar los ".java", y el ícono en el escritorio, está bien!
-═══════════════════════════════════════════════════════
-
-═══════════════════════════════════════════════════════
 [PREGUNTA 2]
 Holaa! Tengo una consulta, quería saber si PlantUML es una alternativa de StarUML o si vamos a usar ambas herramientas. Gracias!
 2024-03-28T20:14:53.115Z
@@ -1126,12 +1115,9 @@ Hola, para el diagrama de clase, se tiene que agregar los metodos de setter y ge
   → Fecha de Respuesta 2: 2024-04-02T20:09:20.637Z
       → Autor Respuesta 2: valentinaalberio
           → Respuesta 2: Si, los atributos son privados! Pero los getters y setters son públicos
-  → Fecha de Respuesta 3: 2024-04-02T20:10:04.086Z
+  → Fecha de Respuesta 3: 2024-04-02T20:15:47.568Z
       → Autor Respuesta 3: hartz8001
-          → Respuesta 3: }
-  → Fecha de Respuesta 4: 2024-04-02T20:15:47.568Z
-      → Autor Respuesta 4: hartz8001
-          → Respuesta 4: No lo es realmente, solo los use para los tests
+          → Respuesta 3: No lo es realmente, solo los use para los tests
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════

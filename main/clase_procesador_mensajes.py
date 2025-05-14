@@ -11,6 +11,7 @@ from dateutil.parser import parse as parse_date
 # Redirigir prints a un archivo
 logger_msj = setup_logger('proc_mensaj','logs_procesar_mensajes.txt')
 logger_preg_unificadas = setup_logger('unif_preg','log_preguntas_unificadas.txt')
+logger_resp_validadas= setup_logger('resp_validada','log_respuesta_validadas')
 
 # Agregando restricciones de tiempo entre mensajes consecutivos de un mismo autor 
 MAX_DELTA_SEGUNDOS_MSJ = 360
@@ -31,6 +32,7 @@ class Procesador:
         self.contador_de_preguntas_ajustadas=0
         self.cant_mens_cierre = 0
         self.registros_procesados = 0
+        self.mensajes_validados=0
       
     def transformar_respuesta(self,pregunta_anterior, pregunta):
         mensaje_nuevo = Mensaje(pregunta.id_pregunta,pregunta.autor,pregunta.contenido,pregunta.timestamp,pregunta.attachments,pregunta.origen)
@@ -117,9 +119,12 @@ class Procesador:
                 pregunta.agregar_respuesta(mensaje) # agrega respuesta a cada pregunta abierta
                 # aca deberia poner a la respuesta que es validada
                 if mensaje.es_cierre_docente(): # si es de cierre el mensaje
-                    ultima_respuesta = pregunta.obtener_ultima_respuesta()  # creás este método en la clase Pregunta
-                    if ultima_respuesta and ultima_respuesta.autor != mensaje.autor:
-                        ultima_respuesta.validada = True
+                    logger_resp_validadas.debug("Cierre de docente ")
+                    respuesta_a_validar = pregunta.obtener_ultima_respuesta_no_docente(mensaje)  # creás este método en la clase Pregunta
+                    if respuesta_a_validar:
+                        self.mensajes_validados=self.mensajes_validados+1
+                        logger_resp_validadas.debug(f"respuesta validada {self.mensajes_validados} : {respuesta_a_validar.contenido} es del alumno : {respuesta_a_validar.autor}")
+                        respuesta_a_validar.es_validada = True
                     self.cant_mens_cierre = self.cant_mens_cierre + 1
                     pregunta.cerrar() # se cierra mensaje
                     self.contador_preguntas += 1  # Subo el contador
@@ -130,6 +135,9 @@ class Procesador:
                     logger_msj.debug(f"🟤  Hubo un mensaje de cierre: {mensaje.contenido.lower().strip()} de docente {mensaje.autor.lower().strip()}")
                     logger_msj.debug("🟢 pasó a cerrarse la pregunta por respuesta de cierre de un docente")
                     guardar_pregunta_y_respuestas_en_log(pregunta,self.contador_preguntas,self.nombre_log)
+
+                    for r in pregunta.respuestas:
+                        print(r.contenido, r.es_validada)
             
             for pregunta in self.preguntas_a_cerrar:
                 if pregunta in self.preguntas_abiertas:  # Verifica si existe antes de eliminar

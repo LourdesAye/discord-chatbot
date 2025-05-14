@@ -1,6 +1,7 @@
 from main.clase_mensajes import Mensaje
 
-MAX_CANT_PALABRAS_RESPUESTA_CORTA = 10
+MAX_CANT_CARACTERES_RESP_CORTA = 14
+
 class Respuesta:
     def __init__(self, mensaje:Mensaje):
         self.id_respuesta = mensaje.id
@@ -20,12 +21,11 @@ class Respuesta:
         self.es_corta= True
     
     def es_respuesta_corta(self):
-        # Normalizar: quitar espacios y pasar a minúsculas
+        # Normalizar: quitar espacios al inicio y al final, y pasar a minúsculas
         respuesta = self.contenido.strip().lower()
-        # Separación por espacios en blanco y contar palabras
-        cantidad_palabras = len(respuesta.split())
+        cantidad_caracteres = len(respuesta)
         # Retorna True si la cantidad de palabras es menor o igual al límite
-        return cantidad_palabras <= MAX_CANT_PALABRAS_RESPUESTA_CORTA
+        return cantidad_caracteres <= MAX_CANT_CARACTERES_RESP_CORTA
     
     def marcar_como_corta(self):
         if self.es_respuesta_corta():

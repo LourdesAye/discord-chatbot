@@ -29,6 +29,12 @@ class FiltradorContenido:
     @staticmethod
     def es_solo_numeros_signos(texto):
         return bool(re.fullmatch(r"[+\d\s]+", texto))
+    
+    @staticmethod
+    def es_solo_simbolos(texto):
+        texto = texto.strip()
+        # Si no contiene letras ni números
+        return not re.search(r'[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]', texto)
 
 
 # Función para procesar el archivo JSON y convertirlo a DataFrame
@@ -43,36 +49,44 @@ def procesar_json(ruta_json):
 # Función para filtrar los mensajes irrelevantes
 def filtrar_mensajes(df):
 
-    logger_proc.debug(f" cantidad de mensajes en el json: {len(df)}")
+    logger_proc.debug(f" Cantidad de mensajes en el json: {len(df)}")
     # Asegurarse de que 'content' exista y convertir a string (por si hay None)
     df["content"] = df["content"].astype(str).str.strip()
 
     # Filtrar: se queda solo con los que tienen texto real (no vacío)
     df = df[df["content"] != ""]
-    logger_proc.debug(f"cantidad de mensajes no vacios: {len(df)}")
+    logger_proc.debug(f"Cantidad de mensajes no vacios: {len(df)}")
 
     # Filtrar los mensajes irrelevantes visualmente
     visuales_df = df[df["content"].apply(FiltradorContenido.es_contenido_irrelevante_visual)]
-    logger_proc.debug(f"cantidad de mensajes irrelevantes como gifs: {len(visuales_df)}")
+    logger_proc.debug(f"Cantidad de mensajes irrelevantes como gifs: {len(visuales_df)}")
 
     # Filtrar DataFrame sin vacios, quitandole los mensajes visuales irrelevantes (emojis, gifs, etc.)
     df = df[~df["content"].apply(FiltradorContenido.es_contenido_irrelevante_visual)]
 
     # Filtrar los mensajes que tienen solo combinación de números + signos
     sin_numeros_solos_df = df[df["content"].apply(FiltradorContenido.es_solo_numeros_signos)]
-    logger_proc.debug(f"cantidad de mensajes con signos raros: {len(sin_numeros_solos_df)}")
+    logger_proc.debug(f"Cantidad de mensajes con signos raros: {len(sin_numeros_solos_df)}")
 
     # Filtrar los mensajes que no tengan solo combinación de números + signos
     df = df[~df["content"].apply(FiltradorContenido.es_solo_numeros_signos)]
-    logger_proc.debug(f"cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: {len(df)}")
 
-    return df, visuales_df, sin_numeros_solos_df
+    # Filtrar los mensajes que tienen solo simbolos
+    solo_simbolos_df= df[df["content"].apply(FiltradorContenido.es_solo_simbolos)]
+    logger_proc.debug(f"Cantidad de mensajes que son solo símbolos: {len(solo_simbolos_df)}")
+
+    # Filtrar los mensajes que no tengan solo combinación de números + signos
+    df = df[~df["content"].apply(FiltradorContenido.es_solo_simbolos)]
+    logger_proc.debug(f"Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: {len(df)}")
+
+    return df, visuales_df, sin_numeros_solos_df,solo_simbolos_df
 
 
 # Función para guardar los CSVs con los resultados
-def guardar_csvs(df, visuales_df, sin_numeros_solos_df, nombre_base):
+def guardar_csvs(df, visuales_df, sin_numeros_solos_df, solo_simbolos_df,nombre_base):
     visuales_df[["content"]].to_csv(f"{nombre_base}_emojis_gifs_descartados.csv", index=False, encoding="utf-8")
     sin_numeros_solos_df[["content"]].to_csv(f"{nombre_base}_numeros_descartados.csv", index=False, encoding="utf-8")
+    solo_simbolos_df[["content"]].to_csv(f"{nombre_base}_simbolos_descartados.csv", index=False, encoding="utf-8")
     df[["content"]].to_csv(f"{nombre_base}_json_limpio.csv", index=False, encoding="utf-8")
 
 #-------------------------------------------Función de PROCESAMIENTO-------------------------------------------------------#
@@ -92,10 +106,10 @@ def procesar_archivos_json(rutas_json):
               # dataframe con mensajes que no sean solo gifs, sticker, emoticones y simbolos como +1
               # dataframe con mensajes que son solo gifs, sticker y emoticones 
               # dataframe con mensjaes que son solo simbolos más numero como +1
-        df, visuales_df, sin_numeros_solos_df = filtrar_mensajes(df)
+        df, visuales_df, sin_numeros_solos_df, solo_simbolos_df = filtrar_mensajes(df)
 
         # Guardar los dataframes en CSVs para su control visual
-        guardar_csvs(df, visuales_df, sin_numeros_solos_df, nombre_base)
+        guardar_csvs(df, visuales_df, sin_numeros_solos_df, solo_simbolos_df,nombre_base)
 
         # Crear procesador de archivo
         nombre_log = f"log_json_{idx:02d}.txt" # se va a tener un log por cada archivo json procesado

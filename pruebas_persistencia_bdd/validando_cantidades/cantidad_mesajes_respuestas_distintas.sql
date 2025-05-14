@@ -1,5 +1,5 @@
 -- cantidad de registros en tabla MENSAJES sin repetidos que sean respuestas
--- 1254
+-- 1251
 select count(distinct contenido) as cant_mensaj_pregu_dist from mensajes m
 --where es_pregunta = FALSE
 where es_pregunta = FALSE

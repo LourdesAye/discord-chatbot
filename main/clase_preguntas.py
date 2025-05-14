@@ -91,9 +91,23 @@ class Pregunta:
         if self.es_pregunta_corta():
             self.es_sin_contexto()
     
- 
-
-
+    def obtener_ultima_respuesta_no_docente(self,mensaje:Mensaje):
+        for respuesta in reversed(self.respuestas):
+            if respuesta.autor.lower().strip() not in docentes:
+                 if respuesta.autor.lower().strip() != mensaje.autor.lower().strip():
+                     if self.puede_ser_respuesta_validada(respuesta):
+                         return respuesta
+        return None
+    
+    def puede_ser_respuesta_validada(self, respuesta:Respuesta) -> bool:
+        texto = respuesta.contenido.lower().strip()
+        # Frases vacías o irrelevantes
+        if not texto or texto in {"hola", "hola buenas tardes", "gracias", "perfecto", "solucionado", "dale", "sisi", "sí", "si", "ok"}:
+            return False
+        # Frases muy cortas que suelen ser de cierre o sin información útil
+        if len(texto.split()) <= 3:
+            return False
+        return True
     
 
 

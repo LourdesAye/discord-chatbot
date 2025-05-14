@@ -297,7 +297,6 @@ si!
 "Hola, para el diagrama de clase, se tiene que agregar los metodos de setter y getter de los atributos? Si no se tiene que agregar, dejamos los atributos* como privado igualmente?"
 "Hola Martín! No, esos métodos no se ponen en el diagrama de clases. La idea del diagrama es que sea descriptivo, y como los getters y setters están siempre y no tienen lógica particular a esa clase, no se ponen"
 "Si, los atributos son privados! Pero los getters y setters son públicos"
-}
 "Dale, gracias"
 Ademas sumo a <@751175566312472647> si consideras que un getter o setter es importante para resolver algún requerimiento especifico .. entonces sugiero q lo modeles (que lo escribas) si no no hace falta .. a efectos academicos con que escribas en la sección de justificaciones “los getters y setters no se modelan” alcanza
 "No lo es realmente, solo los use para los tests"

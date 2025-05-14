@@ -1,3 +1,3 @@
 -- cantidad de registros en la tabla preguntas incluyendo repetidos 
--- 447
+-- 480
 select count(*) as cant_preg from preguntas

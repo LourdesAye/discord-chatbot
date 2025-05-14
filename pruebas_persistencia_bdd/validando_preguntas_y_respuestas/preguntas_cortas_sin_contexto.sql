@@ -1,4 +1,4 @@
-SELECT id_pregunta, texto
+SELECT id_pregunta, texto, sin_contexto
 FROM preguntas
 WHERE LENGTH(TRIM(texto)) - LENGTH(REPLACE(TRIM(texto), ' ', '')) + 1 <= 6;
 
