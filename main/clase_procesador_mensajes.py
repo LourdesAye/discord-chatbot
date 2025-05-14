@@ -29,6 +29,8 @@ class Procesador:
         self.contador_mensajes = 0
         self.nombre_log= nombre_log
         self.contador_de_preguntas_ajustadas=0
+        self.cant_mens_cierre = 0
+        self.registros_procesados = 0
       
     def transformar_respuesta(self,pregunta_anterior, pregunta):
         mensaje_nuevo = Mensaje(pregunta.id_pregunta,pregunta.autor,pregunta.contenido,pregunta.timestamp,pregunta.attachments,pregunta.origen)
@@ -94,10 +96,12 @@ class Procesador:
             mensaje = Mensaje.from_dataframe_row(row, ruta_json)
             logger_msj.debug(f"     ...   cuyo contenido es {mensaje.contenido}")
             self.procesar_mensaje(mensaje)
+        logger_msj.debug(f"✅ Se procesaron {self.contador_mensajes} filas" )
         #self.procesar_preguntas_cortas(self.preguntas_cerradas)
         logger_msj.debug(f"\n✅ Se registraron {self.contador_preguntas} preguntas en total.\n")
         logger_msj.debug(f"✅ Procesamiento finalizado. {len(self.preguntas_abiertas)} preguntas abiertas, {len(self.preguntas_cerradas)} preguntas cerradas.")
         guardar_respuestas_sin_pregunta(self.mensajes_sueltos)
+        
 
     def procesar_mensaje(self, mensaje: Mensaje):
         cerrar_preguntas_por_tiempo(self,mensaje)
@@ -109,13 +113,14 @@ class Procesador:
 
     def _procesar_respuesta_docente(self, mensaje: Mensaje):
         if self.preguntas_abiertas: # si hay elementos en la lista 
-            
             for pregunta in self.preguntas_abiertas: # por cada pregunta
-                ultima_respuesta = pregunta.obtener_ultima_respuesta()  # creás este método en la clase Pregunta
-                if ultima_respuesta and ultima_respuesta.autor != mensaje.autor:
-                    ultima_respuesta.validada = True
                 pregunta.agregar_respuesta(mensaje) # agrega respuesta a cada pregunta abierta
+                # aca deberia poner a la respuesta que es validada
                 if mensaje.es_cierre_docente(): # si es de cierre el mensaje
+                    ultima_respuesta = pregunta.obtener_ultima_respuesta()  # creás este método en la clase Pregunta
+                    if ultima_respuesta and ultima_respuesta.autor != mensaje.autor:
+                        ultima_respuesta.validada = True
+                    self.cant_mens_cierre = self.cant_mens_cierre + 1
                     pregunta.cerrar() # se cierra mensaje
                     self.contador_preguntas += 1  # Subo el contador
                     #puede traer conflictos lo comento y aplico la otra forma
@@ -173,22 +178,27 @@ class Procesador:
                 # ver si hay alguna pregunta de este autor
                     for pregunta in self.preguntas_abiertas: # por cada pregunta
                         if pregunta.tiene_mismo_autor(mensaje): # si el autor coincide 
+                            # si pregunta almacenada en preguntas_abiertas tiene mismo autor que el mensaje, no tiene respuestas y es relativamente cercana
                             if not pregunta.tiene_respuestas() and (convertir_a_datetime(mensaje.timestamp) - convertir_a_datetime(pregunta.timestamp)).total_seconds() < MAX_DELTA_SEGUNDOS_MSJ:
+                                # se concatena pregunta con mensaje
                                 pregunta.concatenar_contenido(mensaje.contenido)
                                 logger_msj.debug(f"🔵 El mensaje fue concatenado a la pregunta anterior: {pregunta.contenido}")
-                            if mensaje.es_cierre_alumno(): # si es de cierre el mensaje
-                                logger_msj.debug(f"⚪ Hubo un mensaje de cierre : {mensaje.contenido.lower().strip()} del alumno: {mensaje.autor.lower().strip()}")
-                                pregunta.cerrar() # se cierra mensaje
-                                self.contador_preguntas += 1  # Subo el contador
-                                #puede traer conflictos lo comento y aplico la otra forma
-                                #self.preguntas_abiertas.remove(pregunta) # se quita pregunta de lista de preguntas_abiertas
-                                #self.preguntas_cerradas.append(pregunta)# se agrega pregunta a lista preguntas cerradas
-                                self.preguntas_a_cerrar.append(pregunta)
-                                logger_msj.debug("🟢 pasó a cerrarse la pregunta por respuesta de cierre de un alumno")
-                                guardar_pregunta_y_respuestas_en_log(pregunta,self.contador_preguntas,self.nombre_log)
                             else:
-                                pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
-                    
+                            # si la pregunta almacenada en preguntas_abiertas tiene el mismo autor que el mensaje
+                            # pero el mensaje o tiene respuesta o es lejano en el tiempo: se mira si es cierre de alumno
+                                if mensaje.es_cierre_alumno(): # si es de cierre el mensaje
+                                    self.cant_mens_cierre= self.cant_mens_cierre +1
+                                    logger_msj.debug(f"⚪ Hubo un mensaje de cierre : {mensaje.contenido.lower().strip()} del alumno: {mensaje.autor.lower().strip()}")
+                                    pregunta.cerrar() # se cierra mensaje
+                                    self.contador_preguntas += 1  # Subo el contador
+                                    #puede traer conflictos lo comento y aplico la otra forma
+                                    #self.preguntas_abiertas.remove(pregunta) # se quita pregunta de lista de preguntas_abiertas
+                                    #self.preguntas_cerradas.append(pregunta)# se agrega pregunta a lista preguntas cerradas
+                                    self.preguntas_a_cerrar.append(pregunta)
+                                    logger_msj.debug("🟢 pasó a cerrarse la pregunta por respuesta de cierre de un alumno")
+                                    guardar_pregunta_y_respuestas_en_log(pregunta,self.contador_preguntas,self.nombre_log)
+                                else:
+                                    pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
                     for pregunta in self.preguntas_a_cerrar:
                         if pregunta in self.preguntas_abiertas:  # Verifica si existe antes de eliminar
                             self.preguntas_abiertas.remove(pregunta)

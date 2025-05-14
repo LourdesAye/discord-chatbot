@@ -13,7 +13,6 @@ CREATE TABLE mensajes (
     fecha_mensaje TIMESTAMP NOT NULL,
     contenido TEXT NOT NULL,
     es_pregunta BOOLEAN DEFAULT FALSE,
-    es_respuesta BOOLEAN DEFAULT FALSE,
     origen TEXT
 );
 
@@ -28,7 +27,9 @@ CREATE TABLE preguntas (
     id_pregunta SERIAL PRIMARY KEY,
     mensaje_id INTEGER NOT NULL REFERENCES mensajes(id_mensaje) ON DELETE CASCADE,
     texto TEXT NOT NULL,
-    esta_cerrada BOOLEAN DEFAULT FALSE
+    esta_cerrada BOOLEAN DEFAULT FALSE,
+    sin_contexto BOOLEAN DEFAULT FALSE,
+    es_administrativa BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE respuestas (
@@ -37,7 +38,8 @@ CREATE TABLE respuestas (
     pregunta_id INTEGER NOT NULL REFERENCES preguntas(id_pregunta) ON DELETE CASCADE,
     texto TEXT NOT NULL,
     orden INTEGER,
-    es_validada BOOLEAN DEFAULT FALSE
+    es_validada BOOLEAN DEFAULT FALSE,
+    es_corta BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE fragmentos_preguntas (

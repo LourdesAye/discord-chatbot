@@ -6,6 +6,7 @@ from dateutil.parser import isoparse
 import sys
 from psycopg2.extras import RealDictCursor
 from utilidades.utilidades_logs import setup_logger
+import traceback
 
 # agregando logger para seguimiento de la carga de datos
 logger_db= setup_logger('carga_db','log_persistencia_de_datos.txt')
@@ -43,7 +44,7 @@ class GestorBD:
             return cur.fetchone()["id_autor"]
 
     def insertar_mensaje(self, id_mensaje_discord, autor_id, fecha_mensaje,
-                         contenido, es_pregunta=False, es_respuesta=False, origen=None):
+                         contenido, es_pregunta=False, origen=None):
         logger_db.debug(f"Se va a ingresar un nuevo mensaje a la base de datos : {contenido}")
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(
@@ -54,10 +55,9 @@ class GestorBD:
                     fecha_mensaje,
                     contenido,
                     es_pregunta,
-                    es_respuesta,
                     origen
                 )
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s)
                 RETURNING id_mensaje
                 """,
                 (
@@ -66,7 +66,6 @@ class GestorBD:
                     fecha_mensaje,
                     contenido,
                     es_pregunta,
-                    es_respuesta,
                     origen
                 )
             )
@@ -90,11 +89,11 @@ class GestorBD:
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(
                 """
-                INSERT INTO preguntas (mensaje_id, texto, esta_cerrada)
-                VALUES (%s, %s, %s)
+                INSERT INTO preguntas (mensaje_id, texto, esta_cerrada, sin_contexto, es_administrativa)
+                VALUES (%s, %s, %s, %s, %s)
                 RETURNING id_pregunta
                 """,
-                (id_mensaje, pregunta.contenido, True)
+                (id_mensaje, pregunta.contenido, pregunta.cerrada,pregunta.sin_contexto,pregunta.es_administrativa)
             )
             return cur.fetchone()["id_pregunta"]
 
@@ -103,11 +102,11 @@ class GestorBD:
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(
                 """
-                INSERT INTO respuestas (mensaje_id, pregunta_id, texto, orden, es_validada)
-                VALUES (%s, %s, %s, %s, %s)
+                INSERT INTO respuestas (mensaje_id, pregunta_id, texto, orden, es_validada, es_corta)
+                VALUES (%s, %s, %s, %s, %s, %s)
                 RETURNING id_respuesta
                 """,
-                (mensaje_id, pregunta_id, respuesta.contenido, orden, respuesta.es_validada)
+                (mensaje_id, pregunta_id, respuesta.contenido, orden, respuesta.es_validada, respuesta.es_corta)
             )
             return cur.fetchone()["id_respuesta"]
 
@@ -115,13 +114,27 @@ class GestorBD:
         logger_db.debug(f"se covierte: {timestamp_str} a un datetime")
         return isoparse(timestamp_str)
 
-    def persistir_preguntas(self, preguntas_cerradas: list[Pregunta]):
+    def persistir_preguntas(self, preguntas_cerradas: list[Pregunta],index):
         logger_db.debug(" ... ingresando a la persistencia de datos ... ")
-        logger_db.debug(f" ... SE VAN A PERSISTIR {len(preguntas_cerradas)} PREGUNTAS CERRADAS EN LA BASE DE DATOS ...")
+        logger_db.debug (f"... se va a procesar en JSON {index} ... ")
+        cont_preg_sin_resp=0
+        nombre_ruta = (f"log_preg_sin_respuestas_{index}")
+        preguntas_a_persistir =[]
+
+        for indice,pregunta in enumerate(preguntas_cerradas, start=1):
+            if len(pregunta.respuestas) == 0:
+                cont_preg_sin_resp= cont_preg_sin_resp +1
+                self.guardar_pregunta_sin_respuesta_en_log(pregunta,indice,nombre_ruta,cont_preg_sin_resp,)
+            else:
+                preguntas_a_persistir.append(pregunta)
+
+        ruta_preg_persistidas = (f"log_preguntas_efectivamente_pesistidas_{index}")
+        logger_db.debug(f" ... SE VAN A PERSISTIR {len(preguntas_a_persistir)} PREGUNTAS CERRADAS EN LA BASE DE DATOS ...")
         try:
-            for idx, pregunta in enumerate(preguntas_cerradas, start=1):
-               
-                logger_db.debug(f"\n📌 [{idx}/{len(preguntas_cerradas)}] Procesando un mensaje que es pregunta: {pregunta.contenido} del autor {pregunta.autor}")
+            for idx, pregunta in enumerate(preguntas_a_persistir, start=1):
+                self.guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
+            
+                logger_db.debug(f"\n📌 [{idx}/{len(preguntas_a_persistir)}] Procesando un mensaje que es pregunta: {pregunta.contenido} del autor {pregunta.autor}")
                 autor_id = self.insertar_o_obtener_autor(pregunta.autor)
                 logger_db.debug(f" se obtuvo un autor_id: {autor_id} para la pregunta")
                
@@ -152,10 +165,10 @@ class GestorBD:
                         autor_id=autor_id_r,
                         fecha_mensaje=respuesta.timestamp,
                         contenido=respuesta.contenido,
-                        es_respuesta=True,
+                        es_pregunta=False,
                         origen=respuesta.origen
                     )
-                    logger_db.debug(f" se obtuvo un mensaje_id: {mensaje_id} para la respuesta")
+                    logger_db.debug(f" se obtuvo un mensaje_id: {mensaje_id_r} para la respuesta")
                     logger_db.debug(f" Se van a guardar los archivos adjuntos asociados")
                     for nombre_archivo, tipo in respuesta.attachments:
                         self.insertar_attachment(mensaje_id_r, nombre_archivo, tipo)
@@ -164,6 +177,7 @@ class GestorBD:
             self.conn.commit()
         except Exception as e:
             logger_db.debug(f"❌ Error al persistir las preguntas y respuestas: {e}")
+            logger_db.debug(traceback.format_exc())
             if self.conn:
                 self.conn.rollback()
                 logger_db.debug("⛔ Transacción revertida debido al error.")
@@ -171,3 +185,36 @@ class GestorBD:
     def cerrar_conexion(self):
         self.conn.commit()
         self.conn.close()
+
+    def guardar_pregunta_y_respuestas_en_log(self,pregunta, numero_pregunta, ruta_archivo):
+        with open(ruta_archivo, "a", encoding="utf-8") as f:
+            f.write("═══════════════════════════════════════════════════════\n")
+            f.write(f"[PREGUNTA {numero_pregunta}]\n")
+            f.write(pregunta.contenido + "\n")
+            f.write(pregunta.timestamp + "\n")
+            f.write("\n[RESPUESTAS]\n")
+            if pregunta.respuestas:
+                for idx, respuesta in enumerate(pregunta.respuestas, start=1):
+                    f.write(f"  → Fecha de Respuesta {idx}: {respuesta.timestamp}\n")
+                    f.write(f"      → Autor Respuesta {idx}: {respuesta.autor}\n")
+                    f.write(f"          → Respuesta {idx}: {respuesta.contenido}\n")
+            else:
+                f.write("⚠️ No hubo respuestas para esta pregunta.\n") # no debería llegar aca en el log base
+            f.write("═══════════════════════════════════════════════════════\n\n")
+        
+    def guardar_pregunta_sin_respuesta_en_log(self,pregunta, numero_pregunta, ruta_archivo, numero_nuevo):
+        with open(ruta_archivo, "a", encoding="utf-8") as f:
+            f.write("═══════════════════════════════════════════════════════\n")
+            f.write(f"[PREGUNTA {numero_nuevo}]\n")
+            f.write(f"[PREGUNTA CON SU NÚMERO ORIGINAL {numero_pregunta}]\n")
+            f.write(pregunta.contenido + "\n")
+            f.write(pregunta.timestamp + "\n")
+            f.write("\n[RESPUESTAS]\n")
+            if pregunta.respuestas:
+                for idx, respuesta in enumerate(pregunta.respuestas, start=1):
+                    f.write(f"  → Fecha de Respuesta {idx}: {respuesta.timestamp}\n")
+                    f.write(f"      → Autor Respuesta {idx}: {respuesta.autor}\n")
+                    f.write(f"          → Respuesta {idx}: {respuesta.contenido}\n")
+            else:
+                f.write("⚠️ No hubo respuestas para esta pregunta.\n") # deberia llegar siempre a esta parte
+            f.write("═══════════════════════════════════════════════════════\n\n")

@@ -110,6 +110,8 @@ def procesar_archivos_json(rutas_json):
         # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas
         procesador.procesar_dataframe(df,str(ruta_json))
 
+        logger_proc.debug(f"Se tuvieron {procesador.cant_mens_cierre} registros de cierre para el archivo {idx}")
+
         # se deben guardar los procesadores en una lista ya que se crea uno por cada JSON que se analiza
         procesadores.append(procesador)
 
@@ -144,21 +146,50 @@ total_reg_preguntas =0
 total_reg_adj_preg = 0
 total_reg_adj_resp= 0
 
+def marcar_preguntas_sin_contexto(preguntas):
+    for pregunta in preguntas:
+        pregunta.marcar_sin_contexto()
+    return preguntas
+
+def agregar_es_administrativa (preguntas):
+    for pregunta in preguntas:
+        pregunta.marcar_administrativa()
+    return preguntas
+
+def marcar_respuestas_cortas(preguntas):
+    for pregunta in preguntas:
+        for respuesta in pregunta.respuestas:
+            respuesta.marcar_como_corta()
+    return preguntas
+
 # --------------------------------------- PERSISTENCIA DE DATOS ---------------------------------------------------------------------#
 # Persistir preguntas de todos los procesadores
-for index,proc in enumerate(procesadores,start=1): # por cada procesador 
-    total_reg_preguntas=total_reg_preguntas + len(proc.preguntas_cerradas) # se acumulan cantidad de preguntas cerradas en cada procesamiento de archivo
+for indice,proc in enumerate(procesadores,start=1): # por cada procesador 
+    logger_proc.debug(f"Preguntas cerradas: {len(proc.preguntas_cerradas)} ")
+    preguntas_con_contexto = marcar_preguntas_sin_contexto(proc.preguntas_cerradas)
+    cont_preg_sin_contexto = 0
+    
+    for pregunt in preguntas_con_contexto:
+        if pregunt.sin_contexto:
+            cont_preg_sin_contexto=cont_preg_sin_contexto +1
+    
+    logger_proc.debug(f"Preguntas sin contexto detectadas: {cont_preg_sin_contexto} ")
+    preguntas_con_estado = agregar_es_administrativa (preguntas_con_contexto)
+    preguntas_con_respuestas_marcadas = marcar_respuestas_cortas(preguntas_con_estado)
+    preguntas_a_procesar = preguntas_con_respuestas_marcadas
+    
+    total_reg_preguntas=total_reg_preguntas + len(preguntas_a_procesar) # se acumulan cantidad de preguntas cerradas en cada procesamiento de archivo
     logger_proc.debug(f" ")
-    logger_proc.debug(f"analizando el json número : {index}")
-    logger_proc.debug(f"Cantidad de Preguntas Cerradas {len(proc.preguntas_cerradas)}")
+    logger_proc.debug(f"analizando el json número : {indice}")
+    logger_proc.debug(f"Cantidad de Preguntas Cerradas {len(preguntas_a_procesar)}")
     cant_resp= 0
     
-    for index,pregunta in enumerate(proc.preguntas_cerradas,start=1): # se van acumulando la cantidad de respuestas totales
+    for index,pregunta in enumerate(preguntas_a_procesar,start=1): # se van acumulando la cantidad de respuestas totales
         cant_resp=cant_resp+len(pregunta.respuestas)
     total_reg_resp = total_reg_resp + cant_resp
    
-    logger_proc.debug(f"La cantidad total de respuestas en el json {index} es {cant_resp}")
-    bd.persistir_preguntas(proc.preguntas_cerradas) # persistencia de datos
+    logger_proc.debug(f"La cantidad total de respuestas en el json {indice} es {cant_resp}")
+    bd.persistir_preguntas(preguntas_a_procesar,indice) # persistencia de datos
 
 logger_proc.debug(f"La cantidad total de preguntas : {total_reg_preguntas}")
 logger_proc.debug(f"La cantidad total de respuestas: {total_reg_resp}")

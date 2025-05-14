@@ -1,0 +1,1 @@
+select * from fragmentos_preguntas

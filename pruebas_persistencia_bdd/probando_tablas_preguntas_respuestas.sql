@@ -28,7 +28,7 @@ from preguntas
 /*
 -- 2023 mensajes que son identificados como respuestas
 select count(*) as cant_mensajes_respuestas from mensajes
-where es_respuesta=TRUE
+where es_pregunta=FALSE
 
 -- 1305 registros de tabla respuestas con texto diferente 
 select count(distinct texto) as cant_respuestas_distintas

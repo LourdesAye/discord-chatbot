@@ -1,0 +1,86 @@
+"id_respuesta","mensaje_id","pregunta_id","texto","orden","es_validada"
+103,123,20,"Gracias 😁",4,False
+120,141,21,"creo",5,False
+134,156,22,"Claro",3,True
+237,278,41,"}",3,False
+242,284,42,"si!",4,True
+270,317,47,"Gracias!",2,False
+276,326,50,"Grupo 12",2,False
+277,327,50,"Rama054",3,False
+281,334,53,"De a dos",1,True
+294,349,55,"Solo TP",1,True
+297,353,56,"Solo TP",3,True
+305,362,57,"No",2,False
+355,428,73,"Buenísimo!",5,False
+357,431,74,"Buenísimo!",2,False
+382,465,83,"Sisi!",1,True
+391,474,83,"Subida!",10,True
+403,487,84,"Subida!",10,True
+436,530,94,"GRACIAS",4,False
+444,539,95,"GRACIAS",5,False
+474,580,106,"Si!",4,True
+478,586,108,"Si!",3,True
+508,626,118,"Si.",5,True
+510,629,119,"Si.",2,True
+523,646,123,"Si!",4,True
+526,650,124,"Si!",3,True
+554,682,128,"sisi",7,True
+556,685,129,"sisi",2,True
+577,714,137,"Asi?",3,False
+686,852,166,"Perfecto!",1,True
+784,974,190,"Buen dia",5,True
+798,989,191,"Buen dia",7,True
+831,1027,196,"Claro 😄",1,True
+945,1166,221,"Exacto!",6,True
+950,1172,222,"Exacto!",5,True
+954,1177,223,"Exacto!",4,True
+960,1184,224,"Exacto!",6,True
+1451,1808,357,"bardie",8,False
+1013,1250,237,"EsTim",3,False
+1016,1253,237,"GTV",6,True
+1020,1258,238,"GTV",4,True
+1026,1265,239,"GTV",3,True
+1031,1270,239,"Mis gastos",8,True
+1038,1278,240,"Mis gastos",6,True
+1071,1321,250,"Excelente!",3,True
+1151,1424,273,"exacto!",3,True
+1190,1469,279,"Jajajaja",3,False
+1196,1477,281,"Jajajaj",3,False
+1213,1501,288,"Ok",2,False
+1216,1505,289,"Ok",3,False
+1263,1568,305,"l",6,False
+1268,1574,306,"l",3,False
+1272,1579,307,"@everyone",2,True
+1409,1760,351,"si",6,False
+1418,1770,352,"Ya pude!",5,False
+1422,1775,353,"mmmm",3,False
+1427,1781,354,"gracias!",5,False
+1431,1786,355,"gracias!",2,False
+1461,1819,358,"bardie",4,False
+1479,1839,360,"Genial",8,False
+1487,1848,361,"Ahhhh",7,False
+1488,1849,361,"Genial",8,False
+1561,1932,371,"Graciasss",1,False
+1598,1980,382,"ahhhh",4,False
+1622,2010,388,"Gracias!",9,False
+1632,2021,389,"Gracias!",7,False
+1729,2148,419,"277 y 282",2,True
+1731,2150,419,"gracias",4,False
+1736,2156,420,"gracias",2,False
+1849,2290,441,"gracias",8,False
+1851,2293,442,"gracias",2,False
+1785,2214,429,"Gracias!",8,False
+1796,2226,430,"Gracias!",6,False
+1815,2250,435,"aaa okay",8,False
+1816,2251,435,"gracias",9,False
+1825,2261,436,"aaa okay",8,False
+1826,2262,436,"gracias",9,False
+1838,2278,440,"Gracia",5,False
+1842,2283,441,"Idem",1,False
+1845,2286,441,"Gracia",4,False
+1883,2333,450,"Claro sis",2,False
+1963,2430,467,"Correcto",3,True
+1972,2443,471,"y perdónnn",2,False
+1974,2446,472,"y perdónnn",2,False
+1979,2454,475,"Gracias!",2,False
+1981,2457,476,"Gracias!",2,False

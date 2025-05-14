@@ -104,7 +104,7 @@ class Mensaje:
         mensaje= self.contenido.lower().strip()
         inicio_mensaje = primeras_cinco_palabras(mensaje)
         # Analiza si las primeras 5 palabras pueden ser una frase de cierre de alumno
-        for frase in frases_cierre_alumnos:
+        for frase in frases_cierre_docente:
             if frase in inicio_mensaje:
                 return True
         return False
