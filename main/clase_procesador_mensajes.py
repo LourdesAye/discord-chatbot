@@ -149,7 +149,7 @@ class Procesador:
                 for pregunta in ultimas_dos_preguntas:
                     pregunta.agregar_respuesta(mensaje)
                     logger_msj.debug(f"  🔶 Mensaje dudoso asignado a la pregunta cerrada: {pregunta.contenido}")
-                mensaje.es_dudoso = True  # Marcar el mensaje como dudoso
+                # mensaje.es_dudoso = True  # Marcar el mensaje como dudoso
             else: 
                 self.mensajes_sueltos.append(mensaje)
                 logger_msj.debug(f"  🔶 Mensaje  que no posee pregunta : '{mensaje.contenido}' del docente '{mensaje.autor.lower().strip()}' ")
