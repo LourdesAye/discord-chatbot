@@ -1832,28 +1832,31 @@ Buenas, quería saber si es recomendable algún algoritmo específico para el ha
 2024-11-07T15:26:51.278Z
 
 [RESPUESTAS]
-  → Fecha de Respuesta 1: 2024-11-08T02:00:51.979Z
-      → Autor Respuesta 1: lucassaclier
-          → Respuesta 1: Buenas noches <@295323619381477377> te paso un link de referencia.
-
-https://davidbertoldi.medium.com/hashing-passwords-in-java-757e787ce71c
-
-Por las dudas para el resto, siempre es importante diferenciar la encriptación del hasheo. Si alguien tiene dudas, revise el link!
-═══════════════════════════════════════════════════════
-
-═══════════════════════════════════════════════════════
-[PREGUNTA 83]
-Buenas Gary, ¿Cómo estás? 
+  → Fecha de Respuesta 1: 2024-11-08T01:13:31.250Z
+      → Autor Respuesta 1: nacho_borda
+          → Respuesta 1: Buenas Gary, ¿Cómo estás? 
  Según indica la alerta parece que ya creaste dicha regla para el grupo de seguridad (puerto 8080 con el origen y protocolo indicado) pero por lo que veo en el video no hay ninguna otra regla que especifiques con ese puerto. Por lo que entiendo no deberia crear reglas por default AWS por lo que no tendría que habilitarse solo ese tráfico. 
  En caso de que no estes ingresando 2 vees esa regla, procede de igual manera con la guía y una vez creada la instancia, podes verificar que la regla indicada este habilitada desde: VPC --> Seguridad --> Grupos de Seguridad --> Reglas de Entrada (seleccionando el security group creado).
 
 Como se ve en la captura aca deberías poder ver todas las reglas creadas y en caso de que no se encuentre el puerto 8080 podes seleccionar **editar reglas de entrada**y agregarla a mano.
-2024-11-08T01:13:31.250Z
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 83]
+Hola 👋 , una consulta, estaba siguiendo la guia para desplegar el tp y me esta saltando un mensaje en la configuracion de red cuando intento lanzar la instancia, estaba siguiendo la guia paso a paso, pero capaz le pifie en algo 😅 . Saben que podria estar mal?
+2024-11-07T22:55:36.100Z
 
 [RESPUESTAS]
-  → Fecha de Respuesta 1: 2024-11-08T02:00:51.979Z
-      → Autor Respuesta 1: lucassaclier
-          → Respuesta 1: Buenas noches <@295323619381477377> te paso un link de referencia.
+  → Fecha de Respuesta 1: 2024-11-08T01:13:31.250Z
+      → Autor Respuesta 1: nacho_borda
+          → Respuesta 1: Buenas Gary, ¿Cómo estás? 
+ Según indica la alerta parece que ya creaste dicha regla para el grupo de seguridad (puerto 8080 con el origen y protocolo indicado) pero por lo que veo en el video no hay ninguna otra regla que especifiques con ese puerto. Por lo que entiendo no deberia crear reglas por default AWS por lo que no tendría que habilitarse solo ese tráfico. 
+ En caso de que no estes ingresando 2 vees esa regla, procede de igual manera con la guía y una vez creada la instancia, podes verificar que la regla indicada este habilitada desde: VPC --> Seguridad --> Grupos de Seguridad --> Reglas de Entrada (seleccionando el security group creado).
+
+Como se ve en la captura aca deberías poder ver todas las reglas creadas y en caso de que no se encuentre el puerto 8080 podes seleccionar **editar reglas de entrada**y agregarla a mano.
+  → Fecha de Respuesta 2: 2024-11-08T02:00:51.979Z
+      → Autor Respuesta 2: lucassaclier
+          → Respuesta 2: Buenas noches <@295323619381477377> te paso un link de referencia.
 
 https://davidbertoldi.medium.com/hashing-passwords-in-java-757e787ce71c
 
@@ -1862,21 +1865,6 @@ Por las dudas para el resto, siempre es importante diferenciar la encriptación 
 
 ═══════════════════════════════════════════════════════
 [PREGUNTA 84]
-Hola 👋 , una consulta, estaba siguiendo la guia para desplegar el tp y me esta saltando un mensaje en la configuracion de red cuando intento lanzar la instancia, estaba siguiendo la guia paso a paso, pero capaz le pifie en algo 😅 . Saben que podria estar mal?
-2024-11-07T22:55:36.100Z
-
-[RESPUESTAS]
-  → Fecha de Respuesta 1: 2024-11-08T02:00:51.979Z
-      → Autor Respuesta 1: lucassaclier
-          → Respuesta 1: Buenas noches <@295323619381477377> te paso un link de referencia.
-
-https://davidbertoldi.medium.com/hashing-passwords-in-java-757e787ce71c
-
-Por las dudas para el resto, siempre es importante diferenciar la encriptación del hasheo. Si alguien tiene dudas, revise el link!
-═══════════════════════════════════════════════════════
-
-═══════════════════════════════════════════════════════
-[PREGUNTA 85]
 buenas, como va?
 Alguno podria pasarme la guia para instalar el mysql si la tiene a mano? Cambie de PC y el campus esta caido desde el viernes :((
 2024-11-10T22:13:51.915Z
@@ -1888,7 +1876,7 @@ Alguno podria pasarme la guia para instalar el mysql si la tiene a mano? Cambie 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 86]
+[PREGUNTA 85]
 Buenas tardes, todo bien?
 
 Les podría consultar si hay algún documento con las anotaciones de JPA que nos podrían tomar en el parcial?
@@ -1907,7 +1895,7 @@ Les podría consultar si hay algún documento con las anotaciones de JPA que nos
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 87]
+[PREGUNTA 86]
 Buenas! Consulta, el aula es la de siempre 277? O la 4?
 2024-11-13T20:47:51.372Z
 
@@ -1921,7 +1909,7 @@ Buenas! Consulta, el aula es la de siempre 277? O la 4?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 88]
+[PREGUNTA 87]
 Buenos días, todo bien?
 
 Les quería consultar por qué en el parcial de monopatines se consideraría que está mal tener los precios de los viajes en un archivo de configuración afuera de la db
@@ -1940,7 +1928,7 @@ Les quería consultar por qué en el parcial de monopatines se consideraría que
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 89]
+[PREGUNTA 88]
 Buenas, todo bien? Les podría hacer una consulta del DER de TalentHub?
 
 Si y tengo dos tablas, una de personas físicas y otra de organizaciones, y las dos pueden tener perfiles en redes sociales,
@@ -1957,7 +1945,7 @@ No sé cómo pensaste a las personas físicas y jurídicas, necesitaría un poqu
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 90]
+[PREGUNTA 89]
 Buenas! Estabamos haciendo el parcial del 2023 y nos agarro una duda respecto al primer punto del Modelo de Datos (esto es de este parcial o es del anterior?) Ya que en donde hay que hacer el der y las anotaciones es en el punto de persistencia, pero no sabemos si además tenemos que hacer el modelo de datos
 https://drive.google.com/file/d/1q5weXknlStL7ZtNKGB77TbnL7Ez7k8qe/view
 2024-11-16T20:28:12.277Z
@@ -1987,7 +1975,7 @@ Son dos diferentes! Esa era tu pregunta?🙂
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 91]
+[PREGUNTA 90]
 Buenas! Consulta, al hacer el DER, si queremos poner un ENUM, que nos conviene, poner un vaarchar o una tabla extra?
 2024-11-16T21:44:14.041Z
 
@@ -2019,7 +2007,7 @@ Otra alternativa (en un final, por ejemplo) es partir del diagrama de clases, in
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 92]
+[PREGUNTA 91]
 Hola! Una consulta, esta respuesta estaría bien? Porque no termino de entender si el hecho de que el backend este desacoplado y exponga una API REST significa que vamos a estar utilizando un servicio externo o no. a) En primer lugar, en cuanto a la fiabilidad y más precisamente la disponibilidad, el cliente liviano resulta de una fiabilidad media, ya que, precisamos que nuestro servidor este funcionando correctamente tanto para generar las vistas como para manejar la lógica de nuestro sistema. En segundo lugar, el cliente pesado con un backend que expone una API REST para la manipulación de los recursos, podemos decir que tiene una mejor fiabilidad y disponibilidad que el anteriormente mencionado, pues las vistas se generarán en el cliente y no requeriremos que nuestro sistema esté disponible en ese momento para generarlas. Sin embargo, al exponer una API REST para la manipulación de recursos, tendrá cierto acoplamiento en el manejo de datos y lógica quitandole así algo de fiabilidad a la solución. Luego, el cliente liviano desacoplado del backend, el cual expone una API REST para permitir la manipulación de los recursos, podríamos decir que es el menos fiable, visto que, precisamos en primer lugar precisamos que nuestro sistema funcione correctamente para la generación de visitas y luego necesitamos que la API REST este disponible para el manejo de datos y lógica, teniendo así más posiblidades de fallo. 
 Por otro lado, en cuanto a mantenibilidad y más precisamente modularidad, el cliente liviano podríamos decir que es el menos modular y mantible, porque todas las responsabilidades recaen sobre nuestro servidor. Luego, el cliente pesado con un backend que expone una API REST para la manipulación de los recursos, sería algo más modular y mantenible, teniendo divididas las responsabilidades de las vistas y la lógica y pudiendo mantenerlas por separado. Por último, el cliente liviano desacoplado del backend, el cual expone una API REST para permitir la manipulación de los recursos también sería más mantenible, ya que nuevamente tenemos separadas las responsabilidades de vistas y lógica.
 2024-11-16T20:27:00.934Z
@@ -2058,7 +2046,7 @@ Otra alternativa (en un final, por ejemplo) es partir del diagrama de clases, in
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 93]
+[PREGUNTA 92]
 Buenas, tengo una consulta. Estaba haciendo el final de viajes compartidos. La parte de creacion de viajes e Identificación de relación entre usuarios no me importa para mi modelo de datos no? 
 
 Dejo mi resolución por las dudas
@@ -2092,7 +2080,7 @@ Otra alternativa (en un final, por ejemplo) es partir del diagrama de clases, in
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 94]
+[PREGUNTA 93]
 El servicio sería el viaje, no? Porque ahí estan los km recorridos
 2024-11-17T01:37:06.482Z
 
@@ -2112,7 +2100,7 @@ El servicio sería el viaje, no? Porque ahí estan los km recorridos
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 95]
+[PREGUNTA 94]
 Buenas, como va? Hay alguna resolución de los ejercicios de persistencia o algun video referencial?
 2024-11-17T16:43:10.310Z
 
@@ -2123,7 +2111,7 @@ Buenas, como va? Hay alguna resolución de los ejercicios de persistencia o algu
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 96]
+[PREGUNTA 95]
 Buenas! Conlsuta, a que se refiere con "(5 puntos) Enumere las entidades identificadas y mencione, de forma concisa, qué representa cada una de
 ellas."? Porque luego se hace el DER
 2024-11-17T15:09:05.427Z
@@ -2153,7 +2141,7 @@ ellas."? Porque luego se hace el DER
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 97]
+[PREGUNTA 96]
 Buenas, todo bien?
 
 Les quería consultar si "trazabilidad" y "consistencia eventual" se pueden considerar atributos de calidad incluso si no están considerados en la norma ISO 25000
@@ -2172,7 +2160,7 @@ Les quería consultar si "trazabilidad" y "consistencia eventual" se pueden cons
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 98]
+[PREGUNTA 97]
 Buenas! No pude entrar a la clase de consultas, en algún momento se va a subir una grabación al drive? Saludos
 2024-11-18T16:05:06.685Z
 
@@ -2183,7 +2171,7 @@ Buenas! No pude entrar a la clase de consultas, en algún momento se va a subir 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 99]
+[PREGUNTA 98]
 Hola!!. Tengo una consulta respecto al siguiente punto de arquitectura del "Segundo Parcial 2023 - Martes", En las opciones de "Cliente Liviano" y "Cliente liviano desacoplado de la lógica de negocio", no pueden estar haciendo referencia a lo mismo? yo tenía entendido que solo por ser "cliente liviano" ya estaba desacoplado de la lógica del negocio, puede ser que no siempre sea así? en qué casos se podría aplicar lógica de negocio en un cliente liviano? gracias!
 2024-11-18T16:33:25.033Z
 
@@ -2209,7 +2197,7 @@ Tiene sentido que estén implementados en la misma tecnología ambos componentes
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 100]
+[PREGUNTA 99]
 buenas! todo bien? 
 Alguno tendra por casualidad la resolucion del segundo parcial de 2021? (https://drive.google.com/file/d/17o9H1KuzAt26bjVEASgHFL3R3WCnIqvh/view)
 quiero ver si le pifie en algo
@@ -2222,7 +2210,7 @@ quiero ver si le pifie en algo
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 101]
+[PREGUNTA 100]
 Buenas! Consulta, estaba haciendo el parcial del 2021 y en el final aparece que el cliente puede subir documentos. Como yo tengo una tabla Documento, que la uso en más ocaciones, puedo poner en mis consideraciones que Cuando son muchos archivos se sube un .zin o un .rar (y de paso me aumenta la performance porque aparte de ocupar menos espacio no debo hacer join)? O si o si debo crear una tabla "intermedia"?
 2024-11-19T14:50:19.024Z
 
@@ -2233,7 +2221,7 @@ Buenas! Consulta, estaba haciendo el parcial del 2021 y en el final aparece que 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 102]
+[PREGUNTA 101]
 Hola! Estaba viendo este 2do parcial (https://drive.google.com/file/d/1q5weXknlStL7ZtNKGB77TbnL7Ez7k8qe/view) y vi esto en las consideraciones (https://drive.google.com/file/d/1bzgy7PFJiRxFcnIUW4YrcYajnf4aPT4Q/view). Entiendo que esto sería una tabla que queda flotando porque no tiene relación con ninguna entidad. ¿Eso está bien?¿Es por el hecho de poder darle alguna trazabilidad a los precios?
 2024-11-20T04:14:44.818Z
 
@@ -2244,7 +2232,7 @@ Hola! Estaba viendo este 2do parcial (https://drive.google.com/file/d/1q5weXknlS
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 103]
+[PREGUNTA 102]
 Hola! Buen día, una consulta, cuando mapeo un Converter tengo entendido se hace de esta manera: y luego el convertidor propiamente dicho Ahora sobre MedioDeNotificacion en sí, no tengo que hacer más nada no?
 2024-11-20T14:15:13.827Z
 
@@ -2255,7 +2243,7 @@ Hola! Buen día, una consulta, cuando mapeo un Converter tengo entendido se hace
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 104]
+[PREGUNTA 103]
 @everyone este DER quedó huerfano, de quien es?. La hoja NO tiene nombre ni apellido
 2024-11-21T01:34:48.874Z
 
@@ -2270,7 +2258,7 @@ Disculpen es que no llegue a ponerle nombre
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 105]
+[PREGUNTA 104]
 Hola! Buen dia, estoy teniendo un problema cuando genero y corro el `.jar` en la instancia y en mi local. En ambos puedo correr los comandos `mvn clean install` y `mvn clean package`, pero cuando lo levanto me encuentro con distintos problemas.
 
 En local me deja ver la vista de iniciar sesión pero cuando hago algo con un repositorio, como buscar el usuario en la base de datos me salta este error: `javax.persistence.PersistenceException: Unable to build entity manager factory`
@@ -2287,7 +2275,7 @@ Es un error común? o se les ocurre porque puede estar pasando? Ya intente gener
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 106]
+[PREGUNTA 105]
 Buenas! Una consulta los recuperatorios van a ser en fechas de finales y podríamos rendir cualquiera de los recuperatorio en cualquiera de las fechas ?
 2024-11-28T16:23:53.743Z
 
@@ -2298,7 +2286,7 @@ Buenas! Una consulta los recuperatorios van a ser en fechas de finales y podría
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 107]
+[PREGUNTA 106]
 <@1219766711415209984> <@410226816125763607> <@757767776159924335> Buenas, como estan? Sumo una consulta sobre los recus, nos podemos presentar en la segunda fecha y luego en la tercera a recuperar los mismos temas? O se complica por el tema de las correcciones?
 2024-11-28T18:19:53.433Z
 
@@ -2309,7 +2297,7 @@ Buenas! Una consulta los recuperatorios van a ser en fechas de finales y podría
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 108]
+[PREGUNTA 107]
 Buenas! Aquellos que estamos en situacion de rendir final, vamos a poder anotarnos para rendirlo este sabado 7/12? ya que al no estar cargadas las actas todavía, no es posible anotarse. gracias!
 2024-12-02T17:55:06.002Z
 
@@ -2320,7 +2308,7 @@ Buenas! Aquellos que estamos en situacion de rendir final, vamos a poder anotarn
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 109]
+[PREGUNTA 108]
 Buenas, alguno hizo el final de IA - Proyectos de Investigación? que tengo algunas dudas con respecto al diagrama de clases, gracias!
 2024-12-02T21:20:33.229Z
 
@@ -2333,7 +2321,7 @@ https://drive.google.com/drive/mobile/folders/1e07bIJSDoEErfFu-7uWSUoCAUUx8BIFr?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 110]
+[PREGUNTA 109]
 Hola equipo, como están? Entiendo que el 21/12 también es fecha de final, estoy en lo correcto? Consulto para poder reservarme ese sabado para rendir, estimo que las notas las irán cargando de a poco al siu. Gracias 🙂
 2024-12-04T14:59:44.795Z
 
@@ -2348,7 +2336,7 @@ Si tu intención es rendir, te pedimos por favor que nos avises así te cargamos
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 111]
+[PREGUNTA 110]
 Buenas, todo bien? Les quería consultar si en tinderizer estaba mal no persistir las búsquedas, ya que consideré que representaban una query más que una entidad
 2024-12-06T04:36:33.058Z
 
@@ -2359,7 +2347,7 @@ Buenas, todo bien? Les quería consultar si en tinderizer estaba mal no persisti
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 112]
+[PREGUNTA 111]
 Hola buenas! Ando buscando la clase de caché cdn y no la estaría encontrando. Si alguno sabe me dice porfi ? Gracias 👍🏻
 2024-12-11T00:13:45.960Z
 
@@ -2370,7 +2358,7 @@ Hola buenas! Ando buscando la clase de caché cdn y no la estaría encontrando. 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 113]
+[PREGUNTA 112]
 Buenas! Una consulta, existe la posibilidad de mandar archivos enteros por broker? Entiendo que al ser flujos tan grandes, no es lo ideal. Sería una buena alternativa, por ejemplo, subir el archivo a un sistema externo de almacenamiento y enviar el enlace al mismo por broker?
 2024-12-11T18:58:10.919Z
 
@@ -2382,7 +2370,7 @@ Si es verdad que generas mayor carga sobre el broker.
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 114]
+[PREGUNTA 113]
 Si alguien sabe dónde están 🥲 Genia, gracias
 2024-12-13T15:27:55.810Z
 
@@ -2402,7 +2390,7 @@ Si alguien sabe dónde están 🥲 Genia, gracias
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 115]
+[PREGUNTA 114]
 Holaa, estaba viendo las consideraciones del parcial del Miercoles a la noche y dice "Debe haber una relación OneToOne entre la tabla CriterioCalculoAvance e Hito"
 pero en el Diagrama de Clases la relacion es de uno a muchos, no deberia ser de CriterioCalculoAvance un OneToMany a Hito?
 Ahí marque con colores a lo que me refiero
@@ -2424,7 +2412,7 @@ Ahí marque con colores a lo que me refiero
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 116]
+[PREGUNTA 115]
 Hola!
 Se me olvidó pedir el certificado de asistencia al parcial, hay algún día en la semana en la que alguien del equipo docente esté en alguna de las dos sedes para que me lo firme?
 2024-12-14T19:59:31.578Z
@@ -2436,7 +2424,7 @@ Se me olvidó pedir el certificado de asistencia al parcial, hay algún día en 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 117]
+[PREGUNTA 116]
 Buenas, cómo va? Estaba haciendo este punto de arquitectura del final de TalentHub y no termino de entender porque nos sería tan útil utilizar un SSO, teniendo en cuenta que nuestro sistema se conforma de una única aplicación entonces siento que no estaríamos aprovechando tanto el potencial de este componente. Escribí esta respuesta pero siento que esta floja/incompleta: Propongo trabajar con un SSO que nos permita aprovechar el inicio de sesión en nuestro sistema para también iniciar sesión en sus respectivas redes sociales. Este componente externo se encargará de autenticar al usuario y permitirle el inicio de sesión en nuestro sistema asignándole el rol y permisos que correspondan. Es decir, el usuario ingresaría sus credenciales y el componente se encargaría de iniciar la sesión de la organización en un caso, o en el otro, iniciaría sesión del creador de contenido y sus respectivas redes sociales. Asignando en ambos casos los roles y permisos correspondientes.
 2024-12-16T22:33:25.614Z
 
@@ -2450,7 +2438,7 @@ Buenas, cómo va? Estaba haciendo este punto de arquitectura del final de Talent
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 118]
+[PREGUNTA 117]
 Buenísimo gracias! En este caso entonces estaría bien ir por el lado de usabilidad? Porque normalmente recuerdo escuchar que ir por los atributos de usabilidad o adecuación funcional no suele gustar mucho
 2024-12-17T18:39:05.090Z
 
@@ -2461,7 +2449,7 @@ Buenísimo gracias! En este caso entonces estaría bien ir por el lado de usabil
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 119]
+[PREGUNTA 118]
 Buenas, cómo va? Teniendo en cuenta que nos pide desplegar el sistema en una infraestructura propia, entonces podríamos descartar el cliente pesado visto que estaríamos usando los recursos del cliente para generar nuestras vistas no? Gracias, saludos.
 2024-12-18T14:56:52.104Z
 
@@ -2497,7 +2485,7 @@ Respecto a tu frase de "Entonces el cliente pesado no me permite desplegar la to
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 120]
+[PREGUNTA 119]
 Buenas! Una consulta, cuando hay que graficar un componente de SSO en un diagrama de despliegue de microservicios, se lo grafica como un nodo aparte entre el API Gateway y el nodo del servicio?
 2024-12-19T03:06:22.390Z
 
@@ -2520,7 +2508,7 @@ https://developers.redhat.com/blog/2019/10/30/how-to-secure-microservices-with-r
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 121]
+[PREGUNTA 120]
 Muchas gracias!! y ultima pregunta, ¿El único que se conectaria con el SSO seria el browser no? Porque también tengo servicios externos, pero entiendo que esos irían directo conectados con el API Gateway ¿O lo estoy interpretando mal?
 2024-12-19T03:14:24.583Z
 
@@ -2531,7 +2519,7 @@ Muchas gracias!! y ultima pregunta, ¿El único que se conectaria con el SSO ser
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 122]
+[PREGUNTA 121]
 Buenas <@757767776159924335> <@1219766711415209984> en qué aula es el recuperatorio? En bedelía decía 618 pero están para paradigmas también acá
 2024-12-21T11:48:40.132Z
 
@@ -2551,7 +2539,7 @@ Buenas <@757767776159924335> <@1219766711415209984> en qué aula es el recuperat
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 123]
+[PREGUNTA 122]
 Buenas! Cómo va? Quería consultar si ya se sabe en qué fecha serían los recuperatorios de febrero? Gracias, saludos!!
 2025-01-27T16:01:46.912Z
 
@@ -2562,7 +2550,7 @@ Buenas! Cómo va? Quería consultar si ya se sabe en qué fecha serían los recu
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 124]
+[PREGUNTA 123]
 Hola! Todo bien? Yo quería consultar si las fechas de los recuperatorios también coinciden con las fechas de los finales de diseño. Calculo que sí porque así fue en diciembre pero quería sacarme la duda Muchas gracias y buenas vacaciones!!
 2025-01-28T12:34:05.881Z
 
@@ -2573,7 +2561,7 @@ Hola! Todo bien? Yo quería consultar si las fechas de los recuperatorios tambi�
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 125]
+[PREGUNTA 124]
 Buenas! Todo bien? Perdón que moleste pero estaba practicando para el recu y me surgieron algunas dudas resolviendo el segundo parcial de 2022 (https://drive.google.com/file/d/1yl4wVxEHfGqPCGOo-XFs1QY7VdeZ1Oso/view). Por un lado, me quedaba la entidad Tratamiento que solo persistía su PK y FKs a otras entidades (y recuerdo que eso estaba mal porque me lo habían corregido anteriormente), entonces revisando los alcances y requerimientos del enunciado vi que se pedía con máxima prioridad mantener una buena trazabilidad y auditoria de de las recomendaciones (y sus solicitudes), tratamientos, etapas y procesos de producción. Entonces le agregué una fecha de inicio y de fin al tratamiento, pero no sé si con persistir esta información es suficiente para que esté bien o el problema que comentaba de que solo persiste relaciones a otras entidades sigue existiendo. 
 Por otro lado, tengo una duda similar con la entidad SolicitudRecomendación, porque en este caso normalice al dentista y el consultorio pero no así a la consulta, entonces la entidad SolicitudRecomendacion persiste los datos de la consulta además de las relaciones a la entidad dentista y consultorio. Pero si hubiese decidido crear una entidad consulta y que SolicitudRecomendacion persista la FK a esa consulta, ¿entonces estaría mal porque guarda practicamente solo relaciones? (solo quedaría el motivo de rechazo que no es una relación a otra entidad). Después no sé si hay algún error importante o algo que esté mal en lineas generales. 
 Quedó un poco confuso capaz pero espero que se entienda. Muchas gracias, saludos!
@@ -2594,7 +2582,7 @@ Respecto al modelo, algunas observaciones rápidas (en líneas generales, muy bi
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 126]
+[PREGUNTA 125]
 Hola! buen día 👋
 Realizando el primer parcial del Miércoles 2023 - GTV - https://drive.google.com/drive/u/2/folders/11Tr1oInEjE64Jv8ohwE9Hlvof-OFUeMQ
 Me surgieron dudas con los requerimientos 5 y 6 por como lo modelé
@@ -2639,7 +2627,7 @@ Cualquier cosa nos volvés a preguntar, buen domingo🤗
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 127]
+[PREGUNTA 126]
 Buenas
 tengo consulta sobre del final  20241221, de la tercera de diciembre pasado
 en la parte de arquitectura, tengo una confusión en cuando a que se pide
@@ -2688,7 +2676,7 @@ Código de acceso: utn2025
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 128]
+[PREGUNTA 127]
 Buenas, estoy haciendo el parcial de recuperatorio o final de "Mi amis invisible" la parte de la persistencia/datos.
 Tengo algunas dudas sobre el enunciado y sobre el DER.
 
@@ -2728,7 +2716,7 @@ Código de acceso: utn2025
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 129]
+[PREGUNTA 128]
 Hola buenas! Espero que anden bien. Queria hacer una consulta con respecto a este parcial.
 No me termina de quedar claro si la parte del converter la estoy realizando bien o si me falta alguna entidad por realizar.
 Por otro lado, de dejar asi esta especie de pseudocodigo del sistema, no seria necesario crear una tabla para medioDeContacto, ya que solo lo guardo como atributo en la persona, cierto? 
@@ -2742,7 +2730,7 @@ Desde ya muchas gracias !!
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 130]
+[PREGUNTA 129]
 Buenas! Cómo va? Perdón que moleste pero estaba haciendo el segundo parcial del 2021 (https://drive.google.com/file/d/17o9H1KuzAt26bjVEASgHFL3R3WCnIqvh/view) y me surgieron algunas dudas.
 Por un lado, al modelar el nivel de urgencia y el nivel de confidencialidad decidí normalizarlo, creando sus propias entidades en busca de consistencia de datos. Pero me surge la duda de si será una buena decisión o si estaré cayendo en un sobrediseño innecesario pudiendo tener simplemente un atributo en la NecesidadDesarrollo que me indique el nivel de urgencia y de confidencialidad respectivamente. 
 Por otro lado, al modelar el estado de la solicitud dudé entre hacer un many to many contra la entidad estado y después guardo las fechas para la trazabilidad en la entidad que rompe el many to many (que fue lo que hice), o si hacer una relación one to many contra la entidad estado y que la entidad estado guarde como FK la id_necesidad ademas de las fechas y el estado, persistiendo así todo en la misma entidad. Caigo de vuelta en la duda de si hacer el many to many para tener más consistencia en los estados o si termina siendo un sobrediseño y en realidad es preferible tener menos join y un poco menos de consistencia de datos. 
@@ -2761,7 +2749,7 @@ En cuanto al Diagrama, lo veo muy encaminado.
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 131]
+[PREGUNTA 130]
 Buenas, como va?
 Tengo una consulta sobre la persistencia relacionada con el patrón Observer.
 Si tengo una interfaz llamada Interesado con el método serNotificado() y esta es implementada por las clases PersonaHumana y PersonaJuridica, que poseen distintos atributos y métodos, cómo debería persistir estas clases ya que tengo otra clase que contiene un atributo List<Interesado>?
@@ -2782,7 +2770,7 @@ En cuanto al Diagrama, lo veo muy encaminado.
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 132]
+[PREGUNTA 131]
 Puedo dejar una consulta capaz medio boba sobre modalidad? Es suficiente con que una entidad A pueda existir varios segundos/minutos sin B para decir que A no es dependiente de B?
 
 Estaba mirando DataCat y una organización puede tener varias aplicaciones. No hay ningún caso de uso en el sistema para que alguien cree una organización sin crear apps también, pero hasta que el usuario llene el formulario para crear la primera app la organización va a existir "sola", por lo que no se podría decir que su existencia depende de una app. En ese caso, la relación entre organizaciones y apps es the 1 a 0-N o 1 a 1-N?
@@ -2819,7 +2807,7 @@ Mi pregunta iba por este lado, por tu analogía entiendo que es mejor poner 0-a-
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 133]
+[PREGUNTA 132]
 Perdón, me quedé pensando... porque teniendo en cuenta la primera explicación, entonces en lo de los estados no sería válido también trabajar el estado como un ENUM y tener una relación one to many desde Necesidad hacia Estado? Porque una vez definidos los estados dudo que cambien... Entonces me quedaría Estado: PK id_estado, FK id_necesidad, estado (varchar), fecha_inicio, fecha_fin... y si manejo al estado como un enum también tengo consistencia de datos y me ahorro un join
 2025-02-14T19:12:16.910Z
 
@@ -2830,7 +2818,7 @@ Perdón, me quedé pensando... porque teniendo en cuenta la primera explicación
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 134]
+[PREGUNTA 133]
 Buenas, el polling y webhook es solamente para el integración asincornica o es para sincronica también?
 2025-02-17T01:19:42.084Z
 
@@ -2841,7 +2829,7 @@ Buenas, el polling y webhook es solamente para el integración asincornica o es 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 135]
+[PREGUNTA 134]
 Buenas, para el siguiente pregunta, el mejor opción sera el cliente liviano desacoplado? No estoy seguro si es este o simplemente cliente liviano.
 
 ¿Mantendría la elección de la capa de presentación visual del punto anterior para todas las tareas que tienen que realizar los administradores (empleados del Gobierno de la Ciudad)? Justifique su respuesta adecuadamente y genere otra propuesta en caso negativo.
@@ -2854,7 +2842,7 @@ Buenas, para el siguiente pregunta, el mejor opción sera el cliente liviano des
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 136]
+[PREGUNTA 135]
 Hola! Buenas Noches!
 Puedo consultar si será posible que puedan pasar el enunciado del recuperatorio de objetos del sábado pasado?
 Estamos estudiando con un compañero del curso y tener el enunciado del último recu nos ayudaría banda
@@ -2868,7 +2856,7 @@ Muchas gracias!
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 137]
+[PREGUNTA 136]
 Hola! Buenas Noches!
  Puedo consultar si es posible que puedan pasar el enunciado del recuperatorio de arquitectura del sabado pasado?
 2025-02-20T01:57:30.260Z
@@ -2880,7 +2868,7 @@ Hola! Buenas Noches!
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 138]
+[PREGUNTA 137]
 (10 puntos) Para la recepción de información relacionada con siniestros, necesaria para el cálculo del valor de la póliza, se propone una integración mediante una API REST, la cual será proporcionada por el servicio propio.
 
 a. Defina: Protocolo, Método/s, Código de Estados, Estructura del Cuerpo de Solicitud/Respuesta y todo lo que considere necesario para especificar la integración.
@@ -2896,7 +2884,7 @@ Buenas, para este pregunta el protocolo sera el HTTP, metodo sera lo de POST y G
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 139]
+[PREGUNTA 138]
 Hola, pueden pasar el link del zoom de consultas por favor?
 2025-02-19T19:30:46.783Z
 
@@ -2910,7 +2898,7 @@ Hola, pueden pasar el link del zoom de consultas por favor?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 140]
+[PREGUNTA 139]
 (15 puntos) Dado que el valor de la póliza puede estar en Pesos o Dólares, es necesario obtener la cotización
 de un Servicio Externo, el cual presenta caídas frecuentes, tiempos de respuesta elevados y costos por cada
 solicitud.
@@ -2933,7 +2921,7 @@ B- Los atributos vinculados serian:
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 141]
+[PREGUNTA 140]
 Yo para esa pregunta había pensado usar una caché local para almacenar las últimas cotizaciones y que nuestro sistema primero consulte allí antes que en la API. La caché semanal o quincenalmente se puede ir actualizando.
 
 Esta bien encaminado?
@@ -2946,7 +2934,7 @@ Esta bien encaminado?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 142]
+[PREGUNTA 141]
 Hola, el sabado pasado rendi el recu de Sistema de Gestión de Seguros de Autos. Yo tengo una duda de como hacer el calculo del valor de poliza. Hice este diagrama despues con lo que escuche de la clase de consultas:
 Estoy haciendo un builder del calculo que despues obtiene un valorPoliza.
 Mi pregunta son estas:
@@ -2968,7 +2956,7 @@ Mañana apenas tenga un ratito, les voy respondiendo las dudas que quedaron!
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 143]
+[PREGUNTA 142]
 Buenas, estuve mirando los finales pasados y vi que en uno tenia este para la parte de arquitectura. Podría ser que tenemos algo similar a esto para la recuperatorio?
 2025-02-21T02:10:20.825Z
 
@@ -2983,7 +2971,7 @@ Mañana apenas tenga un ratito, les voy respondiendo las dudas que quedaron!
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 144]
+[PREGUNTA 143]
 Hola, donde puedo conseguir ese resumen? Dale. Muchas gracias por la ayuda
 2025-02-21T01:49:41.264Z
 
@@ -3006,7 +2994,7 @@ La segunda opcion que mostrás es más extensible porque de esa forma no necesit
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 145]
+[PREGUNTA 144]
 Buenas,
 Tengo unas dudas con esta parte del ultimo final. 
 1- No me queda claro quien verifica las condiciones y crea la poliza; la Solicitud deberia tener un metodo ***crearPoliza(): Poliza*** o seria mejor tener una clase tipo "ProcesarDeSolicitudes" con el metodo ***crearPoliza(solicitud): Poliza***??
@@ -3032,7 +3020,7 @@ La segunda opcion que mostrás es más extensible porque de esa forma no necesit
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 146]
+[PREGUNTA 145]
 Buenos dias, sobre esto tengo una consulta, si modelaras solamente la solicitud por ejemplo ¿Como cambiarías el estado de la solicitu y de la poliza por separado?
 2025-02-21T14:03:12.778Z
 
@@ -3046,7 +3034,7 @@ Buenos dias, sobre esto tengo una consulta, si modelaras solamente la solicitud 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 147]
+[PREGUNTA 146]
 Hola Aylen, gracias por las respuestas. Como vos decis en la segunda opcion el metodo calcular no recibe nada, pero en realidad deberia recibir diferentes cosas dependiendo del servicio. Por ejemplo el servicio 1 necesita la marca y el modelo, el segundo la ubicacion,etc. Como se modela eso? Tengo que poner un metodo calcular en la interfaz con todos los parametros necesarios para los otros servicios? Se tiene que crear un metodo calcular para cada uno de los servicios con lo que necesitan cada uno? Por que entiendo que si el metodo recibe diferentes parametros entonces es una "funcion" diferente
 2025-02-21T13:53:46.811Z
 
@@ -3081,7 +3069,7 @@ Hola Aylen, gracias por las respuestas. Como vos decis en la segunda opcion el m
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 148]
+[PREGUNTA 147]
 Hice este diagrama del dominio al final, creo que se puede resolver todo en general pero tengo duda si los enumerados que hice tal vez irian mejor como clases mas que nada el tema de la cobertura y medio que de los estados invente un par de estados sino quedaban con un solo estado aprox ¿Estaria bien dentro de todo?
 2025-02-21T15:41:04.088Z
 
@@ -3116,7 +3104,7 @@ Hice este diagrama del dominio al final, creo que se puede resolver todo en gene
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 149]
+[PREGUNTA 148]
 Hola! Perdón por la ingenuidad de mi pregunta, pero el enunciado del recu de objetos va a coincidir con el del final de ese mismo día, no?  
 Gracias!
 2025-02-21T17:41:01.422Z
@@ -3152,7 +3140,7 @@ Gracias!
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 150]
+[PREGUNTA 149]
 Gracias. Te queria consultar tambien, es correcto el localidad-Provincia? o tengo que agregar una direccion? y a que se refiere con distinguir solicitudDePoliza de poliza?
 2025-02-21T20:05:08.962Z
 
@@ -3183,7 +3171,7 @@ Y con distinguir solicitud de póliza de póliza me refería a que una cosa es s
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 151]
+[PREGUNTA 150]
 Buenas noches, cual es el horario y sede de mañana?
 2025-02-22T00:17:53.359Z
 
@@ -3208,7 +3196,7 @@ Y con distinguir solicitud de póliza de póliza me refería a que una cosa es s
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 152]
+[PREGUNTA 151]
 Buenas! Todo bien? De casualidad tienen el enunciado del final del sabado pasado?
 2025-02-24T14:14:56.178Z
 
@@ -3220,7 +3208,7 @@ https://drive.google.com/drive/u/0/folders/1z5QsgYdpg7hLo3AT5teVAhvtnAuYEAXw
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 153]
+[PREGUNTA 152]
 Buenas, como va? estos días habrá clase de consulta antes del final del 27 ?
 2025-02-25T01:38:11.840Z
 
@@ -3231,7 +3219,7 @@ Buenas, como va? estos días habrá clase de consulta antes del final del 27 ?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 154]
+[PREGUNTA 153]
 Buenas! Perdon por el horario, el miercoles envian por mail el contexto general del final del jueves? O como es eso?
 2025-02-25T01:57:23.033Z
 
@@ -3245,7 +3233,7 @@ Buenas! Perdon por el horario, el miercoles envian por mail el contexto general 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 155]
+[PREGUNTA 154]
 El jueves corrigen ahi mismo o dsp suben la nota al siu? Consulto x la hora
 2025-02-25T13:01:08.165Z
 

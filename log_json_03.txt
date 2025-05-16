@@ -2076,29 +2076,17 @@ Hola! Estamos teniendo un  problema a la hora de realizar el mvn clean install y
   → Fecha de Respuesta 1: 2024-11-26T15:14:46.144Z
       → Autor Respuesta 1: vickitoria
           → Respuesta 1: Hola Nacho!! Muchas gracias probamos con eso y funcionó 😊
-  → Fecha de Respuesta 2: 2024-11-26T15:31:22.535Z
-      → Autor Respuesta 2: tomai14
-          → Respuesta 2: A nostros nos paso y era por los test, poniendo un flag para que no compile tests anduvo
+  → Fecha de Respuesta 2: 2024-11-26T15:23:56.830Z
+      → Autor Respuesta 2: nacho_borda
+          → Respuesta 2: Buenas <@416413633581416449>! Se me ocurre que pueden probar de subir directamente el jar al repositorio y asi evitar correr el mvn clean install desde el EC2. No es como se debe hacer pero para solucionar el problema puede que les sirva. Prueben eso y me cuentan 🧐  
+ ¿Se queda trabada en los test o que parte?
+  → Fecha de Respuesta 3: 2024-11-26T15:31:22.535Z
+      → Autor Respuesta 3: tomai14
+          → Respuesta 3: A nostros nos paso y era por los test, poniendo un flag para que no compile tests anduvo
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
 [PREGUNTA 115]
-Buenas <@416413633581416449>! Se me ocurre que pueden probar de subir directamente el jar al repositorio y asi evitar correr el mvn clean install desde el EC2. No es como se debe hacer pero para solucionar el problema puede que les sirva. Prueben eso y me cuentan 🧐  
- ¿Se queda trabada en los test o que parte?
-2024-11-26T15:23:56.830Z
-
-[RESPUESTAS]
-  → Fecha de Respuesta 1: 2024-11-26T15:31:22.535Z
-      → Autor Respuesta 1: tomai14
-          → Respuesta 1: A nostros nos paso y era por los test, poniendo un flag para que no compile tests anduvo
-  → Fecha de Respuesta 2: 2024-11-27T04:31:42.047Z
-      → Autor Respuesta 2: ceci.24
-          → Respuesta 2: Buenas noches, <@315681921549991947> con mi grupo estamos teniendo problemas para conectarnos a la db de AWS, el tema es que ya revisamos persistence, pom, app, etc, y no damos con la causa. En el EC2 nos permite ejecutar mysql y acceder a la base, pero no nos funciona correctamente cuando, por ejemplo, intentamos registrar un usuario, además de forma local directamente no podemos conectarnos ni hacer ping.
-Si levantamos el proyecto en EC2 no nos genera las tablas, nos arroja el siguiente error (cabe aclarar que cuando levantábamos la base de forma local no teníamos problemas):
-═══════════════════════════════════════════════════════
-
-═══════════════════════════════════════════════════════
-[PREGUNTA 116]
 Buenas <@1219766711415209984> <@757767776159924335>  con mi grupo teniamos una duda, estamos probando los flujos pero probandolo desde la instancia tarda muuucho en cargar cada pagina, es normal?
 2024-11-27T15:23:31.872Z
 
@@ -2127,41 +2115,36 @@ Buenas <@1219766711415209984> <@757767776159924335>  con mi grupo teniamos una d
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 117]
+[PREGUNTA 116]
 Hola <@315681921549991947> ! Cómo andas?? Perdón la insistencia pero andamos super trabadas con esto y no estamos pudiendo avanzar con el despliegue 😭 tendrás idea que estamos teniendo mal en el persistence que puede estar causando que nos falle? Mil gracias de antemano!
 2024-11-28T21:48:10.230Z
 
 [RESPUESTAS]
-  → Fecha de Respuesta 1: 2024-11-28T22:05:31.638Z
-      → Autor Respuesta 1: vickitoria
-          → Respuesta 1: Sii se conecta perfecto! Nos dejó crear la base de datos correctamente acá, incluso por las dudas revisamos tener permisos de INSERT, DELETE, etc sobre el usuario y mostraba que los teniamos
-  → Fecha de Respuesta 2: 2024-11-28T22:05:58.731Z
-      → Autor Respuesta 2: vickitoria
-          → Respuesta 2: Parece que nos la estamos mandando en el persistence, pero no sabemos muy bien adonde 😣
-  → Fecha de Respuesta 3: 2024-11-28T23:28:08.455Z
-      → Autor Respuesta 3: vickitoria
-          → Respuesta 3: Nos esta rompiendo una vez que tratamos de iniciar sesion. Es decir, levanta bien la instancia, nos deja ir a la pantalla para loggearnos, pero cuando iniciamos sesion nos tira lo siguiente en vez de arrancar a generarse las tablas:
-  → Fecha de Respuesta 4: 2024-11-28T23:31:02.188Z
-      → Autor Respuesta 4: vickitoria
-          → Respuesta 4: mm creo que cuando capturamos el error teniamos como usuario root y despues lo cambiamos a admin porque probamos crear una nueva instancia de la base de datos a ver si era eso. Ahora está definido como admin, pero el error que tira es el mismo. Sirve mas si lo levantamos desde el intellij y te pasamos captura de ahi?
-═══════════════════════════════════════════════════════
-
-═══════════════════════════════════════════════════════
-[PREGUNTA 118]
-Buenas <@589499545491079169>! Para asegurarnos que el problema sea del persistence, cuando ejecutan **mysql -h <punto de enlace>-P 3306 -u <suUsuario> -p ** , ¿se logran conectar?
-2024-11-28T22:04:09.841Z
-
-[RESPUESTAS]
-  → Fecha de Respuesta 1: 2024-11-28T22:58:17.601Z
+  → Fecha de Respuesta 1: 2024-11-28T22:04:09.841Z
       → Autor Respuesta 1: nacho_borda
-          → Respuesta 1: No veo que haya algo mal en el persistence si pusieron bien la ruta y las credenciales. Cuando ejecutan el jar, ¿rompe directamente o les rompe al ir a registrar un usuario ya con la pagina levantada?
-  → Fecha de Respuesta 2: 2024-11-28T22:58:37.259Z
-      → Autor Respuesta 2: nacho_borda
-          → Respuesta 2: Algo que me hace ruido es que les aparezca user: root en properties habiendo definido el admin en el persistence
+          → Respuesta 1: Buenas <@589499545491079169>! Para asegurarnos que el problema sea del persistence, cuando ejecutan **mysql -h <punto de enlace>-P 3306 -u <suUsuario> -p ** , ¿se logran conectar?
+  → Fecha de Respuesta 2: 2024-11-28T22:05:31.638Z
+      → Autor Respuesta 2: vickitoria
+          → Respuesta 2: Sii se conecta perfecto! Nos dejó crear la base de datos correctamente acá, incluso por las dudas revisamos tener permisos de INSERT, DELETE, etc sobre el usuario y mostraba que los teniamos
+  → Fecha de Respuesta 3: 2024-11-28T22:05:58.731Z
+      → Autor Respuesta 3: vickitoria
+          → Respuesta 3: Parece que nos la estamos mandando en el persistence, pero no sabemos muy bien adonde 😣
+  → Fecha de Respuesta 4: 2024-11-28T22:58:17.601Z
+      → Autor Respuesta 4: nacho_borda
+          → Respuesta 4: No veo que haya algo mal en el persistence si pusieron bien la ruta y las credenciales. Cuando ejecutan el jar, ¿rompe directamente o les rompe al ir a registrar un usuario ya con la pagina levantada?
+  → Fecha de Respuesta 5: 2024-11-28T22:58:37.259Z
+      → Autor Respuesta 5: nacho_borda
+          → Respuesta 5: Algo que me hace ruido es que les aparezca user: root en properties habiendo definido el admin en el persistence
+  → Fecha de Respuesta 6: 2024-11-28T23:28:08.455Z
+      → Autor Respuesta 6: vickitoria
+          → Respuesta 6: Nos esta rompiendo una vez que tratamos de iniciar sesion. Es decir, levanta bien la instancia, nos deja ir a la pantalla para loggearnos, pero cuando iniciamos sesion nos tira lo siguiente en vez de arrancar a generarse las tablas:
+  → Fecha de Respuesta 7: 2024-11-28T23:31:02.188Z
+      → Autor Respuesta 7: vickitoria
+          → Respuesta 7: mm creo que cuando capturamos el error teniamos como usuario root y despues lo cambiamos a admin porque probamos crear una nueva instancia de la base de datos a ver si era eso. Ahora está definido como admin, pero el error que tira es el mismo. Sirve mas si lo levantamos desde el intellij y te pasamos captura de ahi?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 119]
+[PREGUNTA 117]
 buenas! una consulta con el despliegue en aws. Estoy intentando conectarme a la instancia como dice la guia pero me esta tirando el siguiente error: la instancia esta levantada y corriendo y la configuracion de ip esta abierta pero no me esta dejando
 2024-11-29T16:45:07.435Z
 
@@ -2175,7 +2158,7 @@ buenas! una consulta con el despliegue en aws. Estoy intentando conectarme a la 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 120]
+[PREGUNTA 118]
 jajajaja no hay problema Lucas, va una mas de gratis
 Ya instancie y quedo andando todo. Si yo pauso en lugar de eliminar el RDS y la instancia se puede computar algun gasto? o si lo dejo andando hasta entregar no deberia haber problema con eso
 2024-11-29T21:08:39.353Z
@@ -2187,7 +2170,7 @@ Ya instancie y quedo andando todo. Si yo pauso en lugar de eliminar el RDS y la 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 121]
+[PREGUNTA 119]
 Hola! a quien podría pedirle las correcciones de mi parcial? lo consulte con mi tutor y me dijo que cree que lo corrigió nico contreras🤔  soy del grupo 18
 2024-11-30T19:57:05.163Z
 
@@ -2198,7 +2181,7 @@ Hola! a quien podría pedirle las correcciones de mi parcial? lo consulte con mi
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 122]
+[PREGUNTA 120]
 Buenaas! Consulta este sabado voy a recuperar el segundo parcial para la promoción. Entiendo que hay que dar todo el parcial de nuevo, en este caso cuanto tendría de tiempo? Dos horas y media? Muchas gracias
 2024-12-01T17:15:31.827Z
 
@@ -2217,7 +2200,7 @@ Recordá que les recomendamos estudiar de finales, ya que tienen clases de consu
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 123]
+[PREGUNTA 121]
 <@1219766711415209984> Hola Eze buenas noches, disculpa las molestias pero nos podrian brindar las consideraciones de algun otro parcial evaluado este año para poder seguir practicando y comparando las respuestas?
 2024-12-01T23:01:02.943Z
 
@@ -2236,7 +2219,7 @@ Recordá que les recomendamos estudiar de finales, ya que tienen clases de consu
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 124]
+[PREGUNTA 122]
 Hola buenass!! Estaba repasando para dar el recuperatorio de primer parcial y me surgieron algunas dudas sobre como resolver el parcial de martes 2024 https://drive.google.com/drive/folders/1v5Zt2lbfervUqGjPYUAwLr8mhLpPydVD. Realicé el siguiente diagrama de clases y primero queria consultar:
 1) si esta correcta la implementación de modelo pregunta-respuesta como lo hice en la parte superior derecha
 2) No me quedo del todo claro el apartado de recomendaciones personalizadas y lo modelé con herencia para que sean polimorficos. Estos serían stateless ya que se le envia la PlanificacionDeViaje por parametro. Queria preguntar si es correcta esta manera de abordar dicho punto.
@@ -2260,7 +2243,7 @@ Desde ya muchas gracias!
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 125]
+[PREGUNTA 123]
 Hola buenas una consulta, hay algun caso donde deberiamos recomendar una escalacion horizontal con master-slave por sobre una escalacion con bases independientes y un load balancer? El unico caso que se me ocurre es si el sistema requiere muchas mas lecturas que escrituras pero asi todo capaz es preferible tener 2 bases independientes que puedan hacer lectura y escritura
 2024-12-04T16:08:41.102Z
 
@@ -2275,7 +2258,7 @@ https://aws.amazon.com/es/blogs/aws-spanish/scaling-your-amazon-rds-instance-ver
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 126]
+[PREGUNTA 124]
 Holaa buenas tardes, consulta en que relaciones debería usar el mappedby del ORM? Porque no me termina quedar del todo claro en que casos usarlo
 2024-12-05T18:35:30.549Z
 
@@ -2300,7 +2283,7 @@ Me parece que está muy claro y te puede sumar este link. Cualquier duda, nos av
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 127]
+[PREGUNTA 125]
 Buenos dias, les queria consultar por el punto de pasar de diagrama de componentes a diagrama de despliegue que fue evaluado en el segundo parcial. Cuando graficamos el servidor de aplicaciones, dentro siempre deberiamos poner la aplicacion que se esta ejecutando no? Porque en el ejemplo del parcial me surgió la duda si poner dentro un componente de Orders por ejemplo, pero creo que simplemente deberia ser la app
 2024-12-06T19:48:17.257Z
 
@@ -2317,7 +2300,7 @@ Buenos dias, les queria consultar por el punto de pasar de diagrama de component
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 128]
+[PREGUNTA 126]
 buenas! consulta, por que el servicio recomendador queda dentro de nuestro sistema? por el enunciado interprete que estaba fuera de nuestro dominio
 2024-12-07T00:28:15.467Z
 
@@ -2331,7 +2314,7 @@ buenas! consulta, por que el servicio recomendador queda dentro de nuestro siste
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 129]
+[PREGUNTA 127]
 Buenas tardes <@801796163367469106> , la clase pre-final de esta semana quedó grabada?
 2024-12-06T22:28:51.754Z
 
@@ -2348,7 +2331,7 @@ Buenas tardes <@801796163367469106> , la clase pre-final de esta semana quedó g
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 130]
+[PREGUNTA 128]
 Buenas! A qué hora hay que estar mañana para la revisión?
 2024-12-07T00:23:54.913Z
 
@@ -2362,7 +2345,7 @@ Buenas! A qué hora hay que estar mañana para la revisión?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 131]
+[PREGUNTA 129]
 Buenas! como va? Tengo una pregunta, puedo recuperar el sábado un tema del primer parcial y uno del segundo?
 2024-12-13T13:50:17.660Z
 
@@ -2373,7 +2356,7 @@ Buenas! como va? Tengo una pregunta, puedo recuperar el sábado un tema del prim
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 132]
+[PREGUNTA 130]
 Holaaa!!
 Estoy repasando el punto de persistencia del 2do parcial que tuvimos y me surgió la duda en el mapeado del atributo recursivo puede ser que sea simplemente una relación OneToMany contra sí misma? o sea, que en la tabla "hitos" haya una columna llamada, por ejemplo, "hitoReferenciado" o "HitoAlQueHaceRefencia", en el que esté la fk hacia el hito dependiente? o cómo se podría entender el mapeado de este atributo?
 2024-12-13T15:07:19.995Z
@@ -2385,7 +2368,7 @@ Estoy repasando el punto de persistencia del 2do parcial que tuvimos y me surgi�
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 133]
+[PREGUNTA 131]
 Hola buenas, una consulta. Con respecto al mensaje que mandaron sobre el tiempo en la corrección de las notas, yo rendi el recuperatorio y tenia pensado rendir el final este sábado. se supone que voy a poder? mas que nada por eso de que hay que anotarse 24hs antes al final. Solo para saber si estudiar para el sábado o no, no hay drama si no es posible rendir.
 2024-12-19T20:42:25.926Z
 
@@ -2399,7 +2382,7 @@ Hola buenas, una consulta. Con respecto al mensaje que mandaron sobre el tiempo 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 134]
+[PREGUNTA 132]
 Hola! estoy resolviendo el final IA- Proyectos de Investigacion y me surgio una duda, cómo puedo hacer para que Aporte se genere en el metodo realizarAporte(), le pasemos en los parametros todo lo que cada clase necesita y que el metodo siga siendo polimorfico? porque por ejemplo para donarDinero necesito el monto y los datos para realizar el pago, pero para DonarMaterial necesito la descripcion del material, pero se me rompe el polimorfismo en realizarAporte si le paso parametros distintos al metodo
 2024-12-20T00:30:40.745Z
 
@@ -2410,7 +2393,7 @@ Hola! estoy resolviendo el final IA- Proyectos de Investigacion y me surgio una 
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 135]
+[PREGUNTA 133]
 Hola buenos dias, espero que se encuentren bien. Les queria hacer una consulta porque vi esta pregunta: **Que patron o estrategia recomendaría para manejar tiempos de respuesta elevados de un servicio externo?**
 
 Se me ocurre que la respuesta seria circuit breaker porque se encarga de monitorear las solicitudes y cortar el acceso al servicio externo si detecta tiempos de respuesta excesivos o errores recurrentes, pero tambien pensé en una cola de mensajes. Cual seria la respuesta correcta?
@@ -2423,7 +2406,7 @@ Se me ocurre que la respuesta seria circuit breaker porque se encarga de monitor
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 136]
+[PREGUNTA 134]
 buenos dias! como estan?
 Una consulta, ya estan definidas las fechas de recuperacion para febrero?
 2025-01-20T14:33:03.823Z
@@ -2435,7 +2418,7 @@ Una consulta, ya estan definidas las fechas de recuperacion para febrero?
 ═══════════════════════════════════════════════════════
 
 ═══════════════════════════════════════════════════════
-[PREGUNTA 137]
+[PREGUNTA 135]
 Puede ser que no estén los links de la clase de consulta del último final de febrero?
 2025-03-29T00:54:58.263Z
 

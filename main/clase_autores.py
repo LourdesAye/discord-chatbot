@@ -7,5 +7,5 @@ class Autores:
 docentes = [
         "ezequieloescobar", "aylenmsandoval",
         "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio",
-        "valentinaalberio"
+        "valentinaalberio","nacho_borda"
 ]

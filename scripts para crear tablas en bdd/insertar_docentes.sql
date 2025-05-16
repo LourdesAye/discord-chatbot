@@ -6,4 +6,5 @@ INSERT INTO autores (nombre_autor, es_docente) VALUES
 ('facuherrera_8', TRUE),
 ('ryan129623', TRUE),
 ('facundopiaggio',TRUE),
-('valentinaalberio',TRUE);
+('valentinaalberio',TRUE),
+('nacho_borda',TRUE);

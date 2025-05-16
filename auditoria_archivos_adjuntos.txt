@@ -1,48 +1,48 @@
-2025-05-14 19:32:54,681 - DEBUG - Conteo por carpeta:
-2025-05-14 19:32:54,681 - DEBUG - 
+2025-05-15 20:20:05,729 - DEBUG - Conteo por carpeta:
+2025-05-15 20:20:05,729 - DEBUG - 
 C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1221091721383903262\images
-2025-05-14 19:32:54,682 - DEBUG -   png: 95
-2025-05-14 19:32:54,682 - DEBUG -   jpg: 19
-2025-05-14 19:32:54,682 - DEBUG -   rar: 1
-2025-05-14 19:32:54,682 - DEBUG -   pdf: 5
-2025-05-14 19:32:54,682 - DEBUG -   jpeg: 1
-2025-05-14 19:32:54,682 - DEBUG -   ogg: 3
-2025-05-14 19:32:54,682 - DEBUG -   java: 1
-2025-05-14 19:32:54,682 - DEBUG - 
+2025-05-15 20:20:05,729 - DEBUG -   png: 95
+2025-05-15 20:20:05,729 - DEBUG -   jpg: 19
+2025-05-15 20:20:05,730 - DEBUG -   rar: 1
+2025-05-15 20:20:05,730 - DEBUG -   pdf: 5
+2025-05-15 20:20:05,730 - DEBUG -   jpeg: 1
+2025-05-15 20:20:05,730 - DEBUG -   ogg: 3
+2025-05-15 20:20:05,730 - DEBUG -   java: 1
+2025-05-15 20:20:05,730 - DEBUG - 
 C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1219817856288686083\images
-2025-05-14 19:32:54,683 - DEBUG -   png: 58
-2025-05-14 19:32:54,683 - DEBUG -   jpg: 12
-2025-05-14 19:32:54,683 - DEBUG -   rar: 2
-2025-05-14 19:32:54,683 - DEBUG -   docx: 1
-2025-05-14 19:32:54,683 - DEBUG -   jpeg: 2
-2025-05-14 19:32:54,683 - DEBUG -   : 1
-2025-05-14 19:32:54,683 - DEBUG -   txt: 1
-2025-05-14 19:32:54,683 - DEBUG -   mp4: 1
-2025-05-14 19:32:54,683 - DEBUG -   pdf: 3
-2025-05-14 19:32:54,683 - DEBUG -   ogg: 2
-2025-05-14 19:32:54,683 - DEBUG -   java: 1
-2025-05-14 19:32:54,683 - DEBUG - 
+2025-05-15 20:20:05,730 - DEBUG -   png: 58
+2025-05-15 20:20:05,730 - DEBUG -   jpg: 12
+2025-05-15 20:20:05,730 - DEBUG -   rar: 2
+2025-05-15 20:20:05,730 - DEBUG -   docx: 1
+2025-05-15 20:20:05,731 - DEBUG -   jpeg: 2
+2025-05-15 20:20:05,731 - DEBUG -   : 1
+2025-05-15 20:20:05,731 - DEBUG -   txt: 1
+2025-05-15 20:20:05,731 - DEBUG -   mp4: 1
+2025-05-15 20:20:05,731 - DEBUG -   pdf: 3
+2025-05-15 20:20:05,731 - DEBUG -   ogg: 2
+2025-05-15 20:20:05,731 - DEBUG -   java: 1
+2025-05-15 20:20:05,731 - DEBUG - 
 C:\Users\lourd\Downloads\Exportación Discord Diseño de Sistemas 2024\export\1221091674248446003\images
-2025-05-14 19:32:54,683 - DEBUG -   png: 44
-2025-05-14 19:32:54,683 - DEBUG -   jpg: 4
-2025-05-14 19:32:54,683 - DEBUG -   ogg: 6
-2025-05-14 19:32:54,683 - DEBUG -   docx: 1
-2025-05-14 19:32:54,683 - DEBUG -   pdf: 1
-2025-05-14 19:32:54,683 - DEBUG - 
+2025-05-15 20:20:05,731 - DEBUG -   png: 44
+2025-05-15 20:20:05,731 - DEBUG -   jpg: 4
+2025-05-15 20:20:05,731 - DEBUG -   ogg: 6
+2025-05-15 20:20:05,731 - DEBUG -   docx: 1
+2025-05-15 20:20:05,731 - DEBUG -   pdf: 1
+2025-05-15 20:20:05,731 - DEBUG - 
 Conteo total:
-2025-05-14 19:32:54,683 - DEBUG - png: 197
-2025-05-14 19:32:54,683 - DEBUG - jpg: 35
-2025-05-14 19:32:54,683 - DEBUG - rar: 3
-2025-05-14 19:32:54,683 - DEBUG - pdf: 9
-2025-05-14 19:32:54,683 - DEBUG - jpeg: 3
-2025-05-14 19:32:54,683 - DEBUG - ogg: 11
-2025-05-14 19:32:54,683 - DEBUG - java: 2
-2025-05-14 19:32:54,683 - DEBUG - docx: 2
-2025-05-14 19:32:54,683 - DEBUG - : 1
-2025-05-14 19:32:54,683 - DEBUG - txt: 1
-2025-05-14 19:32:54,683 - DEBUG - mp4: 1
-2025-05-14 19:32:54,683 - DEBUG -  
-2025-05-14 19:32:54,689 - DEBUG - en el json 1 existen extension
+2025-05-15 20:20:05,731 - DEBUG - png: 197
+2025-05-15 20:20:05,731 - DEBUG - jpg: 35
+2025-05-15 20:20:05,731 - DEBUG - rar: 3
+2025-05-15 20:20:05,731 - DEBUG - pdf: 9
+2025-05-15 20:20:05,731 - DEBUG - jpeg: 3
+2025-05-15 20:20:05,731 - DEBUG - ogg: 11
+2025-05-15 20:20:05,731 - DEBUG - java: 2
+2025-05-15 20:20:05,731 - DEBUG - docx: 2
+2025-05-15 20:20:05,731 - DEBUG - : 1
+2025-05-15 20:20:05,731 - DEBUG - txt: 1
+2025-05-15 20:20:05,731 - DEBUG - mp4: 1
+2025-05-15 20:20:05,731 - DEBUG -  
+2025-05-15 20:20:05,786 - DEBUG - en el json 1 existen extension
 .png     102
 .jpg      18
 .pdf       5
@@ -52,7 +52,7 @@ Conteo total:
 .jpeg      1
 .java      1
 Name: count, dtype: int64
-2025-05-14 19:32:54,693 - DEBUG - en el json 2 existen extension
+2025-05-15 20:20:05,798 - DEBUG - en el json 2 existen extension
 .png     64
 .jpg     12
 .pdf      3
@@ -65,7 +65,7 @@ Name: count, dtype: int64
 .mp4      1
 .java     1
 Name: count, dtype: int64
-2025-05-14 19:32:54,697 - DEBUG - en el json 3 existen extension
+2025-05-15 20:20:05,809 - DEBUG - en el json 3 existen extension
 .png     58
 .ogg      6
 .jpg      4
