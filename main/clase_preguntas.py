@@ -7,7 +7,13 @@ frases_administrativas = ["hacerlo de forma individual","que version de java ten
                           "el repo para el TPA","se podría pedir un canal de voz","estaban mal los permisos",
                           "no tengo acceso al repositorio del TPA", "usuario de github","se puede hacer de a 3",
                           "tenemos clases","entrega del tp", "a qué hora empezaría mañana", "el tp es obligatorio?",
-                          "la clase es presencial"]
+                          "la clase es presencial","el repo para el TPA","no pude acceder al repo del equipo",
+                          "a que hora se toman","que significa el pendiente en la parte de teoria", "para promocionar",
+                          "no esten todas las PPTS","a qué hora","a que hora","me quiero inscribir al final",
+                          "doy mi presente a la noche","no encuentro mi cuaderno","a qué hora hay que estar mañana",
+                          "voy a recuperar","cual es el horario","certificado de asistencia al parcial",
+                          "si tengo para recuperar","en caso de que tenga que recuperar","consulta sobre los recus",
+                          "voy a recuperar","puedo recuperar","el parte teorico tmb sera parte del recuperatorio"]
 
 # ¿¿¿ por qué self en todas las definiciones de los métodos ??? 
 # En Python, todos los métodos de instancia deben tener self como primer parámetro para poder acceder 

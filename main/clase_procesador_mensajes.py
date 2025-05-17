@@ -11,7 +11,6 @@ from dateutil.parser import parse as parse_date
 # Redirigir prints a un archivo
 logger_msj = setup_logger('proc_mensaj','logs_procesar_mensajes.txt')
 logger_preg_unificadas = setup_logger('unif_preg','log_preguntas_unificadas.txt')
-logger_resp_validadas= setup_logger('resp_validada','log_respuesta_validadas')
 
 # Agregando restricciones de tiempo entre mensajes consecutivos de un mismo autor 
 MAX_DELTA_SEGUNDOS_MSJ = 360
