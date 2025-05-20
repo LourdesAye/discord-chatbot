@@ -31,10 +31,10 @@ def contar_palabras(texto):
 
 class Mensaje:
     def __init__(self, id_mensaje, autor, contenido, timestamp,attachments,origen):
-        self.id = id_mensaje
-        self.autor = autor
-        self.contenido = contenido
-        self.timestamp = timestamp
+        self.id = id_mensaje.lower().strip()
+        self.autor = autor.lower().strip()
+        self.contenido = contenido.lower().strip()
+        self.timestamp = timestamp.lower().strip()
         self.attachments = attachments
         self.origen = origen
 
@@ -42,10 +42,10 @@ class Mensaje:
     def from_dataframe_row(cls, row, ruta_json): # 'cls' es la clase, es como self para una instancia
         #se crea una nueva instancia de la clase usando una fila (row) (objeto serie) de un DataFrame como fuente de datos.
         return cls(   # Esto llama al constructor de la clase (es como hacer Clase(...)) para crear una nueva instancia.
-            id_mensaje=row["id"], # row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
-            autor=row["author"],
-            contenido=row["content"],
-            timestamp=row["timestamp"],
+            id_mensaje=row["id"].lower().strip(), # row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
+            autor=row["author"].lower().strip(),
+            contenido=row["content"].lower().strip(),
+            timestamp=row["timestamp"].lower().strip(),
             attachments=cls.procesar_attachments(row.get("attachments", [])), # Busca "attachments" en el diccionario row. Si existe, devuelve su valor sino [] (una lista vacía).
             origen=ruta_json)
     
@@ -63,15 +63,17 @@ class Mensaje:
         return self.autor.lower() in docentes
 
     def es_pregunta(self):
-        texto = self.contenido.lower().strip() # convierte el mensaje que esta en texto para pasarlo a minúscula y le quita los espacios que pueda tener al incio y al final
+        # el contenido del mensaje se lo pasa a minúscula y se le quita los espacios que pueda tener al incio y al final
+        texto = self.contenido.lower().strip() 
 
-        # Si contiene signos de interrogación es pregunta
+        # si contiene signos de interrogación es pregunta
         if "?" in texto or "¿" in texto:
             return True
 
-        # Si contiene alguna frase típica
+        # si contiene alguna frase típica de consulta también es pregunta
         for frase in frases_claves_preguntas:
-            if frase.lower() in texto:
+            frase_normalizada= frase.lower().strip() # por las dudas, a cada frase poner en minuscula y sacarle espacios inciles y finales
+            if  frase_normalizada in texto:
                 return True
 
         return False
@@ -99,11 +101,9 @@ class Mensaje:
             return False
     
     
-    def es_cierre_docente(self):
-        # Analiza si el contenido es una frase de cierre (genial, joya, gracias, etc.)
+    def es_cierre_docente(self): # Analiza si el contenido es una frase de cierre (genial, joya, gracias, etc.) por parte del docente
         mensaje= self.contenido.lower().strip()
-        inicio_mensaje = primeras_cinco_palabras(mensaje)
-        # Analiza si las primeras 5 palabras pueden ser una frase de cierre de alumno
+        inicio_mensaje = primeras_cinco_palabras(mensaje) # Analiza si las primeras 5 palabras pueden ser una frase de cierre del docente
         for frase in frases_cierre_docente:
             if frase in inicio_mensaje:
                 return True

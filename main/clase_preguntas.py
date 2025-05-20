@@ -1,6 +1,7 @@
 from main.clase_respuestas import Respuesta 
 from main.clase_mensajes import Mensaje
 from main.clase_autores import docentes
+from utilidades.utilidades_conversiones import convertir_a_datetime
 
 frases_administrativas = ["hacerlo de forma individual","que version de java tenemos que usar",
                           "entrega de la tarea","ayudante asignado para el tp","como exportamos el diagrama de clase",
@@ -115,8 +116,13 @@ class Pregunta:
             return False
         return True
     
-
-
-
-
+    def tiene_respuesta_validada(self):
+        # any devuelve true si al menos un elemento de la lista cumple la condición
+        # no hay problema con lista vacia: devuelve false si es asi
+        return any(respuesta.es_validada for respuesta in self.respuestas)
     
+    def es_cercana_en_tiempo(self, mensaje:Mensaje, max_delta_segundos):
+       fecha_mensaje= convertir_a_datetime(mensaje.timestamp)
+       fecha_pregunta = convertir_a_datetime(self.timestamp)
+       return (fecha_mensaje -fecha_pregunta).total_seconds() < max_delta_segundos
+

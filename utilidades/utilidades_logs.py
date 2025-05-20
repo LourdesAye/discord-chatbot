@@ -22,37 +22,38 @@ def setup_logger(name, log_file):
 # logger_pequeno_1.info('Proceso pequeño 1 en ejecución')
 # logger_pequeno_1.debug('Proceso pequeño 1 en ejecución')
 
+def guardar_pregunta_y_respuestas_en_log(pregunta, numero_pregunta, ruta_archivo):
+    with open(ruta_archivo, "a", encoding="utf-8") as f:
+        f.write("═══════════════════════════════════════════════════════\n")
+        f.write(f"[PREGUNTA {numero_pregunta}]\n")
+        f.write(pregunta.contenido + "\n")
+        f.write(pregunta.timestamp + "\n")
+        f.write("\n[RESPUESTAS]\n")
+        if pregunta.respuestas:
+            for idx, respuesta in enumerate(pregunta.respuestas, start=1):
+                f.write(f"  → Fecha de Respuesta {idx}: {respuesta.timestamp}\n")
+                f.write(f"      → Autor Respuesta {idx}: {respuesta.autor}\n")
+                f.write(f"          → Respuesta {idx}: {respuesta.contenido}\n")
+        else:
+            f.write("⚠️ No hubo respuestas para esta pregunta.\n")
+        f.write("═══════════════════════════════════════════════════════\n\n")
+
+def guardar_respuestas_sin_pregunta(respuestas_huerfanas, ruta_archivo="log_respuestas_sin_pregunta.txt"):
+    with open(ruta_archivo, "w", encoding="utf-8") as f:
+        f.write("═══════════════════════════════════════════════════════\n")
+        f.write("LOG DE RESPUESTAS SIN PREGUNTA\n")
+        f.write("═══════════════════════════════════════════════════════\n\n")
+        
+        if not respuestas_huerfanas:
+            f.write("✅ No quedaron respuestas sin pregunta.\n")
+        else:
+            for idx, respuesta in enumerate(respuestas_huerfanas, start=1):
+                f.write(f"[RESPUESTA {idx}]\n")
+                f.write(f"Fecha: {respuesta.timestamp}\n")
+                f.write(f"Autor: {respuesta.autor}\n")
+                f.write(f"Contenido: {respuesta.contenido}\n")
+                f.write("-------------------------------------------------------\n\n")
 
 
 
 
-
-
-
-
-
-
-
-
-
-import logging # permite registrar eventos en un programa
-
-def setup_logging():
-    logger = logging.getLogger() #se define un logger para manejar los registros.
-    logger.setLevel(logging.DEBUG)  # nivel de logging (DEBUG, INFO, etc.)
-
-    # Redirigir a un archivo para la carga de la base de datos
-    file_handler_1 = logging.FileHandler('log_carga_base_de_datos.txt', encoding='utf-8') # Crea un manejador de archivos que escribirá los registros en log_carga_base_de_datos.txt
-    file_handler_1.setLevel(logging.DEBUG) 
-    formatter_1 = logging.Formatter('%(asctime)s - %(message)s') # Define un formateador, estableciendo que cada línea del archivo incluirá la fecha y hora (asctime) y el mensaje.
-    file_handler_1.setFormatter(formatter_1) # Aplica el formato al manejador.
-    logger.addHandler(file_handler_1) # Agrega el manejador al logger, asegurando que los mensajes se registren en log_carga_base_de_datos.txt.
-
-    # Redirigir a un archivo para el procesamiento de los mensajes
-    file_handler_2 = logging.FileHandler('log_procesamiento_mensajes.txt', encoding='utf-8')
-    file_handler_2.setLevel(logging.DEBUG)
-    formatter_2 = logging.Formatter('%(asctime)s - %(message)s')
-    file_handler_2.setFormatter(formatter_2)
-    logger.addHandler(file_handler_2)
-
-    return logger
