@@ -48,16 +48,10 @@ class Pregunta:
         self.cerrada = True
     
     def esta_cerrada(self):
-        if self.cerrada is True:
-            return True
-        else:
-            return False
+        return self.cerrada
     
     def tiene_mismo_autor(self,mensaje: Mensaje):
-        if self.autor.lower().strip() == mensaje.autor.lower().strip():
-            return True
-        else:
-            return False
+        return self.autor== mensaje.autor
     
     def obtener_ultima_respuesta(self):
         if self.respuestas:
@@ -79,18 +73,15 @@ class Pregunta:
         self.es_administrativa = True
 
     def marcar_administrativa(self):
-        mensaje = self.contenido.lower().strip() # al contenido se lo pone en minúscula y se le quitan los espacios iniciales y finales
         # Recorremos cada frase y verificamos si está en el mensaje
         for frase in frases_administrativas:
-            frase_normalizada = frase.lower().strip()
-            if frase_normalizada in mensaje:
+            frase_normalizada = frase.lower().strip() # se ponen en minúscula y sin espacios iniciales y finales cada frase de la lista
+            if frase_normalizada in self.contenido:
                 self.marcar_estado_adminsitrativa()
     
     def es_pregunta_corta(self):
-        # Normalizar: quitar espacios y pasar a minúsculas
-        pregunta = self.contenido.strip().lower()
         # Separación por espacios en blanco y contar palabras
-        cantidad_palabras = len(pregunta.split())
+        cantidad_palabras = len(self.contenido.split())
         # Retorna True si la cantidad de palabras es menor o igual al límite
         return cantidad_palabras <= MAX_CANT_PALABRAS_PREGUNTA_SIN_CONTEXTO
     
@@ -100,19 +91,18 @@ class Pregunta:
     
     def obtener_ultima_respuesta_no_docente(self,mensaje:Mensaje):
         for respuesta in reversed(self.respuestas):
-            if respuesta.autor.lower().strip() not in docentes:
-                 if respuesta.autor.lower().strip() != mensaje.autor.lower().strip():
+            if respuesta.autor not in docentes:
+                 if respuesta.autor != mensaje.autor:
                      if self.puede_ser_respuesta_validada(respuesta):
                          return respuesta
         return None
     
     def puede_ser_respuesta_validada(self, respuesta:Respuesta) -> bool:
-        texto = respuesta.contenido.lower().strip()
         # Frases vacías o irrelevantes
-        if not texto or texto in {"hola", "hola buenas tardes", "gracias", "perfecto", "solucionado", "dale", "sisi", "sí", "si", "ok"}:
+        if not respuesta.contenido or respuesta.contenido in {"hola", "hola buenas tardes", "gracias", "perfecto", "solucionado", "dale", "sisi", "sí", "si", "ok"}:
             return False
         # Frases muy cortas que suelen ser de cierre o sin información útil
-        if len(texto.split()) <= 3:
+        if len(respuesta.contenido.split()) <= 3:
             return False
         return True
     

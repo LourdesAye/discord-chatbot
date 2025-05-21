@@ -1,6 +1,7 @@
 # ESTRUCTURAS BASES PARA CLASIFICAR MENSAJES + funciones auxiliares +  CLASE MENSAJE 
 from main.clase_autores import docentes
 import os
+import re
 
 # lista de frases comunes para detectar preguntas explícitas o implícitas
 frases_claves_preguntas = [
@@ -26,8 +27,6 @@ def primeras_cinco_palabras(texto):
 def contar_palabras(texto):
       palabras = texto.split()
       return len(palabras)
-
-
 
 class Mensaje:
     def __init__(self, id_mensaje, autor, contenido, timestamp,attachments,origen):
@@ -58,52 +57,40 @@ class Mensaje:
             resultado.append((nombre_archivo, tipo))
         return resultado # lista de tupla (nombre_archivo,tipo)
 
-    
-    def es_autor_docente(self) -> bool:
-        return self.autor.lower() in docentes
-
-    def es_pregunta(self):
-        # el contenido del mensaje se lo pasa a minúscula y se le quita los espacios que pueda tener al incio y al final
-        texto = self.contenido.lower().strip() 
-
-        # si contiene signos de interrogación es pregunta
+    def contiene_frase_clave(texto: str):
+        for frase in frases_claves_preguntas:
+            if re.search(r'\b' + re.escape(frase) + r'\b', texto):
+                return True
+            
+    def contiene_signo_interrogación(texto: str):
         if "?" in texto or "¿" in texto:
             return True
 
-        # si contiene alguna frase típica de consulta también es pregunta
-        for frase in frases_claves_preguntas:
-            frase_normalizada= frase.lower().strip() # por las dudas, a cada frase poner en minuscula y sacarle espacios inciles y finales
-            if  frase_normalizada in texto:
-                return True
+    def es_autor_docente(self) -> bool:
+        return self.autor in docentes
 
-        return False
-    
-    def es_pregunta_reconocida_manual(self):
-        frase_detectada_pregunta_manual = ["duda diferente","otro problema"]
-        texto = self.contenido.lower().strip() # convierte el mensaje que esta en texto para pasarlo a minúscula y le quita los espacios que pueda tener al incio y al final
-          # Si contiene alguna frase típica
-        for frase in frase_detectada_pregunta_manual:
-            if frase.lower() in texto.lower():
-                return True
+    def es_pregunta(self):
+        # si contiene signos de interrogación es pregunta
+        self.contiene_signo_interrogación(self.contenido)
+        # si contiene alguna frase típica de consulta también es pregunta
+        self.contiene_frase_clave(self.contenido)
         return False
             
 
     def es_cierre_alumno(self):
-        mensaje= self.contenido.lower().strip()
-        cant_palabras=contar_palabras(mensaje)
-        # Analiza si las primeras 5 palabras pueden ser una frase de cierre de alumno
-        if (cant_palabras <= 5):
-            for frase in frases_cierre_alumnos:
-                if frase in mensaje:
-                    return True
-            return False
-        else:
-            return False
+         cant_palabras=contar_palabras(self.contenido)
+         # Analiza si las primeras 5 palabras pueden ser una frase de cierre de alumno
+         if (cant_palabras <= 5):
+             for frase in frases_cierre_alumnos:
+                 if frase in self.contenido:
+                     return True
+             return False
+         else:
+             return False
     
     
     def es_cierre_docente(self): # Analiza si el contenido es una frase de cierre (genial, joya, gracias, etc.) por parte del docente
-        mensaje= self.contenido.lower().strip()
-        inicio_mensaje = primeras_cinco_palabras(mensaje) # Analiza si las primeras 5 palabras pueden ser una frase de cierre del docente
+        inicio_mensaje = primeras_cinco_palabras(self.contenido) # Analiza si las primeras 5 palabras pueden ser una frase de cierre del docente
         for frase in frases_cierre_docente:
             if frase in inicio_mensaje:
                 return True

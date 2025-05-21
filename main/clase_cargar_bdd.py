@@ -7,6 +7,7 @@ import sys
 from psycopg2.extras import RealDictCursor
 from utilidades.utilidades_logs import setup_logger
 import traceback
+from main.clase_autores import docentes 
 
 # agregando logger para seguimiento de la carga de datos
 logger_db= setup_logger('carga_db','log_persistencia_de_datos.txt')
@@ -20,7 +21,7 @@ class GestorBD:
             host=config["host"],
             port=config["port"],
         )
-        self.docentes = config["docentes"]
+        self.docentes = docentes
 
     def es_docente(self, nombre_usuario):
         return nombre_usuario in self.docentes

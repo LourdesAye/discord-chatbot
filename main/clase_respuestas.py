@@ -21,9 +21,7 @@ class Respuesta:
         self.es_corta= True
     
     def es_respuesta_corta(self):
-        # Normalizar: quitar espacios al inicio y al final, y pasar a minúsculas
-        respuesta = self.contenido.strip().lower()
-        cantidad_caracteres = len(respuesta)
+        cantidad_caracteres = len(self.contenido)
         # Retorna True si la cantidad de palabras es menor o igual al límite
         return cantidad_caracteres <= MAX_CANT_CARACTERES_RESP_CORTA
     
