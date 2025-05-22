@@ -1,0 +1,12 @@
+2025-05-21 23:40:56,581 - DEBUG -  🔵 Iniciando procesamiento del DataFrame...
+2025-05-21 23:40:56,582 - DEBUG -  ... PROCESANDO MENSAJE 1 : 'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂' 
+2025-05-21 23:40:56,582 - DEBUG - No hay preguntas abiertas al momento del análisis de cierre por tiempo.
+2025-05-21 23:40:56,582 - DEBUG - No hay preguntas abiertas al momento del análisis por cantidad máxima superada.
+2025-05-21 23:40:56,582 - DEBUG -  🔴 MENSAJE SIN PREGUNTAS ABIERTAS O CERRDAS : 'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂'. DOCENTE:  'ezequieloescobar' 
+2025-05-21 23:40:56,582 - DEBUG -  ... PROCESANDO MENSAJE 2 : 'buenas tardes, que debería tildar para instalar intellij correctamente.' 
+2025-05-21 23:40:56,582 - DEBUG - No hay preguntas abiertas al momento del análisis de cierre por tiempo.
+2025-05-21 23:40:56,582 - DEBUG - No hay preguntas abiertas al momento del análisis por cantidad máxima superada.

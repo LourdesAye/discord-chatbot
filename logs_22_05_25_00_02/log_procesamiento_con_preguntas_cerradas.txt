@@ -1,0 +1,56 @@
+2025-05-22 00:02:16,829 - DEBUG -  ✉️ Cantidad de mensajes en el json: 793
+2025-05-22 00:02:16,830 - DEBUG -  🟡 Cantidad de mensajes no vacios: 775
+2025-05-22 00:02:16,833 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 0
+2025-05-22 00:02:16,836 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-22 00:02:16,837 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 1
+2025-05-22 00:02:16,838 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 774
+2025-05-22 00:02:16,978 - DEBUG - Se tuvieron 0 registros de cierre para el archivo 1
+2025-05-22 00:02:16,981 - DEBUG -  ✅ Procesamiento completado para el archivo 1
+2025-05-22 00:02:16,981 - DEBUG -  📂 Archivos guardados para el archivo 1: chat_1_emojis_gifs_descartados.csv, chat_1_numeros_descartados.csv, chat_1_json_sin_frases_cortas.csv
+2025-05-22 00:02:16,981 - DEBUG -  📊 Resultados de procesamiento: 0 preguntas abiertas, 0 preguntas cerradas
+2025-05-22 00:02:16,981 - DEBUG -  
+2025-05-22 00:02:16,984 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-05-22 00:02:16,985 - DEBUG -  🟡 Cantidad de mensajes no vacios: 586
+2025-05-22 00:02:16,987 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 2
+2025-05-22 00:02:16,988 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-22 00:02:16,989 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 0
+2025-05-22 00:02:16,990 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 584
+2025-05-22 00:02:17,111 - DEBUG - Se tuvieron 0 registros de cierre para el archivo 2
+2025-05-22 00:02:17,111 - DEBUG -  ✅ Procesamiento completado para el archivo 2
+2025-05-22 00:02:17,111 - DEBUG -  📂 Archivos guardados para el archivo 2: chat_2_emojis_gifs_descartados.csv, chat_2_numeros_descartados.csv, chat_2_json_sin_frases_cortas.csv
+2025-05-22 00:02:17,111 - DEBUG -  📊 Resultados de procesamiento: 0 preguntas abiertas, 0 preguntas cerradas
+2025-05-22 00:02:17,111 - DEBUG -  
+2025-05-22 00:02:17,113 - DEBUG -  ✉️ Cantidad de mensajes en el json: 622
+2025-05-22 00:02:17,114 - DEBUG -  🟡 Cantidad de mensajes no vacios: 604
+2025-05-22 00:02:17,115 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 1
+2025-05-22 00:02:17,118 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-22 00:02:17,119 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 1
+2025-05-22 00:02:17,119 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 602
+2025-05-22 00:02:17,239 - DEBUG - Se tuvieron 0 registros de cierre para el archivo 3
+2025-05-22 00:02:17,239 - DEBUG -  ✅ Procesamiento completado para el archivo 3
+2025-05-22 00:02:17,239 - DEBUG -  📂 Archivos guardados para el archivo 3: chat_3_emojis_gifs_descartados.csv, chat_3_numeros_descartados.csv, chat_3_json_sin_frases_cortas.csv
+2025-05-22 00:02:17,239 - DEBUG -  📊 Resultados de procesamiento: 0 preguntas abiertas, 0 preguntas cerradas
+2025-05-22 00:02:17,239 - DEBUG -  
+2025-05-22 00:02:17,239 - DEBUG -  🔍 Cantidad de procesadores generados: 3
+2025-05-22 00:02:17,239 - DEBUG -  🗃️ Conectándose a la base de datos...
+2025-05-22 00:02:17,394 - DEBUG - ✔️ Preguntas cerradas: 0 
+2025-05-22 00:02:17,394 - DEBUG -  ✔️ Preguntas sin contexto detectadas: 0 
+2025-05-22 00:02:17,394 - DEBUG -  
+2025-05-22 00:02:17,394 - DEBUG -  🔢 Analizando el json número : 1 ... 
+2025-05-22 00:02:17,395 - DEBUG -  ✅ Cantidad de Preguntas a Procesar: 0
+2025-05-22 00:02:17,395 - DEBUG -  ✅ Cantidad de Respuestas a Procesar: 0
+2025-05-22 00:02:17,395 - DEBUG - ✔️ Preguntas cerradas: 0 
+2025-05-22 00:02:17,395 - DEBUG -  ✔️ Preguntas sin contexto detectadas: 0 
+2025-05-22 00:02:17,395 - DEBUG -  
+2025-05-22 00:02:17,395 - DEBUG -  🔢 Analizando el json número : 2 ... 
+2025-05-22 00:02:17,395 - DEBUG -  ✅ Cantidad de Preguntas a Procesar: 0
+2025-05-22 00:02:17,395 - DEBUG -  ✅ Cantidad de Respuestas a Procesar: 0
+2025-05-22 00:02:17,395 - DEBUG - ✔️ Preguntas cerradas: 0 
+2025-05-22 00:02:17,395 - DEBUG -  ✔️ Preguntas sin contexto detectadas: 0 
+2025-05-22 00:02:17,395 - DEBUG -  
+2025-05-22 00:02:17,395 - DEBUG -  🔢 Analizando el json número : 3 ... 
+2025-05-22 00:02:17,395 - DEBUG -  ✅ Cantidad de Preguntas a Procesar: 0
+2025-05-22 00:02:17,395 - DEBUG -  ✅ Cantidad de Respuestas a Procesar: 0
+2025-05-22 00:02:17,396 - DEBUG -  ✅ La cantidad total de preguntas generadas : 0
+2025-05-22 00:02:17,396 - DEBUG -  ✅ La cantidad total de respuestas generadas : 0
+2025-05-22 00:02:17,396 - DEBUG -  💾 Conexión cerrada y datos guardados.
