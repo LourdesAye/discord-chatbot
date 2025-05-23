@@ -1,6 +1,0 @@
-2025-05-21 23:40:56,561 - DEBUG -  ✉️ Cantidad de mensajes en el json: 793
-2025-05-21 23:40:56,565 - DEBUG -  🟡 Cantidad de mensajes no vacios: 775
-2025-05-21 23:40:56,567 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 0
-2025-05-21 23:40:56,569 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
-2025-05-21 23:40:56,570 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 1
-2025-05-21 23:40:56,571 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 774

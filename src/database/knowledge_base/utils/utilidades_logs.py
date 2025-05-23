@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 
 # Ruta base donde estarán todas las carpetas de logs con timestamp
-DIR_BASE = "C:\\Users\\lourd\\Downloads\\python_con_json\\obtener_preguntas_y_respuestas"
+DIR_BASE = "C:\\Users\\lourd\\Downloads\\python_con_json\\obtener_preguntas_y_respuestas\\logs"
 
 # Generar nombre de carpeta con fecha y hora
 FECHA_LOG = datetime.now().strftime("logs_%d_%m_%y_%H_%M")

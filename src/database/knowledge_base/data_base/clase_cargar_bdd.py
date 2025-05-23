@@ -6,6 +6,7 @@ from psycopg2.extras import RealDictCursor
 from database.knowledge_base.utils.utilidades_logs import setup_logger
 import traceback
 from database.knowledge_base.models.clase_autores import docentes 
+from database.knowledge_base.utils.utilidades_logs import guardar_pregunta_y_respuestas_en_log
 
 # agregando logger para seguimiento de la carga de datos
 logger_db= setup_logger('carga_db','log_persistencia_de_datos.txt')
@@ -184,36 +185,3 @@ class GestorBD:
     def cerrar_conexion(self):
         self.conn.commit()
         self.conn.close()
-
-    def guardar_pregunta_y_respuestas_en_log(self,pregunta, numero_pregunta, ruta_archivo):
-        with open(ruta_archivo, "a", encoding="utf-8") as f:
-            f.write("═══════════════════════════════════════════════════════\n")
-            f.write(f"[PREGUNTA {numero_pregunta}]\n")
-            f.write(pregunta.contenido + "\n")
-            f.write(pregunta.timestamp + "\n")
-            f.write("\n[RESPUESTAS]\n")
-            if pregunta.respuestas:
-                for idx, respuesta in enumerate(pregunta.respuestas, start=1):
-                    f.write(f"  → Fecha de Respuesta {idx}: {respuesta.timestamp}\n")
-                    f.write(f"      → Autor Respuesta {idx}: {respuesta.autor}\n")
-                    f.write(f"          → Respuesta {idx}: {respuesta.contenido}\n")
-            else:
-                f.write("⚠️ No hubo respuestas para esta pregunta.\n") # no debería llegar aca en el log base
-            f.write("═══════════════════════════════════════════════════════\n\n")
-        
-    def guardar_pregunta_sin_respuesta_en_log(self,pregunta, numero_pregunta, ruta_archivo, numero_nuevo):
-        with open(ruta_archivo, "a", encoding="utf-8") as f:
-            f.write("═══════════════════════════════════════════════════════\n")
-            f.write(f"[PREGUNTA {numero_nuevo}]\n")
-            f.write(f"[PREGUNTA CON SU NÚMERO ORIGINAL {numero_pregunta}]\n")
-            f.write(pregunta.contenido + "\n")
-            f.write(pregunta.timestamp + "\n")
-            f.write("\n[RESPUESTAS]\n")
-            if pregunta.respuestas:
-                for idx, respuesta in enumerate(pregunta.respuestas, start=1):
-                    f.write(f"  → Fecha de Respuesta {idx}: {respuesta.timestamp}\n")
-                    f.write(f"      → Autor Respuesta {idx}: {respuesta.autor}\n")
-                    f.write(f"          → Respuesta {idx}: {respuesta.contenido}\n")
-            else:
-                f.write("⚠️ No hubo respuestas para esta pregunta.\n") # deberia llegar siempre a esta parte
-            f.write("═══════════════════════════════════════════════════════\n\n")
