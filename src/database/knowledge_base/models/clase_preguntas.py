@@ -16,10 +16,22 @@ frases_administrativas = ["hacerlo de forma individual","que version de java ten
                           "si tengo para recuperar","en caso de que tenga que recuperar","consulta sobre los recus",
                           "voy a recuperar","puedo recuperar","el parte teorico tmb sera parte del recuperatorio",
                           "creamos 1 solo repositorio","que temas se trataron el dia","podre usar vue para el maquetado",
-                          "a los que vamos al recu","el cronograma dice que"
+                          "a los que vamos al recu","el cronograma dice que","corrigen ahi mismo",
                           "los enunciados de los recuperatorios de estas últimas 2 fechas están subidos en algún lado?",
-                          "en su momento no pude unirme al repo de mi grupo",
-                          "por casualidad grabaciones d clases de años anteriores hay"]
+                          "en su momento no pude unirme al repo de mi grupo","clase de consulta antes del final",
+                          "por casualidad grabaciones d clases de años anteriores hay", "felices pascuas",
+                          "el mismo sábado sería la colecta de juguetes","hoy es en medrano?","esta bien subido asi",
+                          "quería avisar que no voy a poder estar en la clase de hoy", "hoy no hay clase?",
+                          "mañana hay clase? pregunto por el paro", "en qué fecha serían los recuperatorios de febrero",
+                          "consulta, el aula es la de siempre 277? o la 4?","en el aula virtual ya se encuentra disponible la práctica 2",
+                          "aquellos que estamos en situacion de rendir final, vamos a poder anotarnos para rendirlo este sabado 7/12",
+                          "tendrias el link ? por que no lo encuentro","en la lista de alumnos me figura otro mail",
+                          " estaba revisando el cronograma para este jueves", " quien entregó también solo la primera parte",
+                          "en la entrega del aula menciona que agregremos todo","consulta que es mas personal", "alumnos que no aparecíamos en las actas?",
+                          "tenemos que corregir su tp","corregir el tp","me pasa el link del repo","corregir su tp",
+                          "hay algún apunte para leer antes de la clase de hoy","estoy con faringo-amigdalitis", "hoy cursamos en el aula",
+                          "cosa que vi en el campus para editar","no esté subida la clase de este miércoles",
+                          "las actividades de mañana son grupales"]
 
 # ¿¿¿ por qué self en todas las definiciones de los métodos ??? 
 # En Python, todos los métodos de instancia deben tener self como primer parámetro para poder acceder 
