@@ -16,7 +16,7 @@ frases_administrativas = ["hacerlo de forma individual","que version de java ten
                           "si tengo para recuperar","en caso de que tenga que recuperar","consulta sobre los recus",
                           "voy a recuperar","puedo recuperar","el parte teorico tmb sera parte del recuperatorio",
                           "creamos 1 solo repositorio","que temas se trataron el dia","podre usar vue para el maquetado",
-                          "a los que vamos al recu","el cronograma dice que","corrigen ahi mismo",
+                          "a los que vamos al recu","el cronograma dice que","corrigen ahi mismo", "voy a recuperar",
                           "los enunciados de los recuperatorios de estas últimas 2 fechas están subidos en algún lado?",
                           "en su momento no pude unirme al repo de mi grupo","clase de consulta antes del final",
                           "por casualidad grabaciones d clases de años anteriores hay", "felices pascuas",
@@ -31,7 +31,9 @@ frases_administrativas = ["hacerlo de forma individual","que version de java ten
                           "tenemos que corregir su tp","corregir el tp","me pasa el link del repo","corregir su tp",
                           "hay algún apunte para leer antes de la clase de hoy","estoy con faringo-amigdalitis", "hoy cursamos en el aula",
                           "cosa que vi en el campus para editar","no esté subida la clase de este miércoles",
-                          "las actividades de mañana son grupales"]
+                          "las actividades de mañana son grupales"," votamos todos los miembros del grupo",
+                          "yo mañana trabajo y no puedo ir a la clase","los temas que entran al segundo parcial",
+                          "tiempo en la corrección de las notas","fechas de recuperacion para febrero"]
 
 # ¿¿¿ por qué self en todas las definiciones de los métodos ??? 
 # En Python, todos los métodos de instancia deben tener self como primer parámetro para poder acceder 
