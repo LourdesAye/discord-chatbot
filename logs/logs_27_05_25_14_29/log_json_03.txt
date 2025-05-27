@@ -1,0 +1,1051 @@
+═══════════════════════════════════════════════════════
+[PREGUNTA 1]
+hola profe, buenos días. tenía una consulta sobre el material de lectura para la segunda clase (03/04/2024). ¿lo estarían subiendo en estos días? muchas gracias y felices pascuas 😄
+2024-03-28t10:10:17.883z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-28t12:18:03.266z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buen día martín, cómo va? sí, les estaremos dejando el material de lectura durante estos días así tienen tiempo de hacerlo!
+gracias y felices pascuaes también para vos!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 2]
+buenas tardes, una duda muy pequeña: en el seminario de java se habla de dependencia. es un sinonimo de biblioteca o se diferencia en algo?
+2024-03-28t21:51:50.505z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-28t22:28:31.082z
+      → Autor Respuesta 1: facundopiaggio
+          → Respuesta 1: buenas nico! como bien mencionas, en este caso son sinonimos. 
+
+si no me equivoco (tomalo con pinzas) existe una pequeña diferencia, y es que la dependencia se encarga maven de instalarla/actualizarla etc, nosotros solo ponemos el "link" en el pom.xml.
+por otro lado una biblioteca/libreria, nosotros somos los encargados de realizar las instalacion y mantenerla actualizada ante cada update.
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 3]
+buenas noches, disculpen las molestias. una consulta: en el seminario java hablan de una version y la muestran en el powershell, pero a la hora de instalar lo que dice el aula virtual es otra version distinta esta de aca esta bien o tenemos que instalar la que dice el semianrio?
+2024-03-28t23:27:33.467z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-28t23:59:05.972z
+      → Autor Respuesta 1: facundopiaggio
+          → Respuesta 1: tenes la version correcta!! si no me equivoco en el momento en el que se hizo este seminario se usaba java 8. a partir del 2022 creo que lo cambiaron a java 17, asi que esta todo en orden 😁
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 4]
+buenos dias, disculpen las molestias. les hago una consulta: en el seminario hablan sobre agregar "dependencies" al archivo "pom.xml" de la parte de maven, el archivo que tengo en el editor es distinto al que muestran en el seminario pero intente agregarlo igual siguiendo los pasos las dependencias se agregan igual que se muestra en el seminario? o en esta version esta en otro lado? cuando intento sincronizar me aparece este error
+2024-03-29t13:40:54.361z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-29t13:43:57.720z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buen día nicolas! el ide te está diciendo que tenes errores de sintaxis en el archivo pom.xml. revisalo. la estructura es exactamente la misma... cuando creaste un nuevo proyecto seguramente se te inicializó con alguna que otra dependencia, a las cuales no les des bolilla a menos que entren en colisión con alguna que estás queriendo agregar
+  → Fecha de Respuesta 2: 2024-03-29t13:45:56.516z
+      → Autor Respuesta 2: nicolasbru
+          → Respuesta 2: soy un capo, lo estaba poniendo afuera del <proyect>
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 5]
+buenas, tenía una consulta sobre la práctica, me encontraba haciendo las relaciones en el diagrama de clases pero no me termino de decidir si en la relación inscripcion - materia es una relación de composición (ya que las materias sin las inscripciones no servirían) o si es de dependencia (ya que la inscripcion conoce/hace uso de las materias). desde ya muchas y disculpen las molestias.
+2024-03-29t15:28:22.729z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-29t15:30:38.960z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: martín, buen día! de dependencia no sería porque inscripción tiene como atributo a materias, por lo tanto ya la relación es asociación simple - agregación o composición. ¿por qué las materias no tienen sentido sin inscripciones? ¿el ciclo de vida de ambas abstracciones van de la mano? pensalo!!
+  → Fecha de Respuesta 2: 2024-03-29t19:04:23.262z
+      → Autor Respuesta 2: facundopiaggio
+          → Respuesta 2: buenas nico! usa el arquetipo que se llama "quickstart" o algo así, buscalo y dale a ese. respecto a las colecciones, cuando tengas el proyecto armado con este arquetipo, si te sigue tirando el error que asumo que es el de "cannot resolve symbol" lo vemos!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 6]
+hola!
+tengo una consulta técnica de java: en una clase se puede declarar una lista en donde el tipo sea la clase misma? 
+por ejemplo, tengo una clase "materia" y quiero que tenga un atributo "correlativas" que sea una lista donde, justamente, el tipo sea una "materia"
+2024-03-29t23:49:31.979z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-29t23:50:29.341z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: hola gustavo! sí, es posible.
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 7]
+buenas tardes, una consulta sobre la creación de proyectos. al momento de crear me aparece para elegir el arquetipo. hice algo mal? porque en el seminario no muestran que se elija algún tipo de arquetipo para crear el proyecto hablando del tema, al elegir el primer arquetipo tampoco me deja agregar las colecciones "list" por lo que tampoco se si es de eso el problema o de otro error de instalación.
+2024-03-29t18:37:01.016z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-29t19:04:23.262z
+      → Autor Respuesta 1: facundopiaggio
+          → Respuesta 1: buenas nico! usa el arquetipo que se llama "quickstart" o algo así, buscalo y dale a ese. respecto a las colecciones, cuando tengas el proyecto armado con este arquetipo, si te sigue tirando el error que asumo que es el de "cannot resolve symbol" lo vemos!
+  → Fecha de Respuesta 2: 2024-03-29t23:50:29.341z
+      → Autor Respuesta 2: ezequieloescobar
+          → Respuesta 2: hola gustavo! sí, es posible.
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 8]
+buenas noches, quería consultar si para el tp anual vamos a tener como un repo que nos dan ustedes o creamos el nuestro y después subimos el link a algún lado? gracias!
+2024-03-30t03:52:35.291z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-30t04:11:07.615z
+      → Autor Respuesta 1: lucassaclier
+          → Respuesta 1: nosotros les vamos a dar un repositorio! luego les pasaremos los pasos para obtenerlo.
+  → Fecha de Respuesta 2: 2024-03-30t04:12:23.212z
+      → Autor Respuesta 2: nazarenolopez
+          → Respuesta 2: gracias lucas! felices pascuas y buen finde
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 9]
+buenas noches, tengo una duda al momento de crear el proyecto. no me aparece sdk como en el video y solo tengo la opción de eclipse y no me aparece java aunque chequee por consola y lo tengo instalado
+2024-03-31t00:35:48.846z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-31t00:41:21.293z
+      → Autor Respuesta 1: lucassaclier
+          → Respuesta 1: elías, vos instalaste intellij con java 17? revisá si tenés la jdk de java y qué versión instalada.
+  → Fecha de Respuesta 2: 2024-03-31t02:42:28.203z
+      → Autor Respuesta 2: tino.trossero
+          → Respuesta 2: buenas nochess, tengo una duda sobre los diagramas de clases. el el caso de que una clase a tenga como atributo a un objeto de una clase b (asociacion), pero ademas, el a haga uso tmb del b  en un metodo del a (dependencia/uso), se ponen ambas flechas? hay alguna jerarquia?
+  → Fecha de Respuesta 3: 2024-03-31t02:51:17.982z
+      → Autor Respuesta 3: facundopiaggio
+          → Respuesta 3: buenas! se pueden poner ambas flechas, y sería lo correcto en términos de uml. sin embargo, si las flechas de "usa" terminan ensuciando el diagrama, entonces no se ponen. ahora bien, si la flecha de "usa" es la única que conecta a una de las dos clases si o si tiene que estar, pues de otra manera quedaría una clase en el aire que no está conectada con nada.
+  → Fecha de Respuesta 4: 2024-03-31t02:51:57.271z
+      → Autor Respuesta 4: tino.trossero
+          → Respuesta 4: joya, gracias!
+  → Fecha de Respuesta 5: 2024-03-31t03:16:15.966z
+      → Autor Respuesta 5: eliasolivencia
+          → Respuesta 5: no no . ahora lo instale y me sale esto. esta bien ?
+  → Fecha de Respuesta 6: 2024-03-31t03:19:12.230z
+      → Autor Respuesta 6: facundopiaggio
+          → Respuesta 6: por lo que veo está bien! proba de armarte un proyecto con esa configuración que figura en la imagen, y si compila y anda todo, entonces ya estaría! 👌
+  → Fecha de Respuesta 7: 2024-03-31t03:19:35.123z
+      → Autor Respuesta 7: eliasolivencia
+          → Respuesta 7: joya gracias . cualquier cosa aviso!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 10]
+hola buenas, tengo una consulta, cuando arme mi primer proyecto me tira este error: "plugin 'maven-compiler-plugin:3.1' not found"
+pero yo si tengo esa carpeta, cual podría estar siendo el error?
+2024-03-31t22:14:01.903z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-03-31t22:33:07.890z
+      → Autor Respuesta 1: facundopiaggio
+          → Respuesta 1: buenas ivan. el pom que nos mostras ahí, ¿fue autogenerado por el ide al crear el proyecto y vos lo modificaste según lo que viste en el seminario? ¿o lo dejaste tal cual se generó?
+  → Fecha de Respuesta 2: 2024-03-31t22:34:31.323z
+      → Autor Respuesta 2: ivanerazun
+          → Respuesta 2: nono, agregué lo del build del seminario, que cuando arme el proyecto no venia en el template. igual compilan creo los programas, ahora que chequie 
+
+...
+hello world!
+
+process finished with exit code 0
+  → Fecha de Respuesta 3: 2024-03-31t22:35:50.394z
+      → Autor Respuesta 3: yuvoyx
+          → Respuesta 3: probé esta solución, no sé si está bien:
+file > invalidate caches > invalidate and restart y le das directo al botón sin marcar nada. ahí me dejó de chillar
+  → Fecha de Respuesta 4: 2024-04-01t01:08:45.778z
+      → Autor Respuesta 4: estebanpalmisano
+          → Respuesta 4: buenas. cuando pruebo en la terminal me tira este error
+  → Fecha de Respuesta 5: 2024-04-01t01:19:30.170z
+      → Autor Respuesta 5: aylenmsandoval
+          → Respuesta 5: buenas esteban! tenés instalado maven en tu computadora?
+  → Fecha de Respuesta 6: 2024-04-01t01:51:03.577z
+      → Autor Respuesta 6: estebanpalmisano
+          → Respuesta 6: si
+  → Fecha de Respuesta 7: 2024-04-01t01:51:22.086z
+      → Autor Respuesta 7: estebanpalmisano
+          → Respuesta 7: capaz se descargo mal o algo, pero no se
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 11]
+seria hacer eso no?
+2024-04-01t02:01:09.823z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-01t02:02:41.199z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: entiendo que la tenes que colocar dentro de path
+  → Fecha de Respuesta 2: 2024-04-01t02:05:06.645z
+      → Autor Respuesta 2: estebanpalmisano
+          → Respuesta 2: osea copiar la dirección y copiarla dentro de path?
+  → Fecha de Respuesta 3: 2024-04-01t02:05:30.129z
+      → Autor Respuesta 3: estebanpalmisano
+          → Respuesta 3: de esta forma seria
+  → Fecha de Respuesta 4: 2024-04-01t02:05:56.483z
+      → Autor Respuesta 4: estebanpalmisano
+          → Respuesta 4: pero sigue dando error la terminal cuando pongo mvn -version
+  → Fecha de Respuesta 5: 2024-04-01t02:08:18.967z
+      → Autor Respuesta 5: estebanpalmisano
+          → Respuesta 5: ya pude!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 12]
+buenas, una consulta en java se pueden inicializar listas de esta forma: listadecosas= [cosa1,cosa2,cosa3]
+2024-04-01t21:15:48.439z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-01t21:22:38.568z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buenas! cerca el ide y volvelo a abrir. si sigue, intenta abrir el proyecto de nuevo. también podes revisar el tema de las vistas (en la barra de herramientas, donde dice “project”)
+  → Fecha de Respuesta 2: 2024-04-01t21:22:49.809z
+      → Autor Respuesta 2: ezequieloescobar
+          → Respuesta 2: buenas! no, no es posible.
+  → Fecha de Respuesta 3: 2024-04-01t21:30:25.320z
+      → Autor Respuesta 3: lord_bardo
+          → Respuesta 3: mmmm
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 13]
+hola! una duda, no me estaria apareciendo la carpeta src en mi proyecto
+2024-04-01t21:11:01.037z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-01t21:22:38.568z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buenas! cerca el ide y volvelo a abrir. si sigue, intenta abrir el proyecto de nuevo. también podes revisar el tema de las vistas (en la barra de herramientas, donde dice “project”)
+  → Fecha de Respuesta 2: 2024-04-01t21:22:49.809z
+      → Autor Respuesta 2: ezequieloescobar
+          → Respuesta 2: buenas! no, no es posible.
+  → Fecha de Respuesta 3: 2024-04-01t21:33:24.829z
+      → Autor Respuesta 3: estebanpalmisano
+          → Respuesta 3: buenas. cuando cambie el pom como en el seminario me tira este error
+  → Fecha de Respuesta 4: 2024-04-01t21:49:32.457z
+      → Autor Respuesta 4: estebanpalmisano
+          → Respuesta 4: sisi ahi lo vi
+  → Fecha de Respuesta 5: 2024-04-01t21:49:34.246z
+      → Autor Respuesta 5: estebanpalmisano
+          → Respuesta 5: gracias!
+  → Fecha de Respuesta 6: 2024-04-01t22:39:15.954z
+      → Autor Respuesta 6: ivanerazun
+          → Respuesta 6: puede ser que no estes incluyendo el import
+  → Fecha de Respuesta 7: 2024-04-01t22:40:44.109z
+      → Autor Respuesta 7: ryan129623
+          → Respuesta 7: posiblemente te falte el import
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 14]
+<@690329080750669925> te fijaste si algo de esto te ayuda?
+2024-04-01t21:37:53.717z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-01t21:49:32.457z
+      → Autor Respuesta 1: estebanpalmisano
+          → Respuesta 1: sisi ahi lo vi
+  → Fecha de Respuesta 2: 2024-04-01t21:49:34.246z
+      → Autor Respuesta 2: estebanpalmisano
+          → Respuesta 2: gracias!
+  → Fecha de Respuesta 3: 2024-04-01t22:38:39.487z
+      → Autor Respuesta 3: franmeza
+          → Respuesta 3: hola buenas, cuáles pueden ser los motivos del error "cannot resolve symbol 'list'" (idem para arraylist)?
+  → Fecha de Respuesta 4: 2024-04-01t22:39:15.954z
+      → Autor Respuesta 4: ivanerazun
+          → Respuesta 4: puede ser que no estes incluyendo el import
+  → Fecha de Respuesta 5: 2024-04-01t22:40:44.109z
+      → Autor Respuesta 5: ryan129623
+          → Respuesta 5: posiblemente te falte el import
+  → Fecha de Respuesta 6: 2024-04-01t22:40:55.359z
+      → Autor Respuesta 6: facuherrera_8
+          → Respuesta 6: buenas! para este tipo de consultas, recomiendo siempre primero probar googleando, generalmente siempre hay alguna respuesta de stackoverflow. también pueden utilizar chatgpt. investiguen!
+  → Fecha de Respuesta 7: 2024-04-01t22:44:10.593z
+      → Autor Respuesta 7: ferrami
+          → Respuesta 7: hola eze, ya intente reiniciar intelli j , cerrar y abrir el proyecto o crear otro nuevo
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 15]
+hola buenas, cuáles pueden ser los motivos del error "cannot resolve symbol 'list'" (idem para arraylist)?
+2024-04-01t22:38:39.487z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-01t22:39:15.954z
+      → Autor Respuesta 1: ivanerazun
+          → Respuesta 1: puede ser que no estes incluyendo el import
+  → Fecha de Respuesta 2: 2024-04-01t22:40:44.109z
+      → Autor Respuesta 2: ryan129623
+          → Respuesta 2: posiblemente te falte el import
+  → Fecha de Respuesta 3: 2024-04-01t22:40:55.359z
+      → Autor Respuesta 3: facuherrera_8
+          → Respuesta 3: buenas! para este tipo de consultas, recomiendo siempre primero probar googleando, generalmente siempre hay alguna respuesta de stackoverflow. también pueden utilizar chatgpt. investiguen!
+  → Fecha de Respuesta 4: 2024-04-01t22:44:10.593z
+      → Autor Respuesta 4: ferrami
+          → Respuesta 4: hola eze, ya intente reiniciar intelli j , cerrar y abrir el proyecto o crear otro nuevo
+  → Fecha de Respuesta 5: 2024-04-01t22:44:26.253z
+      → Autor Respuesta 5: ferrami
+          → Respuesta 5: esta ventana decis? no me doy cuenta que tendria que poner
+  → Fecha de Respuesta 6: 2024-04-01t22:46:03.469z
+      → Autor Respuesta 6: facuherrera_8
+          → Respuesta 6: buenas! consulta, probaste a abrir el proyecto seleccionando el pom en vez de una carpeta? puede que estes abriendo una que intellij no detecta de forma correcta y por eso se trula. por otro lado, si accedes a la carpeta del proyecto desde el explorador de archivos, tenes la carpera src?
+  → Fecha de Respuesta 7: 2024-04-01t22:52:19.985z
+      → Autor Respuesta 7: franmeza
+          → Respuesta 7: cuál sería?
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 16]
+buenas profes cómo andan? por motivos personales no voy a poder sumarme a la clase del miercoles, quería saber si será grabada y subida al drive. muchas gracias
+2024-04-01t23:00:35.198z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-01t23:01:19.698z
+      → Autor Respuesta 1: lucassaclier
+          → Respuesta 1: si lucas, la subiremos luego al drive! gracias por el aviso!
+  → Fecha de Respuesta 2: 2024-04-01t23:04:19.700z
+      → Autor Respuesta 2: aylenmsandoval
+          → Respuesta 2: preguntarle a una ia fue lo primero que
+  → Fecha de Respuesta 3: 2024-04-01t23:12:11.720z
+      → Autor Respuesta 3: ferrami
+          → Respuesta 3: hola lucas, gracias, ahi se soluciono, si alguno le pasa lo mismo, en arquitectura seleccione quickstart, disculpen se me paso ese detalle
+  → Fecha de Respuesta 4: 2024-04-01t23:15:12.510z
+      → Autor Respuesta 4: lucassaclier
+          → Respuesta 4: buenísimo, me alegro! es importante espiar para arriba, seguro alguien recomendó o dejó algún tip!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 17]
+buen dia ! una consulta, esta bien subido asi ? o hay algo que no va
+2024-04-02t14:19:37.803z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-02t14:23:26.834z
+      → Autor Respuesta 1: axellopez1812
+          → Respuesta 1: buen día. consulta: el método “boolean aprobada()” que figura en la consigna de la tarea de la semana, es posible agregarle parámetros o debe funcionar así tal cual como está en la consigna?
+  → Fecha de Respuesta 2: 2024-04-02t14:23:47.095z
+      → Autor Respuesta 2: ryan129623
+          → Respuesta 2: individual la idea es que puedan poner a punto el entorno de trabajo y hagan un primer ejercicio
+  → Fecha de Respuesta 3: 2024-04-02t14:24:32.799z
+      → Autor Respuesta 3: ryan129623
+          → Respuesta 3: que queres agregarle y para que?
+  → Fecha de Respuesta 4: 2024-04-02t14:28:46.756z
+      → Autor Respuesta 4: axellopez1812
+          → Respuesta 4: para agregarle como parámetro un alumno por ejemplo.
+  → Fecha de Respuesta 5: 2024-04-02t14:29:54.192z
+      → Autor Respuesta 5: juancri14
+          → Respuesta 5: genial, gracias.
+  → Fecha de Respuesta 6: 2024-04-02t14:32:32.608z
+      → Autor Respuesta 6: aylenmsandoval
+          → Respuesta 6: buenas, sí!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 18]
+buenas! hay que utilizar alguna librería de maven para la tarea? porque estoy con varios problemas al instalar maven
+2024-04-02t15:46:52.571z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-02t15:48:13.842z
+      → Autor Respuesta 1: facuherrera_8
+          → Respuesta 1: buenas! que problemas estas teniendo? estas usando intellij?
+  → Fecha de Respuesta 2: 2024-04-02t15:49:33.906z
+      → Autor Respuesta 2: skalusti
+          → Respuesta 2: estaba viendo el seminario de java que hay que ver y me puse a instalar maven. pero no estaría pudiendo abrir el archivo siquiera
+  → Fecha de Respuesta 3: 2024-04-02t15:58:35.838z
+      → Autor Respuesta 3: aylenmsandoval
+          → Respuesta 3: ya tenés instalada la jdk de java? qué archivo estás queriendo abrir? porque maven tiene dos formas de instalarlo
+  → Fecha de Respuesta 4: 2024-04-02t16:00:30.570z
+      → Autor Respuesta 4: skalusti
+          → Respuesta 4: ya instalé la jdk. pero quiero abrir el instalador de  maven en mac y no me lo toma. busque online y todavía no lo puedo resolver
+  → Fecha de Respuesta 5: 2024-04-02t16:02:13.932z
+      → Autor Respuesta 5: aylenmsandoval
+          → Respuesta 5: https://www.digitalocean.com/community/tutorials/install-maven-mac-os fijate si este te sirve! por lo que veo es la misma idea que en windows, definir la variable de entorno java_home para la jdk y luego descomprimir un archivo zip de maven y definir una variable de entorno para maven
+  → Fecha de Respuesta 6: 2024-04-02t16:10:18.104z
+      → Autor Respuesta 6: facuherrera_8
+          → Respuesta 6: si usas intellij, no es necesario instalar maven por separado, ya que viene integrado en el mismo ide. si vas a usar otro ide, debería ser lo que dijo <@801796163367469106> !
+  → Fecha de Respuesta 7: 2024-04-02t16:10:30.271z
+      → Autor Respuesta 7: skalusti
+          → Respuesta 7: ahhhh
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 19]
+buenas! estoy tratando de correr los tests de la tarea, pero me tira este error, alguien sabe porque es? estoy hace un rato, y no encuentro la línea del error
+2024-04-02t23:04:52.387z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-02t23:06:53.331z
+      → Autor Respuesta 1: facuherrera_8
+          → Respuesta 1: buenas! sin ver el código, pero viendo el error, entiendo que estas queriendo agregarle un elemento a una colección que no esta inicializada. si revisas el trace, podes ver que esto te esta pasando en la linea 28 de la clase materia, mas específicamente en el metodo agregarcorrelativas().
+  → Fecha de Respuesta 2: 2024-04-02t23:10:55.619z
+      → Autor Respuesta 2: skalusti
+          → Respuesta 2: ahhh, si, si. lo acabo de encontrar. para inicializar una lista vacía, se pone algo en particular? porque nome toma el [] ni el {}
+  → Fecha de Respuesta 3: 2024-04-02t23:12:41.690z
+      → Autor Respuesta 3: facuherrera_8
+          → Respuesta 3: podes chequear este link: https://www.geeksforgeeks.org/initializing-a-list-in-java/amp/
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 20]
+buenas tardes profes, disculpen la molestia. les hago la siguiente consulta: en la clase anterior, respecto a la practica entregable "validador de inscripciones", se nos referencio a realizar el primer punto nada mas (si mal no recuerdo, puedo estar errado) pero en el aula virtual se nos hace referencia a los tres puntos. lo hacemos como dice en el aula virtual?
+2024-04-02t18:02:38.006z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-02t18:08:13.101z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buenas tardes! los tres puntos hay que hacer. fíjate el mensaje que dejamos en <#1219817856288686086>
+  → Fecha de Respuesta 2: 2024-04-02t19:02:39.770z
+      → Autor Respuesta 2: matiascarasi
+          → Respuesta 2: buenas! con <@435609076534214667> estamos buscando grupo, si a alguien les faltan dos que nos avise!
+  → Fecha de Respuesta 3: 2024-04-02t23:06:53.331z
+      → Autor Respuesta 3: facuherrera_8
+          → Respuesta 3: buenas! sin ver el código, pero viendo el error, entiendo que estas queriendo agregarle un elemento a una colección que no esta inicializada. si revisas el trace, podes ver que esto te esta pasando en la linea 28 de la clase materia, mas específicamente en el metodo agregarcorrelativas().
+  → Fecha de Respuesta 4: 2024-04-02t23:12:41.690z
+      → Autor Respuesta 4: facuherrera_8
+          → Respuesta 4: podes chequear este link: https://www.geeksforgeeks.org/initializing-a-list-in-java/amp/
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 21]
+buenos dias profes, les hago una consulta. habra alguna manera de descargar el der del seminario? (del ejemplo "aeropuerto" que se utilizo para explicarlo)
+2024-04-03t14:49:15.462z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-03t14:56:26.408z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: hola nicolás! asumo te referís al diagrama de clases, https://github.com/dds-utn/vuelos-aeropuertos/blob/main/diagrama_de_clases_propuesto.png clona el repo y descargalo de ahi 🙂
+  → Fecha de Respuesta 2: 2024-04-03t19:13:13.547z
+      → Autor Respuesta 2: martinsintas
+          → Respuesta 2: buenas profes, tenía una duda. en el aula virtual ya se encuentra disponible la práctica 2, se puede ir haciendo o es necesario ver antes los contenidos de la clase de hoy? 
+gracias y nos vemos en unas horas 😄
+  → Fecha de Respuesta 3: 2024-04-03t19:25:38.582z
+      → Autor Respuesta 3: ezequieloescobar
+          → Respuesta 3: hola martín! cómo estás? no es necesario, lo veremos hoy durante la clase. si querés mirarlo  y encararlo, por curiosidad simplemente, más que bienvenido!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 22]
+buenos días profes, tenía una consulta sobre una parte del enunciado de tp donde se menciona que las viandas pueden "opcionalmente" ingresar el peso de la vianda y las calorias de la misma. estuve investigando un poco y encontré que java.util tiene la clase optional. ¿sirve para ser usada como atributo o tendría que pensar en otra implementación? desde ya muchas gracias 😄
+2024-04-04t15:51:48.655z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-04t15:56:31.537z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: buen día martín! en primer lugar, aclarar que próximamente cuando te contactes con tus tutores las consultas del tp las vas a tener que centralizar con ellos. en segundo lugar, lo que preguntás quiere decir es que el peso y calorías pueden estar o no. se puede usar lo que mencionas o simplemente comprender que son atributos que pueden no estar inicializados. usen lo que les resulta más cómodo.
+  → Fecha de Respuesta 2: 2024-04-04t15:57:25.522z
+      → Autor Respuesta 2: axellopez1812
+          → Respuesta 2: buen día. vi que en la planilla de los grupos del curso no figura mi mail.  axlopez@frba.utn.edu.ar
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 23]
+hola buenas! una consulta 
+dario y yo figuramos que no existimos en el excel
+https://docs.google.com/spreadsheets/d/1yzfe0hyner5nrbcr8snwbqzk3jzdubf8533g2k15_t8/edit?pli=1#gid=0
+linea 87 y 89, que deberiamos hacer para solucionarlo? 
+muchas gracias
+2024-04-04t17:04:26.113z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-04t17:06:04.392z
+      → Autor Respuesta 1: axellopez1812
+          → Respuesta 1: igual que alan por acá
+  → Fecha de Respuesta 2: 2024-04-04t17:09:13.536z
+      → Autor Respuesta 2: ezequieloescobar
+          → Respuesta 2: están por cambio de curso? <@742372678211731579>  también para vos y darío la consulta. de no ser así, ¿qué curso les figura en el siu?
+  → Fecha de Respuesta 3: 2024-04-04t17:10:09.226z
+      → Autor Respuesta 3: axellopez1812
+          → Respuesta 3: en el k3052 me figura en el siu. no estoy por cambio de curso. no sé si puede llegar a influir que estoy en el plan k23.
+  → Fecha de Respuesta 4: 2024-04-04t17:11:44.888z
+      → Autor Respuesta 4: mau18
+          → Respuesta 4: buenas tardes. yo también tengo el mismo problema. me fijura el curso k3052. no estoy por cambio de curso.
+  → Fecha de Respuesta 5: 2024-04-04t17:23:07.100z
+      → Autor Respuesta 5: lucassaclier
+          → Respuesta 5: consultamos y revisamos. no se preocupen, lo vamos a resolver en conjunto!
+  → Fecha de Respuesta 6: 2024-04-04t17:36:21.314z
+      → Autor Respuesta 6: dariogatica
+          → Respuesta 6: hola, yo no estoy por cambio de curso y en el siu me figura k3052
+  → Fecha de Respuesta 7: 2024-04-05t00:19:51.420z
+      → Autor Respuesta 7: ryan129623
+          → Respuesta 7: @everyone  mil disculpas por poner que no existian es que cuando bajamos las actas en ese momento del siu aun no estaban por eso el “no existen” .. no quisiera que se mal interprete era para reclamar en las actas
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 24]
+tendrias el link ? por que no lo encuentro
+2024-04-05t17:50:45.594z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-05t17:51:25.765z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: drive del curso (link en webcampus), luego carpeta grabaciones
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 25]
+buenass, disculpen las molestias, cuando puedan podrían subir la clase grabada del miércoles? está en el drive, no dije nada. disculpen jajaj
+2024-04-05t15:15:42.975z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-05t17:51:25.765z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: drive del curso (link en webcampus), luego carpeta grabaciones
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 26]
+buenas! quería saber si esta disponible el diagrama de clases de "tendencias musicales"
+2024-04-07t19:44:42.843z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-07t20:26:38.420z
+      → Autor Respuesta 1: nachovilla
+          → Respuesta 1: buenas! te puedo ofrecer la implementacion :
+https://github.com/dds-utn/tendencias-musicales
+  → Fecha de Respuesta 2: 2024-04-07t20:39:16.973z
+      → Autor Respuesta 2: lucass__00
+          → Respuesta 2: buenas!! como estan?? perdon por molestar, pero en la lista de alumnos me figura otro mail. el mio seria lsarappa@frba.utn.edu.ar. mas que nada queria avisarlo por si se generaba algun problema para cuando nos asignen los repos de github. gracias!!
+  → Fecha de Respuesta 3: 2024-04-07t20:57:05.463z
+      → Autor Respuesta 3: tino.trossero
+          → Respuesta 3: graciass
+  → Fecha de Respuesta 4: 2024-04-07t23:06:19.267z
+      → Autor Respuesta 4: ryan129623
+          → Respuesta 4: mañana lo reveo ahora no estoy en casa
+  → Fecha de Respuesta 5: 2024-04-07t23:07:34.071z
+      → Autor Respuesta 5: ryan129623
+          → Respuesta 5: idem a lo de marcelo .. cuando armamos las planillas era lo que figuraba en el siu en ese momento y se ve q después q les aceptaron fueron ajustado
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 27]
+me aparece aca, entiendo que ya lo levanta no?
+2024-04-09t01:29:26.330z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-09t01:59:35.593z
+      → Autor Respuesta 1: tino.trossero
+          → Respuesta 1: graciasss
+  → Fecha de Respuesta 2: 2024-04-09t03:12:39.130z
+      → Autor Respuesta 2: lucassaclier
+          → Respuesta 2: araceli, fijate de utilizar la jdk 17, actualizar el pom (como indicó ezequiel en clase) y probar el hello world.
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 28]
+buen día gente, consulta. con respecto a la práctica entregable que anunciaron hace un rato que se realiza de a pares, ¿está la posibilidad de realizarlo de a 3? porque al menos en nuestro grupo somos 5
+2024-04-11t12:52:35.052z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-11t13:51:12.006z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: emiliano, buen día! todos los grupos son de 5, pero pedimos que la práctica sea de a pares. pueden hacer dupla con cualquier compañero del curso.
+  → Fecha de Respuesta 2: 2024-04-11t17:17:25.640z
+      → Autor Respuesta 2: lucho_23
+          → Respuesta 2: buenas tardes, para la implementación del mapa de las heladeras, en qué parte del repositorio asignado puedo subirlo? pensaba en crear una carpeta en src con el contenido de html, css y js utilizado. porque las demás carpetas dentro de src tienen que ver con el proyecto en java
+  → Fecha de Respuesta 3: 2024-04-11t18:30:08.166z
+      → Autor Respuesta 3: ezequieloescobar
+          → Respuesta 3: buenas! pueden crear una branch aparte, llamada "mapa", y ponerlo ahí dentro en una carpeta situada en la raíz.
+  → Fecha de Respuesta 4: 2024-04-11t18:30:55.107z
+      → Autor Respuesta 4: ezequieloescobar
+          → Respuesta 4: el dominio cuenta un poco y nos lleva a interpretar que esa acción la realizan personal de la ong
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 29]
+buenas, tengo una pregunta respecto al tp anual. en la parte de registrar a las personas en situación vulnerable, quien seria el encargado de hacerlo? es para hacer el diagrama de cu
+2024-04-11t18:02:29.454z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-11t18:30:08.166z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buenas! pueden crear una branch aparte, llamada "mapa", y ponerlo ahí dentro en una carpeta situada en la raíz.
+  → Fecha de Respuesta 2: 2024-04-11t18:30:55.107z
+      → Autor Respuesta 2: ezequieloescobar
+          → Respuesta 2: el dominio cuenta un poco y nos lleva a interpretar que esa acción la realizan personal de la ong
+  → Fecha de Respuesta 3: 2024-04-11t21:21:18.471z
+      → Autor Respuesta 3: nicolasbru
+          → Respuesta 3: buenas tardes profes, una consulta: en la consigna del tp de a pares estoy con una intriga, porque no se si el texto se esta contradiciendo o yo lo estoy entendiendo mal.
+
+segun el contexto general (1ra imagen) podrá escoger a "sus cuidadores" pero luego en el punto 3 (2da imagen) nos dice que "puede haber un solo cuidador"
+
+que debemos tener en cuenta? que tiene uno o mas cuidadores?
+  → Fecha de Respuesta 4: 2024-04-11t21:25:25.453z
+      → Autor Respuesta 4: facundopiaggio
+          → Respuesta 4: buenas nico! como bien mencionas, el enunciado dice "puede haber un solo cuidador" es decir que cantidad de cuidadores puede ser = 1, pero no esta obligado a ser uno. en otras palabras, cantidad de cuidadores posibles >= 1. vos podes elegir a varios, o si quisieras a uno solo
+  → Fecha de Respuesta 5: 2024-04-11t22:12:08.323z
+      → Autor Respuesta 5: martinsintas
+          → Respuesta 5: buenas! estaba con mi compañero haciendo la práctica entregable del final "cuidándonos". menciona que en el mismo se puede implementar código, pseudo-código, prosa u otros diagramas. 
+a su vez, en la entrega del aula menciona que agregremos todo lo que consideremos "necesario" ¿se hace referencia a la implementación en java?
+  → Fecha de Respuesta 6: 2024-04-11t22:33:31.605z
+      → Autor Respuesta 6: ezequieloescobar
+          → Respuesta 6: exactamente martín!
+  → Fecha de Respuesta 7: 2024-04-11t23:55:14.275z
+      → Autor Respuesta 7: nicoopin
+          → Respuesta 7: disculpen, queria hacer una consulta con respecto al rol de discord. soy del grupo 25 y solo se me habilitó el chat de voz mientras que mis compañeros tienen ambos
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 30]
+buenas! perdón por la consulta que es mas personal, pero el miércoles pasado no me pude conectar a la clase, mi grupo me compartió el link del repo del tp, el cual ayer no pude entrar por ser privado. hay alguna manera que pueda ingresar al repo? gracias!
+2024-04-12t18:33:31.738z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-12t18:34:37.394z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: háblame por privado que te ayudo
+  → Fecha de Respuesta 2: 2024-04-12t20:32:23.334z
+      → Autor Respuesta 2: juanibencardino
+          → Respuesta 2: buenaas, estamos con el ejercicio de cuidandonos de a pares, y estamos trabadisimos. por lo que vi hay 20 dias restantes de entrega, falta ver algo muuy importante para resolverlo? o deberiamos poder encararlo sin drama. hicimos algo pero notamos que no cierra por un lado, probamos otra cosa y tampoco cierra.
+  → Fecha de Respuesta 3: 2024-04-12t21:47:00.763z
+      → Autor Respuesta 3: ezequieloescobar
+          → Respuesta 3: hola juani! deberían poder resolverlo
+  → Fecha de Respuesta 4: 2024-04-12t21:48:30.602z
+      → Autor Respuesta 4: facundopiaggio
+          → Respuesta 4: una recomendación que les podemos dar es que traten de hacerlo lo más simple posible!
+  → Fecha de Respuesta 5: 2024-04-12t21:56:10.793z
+      → Autor Respuesta 5: ezequieloescobar
+          → Respuesta 5: cualquier cosa nos van preguntando por privado!!
+  → Fecha de Respuesta 6: 2024-04-12t22:40:19.737z
+      → Autor Respuesta 6: juanibencardino
+          → Respuesta 6: genial! gracias
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 31]
+buenas noches, tengo una duda sobre la actividad "cuidandonos"
+¿se puede entregar un pseudocodigo indicando como se relacionarian y comunicarian las clases, sin necesidad de implementar todo?
+2024-04-13t23:00:53.773z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-13t23:03:47.739z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: dale, está bien! siempre y cuando se entienda lo que están queriendo transmitir
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 32]
+buenas tardes, unas consultas quizás un poco especificas:
+1- para el tp de a pares es necesario implementar la api que nos indica en la consigna?
+2- en caso de que la pregunta sea 1 sea negativa: nos seria de utilidad ya ir implementándola para el tp anual? porque en este también vamos a utilizar implementaciones de google maps
+2024-04-14t18:27:24.113z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-14t18:42:52.170z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: hola nico! en realidad no hay que implementar una api, sino dejar modelado en el dominio la conexión con la api de distance matrix, no es lo mismo 🙂 (pensá que patrón de diseño visto te puede ayudar para representar eso...). ¿a esa parte del enunciado te referís?
+ por el lado del tp anual, en esta entrega, la implementación del mapa está desacoplada del dominio, todavía no hace falta que estén sincronizados los puntos con datos reales del tp!
+  → Fecha de Respuesta 2: 2024-04-14t18:45:53.828z
+      → Autor Respuesta 2: nicolasbru
+          → Respuesta 2: muchas gracias por la respuesta profe!!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 33]
+hola a todos! perdon la hora :)
+estabamos haciendo la actividad cuidandonos y tenemos una duda existencial je.
+en el punto 7 entendemos que tenemos que usar un patron strategy para hacer extensible los posibles nuevos casos de reaccion pero no sabemos muy bien como hacer para pasarles parametros distintos que necesita cada uno de los metodos. (el primero la lista de cuidadores, el tercero el celular, etc) algo que recomienden para terminar de entender este concepto?
+se me ocurre agregar esos datos como atributos de la clase de "contexto" (la persona activa) pero no me parece muy bonito
+2024-04-16t02:50:23.649z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-16t02:52:09.968z
+      → Autor Respuesta 1: lucassaclier
+          → Respuesta 1: buenas noches lautaro, ¿cómo estás?¿y por qué no a la estrategia?
+  → Fecha de Respuesta 2: 2024-04-16t02:54:10.428z
+      → Autor Respuesta 2: petrogol
+          → Respuesta 2: osea, podriamos agregar el celular, el numero de la policia, los cuidadores, etc a la clase abstract y en el caso de una nueva estrategia que requiera otro parametro, solo deberiamos agregarlo (el nuevo parametro) a la clase abstract?
+  → Fecha de Respuesta 3: 2024-04-16t02:54:47.066z
+      → Autor Respuesta 3: lucassaclier
+          → Respuesta 3: decía a la concreta
+  → Fecha de Respuesta 4: 2024-04-16t02:54:54.995z
+      → Autor Respuesta 4: petrogol
+          → Respuesta 4: ahhhh
+  → Fecha de Respuesta 5: 2024-04-16t02:58:35.306z
+      → Autor Respuesta 5: petrogol
+          → Respuesta 5: y para cambiar de estrategia, le pasaria como parametro al metodo la clase concreta elegida directamente?
+  → Fecha de Respuesta 6: 2024-04-16t02:59:31.443z
+      → Autor Respuesta 6: lucassaclier
+          → Respuesta 6: en el strategy, como no se conocen, alguien tiene que definir e instanciar esa clase concreta.
+  → Fecha de Respuesta 7: 2024-04-16t03:01:41.554z
+      → Autor Respuesta 7: petrogol
+          → Respuesta 7: entendido!
+mil gracias lucas y perdon la hora!!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 34]
+buenas! una consulta sobre la clase de mañana, hay algún material de lectura recomendado o simplemente hay que repasar lo visto en las clases anteriores? 
+muchas gracias y nos vemos mañana 😄
+2024-04-16t14:02:45.843z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-16t15:53:09.227z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buen día martín! mañana vamos a estar conversando sobre temas de arquitectura. pero repasen lo anterior porque <@410226816125763607>  tiene preparado algo para ustedes!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 35]
+consulta. leyendo la parte de la segunda entrega dice: 
+"para realizar la distribución de tarjetas se deberá incorporar una nueva forma de colaborar para las personas humanas llamada “registro de personas en situación vulnerable”."
+a quien le creemos? 🙁
+2024-04-17t18:09:09.026z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-17t18:30:31.246z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: eso es de la segunda entrega, focalizá en la entrega 1. por algo están ordenadas durante el año!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 36]
+buenas! hubo alguna novedad con respecto a los alumnos que no aparecíamos en las actas? gracias!
+2024-04-18t22:52:41.827z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-19t00:11:47.588z
+      → Autor Respuesta 1: lucassaclier
+          → Respuesta 1: buenas noches axel, ahí hicimos una actualización de la planilla. los que siguen sin aparecer en acta o están con cambio de curso, seguimos esperando y revisando cada algunas semanas! si ustedes lo ven bien de su lado, no duden en decirnos para ajustarlo a la brevedad.
+  → Fecha de Respuesta 2: 2024-04-19t00:31:35.877z
+      → Autor Respuesta 2: axellopez1812
+          → Respuesta 2: muchas gracias, lucas. ahí vi que ya aparezco con el plan nuevo 💪🏻
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 37]
+buenas tardes, cual sería la diferencia entre estas dos flechas del patron strategy? porque la flecha verde es de asociación la roja no sé
+2024-04-20t18:46:12.483z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-20t18:47:30.251z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: buenas luciano! como tal en el diagrama de clases no tiene función, la roja es nomás para unir la clase contexto con su pseudocódigo 😄
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 38]
+buenas, recien terminamos el punto 1 de lo d emodelado de dominio y nos serviria una opinion de como lo hicimos x que tenemos dudas, puedo enviar el diagrama por aca?
+2024-04-20t19:52:35.034z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-20t19:55:24.851z
+      → Autor Respuesta 1: fede_02
+          → Respuesta 1: <@757767776159924335> <@467001774742700032>  buenas, ya esta subido a algún lado el resumen de api que compartieron en clase?
+  → Fecha de Respuesta 2: 2024-04-20t20:03:01.831z
+      → Autor Respuesta 2: aylenmsandoval
+          → Respuesta 2: si! manden lo que necesiten🤗
+  → Fecha de Respuesta 3: 2024-04-20t20:07:34.919z
+      → Autor Respuesta 3: aylenmsandoval
+          → Respuesta 3: quieren dejar algunas dudas en particular que tengan y contestamos todo junto?
+  → Fecha de Respuesta 4: 2024-04-20t21:12:08.991z
+      → Autor Respuesta 4: ceci.24
+          → Respuesta 4: buenas, les quería consultar si podrían cambiarme de grupo en github, porque accidentalmente me uní a "ma-ma-grupo-13" pero me correspondía "mi-no-grupo-13", mi user es cecic24. muchas gracias 🙂
+  → Fecha de Respuesta 5: 2024-04-20t21:15:29.907z
+      → Autor Respuesta 5: lord_bardo
+          → Respuesta 5: nos cuesta verlo sin codearlo, osea, lo resolvimos en base a como nos lo imaginamos que seria en codigo
+  → Fecha de Respuesta 6: 2024-04-20t21:15:55.273z
+      → Autor Respuesta 6: lord_bardo
+          → Respuesta 6: la responsabilidad de hacer las notificaciones entendimos que es de viaje
+  → Fecha de Respuesta 7: 2024-04-20t21:16:23.334z
+      → Autor Respuesta 7: lord_bardo
+          → Respuesta 7: no tenemos una duda en particular creo, es mas una duda de como lo planteamos, pensando asi en el codigo
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 39]
+buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2024-04-20t22:37:18.778z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-20t22:38:42.506z
+      → Autor Respuesta 1: ryan129623
+          → Respuesta 1: cada clase de por si puede tener atributos propios publicos o privados
+  → Fecha de Respuesta 2: 2024-04-20t22:40:04.310z
+      → Autor Respuesta 2: ryan129623
+          → Respuesta 2: si esa clase es hija de una herencia ademas de tener por herencia los atributos y métodos del padre podrá tener sus propios métodos y atributos
+  → Fecha de Respuesta 3: 2024-04-20t22:41:09.671z
+      → Autor Respuesta 3: nachovilla
+          → Respuesta 3: buenas! listo el cambio de grupo, confirmame si podes ver los cambios!
+  → Fecha de Respuesta 4: 2024-04-20t22:42:35.773z
+      → Autor Respuesta 4: ceci.24
+          → Respuesta 4: sí perfecto, muchas gracias!!
+  → Fecha de Respuesta 5: 2024-04-20t22:59:28.489z
+      → Autor Respuesta 5: aylenmsandoval
+          → Respuesta 5: ok! perfecto, ya les contesto
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 40]
+**consulta tp anual**
+nos surgieron dos dudas sobre esto:
+alinear la política de longitud, complejidad y rotación de contraseñas con las recomendaciones de la sección 5.1.1.2 para secretos memorizados de la guía nist 800-63
+
+1) ¿a que se refiere exactamente con complejidad y rotación de contraseñas? 
+
+2) en la guía también menciona esto: "memorized secrets shall be salted and hashed using a suitable one-way key derivation function. key derivation functions take a password, a salt, and a cost factor as inputs then generate a password hash".
+
+y esto: "if unicode characters are accepted in memorized secrets, the verifier should apply the normalization process for stabilized strings using either the nfkc or nfkd normalization defined in section 12.1 of unicode standard annex 15 [uax 15]."
+
+¿se pretende que también lo implementemos?
+2024-04-21t03:18:13.628z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-21t04:18:03.881z
+      → Autor Respuesta 1: lucassaclier
+          → Respuesta 1: buenas noches rocío y equipo,
+
+1) la complejidad de la contraseña se basa en la longitud y tipo de caracteres que se utilizan. la rotación se refiere a que la contraseña de debe cambiar cada un cierto tiempo y no se podría utilizar la misma nuevamente.
+
+2) es una recomendación técnica de la guía y está vinculado a cómo se almacena la contraseña. no es necesario considerarlo. lo pueden considerar más adelante en caso que quieran guardar la contraseña de forma segura.
+
+que tengan lindo fin de semana!
+  → Fecha de Respuesta 2: 2024-04-21t04:24:39.656z
+      → Autor Respuesta 2: facundo_gs
+          → Respuesta 2: gracias lucas. igualmente! disculpen la hora.
+  → Fecha de Respuesta 3: 2024-04-21t04:27:40.254z
+      → Autor Respuesta 3: lucassaclier
+          → Respuesta 3: no hay problema! apenas se puede, les tratamos de responder! 
+esto lo digo en general (no lo tomen personal) para tp y parcial, aprovechen las semanas anteriores para generar las dudas más importantes, así les podemos ir respondiendo con tiempo y de mejor manera. si necesitan algo durante el domingo, no duden en escribir, apenas se puede, les respondemos!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 41]
+buenas tardes! estaba revisando el cronograma para este jueves (1era entrega de tp 24/04) y por lo que entiendo no tenemos clase. nuestros tutores de tp se van a poner en contacto con nosotros ese día para corregirlo?
+2024-04-22t21:57:22.742z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-22t21:58:34.656z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buenas! contacten ustedes a sus tutores y pregunten horarios de entrega! ese día es solo entrega.
+  → Fecha de Respuesta 2: 2024-04-23t01:27:51.116z
+      → Autor Respuesta 2: aylenmsandoval
+          → Respuesta 2: <@830646287116402739> buenas! paso a contestarte. 
+
+1. simultáneamente, no, pero existe una forma de reaccionar que involucra a cualquier otra!
+2. claro, es una configuración propia de cada viaje.
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 42]
+hola buenas 
+les hago dos consultas sobre el final cuidándonos.
+1.cuando en el ítem  7 menciona que el usuario puede configurar distintas acciones,el usuario puede configurar más de una acción para que se ejecute simultáneamente?
+2.respecto al punto 2 cuando menciona que el transeunete puede elegir cuanto tiempo  se detendrá en cada parada o si irá avisando su estado;esto lo hace por viaje entiendo o sea un viaje puede elegir una manera y otro viaje otra manera y dependiendo de qué forma elija se calcula el tiempo del viaje de manera diferente?
+2024-04-23t00:31:50.767z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-23t01:27:51.116z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: <@830646287116402739> buenas! paso a contestarte. 
+
+1. simultáneamente, no, pero existe una forma de reaccionar que involucra a cualquier otra!
+2. claro, es una configuración propia de cada viaje.
+  → Fecha de Respuesta 2: 2024-04-23t01:45:05.618z
+      → Autor Respuesta 2: gonzalopalilla
+          → Respuesta 2: hola
+perfecto, ahi me quedo claro
+gracias
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 43]
+hola buenas! les podré consultar si en el sistema que debemos diagramar para la entrega de cuidandonos, el usuario puede cambiar entre ser transeúnte y cuidador? 2. para que una persona sea cuidadora de otra deberá tener instalada la aplicación; o sea que al menos deberá
+ser un usuario pasivo. se considera usuario activo a aquel que solicita los acompañamientos.
+2024-04-25t20:12:25.232z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-25t20:16:35.798z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: hola nico! si, la persona que se instala la app debe poder cuidar o ser cuidado (no en el mismo momento 🙂 )
+  → Fecha de Respuesta 2: 2024-04-25t21:23:25.238z
+      → Autor Respuesta 2: agustindubreucq
+          → Respuesta 2: buenas, a nosotros nos surgio las siguientes dudas al plantear el ejercicio de "cuidándonos":
+1) si una persona puede realizar ciertas acciones dependiendo el rol que esta teniendo en ese momento. como podriamos modelar eso, ¿podríamos ponerle x ejemplo el atributo viaje, y si ese atributo es null asumir que puede realizar todos los métodos, y si tiene un viaje asumir que es transeúnte por ende no puede realizar acciones relacionadas a un cuidador?
+
+2) nos hace ruido el tema de las notificaciones( o solicitar algo a otro usuario). x ejemplo al confirmar el viaje los cuidadores seleccionados deben poder aceptar o no el viaje. o sea cada tipo de notificaciones podría ser un método del cuidador? o cada notificaciones una clase distinta y la persona tiene un método recibir notificación( pero seria un montón de if para saber que notificación es y que accion realizar, medio raro) ?
+
+eso es lo que nos esta trabando
+  → Fecha de Respuesta 3: 2024-04-25t21:40:49.456z
+      → Autor Respuesta 3: aylenmsandoval
+          → Respuesta 3: en realidad, en tiempo de ejecucion si. es decir que con la app corriendo el usuario podria utilizar, en algunos momentos, la app como viajero y en otras cuidando a otros viajeros. se entiende?
+  → Fecha de Respuesta 4: 2024-04-25t21:42:04.933z
+      → Autor Respuesta 4: aylenmsandoval
+          → Respuesta 4: hola agustin! lo que comentas en el 1) se podria resolver en otra capa. en la capa de dominio se tienen que enfocar en modelar las clases que te permitan hacer un viaje o que como cuidador te notifiquen de como viene el viaje de otra persona!
+2)  esas acciones que comentas, cuales serian?
+  → Fecha de Respuesta 5: 2024-04-26t00:52:14.060z
+      → Autor Respuesta 5: agustindubreucq
+          → Respuesta 5: clarisimo!
+en las acciones me refiero a x ejemplo cuando el cuidador es notificado para aceptar un viaje, tiene que realizar la accion de aceptar o rechazar que entiendo que no la debería poder hacer hasta que no le llegue dicha notificación.
+o tambien el hecho de que el la accion de comenzar el viaje depende de que algun cuidador haya aceptado el viaje
+  → Fecha de Respuesta 6: 2024-04-26t00:52:22.897z
+      → Autor Respuesta 6: agustindubreucq
+          → Respuesta 6: o capaz estoy entendiendo mal las resposabilidades y la notificación puede verse como solo un mensaje, y el hecho de poder o no realizar  la accion que corresponde depende del método
+  → Fecha de Respuesta 7: 2024-04-26t01:35:11.749z
+      → Autor Respuesta 7: aylenmsandoval
+          → Respuesta 7: en esta capa podes ver solo como un mensaje a la notificacion, lo de aceptar un viaje no es responsabilidad de esta capa porque es con un boton!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 44]
+osea que no pueden cambiar en tiempo de ejecución ?
+2024-04-25t20:30:44.739z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-25t21:23:25.238z
+      → Autor Respuesta 1: agustindubreucq
+          → Respuesta 1: buenas, a nosotros nos surgio las siguientes dudas al plantear el ejercicio de "cuidándonos":
+1) si una persona puede realizar ciertas acciones dependiendo el rol que esta teniendo en ese momento. como podriamos modelar eso, ¿podríamos ponerle x ejemplo el atributo viaje, y si ese atributo es null asumir que puede realizar todos los métodos, y si tiene un viaje asumir que es transeúnte por ende no puede realizar acciones relacionadas a un cuidador?
+
+2) nos hace ruido el tema de las notificaciones( o solicitar algo a otro usuario). x ejemplo al confirmar el viaje los cuidadores seleccionados deben poder aceptar o no el viaje. o sea cada tipo de notificaciones podría ser un método del cuidador? o cada notificaciones una clase distinta y la persona tiene un método recibir notificación( pero seria un montón de if para saber que notificación es y que accion realizar, medio raro) ?
+
+eso es lo que nos esta trabando
+  → Fecha de Respuesta 2: 2024-04-25t21:40:49.456z
+      → Autor Respuesta 2: aylenmsandoval
+          → Respuesta 2: en realidad, en tiempo de ejecucion si. es decir que con la app corriendo el usuario podria utilizar, en algunos momentos, la app como viajero y en otras cuidando a otros viajeros. se entiende?
+  → Fecha de Respuesta 3: 2024-04-25t21:42:04.933z
+      → Autor Respuesta 3: aylenmsandoval
+          → Respuesta 3: hola agustin! lo que comentas en el 1) se podria resolver en otra capa. en la capa de dominio se tienen que enfocar en modelar las clases que te permitan hacer un viaje o que como cuidador te notifiquen de como viene el viaje de otra persona!
+2)  esas acciones que comentas, cuales serian?
+  → Fecha de Respuesta 4: 2024-04-26t00:52:14.060z
+      → Autor Respuesta 4: agustindubreucq
+          → Respuesta 4: clarisimo!
+en las acciones me refiero a x ejemplo cuando el cuidador es notificado para aceptar un viaje, tiene que realizar la accion de aceptar o rechazar que entiendo que no la debería poder hacer hasta que no le llegue dicha notificación.
+o tambien el hecho de que el la accion de comenzar el viaje depende de que algun cuidador haya aceptado el viaje
+  → Fecha de Respuesta 5: 2024-04-26t00:52:22.897z
+      → Autor Respuesta 5: agustindubreucq
+          → Respuesta 5: o capaz estoy entendiendo mal las resposabilidades y la notificación puede verse como solo un mensaje, y el hecho de poder o no realizar  la accion que corresponde depende del método
+  → Fecha de Respuesta 6: 2024-04-26t01:35:11.749z
+      → Autor Respuesta 6: aylenmsandoval
+          → Respuesta 6: en esta capa podes ver solo como un mensaje a la notificacion, lo de aceptar un viaje no es responsabilidad de esta capa porque es con un boton!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 45]
+buenas! teníamos dos consultas sobre el tp cuidándonos.
+1. respecto a las posibles reacciones del sistema. el mensaje de alerta es configurado por el usuario? está predeterminado por el sistema?
+2. la otra es respecto a reconocer que pertenece a la capa de ui y que al modelo de dominio. a partir de algo que se ejecuta en la interfaz de usuario deberíamos pensar que métodos son llamados? 
+por ejemplo: 
+tenemos el botón "confirmar cuidadores", el cual llamaría al constructor de la clase viaje y a un método que notifique a los cuidadores?
+o el botón "comenzar", el cual llamaría al método calculartiempodedemora() y un método que notifique a los cuidadores?
+2024-04-26t21:53:00.938z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-27t21:55:57.992z
+      → Autor Respuesta 1: facundo_gs
+          → Respuesta 1: qué tal aylu?
+1. como mensaje de alerta me refería al texto que se envía a los cuidadores en especifico cuando la reacción seleccionada por el usuario es "enviar un *mensaje* de alerta a sus cuidadores",  ese también lo determina el usuario? no sé si entendió la consulta previa.
+1.2 entonces el usuario puede tener una reacción configurada en su perfil, pero al realizar un viaje, elegir una que remplaza a la setteada solo por esa instancia?
+respecto a los botones creo que se fue aclarando la cuestión. cualquier cosa te volvemos a consultar. 
+muchas graciaas! 🖐🏻🙂
+  → Fecha de Respuesta 2: 2024-04-27t22:40:30.213z
+      → Autor Respuesta 2: aylenmsandoval
+          → Respuesta 2: hola facu! respecto al mensaje de alerta, eso lo podes dejar que sea un mensaje predeterminado de "tu cuidado podría estar en peligro" y listo porque no se menciona nada en el enunciado. 
+1.2 respecto a esto, mi planteo iba más por el lado de que como es modificable a lo largo del tiempo, la configuración de hoy del usuario puede ser distinta a la de un viaje que hizo la semana pasada. se entiende?
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 46]
+buenas! tengo unas consultas sobre el tp cuidándonos.
+el enunciado menciona que cuando el transeúnte presiona el botón "comenzar" en la ui (que se habilita cuando un cuidador acepta el cuidado) el sistema calcula la distancia y el tiempo de demora aproximado. esto significa que, si ningún cuidador acepta el viaje, la api no se utiliza y no se calcula nada? y por lo tanto, el sistema durante el viaje nunca sabrá si hay peligro?
+2024-04-28t21:54:07.655z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-28t22:00:12.781z
+      → Autor Respuesta 1: lucassaclier
+          → Respuesta 1: buenas tardes bruno. lo que propone el enunciado es que hasta que no haya al menos un cuidador que aceptó, el transeúnte no pueda comenzar el viaje.
+  → Fecha de Respuesta 2: 2024-04-28t23:21:22.152z
+      → Autor Respuesta 2: lucho_23
+          → Respuesta 2: buenas, una consulta.
+
+1- para modelar el usuario y sus posibles tipos de usuario estabamos pensando usar el patron state que van a poder variar dependiendo de si el usuario está realizando un viaje y siendo transeúnte, o simplemente está en la aplicacion para ser un cuidador. decidimos modelarlo así y no como una única persona ya que no se puede ser ambos al mismo tiempo y no sería correcto que se pueda acceder a los métodos de los dos estados en simultaneo. 
+pero ahora el problema está en que no se nos ocurriría que método general usar para cada uno, que segun el patron state necesita de eso. lo demás si pudimos incluirlo.
+
+2- no entendemos como abstraernos de los botones que habría en la ui. por ejemplo, cuando dice: "si al menos un cuidador acepta la responsabilidad durante el trayecto, al transeúnte se le habilitará el botón de comenzar. al ser presionado este botón, **el sistema deberá calcular el tiempo de demora aproximado y volverle a notificar a sus cuidadores.**" 
+nosotros como era algo ajeno a lo que podemos diseñar no agregamos en las clases esa parte de notificaciones, pero por las dudas que fueron contestando a los demás compañeros vimos como que había que tenerlo en cuenta.
+  → Fecha de Respuesta 3: 2024-04-29t00:42:16.123z
+      → Autor Respuesta 3: facundopiaggio
+          → Respuesta 3: buenas noches!
+
+1 - recuerden que en el patrón state existen transiciones entre los estados, donde cada estado que exista, conoce por lo menos a otro ya que sabe como "transicionar". si no encuentran o no hay transiciones, entonces tal vez el patron no aplique.
+por otro lado, ya que no encuentran el método que comparten, entonces es posible que no solo no quepa el patrón, si no tampoco una herencia o una alguna interfaz. 
+denle otra vuelta de tuerca!
+
+2 - bien. primero lo que ustedes tienen que modelar en este punto, es la posibilidad de que se calcule el tiempo de demora aproximado. deben abstraerse de la acción física de apretar un botón o el momento en el que se ejecutará dicho comportamiento. lo importante es que en su diagrama aparezca algo capaz de calcular dicho tiempo de demora.
+importante saber diferenciar y separar lo que son los casos de uso y acciones físicas del comportamiento del dominio. presten atencion y no caigan en los metodos "boton" o "caso de uso". pero si tiene que existir algo capaz de calcular el tiempo de demora, cuando ese eventual boton sea presionado.
+
+no tengo muy presente el enunciado, pero respecto a las notificaciones, si surgen de nuestro sistema y usamos algo ajeno/externo para poder enviarlas, entonces ustedes ya conocen algo que nos puede ayudar cuando nos tenemos que integrar con cosas externas.
+
+espero que se haya entendido. cualquier cosa aivsen!
+  → Fecha de Respuesta 4: 2024-04-29t00:44:48.907z
+      → Autor Respuesta 4: ezequieloescobar
+          → Respuesta 4: sumado a lo de facu, <@658132854009495553> , agrego para 2) que ustedes tienen que pensar las métodos a nivel clases que necesitarían para que se pueda cumplir el caso de uso. por ejemplo, cuando nos dicen "si al menos un cuidador acepta la responsabilidad durante el trayecto (...)", quizás solo nos bastaría con un método "agregarcuidador(uncuidador)" en la clase viaje, y listo. ¿cómo y/o quién llama a ese método? no importa!!!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 47]
+buenas noches. disculpen la hora. con mi compañero tenemos una duda.
+en el punto 2 de modelado de dominio, especificamente cuando se hace referencia a 2 viajes. uno que tenga varias paradas y se detenga tiempo n en cada una y otro que avise punto a punto su estado de salud. identificamos un posible patrón template method porque resolvían ambos con una misma secuencia de pasos pero de formas diferentes cada clase concreta. queríamos saber si estaba bien encararlo por ese lado, si no se entendió del todo nose a quien puedo enviarle screen del diagrama o lo paso por acá.
+2024-04-30t03:11:15.652z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-30t13:39:20.234z
+      → Autor Respuesta 1: aylenmsandoval
+          → Respuesta 1: buenas <@729562778934837340> ! entiendo a lo que vas, pero fijate si el hecho de avisar punto a punto el estado de salud afecta directamente al cálculo de la demora o si solo es para que se sepa cada cuánto se va a notificar a los cuidadores. me explico?
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 48]
+hola buenas tardes tenia una consulta sobre la entrega de la tarea cuidándonos, tenemos que entregar solo el diagrama de clases o también el código con los test?
+2024-04-30t19:37:54.897z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-04-30t20:03:37.571z
+      → Autor Respuesta 1: facundopiaggio
+          → Respuesta 1: buenos dias!
+  → Fecha de Respuesta 2: 2024-04-30t20:39:21.886z
+      → Autor Respuesta 2: aylenmsandoval
+          → Respuesta 2: buenas! la entrega sería dc obligatorio + pseudocodigo o implementacion en java del punto 2. si quieren sumar la implementscion del dominio entero, genial!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 49]
+buenaas, en la 2da parte de cuidandonos, nos corregimos a nosotros mismos :/ osea dice numero de pareja 9 y corrigen a 9. safamos? nos ponemos 10 claramente
+2024-05-02t22:50:08.015z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-05-02t22:51:47.781z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: jajaja ahora lo revisamos con <@801796163367469106> !
+  → Fecha de Respuesta 2: 2024-05-02t22:53:01.958z
+      → Autor Respuesta 2: aylenmsandoval
+          → Respuesta 2: gracias por avisar 😮 cambiado!
+  → Fecha de Respuesta 3: 2024-05-03t02:08:36.167z
+      → Autor Respuesta 3: lucho_23
+          → Respuesta 3: <@253979464139145216> <@695038285679951963> si no me equivoco a nuestro grupo nos tocó corregirlos a ustedes. si después me puede pasar alguno de los dos el repo al privado joya 💛
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 50]
+hola <@1090406166263242935> y <@573909056821919745>, como están?? con <@283336320590282754> somos el grupo 19 y nos tocó corregir su tp. si quieren nos pueden mandar el repo de github al privado así lo vemos. un saludo! 🤙
+2024-05-03t21:54:13.504z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-05-04t21:06:58.191z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buenas tardes milagros! en principio las asignaciones no se van a modificar. si tenes alguna situación particular, nos podes contactar por privado y lo conversamos!
+═══════════════════════════════════════════════════════
+
+═══════════════════════════════════════════════════════
+[PREGUNTA 51]
+buenas tardes! cómo están? quería saber si existe la posibilidad de realizar la práctica entregable "corrección de cuidándonos" con <@343564273823383556>, quien entregó también solo la primera parte. desde ya muchas gracias! 🙂
+2024-05-04t19:07:49.257z
+
+[RESPUESTAS]
+  → Fecha de Respuesta 1: 2024-05-04t21:06:58.191z
+      → Autor Respuesta 1: ezequieloescobar
+          → Respuesta 1: buenas tardes milagros! en principio las asignaciones no se van a modificar. si tenes alguna situación particular, nos podes contactar por privado y lo conversamos!
+═══════════════════════════════════════════════════════
+

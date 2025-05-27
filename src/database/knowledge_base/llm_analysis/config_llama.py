@@ -1,4 +1,4 @@
-groq_api_key= "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"
+groq_api_key= "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"
 
 url = "https://api.groq.com/openai/v1/chat/completions"
 

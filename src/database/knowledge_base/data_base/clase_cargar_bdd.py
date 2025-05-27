@@ -132,7 +132,7 @@ class GestorBD:
         logger_db.debug(f" ... SE VAN A PERSISTIR {len(preguntas_a_persistir)} PREGUNTAS CERRADAS EN LA BASE DE DATOS ...")
         try:
             for idx, pregunta in enumerate(preguntas_a_persistir, start=1):
-                self.guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
+                guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
             
                 logger_db.debug(f"\n📌 [{idx}/{len(preguntas_a_persistir)}] Procesando un mensaje que es pregunta: {pregunta.contenido} del autor {pregunta.autor}")
                 autor_id = self.insertar_o_obtener_autor(pregunta.autor)

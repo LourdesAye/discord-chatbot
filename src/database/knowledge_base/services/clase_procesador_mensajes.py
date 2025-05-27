@@ -21,6 +21,7 @@ class Procesador:
         self.contador_mensajes = 0
         self.nombre_log= nombre_log
         self.cant_mens_cierre = 0
+        self.cant_consultas_llama=0
 
     def procesar_dataframe(self, df, ruta_json):
         logger_msj.debug(" 🔵 Iniciando procesamiento del DataFrame...")
@@ -111,6 +112,7 @@ class Procesador:
                                 pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
             else: # no hay preguntas pendientes de ese autor 
                 if mensaje.es_pregunta(): # se analiza si mensaje puede ser pregunta
+                    self.cant_consultas_llama = self.cant_consultas_llama + 1
                     clasificar_mensaje_y_actualizar(mensaje,self.preguntas_abiertas) # se manda a analizar a IA LLAMA para confirmar si es pregunta, repregunta o respuesta
                 else: # si no es pregunta se asume como respuesta a preguntas abiertas
                     for pregunta in self.preguntas_abiertas[:]: # por cada pregunta abierta que no es del autor del mensaje
