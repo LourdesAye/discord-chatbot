@@ -1,0 +1,68 @@
+2025-05-27 19:52:04,841 - DEBUG -  ✉️ Cantidad de mensajes en el json: 793
+2025-05-27 19:52:04,843 - DEBUG -  🟡 Cantidad de mensajes no vacios: 775
+2025-05-27 19:52:04,845 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 0
+2025-05-27 19:52:04,847 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-27 19:52:04,848 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 1
+2025-05-27 19:52:04,849 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 774
+2025-05-27 19:57:22,933 - DEBUG -  📝 Se tuvieron 90 registros de cierre para el archivo 1
+2025-05-27 19:57:22,935 - DEBUG -  ✅ Procesamiento completado para el archivo 1
+2025-05-27 19:57:22,936 - DEBUG -  📂 Archivos guardados para el archivo 1:
+2025-05-27 19:57:22,936 - DEBUG -        📂 chat_1_emojis_gifs_descartados.csv,
+2025-05-27 19:57:22,936 - DEBUG -        📂 chat_1_numeros_descartados.csv, 
+2025-05-27 19:57:22,936 - DEBUG -        📂  chat_1_json_sin_frases_cortas.csv
+2025-05-27 19:57:22,936 - DEBUG -  📊 Resultados de procesamiento: 0 preguntas abiertas, 189 preguntas cerradas
+2025-05-27 19:57:22,936 - DEBUG -  
+2025-05-27 19:57:22,943 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-05-27 19:57:22,946 - DEBUG -  🟡 Cantidad de mensajes no vacios: 586
+2025-05-27 19:57:22,951 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 2
+2025-05-27 19:57:22,958 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-27 19:57:22,961 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 0
+2025-05-27 19:57:22,963 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 584
+2025-05-27 20:01:41,808 - DEBUG -  📝 Se tuvieron 50 registros de cierre para el archivo 2
+2025-05-27 20:01:41,808 - DEBUG -  ✅ Procesamiento completado para el archivo 2
+2025-05-27 20:01:41,808 - DEBUG -  📂 Archivos guardados para el archivo 2:
+2025-05-27 20:01:41,808 - DEBUG -        📂 chat_2_emojis_gifs_descartados.csv,
+2025-05-27 20:01:41,808 - DEBUG -        📂 chat_2_numeros_descartados.csv, 
+2025-05-27 20:01:41,808 - DEBUG -        📂  chat_2_json_sin_frases_cortas.csv
+2025-05-27 20:01:41,808 - DEBUG -  📊 Resultados de procesamiento: 0 preguntas abiertas, 153 preguntas cerradas
+2025-05-27 20:01:41,808 - DEBUG -  
+2025-05-27 20:01:41,811 - DEBUG -  ✉️ Cantidad de mensajes en el json: 622
+2025-05-27 20:01:41,812 - DEBUG -  🟡 Cantidad de mensajes no vacios: 604
+2025-05-27 20:01:41,814 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 1
+2025-05-27 20:01:41,815 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-27 20:01:41,816 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 1
+2025-05-27 20:01:41,817 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 602
+2025-05-27 20:04:57,421 - DEBUG -  📝 Se tuvieron 37 registros de cierre para el archivo 3
+2025-05-27 20:04:57,421 - DEBUG -  ✅ Procesamiento completado para el archivo 3
+2025-05-27 20:04:57,421 - DEBUG -  📂 Archivos guardados para el archivo 3:
+2025-05-27 20:04:57,421 - DEBUG -        📂 chat_3_emojis_gifs_descartados.csv,
+2025-05-27 20:04:57,422 - DEBUG -        📂 chat_3_numeros_descartados.csv, 
+2025-05-27 20:04:57,422 - DEBUG -        📂  chat_3_json_sin_frases_cortas.csv
+2025-05-27 20:04:57,422 - DEBUG -  📊 Resultados de procesamiento: 0 preguntas abiertas, 137 preguntas cerradas
+2025-05-27 20:04:57,422 - DEBUG -  
+2025-05-27 20:04:57,422 - DEBUG -  🔍 Cantidad de procesadores generados: 3
+2025-05-27 20:04:57,422 - DEBUG -  🗃️ Conectándose a la base de datos...
+2025-05-27 20:04:57,585 - DEBUG -  
+2025-05-27 20:04:57,586 - DEBUG -  🔢 Analizando el json número : 1 ... 
+2025-05-27 20:04:57,586 - DEBUG -  ✅ Preguntas cerradas: 189 
+2025-05-27 20:04:57,587 - DEBUG -  ✅ Preguntas sin contexto: 4 
+2025-05-27 20:04:57,598 - DEBUG -  ✅ Cantidad de Respuestas: 775
+2025-05-27 20:04:59,942 - DEBUG -  🧠 Cantidad de consultas a LLAMA3: 89 
+2025-05-27 20:04:59,942 - DEBUG -  
+2025-05-27 20:04:59,943 - DEBUG -  🔢 Analizando el json número : 2 ... 
+2025-05-27 20:04:59,943 - DEBUG -  ✅ Preguntas cerradas: 153 
+2025-05-27 20:04:59,944 - DEBUG -  ✅ Preguntas sin contexto: 3 
+2025-05-27 20:04:59,955 - DEBUG -  ✅ Cantidad de Respuestas: 618
+2025-05-27 20:05:02,105 - DEBUG -  🧠 Cantidad de consultas a LLAMA3: 66 
+2025-05-27 20:05:02,105 - DEBUG -  
+2025-05-27 20:05:02,105 - DEBUG -  🔢 Analizando el json número : 3 ... 
+2025-05-27 20:05:02,105 - DEBUG -  ✅ Preguntas cerradas: 137 
+2025-05-27 20:05:02,106 - DEBUG -  ✅ Preguntas sin contexto: 1 
+2025-05-27 20:05:02,115 - DEBUG -  ✅ Cantidad de Respuestas: 626
+2025-05-27 20:05:04,179 - DEBUG -  🧠 Cantidad de consultas a LLAMA3: 43 
+2025-05-27 20:05:04,179 - DEBUG -  
+2025-05-27 20:05:04,179 - DEBUG -  ✅ La cantidad total de preguntas generadas : 479
+2025-05-27 20:05:04,179 - DEBUG -  ✅ La cantidad total de respuestas generadas : 2019
+2025-05-27 20:05:04,180 - DEBUG -  
+2025-05-27 20:05:04,180 - DEBUG -  💾 Conexión cerrada y datos guardados.
+2025-05-27 20:05:04,180 - DEBUG - Ejecutando main.py
