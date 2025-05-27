@@ -1,0 +1,33 @@
+2025-05-27 13:36:55,620 - DEBUG -  ... ingresando a la persistencia de datos ... 
+2025-05-27 13:36:55,620 - DEBUG - ... se va a procesar en JSON 1 ... 
+2025-05-27 13:36:55,620 - DEBUG -  ... SE VAN A PERSISTIR 148 PREGUNTAS CERRADAS EN LA BASE DE DATOS ...
+2025-05-27 13:36:55,620 - DEBUG - ❌ Error al persistir las preguntas y respuestas: 'GestorBD' object has no attribute 'guardar_pregunta_y_respuestas_en_log'
+2025-05-27 13:36:55,620 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\lourd\Downloads\python_con_json\obtener_preguntas_y_respuestas\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 135, in persistir_preguntas
+    self.guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GestorBD' object has no attribute 'guardar_pregunta_y_respuestas_en_log'
+
+2025-05-27 13:36:55,621 - DEBUG - ⛔ Transacción revertida debido al error.
+2025-05-27 13:36:55,624 - DEBUG -  ... ingresando a la persistencia de datos ... 
+2025-05-27 13:36:55,624 - DEBUG - ... se va a procesar en JSON 2 ... 
+2025-05-27 13:36:55,624 - DEBUG -  ... SE VAN A PERSISTIR 113 PREGUNTAS CERRADAS EN LA BASE DE DATOS ...
+2025-05-27 13:36:55,624 - DEBUG - ❌ Error al persistir las preguntas y respuestas: 'GestorBD' object has no attribute 'guardar_pregunta_y_respuestas_en_log'
+2025-05-27 13:36:55,624 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\lourd\Downloads\python_con_json\obtener_preguntas_y_respuestas\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 135, in persistir_preguntas
+    self.guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GestorBD' object has no attribute 'guardar_pregunta_y_respuestas_en_log'
+
+2025-05-27 13:36:55,624 - DEBUG - ⛔ Transacción revertida debido al error.
+2025-05-27 13:36:55,627 - DEBUG -  ... ingresando a la persistencia de datos ... 
+2025-05-27 13:36:55,627 - DEBUG - ... se va a procesar en JSON 3 ... 
+2025-05-27 13:36:55,627 - DEBUG -  ... SE VAN A PERSISTIR 106 PREGUNTAS CERRADAS EN LA BASE DE DATOS ...
+2025-05-27 13:36:55,627 - DEBUG - ❌ Error al persistir las preguntas y respuestas: 'GestorBD' object has no attribute 'guardar_pregunta_y_respuestas_en_log'
+2025-05-27 13:36:55,627 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\lourd\Downloads\python_con_json\obtener_preguntas_y_respuestas\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 135, in persistir_preguntas
+    self.guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GestorBD' object has no attribute 'guardar_pregunta_y_respuestas_en_log'
+
+2025-05-27 13:36:55,627 - DEBUG - ⛔ Transacción revertida debido al error.

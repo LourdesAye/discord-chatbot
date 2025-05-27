@@ -1,7 +1,7 @@
 # clasificar un mensaje como pregunta, repregunta o respuesta.
 import requests
-from prompts import obtener_prompt_analiza_mensaje
-from config_llama import url,headers,armate_body
+from database.knowledge_base.llm_analysis.prompts import obtener_prompt_analiza_mensaje
+from database.knowledge_base.llm_analysis.config_llama import url,headers,armate_body
 import time
 from database.knowledge_base.utils.utilidades_logs import setup_logger
 from database.knowledge_base.models.clase_preguntas import Pregunta
