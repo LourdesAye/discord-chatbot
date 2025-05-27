@@ -4,6 +4,7 @@ from datetime import timedelta
 from dateutil.parser import isoparse
 from database.knowledge_base.utils.utilidades_logs import setup_logger,guardar_pregunta_y_respuestas_en_log,guardar_respuestas_sin_pregunta
 from database.knowledge_base.utils.utilidades_conversiones import convertir_a_datetime,tiempo_transcurrido
+from database.knowledge_base.llm_analysis.clasificador_ia import clasificar_mensaje_y_actualizar
 
 # variable para poder registrar mensajes del funcionamientos en un archivos log
 logger_msj = setup_logger('procesamiento_de_mensajes','logs_procesar_mensajes.txt')
@@ -110,17 +111,7 @@ class Procesador:
                                 pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
             else: # no hay preguntas pendientes de ese autor 
                 if mensaje.es_pregunta(): # se analiza si mensaje puede ser pregunta
-                    #aca Modelo de IA
-                    #model_ia.devolve_analisis_de_mensaje.
-                    # if resultado == pregunta
-                        #nueva pregunta
-                    nueva_pregunta = Pregunta(mensaje) # se convierte mensaje en pregunta
-                    self.preguntas_abiertas.append(nueva_pregunta) # pregunta pasa a lista de preguntas_abiertas
-                    logger_msj.debug(f" 🟡 NUEVA PREGUNTA ABIERTA: {nueva_pregunta.contenido}")
-                    # if resultado == repregunta
-                        # es respuesta de esa pregunta abierta
-                    # if resultado == respuesta
-                        # es respuesta de esa pregunta abierta
+                    clasificar_mensaje_y_actualizar(mensaje,self.preguntas_abiertas) # se manda a analizar a IA LLAMA para confirmar si es pregunta, repregunta o respuesta
                 else: # si no es pregunta se asume como respuesta a preguntas abiertas
                     for pregunta in self.preguntas_abiertas[:]: # por cada pregunta abierta que no es del autor del mensaje
                         pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas

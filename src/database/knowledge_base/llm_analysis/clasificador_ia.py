@@ -4,6 +4,7 @@ from prompts import obtener_prompt_analiza_mensaje
 from config_llama import url,headers,armate_body
 import time
 from database.knowledge_base.utils.utilidades_logs import setup_logger
+from database.knowledge_base.models.clase_preguntas import Pregunta
 
 logger_msj = setup_logger('procesamiento_de_mensajes','logs_procesar_mensajes.txt')
 
@@ -48,16 +49,16 @@ def llama_clasifica( mensaje, pregunta_abierta):
 
 # Función principal
 def clasificar_mensaje_y_actualizar(mensaje, preguntas_abiertas):
-    respuesta = []
     for pregunta in preguntas_abiertas.copy():
         time.sleep(2)  # pausa de 2 segundo entre requests
         inicio = time.time()
         clasificacion = llama_clasifica(mensaje, pregunta)
-        if clasificacion == "PREGUNTA":
-            preguntas_abiertas.append(mensaje)
-            #crear nueva pregunta.... 
-        elif clasificacion == "RESPUESTA" or clasificacion ==  "REPREGUNTA":
-            # agregar respuesta -- corregir esto
-            respuesta.append(pregunta)
+        if clasificacion == "PREGUNTA": # se analiza si mensaje puede ser pregunta
+            #crear nueva pregunta
+            nueva_pregunta = Pregunta(mensaje) # se convierte mensaje en pregunta
+            preguntas_abiertas.append(nueva_pregunta) # pregunta pasa a lista de preguntas_abiertas
+            logger_msj.debug(f" 🟡 NUEVA PREGUNTA ABIERTA: {nueva_pregunta.contenido}")          
+        elif clasificacion == "RESPUESTA" or clasificacion ==  "REPREGUNTA": # si no es pregunta se asume como respuesta a preguntas abiertas
+            pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas
         fin = time.time()
-        print(f"[RESULTADO] Clasificación: {clasificacion} (tardó {fin - inicio:.2f} segundos)")
+        logger_msj.debug(f"[RESULTADO] Clasificación: {clasificacion} (tardó {fin - inicio:.2f} segundos)")
