@@ -110,9 +110,17 @@ class Procesador:
                                 pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas de ese autor
             else: # no hay preguntas pendientes de ese autor 
                 if mensaje.es_pregunta(): # se analiza si mensaje puede ser pregunta
+                    #aca Modelo de IA
+                    #model_ia.devolve_analisis_de_mensaje.
+                    # if resultado == pregunta
+                        #nueva pregunta
                     nueva_pregunta = Pregunta(mensaje) # se convierte mensaje en pregunta
                     self.preguntas_abiertas.append(nueva_pregunta) # pregunta pasa a lista de preguntas_abiertas
                     logger_msj.debug(f" 🟡 NUEVA PREGUNTA ABIERTA: {nueva_pregunta.contenido}")
+                    # if resultado == repregunta
+                        # es respuesta de esa pregunta abierta
+                    # if resultado == respuesta
+                        # es respuesta de esa pregunta abierta
                 else: # si no es pregunta se asume como respuesta a preguntas abiertas
                     for pregunta in self.preguntas_abiertas[:]: # por cada pregunta abierta que no es del autor del mensaje
                         pregunta.agregar_respuesta(mensaje) # agrega como respuesta a las preguntas abiertas

@@ -84,14 +84,17 @@ def procesar_archivos_json(rutas_json):
         # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas
         procesador.procesar_dataframe(df,str(ruta_json))
 
-        logger_proc.debug(f"Se tuvieron {procesador.cant_mens_cierre} registros de cierre para el archivo {idx}")
+        logger_proc.debug(f" 📝 Se tuvieron {procesador.cant_mens_cierre} registros de cierre para el archivo {idx}")
 
         # se deben guardar los procesadores en una lista ya que se crea uno por cada JSON que se analiza
         procesadores.append(procesador)
 
         # Registrar resultados del procesamiento
         logger_proc.debug(f" ✅ Procesamiento completado para el archivo {idx}")
-        logger_proc.debug(f" 📂 Archivos guardados para el archivo {idx}: {nombre_base}_emojis_gifs_descartados.csv, {nombre_base}_numeros_descartados.csv, {nombre_base}_json_sin_frases_cortas.csv")
+        logger_proc.debug(f" 📂 Archivos guardados para el archivo {idx}:")
+        logger_proc.debug(f"       📂 {nombre_base}_emojis_gifs_descartados.csv,")
+        logger_proc.debug(f"       📂 {nombre_base}_numeros_descartados.csv, ")
+        logger_proc.debug(f"       📂  {nombre_base}_json_sin_frases_cortas.csv")
         logger_proc.debug(f" 📊 Resultados de procesamiento: {len(procesador.preguntas_abiertas)} preguntas abiertas, {len(procesador.preguntas_cerradas)} preguntas cerradas")
         logger_proc.debug(f" ")
     return procesadores

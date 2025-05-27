@@ -1,3 +1,3 @@
 -- cantidad de registros en la tabla respuestas incluyendo repetidos 
--- 1980
+-- 2019
 select count(*) as cant_resp from respuestas
