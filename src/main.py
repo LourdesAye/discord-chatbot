@@ -27,7 +27,6 @@ for indice,proc in enumerate(procesadores,start=1): # por cada procesador
     cant_total_resp = cant_total_resp + cantidad_respuestas_json
     # persistencia de datos de la lista de preguntas cerradas con el analisis aplicado
     bd.persistir_preguntas(preguntas_a_procesar,indice)
-    logger_proc.debug(f" 🧠 Cantidad de consultas a LLAMA3: {proc.cant_consultas_llama} ")
 
 logger_proc.debug(f" ")
 logger_proc.debug(f" ✅ La cantidad total de preguntas generadas : {cant_total_preg}")

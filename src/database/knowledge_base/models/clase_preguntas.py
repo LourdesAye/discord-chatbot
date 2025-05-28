@@ -134,4 +134,7 @@ class Pregunta:
        fecha_mensaje= convertir_a_datetime(mensaje.timestamp)
        fecha_pregunta = convertir_a_datetime(self.timestamp)
        return (fecha_mensaje -fecha_pregunta).total_seconds() < max_delta_segundos
+    
+    def es_extensible_con(self, mensaje, max_delta):
+     return not self.tiene_respuestas() and self.es_cercana_en_tiempo(mensaje, max_delta)
 
