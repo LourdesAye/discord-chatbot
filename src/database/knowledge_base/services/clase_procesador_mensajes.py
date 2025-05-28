@@ -3,7 +3,7 @@ from database.knowledge_base.models.clase_preguntas import Pregunta
 from datetime import timedelta
 from datetime import datetime
 from dateutil.parser import isoparse
-from database.knowledge_base.utils.utilidades_logs import setup_logger,guardar_pregunta_y_respuestas_en_log,guardar_respuestas_sin_pregunta
+from src.utils_for_all.utilidades_logs import setup_logger,guardar_pregunta_y_respuestas_en_log,guardar_respuestas_sin_pregunta
 from database.knowledge_base.utils.utilidades_conversiones import convertir_a_datetime,tiempo_transcurrido
 from database.knowledge_base.llm_analysis.clasificador_ia import clasificar_mensaje_y_actualizar
 

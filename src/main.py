@@ -1,9 +1,9 @@
-from database.knowledge_base.data_base.conexion_bdd import config
+from src.utils_for_all.conexion_bdd import config
 from database.knowledge_base.services.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.knowledge_base.data_base.clase_cargar_bdd import GestorBD
 from database.knowledge_base.config.admin_rutas import rutas_json
 from database.knowledge_base.services.procesamiento_json import procesar_archivos_json
-from database.knowledge_base.utils.utilidades_logs import setup_logger
+from src.utils_for_all.utilidades_logs import setup_logger
 
 # LOGGER para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')

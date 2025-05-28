@@ -3,10 +3,10 @@ from database.knowledge_base.models.clase_preguntas import Pregunta
 from database.knowledge_base.models.clase_respuestas import Respuesta
 from dateutil.parser import isoparse
 from psycopg2.extras import RealDictCursor
-from database.knowledge_base.utils.utilidades_logs import setup_logger
+from src.utils_for_all.utilidades_logs import setup_logger
 import traceback
 from database.knowledge_base.models.clase_autores import docentes 
-from database.knowledge_base.utils.utilidades_logs import guardar_pregunta_y_respuestas_en_log
+from src.utils_for_all.utilidades_logs import guardar_pregunta_y_respuestas_en_log
 
 # agregando logger para seguimiento de la carga de datos
 logger_db= setup_logger('carga_db','log_persistencia_de_datos.txt')

@@ -29,7 +29,7 @@ conteo_por_carpeta = {}
 # Actualmente los archivos adjuntos no se usan, por lo tanto no se sincronizan ni se limpian.
 # Si en el futuro se requiere usar imágenes, PDF, etc., revisar esta parte.
 
-from database.knowledge_base.utils.utilidades_logs import setup_logger
+from src.utils_for_all.utilidades_logs import setup_logger
 log_adjuntos= setup_logger('log_adj','auditoria_archivos_adjuntos.txt')
 #ingresando a cada objeto ruta
 for ruta in rutas_imagen:

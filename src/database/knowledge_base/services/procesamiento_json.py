@@ -1,8 +1,8 @@
 from database.knowledge_base.services.filtros_json import FiltradorContenido
 import pandas as pd
-from database.knowledge_base.utils.utilidades_logs import guardar_csvs
+from src.utils_for_all.utilidades_logs import guardar_csvs
 from database.knowledge_base.services.clase_procesador_mensajes import Procesador
-from database.knowledge_base.utils.utilidades_logs import setup_logger
+from src.utils_for_all.utilidades_logs import setup_logger
 
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')

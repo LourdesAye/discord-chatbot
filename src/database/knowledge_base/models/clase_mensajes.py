@@ -2,7 +2,7 @@
 from database.knowledge_base.models.clase_autores import docentes
 import os
 import re
-from database.knowledge_base.utils.utilidades_logs import setup_logger
+from src.utils_for_all.utilidades_logs import setup_logger
 
 logger_msj = setup_logger('procesamiento_de_mensajes','logs_procesar_mensajes.txt')
 # lista de frases comunes para detectar preguntas explícitas o implícitas

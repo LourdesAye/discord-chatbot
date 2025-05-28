@@ -95,4 +95,3 @@ def guardar_csvs(df, visuales_df, sin_numeros_solos_df, solo_simbolos_df,nombre_
 
 
 
-

@@ -1,4 +1,4 @@
-from database.knowledge_base.utils.utilidades_logs import setup_logger
+from src.utils_for_all.utilidades_logs import setup_logger
 
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
