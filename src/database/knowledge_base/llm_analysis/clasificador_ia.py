@@ -3,7 +3,7 @@ import requests
 from database.knowledge_base.llm_analysis.prompts import obtener_prompt_analiza_mensaje
 from database.knowledge_base.llm_analysis.config_llama import url,headers,armate_body
 import time
-from src.utils_for_all.utilidades_logs import setup_logger
+from utils_for_all.utilidades_logs import setup_logger
 from database.knowledge_base.models.clase_preguntas import Pregunta
 
 logger_msj = setup_logger('procesamiento_de_mensajes','logs_procesar_mensajes.txt')

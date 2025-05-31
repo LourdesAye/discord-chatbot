@@ -2,7 +2,7 @@
 from database.knowledge_base.models.clase_autores import docentes
 import os
 import re
-from src.utils_for_all.utilidades_logs import setup_logger
+from utils_for_all.utilidades_logs import setup_logger
 
 logger_msj = setup_logger('procesamiento_de_mensajes','logs_procesar_mensajes.txt')
 # lista de frases comunes para detectar preguntas explícitas o implícitas
@@ -75,18 +75,10 @@ class Mensaje:
         return self.autor in docentes
 
     def es_pregunta(self):
-
-        logger_msj.debug(" ????????    ANALIZANDO SI EL MENSAJE  ES PREGUNTA ")
-
         if self.contiene_signo_interrogacion():
-            logger_msj.debug("Contiene signo de interrogación")
             return True
-
         if self.contiene_frase_clave():
-            logger_msj.debug("Contiene frase clave de pregunta")
             return True
-
-        logger_msj.debug("No es una pregunta")
         return False
             
 

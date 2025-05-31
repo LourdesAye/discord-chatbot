@@ -1,0 +1,95 @@
+2025-05-28 17:44:59,403 - DEBUG -  ✉️ Cantidad de mensajes en el json: 793
+2025-05-28 17:44:59,404 - DEBUG -  🟡 Cantidad de mensajes no vacios: 775
+2025-05-28 17:44:59,406 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 0
+2025-05-28 17:44:59,409 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-28 17:44:59,410 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 1
+2025-05-28 17:44:59,411 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 774
+2025-05-28 17:44:59,613 - DEBUG -  📝 Se tuvieron 90 registros de cierre para el archivo 1
+2025-05-28 17:44:59,613 - DEBUG -  ✅ Procesamiento completado para el archivo 1
+2025-05-28 17:44:59,613 - DEBUG -  📂 Archivos guardados para el archivo 1:
+2025-05-28 17:44:59,613 - DEBUG -        📂 chat_1_emojis_gifs_descartados.csv,
+2025-05-28 17:44:59,613 - DEBUG -        📂 chat_1_numeros_descartados.csv, 
+2025-05-28 17:44:59,613 - DEBUG -        📂  chat_1_json_sin_frases_cortas.csv
+2025-05-28 17:44:59,613 - DEBUG -  📊 Resultados de procesamiento:
+2025-05-28 17:44:59,613 - DEBUG -        📊 1 mensajes sueltos
+2025-05-28 17:44:59,614 - DEBUG -        ✉️ El mensaje suelto 1: 'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂'
+2025-05-28 17:44:59,614 - DEBUG -        📊 18 mensajes concatenados
+2025-05-28 17:44:59,614 - DEBUG -        📊 79 mensajes de cierre de alumnos
+2025-05-28 17:44:59,614 - DEBUG -        📊 11 mensajes de cierre de docentes
+2025-05-28 17:44:59,614 - DEBUG -        📊 189 preguntas generadas
+2025-05-28 17:44:59,614 - DEBUG -        📊 487 mensajes detectados como respuesta
+2025-05-28 17:44:59,614 - DEBUG -        📊 0 preguntas abiertas
+2025-05-28 17:44:59,614 - DEBUG -        📊 189 preguntas cerradas
+2025-05-28 17:44:59,614 - DEBUG -  
+2025-05-28 17:44:59,615 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-05-28 17:44:59,616 - DEBUG -  🟡 Cantidad de mensajes no vacios: 586
+2025-05-28 17:44:59,617 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 2
+2025-05-28 17:44:59,619 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-28 17:44:59,620 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 0
+2025-05-28 17:44:59,620 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 584
+2025-05-28 17:44:59,769 - DEBUG -  📝 Se tuvieron 50 registros de cierre para el archivo 2
+2025-05-28 17:44:59,769 - DEBUG -  ✅ Procesamiento completado para el archivo 2
+2025-05-28 17:44:59,769 - DEBUG -  📂 Archivos guardados para el archivo 2:
+2025-05-28 17:44:59,769 - DEBUG -        📂 chat_2_emojis_gifs_descartados.csv,
+2025-05-28 17:44:59,769 - DEBUG -        📂 chat_2_numeros_descartados.csv, 
+2025-05-28 17:44:59,769 - DEBUG -        📂  chat_2_json_sin_frases_cortas.csv
+2025-05-28 17:44:59,769 - DEBUG -  📊 Resultados de procesamiento:
+2025-05-28 17:44:59,769 - DEBUG -        📊 0 mensajes sueltos
+2025-05-28 17:44:59,769 - DEBUG -        📊 20 mensajes concatenados
+2025-05-28 17:44:59,769 - DEBUG -        📊 33 mensajes de cierre de alumnos
+2025-05-28 17:44:59,769 - DEBUG -        📊 17 mensajes de cierre de docentes
+2025-05-28 17:44:59,769 - DEBUG -        📊 153 preguntas generadas
+2025-05-28 17:44:59,769 - DEBUG -        📊 378 mensajes detectados como respuesta
+2025-05-28 17:44:59,769 - DEBUG -        📊 0 preguntas abiertas
+2025-05-28 17:44:59,769 - DEBUG -        📊 153 preguntas cerradas
+2025-05-28 17:44:59,769 - DEBUG -  
+2025-05-28 17:44:59,770 - DEBUG -  ✉️ Cantidad de mensajes en el json: 622
+2025-05-28 17:44:59,771 - DEBUG -  🟡 Cantidad de mensajes no vacios: 604
+2025-05-28 17:44:59,772 - DEBUG -  🟡 Cantidad de mensajes irrelevantes como gifs: 1
+2025-05-28 17:44:59,774 - DEBUG -  🟡 Cantidad de mensajes con signos raros: 0
+2025-05-28 17:44:59,774 - DEBUG -  🟡 Cantidad de mensajes que son solo símbolos: 1
+2025-05-28 17:44:59,775 - DEBUG -  🟢 Cantidad de mensajes del json sin vacios, sin gifs y sin simbolos raros: 602
+2025-05-28 17:44:59,939 - DEBUG -  📝 Se tuvieron 37 registros de cierre para el archivo 3
+2025-05-28 17:44:59,940 - DEBUG -  ✅ Procesamiento completado para el archivo 3
+2025-05-28 17:44:59,940 - DEBUG -  📂 Archivos guardados para el archivo 3:
+2025-05-28 17:44:59,940 - DEBUG -        📂 chat_3_emojis_gifs_descartados.csv,
+2025-05-28 17:44:59,940 - DEBUG -        📂 chat_3_numeros_descartados.csv, 
+2025-05-28 17:44:59,940 - DEBUG -        📂  chat_3_json_sin_frases_cortas.csv
+2025-05-28 17:44:59,940 - DEBUG -  📊 Resultados de procesamiento:
+2025-05-28 17:44:59,940 - DEBUG -        📊 1 mensajes sueltos
+2025-05-28 17:44:59,940 - DEBUG -        ✉️ El mensaje suelto 1: 'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂'
+2025-05-28 17:44:59,940 - DEBUG -        📊 28 mensajes concatenados
+2025-05-28 17:44:59,940 - DEBUG -        📊 32 mensajes de cierre de alumnos
+2025-05-28 17:44:59,940 - DEBUG -        📊 5 mensajes de cierre de docentes
+2025-05-28 17:44:59,940 - DEBUG -        📊 137 preguntas generadas
+2025-05-28 17:44:59,940 - DEBUG -        📊 404 mensajes detectados como respuesta
+2025-05-28 17:44:59,940 - DEBUG -        📊 0 preguntas abiertas
+2025-05-28 17:44:59,940 - DEBUG -        📊 137 preguntas cerradas
+2025-05-28 17:44:59,940 - DEBUG -  
+2025-05-28 17:44:59,940 - DEBUG -  🔍 Cantidad de procesadores generados: 3
+2025-05-28 17:44:59,940 - DEBUG -  🗃️ Conectándose a la base de datos...
+2025-05-28 17:45:00,109 - DEBUG -  
+2025-05-28 17:45:00,109 - DEBUG -  🔢 Analizando el json número : 1 ... 
+2025-05-28 17:45:00,109 - DEBUG -  ✅ Preguntas cerradas: 189 
+2025-05-28 17:45:00,111 - DEBUG -  ✅ Preguntas sin contexto: 4 
+2025-05-28 17:45:00,118 - DEBUG -  ✅ Cantidad de Respuestas: 775
+2025-05-28 17:45:01,274 - DEBUG -  
+2025-05-28 17:45:01,274 - DEBUG -  🔢 Analizando el json número : 2 ... 
+2025-05-28 17:45:01,274 - DEBUG -  ✅ Preguntas cerradas: 153 
+2025-05-28 17:45:01,276 - DEBUG -  ✅ Preguntas sin contexto: 3 
+2025-05-28 17:45:01,281 - DEBUG -  ✅ Cantidad de Respuestas: 619
+2025-05-28 17:45:01,906 - DEBUG -  
+2025-05-28 17:45:01,906 - DEBUG -  🔢 Analizando el json número : 3 ... 
+2025-05-28 17:45:01,906 - DEBUG -  ✅ Preguntas cerradas: 137 
+2025-05-28 17:45:01,906 - DEBUG -  ✅ Preguntas sin contexto: 1 
+2025-05-28 17:45:01,909 - DEBUG -  ✅ Cantidad de Respuestas: 626
+2025-05-28 17:45:02,382 - DEBUG -  
+2025-05-28 17:45:02,382 - DEBUG -  ✅ La cantidad total de preguntas generadas : 479
+2025-05-28 17:45:02,382 - DEBUG -  ✅ La cantidad total de respuestas generadas : 2020
+2025-05-28 17:45:02,382 - DEBUG -  
+2025-05-28 17:45:02,382 - DEBUG -  💾 Conexión cerrada y datos guardados.
+2025-05-28 17:45:02,382 - DEBUG - Ejecutando main.py

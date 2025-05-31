@@ -3,7 +3,7 @@ from database.knowledge_base.models.clase_preguntas import Pregunta
 from datetime import timedelta
 from datetime import datetime
 from dateutil.parser import isoparse
-from src.utils_for_all.utilidades_logs import setup_logger,guardar_pregunta_y_respuestas_en_log,guardar_respuestas_sin_pregunta
+from utils_for_all.utilidades_logs import setup_logger,guardar_pregunta_y_respuestas_en_log,guardar_respuestas_sin_pregunta
 from database.knowledge_base.utils.utilidades_conversiones import convertir_a_datetime,tiempo_transcurrido
 from database.knowledge_base.llm_analysis.clasificador_ia import clasificar_mensaje_y_actualizar
 
@@ -15,13 +15,17 @@ MAX_DELTA_SEGUNDOS_MSJ = 360
 
 class Procesador:
     def __init__(self,nombre_log):
-        self.contador_preguntas = 0
+        self.contador_preguntas_cerradas = 0 # una vez que se cierran se cuenta la pregunta
+        self.contador_preguntas_nuevas = 0 # una vez que se inicializan
         self.preguntas_abiertas = []
         self.mensajes_sueltos = []
         self.preguntas_cerradas = []
         self.contador_mensajes = 0
         self.nombre_log= nombre_log
-        self.cant_mens_cierre = 0
+        self.cant_mens_cierre_alumnos = 0
+        self.cant_mens_cierre_docente = 0
+        self.cant_concatenaciones = 0
+        self.contador_mensaje_respuesta = 0
         #self.cant_consultas_llama=0
 
     def procesar_dataframe(self, df, ruta_json):
@@ -35,7 +39,7 @@ class Procesador:
             self.procesar_mensaje(mensaje)
         logger_msj.debug("✅ PROCESAMIENTO FINALIZADO.")
         logger_msj.debug(f"✅ Se procesaron {self.contador_mensajes} filas" )
-        logger_msj.debug(f"\n✅ Se registraron {self.contador_preguntas} preguntas en total.\n")
+        logger_msj.debug(f"\n✅ Se registraron {self.contador_preguntas_cerradas} preguntas en total.\n")
         logger_msj.debug(f"✅ RESULTADOS DE LISTAS: \n {len(self.preguntas_abiertas)} PREGUNTAS ABIERTAS. \n {len(self.preguntas_cerradas)} PREGUNTAS CERRADAS.")
         guardar_respuestas_sin_pregunta(self.mensajes_sueltos)
         
@@ -49,13 +53,14 @@ class Procesador:
             self._procesar_mensaje_alumno(mensaje)
     
     def _cerrar_pregunta_por_docente(self, pregunta: Pregunta, mensaje: Mensaje):
-        self.cant_mens_cierre += 1
+        self.cant_mens_cierre_docente += 1
         pregunta.cerrar()
         self.mover_a_cerradas(pregunta)
         logger_msj.debug(f" 🟢 CIERRE DE PREGUNTA por mensaje de cierre : '{mensaje.contenido}'. DOCENTE: {mensaje.autor}")
-        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas, self.nombre_log)
+        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas_cerradas, self.nombre_log)
 
     def _agregar_respuesta_docente_a_preguntas_abiertas(self, mensaje: Mensaje):
+        self.contador_mensaje_respuesta = self. contador_mensaje_respuesta + 1
         for pregunta in self.preguntas_abiertas[:]:
             pregunta.agregar_respuesta(mensaje)
             if mensaje.es_cierre_docente():
@@ -66,14 +71,22 @@ class Procesador:
         logger_msj.debug(f" 🔴 MENSAJE SIN PREGUNTAS ABIERTAS O CERRADAS : '{mensaje.contenido}'. DOCENTE:  '{mensaje.autor}' ")
 
     def _asociar_respuesta_a_ultimas_preguntas_cerradas(self, mensaje: Mensaje):
-        ultimas_dos = self.preguntas_cerradas[-2:]
-        for pregunta in ultimas_dos:
-            pregunta.agregar_respuesta(mensaje)
-            logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
-            logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
+        self.contador_mensaje_respuesta = self.contador_mensaje_respuesta + 1
+        if len(self.preguntas_cerradas) == 1:
+            lista_unica_pregunta = self.preguntas_cerradas[-1:]
+            for pregunta in lista_unica_pregunta:
+                pregunta.agregar_respuesta(mensaje)
+                logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
+                logger_msj.debug(f" 🔶 SE ASOCIA A LA ULTIMA PREGUNTA CERRADA: '{pregunta.contenido}'")
+        else: 
+            ultimas_dos = self.preguntas_cerradas[-2:]
+            for pregunta in ultimas_dos:
+                pregunta.agregar_respuesta(mensaje)
+                logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
+                logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
     
     def _manejar_respuesta_docente_sin_pregunta_abierta(self, mensaje: Mensaje):
-        if len(self.preguntas_cerradas) >= 2:
+        if len(self.preguntas_cerradas) >= 1:
             self._asociar_respuesta_a_ultimas_preguntas_cerradas(mensaje)
         else:
             self._registrar_mensaje_suelto_docente(mensaje)
@@ -86,35 +99,40 @@ class Procesador:
 
     def manejar_mensaje_sin_preguntas_previas_del_mismo_autor(self, mensaje):
         if mensaje.es_pregunta():
+            self.contador_preguntas_nuevas = self.contador_preguntas_nuevas +1 
             nueva_pregunta = Pregunta(mensaje)
             self.preguntas_abiertas.append(nueva_pregunta)
             logger_msj.debug(f"🟡 NUEVA PREGUNTA ABIERTA: {nueva_pregunta.contenido}")
         else:
+            self.contador_mensaje_respuesta = self.contador_mensaje_respuesta + 1
             for pregunta in self.preguntas_abiertas[:]:
                 pregunta.agregar_respuesta(mensaje)
     
     def concatenar_pregunta_con_mensaje(self, pregunta, mensaje):
         pregunta_inicial = pregunta.contenido
         pregunta.concatenar_contenido(mensaje.contenido)
+        self.cant_concatenaciones = self.cant_concatenaciones + 1
         logger_msj.debug( f" 🔵 LA PREGUNTA : '{pregunta_inicial}' Y EL MENSAJE: '{mensaje.contenido}' SE CONCATENARON: '{pregunta.contenido}' ")
     
     def aplicar_cierre(self,pregunta,mensaje):
-        self.cant_mens_cierre += 1
+        self.cant_mens_cierre_alumnos += 1
         pregunta.cerrar()
         self.mover_a_cerradas(pregunta)
         logger_msj.debug(f" 🟢 CIERRE DE PREGUNTA por respuesta de cierre : {mensaje.contenido} del alumno : {mensaje.autor} ")
-        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas, self.nombre_log)
+        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas_cerradas, self.nombre_log)
 
     def procesar_cierre(self,pregunta,mensaje):
         if pregunta.tiene_respuesta_validada():
             self.aplicar_cierre(pregunta,mensaje)
         else:
             pregunta.agregar_respuesta(mensaje)
+            self.contador_mensaje_respuesta = self.contador_mensaje_respuesta +1
 
     def procesar_respuesta_o_cierre(self, pregunta, mensaje):
         if mensaje.es_cierre_alumno():
             self.procesar_cierre(pregunta,mensaje)
         else:
+            self.contador_mensaje_respuesta = self.contador_mensaje_respuesta + 1
             pregunta.agregar_respuesta(mensaje)
 
     def manejar_mensaje_de_autor_existente(self, pregunta, mensaje):
@@ -145,14 +163,22 @@ class Procesador:
         self.mensajes_sueltos.append(mensaje)
 
     def _asociar_a_ultimas_preguntas_cerradas(self, mensaje: Mensaje):
-        ultimas = self.preguntas_cerradas[-2:]
-        for pregunta in ultimas:
-            pregunta.agregar_respuesta(mensaje)
-            logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
-            logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
+        self.contador_mensaje_respuesta = self.contador_mensaje_respuesta +1 
+        if len(self.preguntas_cerradas) == 1:
+            lista_unica_pregunta = self.preguntas_cerradas[-1:]
+            for pregunta in lista_unica_pregunta:
+                pregunta.agregar_respuesta(mensaje)
+                logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
+                logger_msj.debug(f" 🔶 SE ASOCIA A LA ULTIMA PREGUNTA CERRADA: '{pregunta.contenido}'")
+        else: 
+            ultimas_dos = self.preguntas_cerradas[-2:]
+            for pregunta in ultimas_dos:
+                pregunta.agregar_respuesta(mensaje)
+                logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
+                logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
 
     def _hay_suficientes_preguntas_cerradas(self) -> bool:
-        return len(self.preguntas_cerradas) >= 2
+        return len(self.preguntas_cerradas) >= 1  # con 1 o más alcanza
 
     def _manejar_mensaje_suelto_o_respuesta(self, mensaje: Mensaje):
         if self._hay_suficientes_preguntas_cerradas():
@@ -162,6 +188,7 @@ class Procesador:
 
 
     def procesar_mensaje_pregunta(self,mensaje):
+        self.contador_preguntas_nuevas = self.contador_preguntas_nuevas + 1
         nueva_pregunta = Pregunta(mensaje) # se crea pregunta 
         self.preguntas_abiertas.append(nueva_pregunta) # se agrega a lista de preguntas_abiertas
         logger_msj.debug(f" 🟡 Nueva Pregunta Abierta: {nueva_pregunta.contenido}")
@@ -184,14 +211,14 @@ class Procesador:
     def mover_a_cerradas(self, pregunta):
         self.preguntas_abiertas.remove(pregunta) # se quita pregunta de lista de preguntas_abiertas
         self.preguntas_cerradas.append(pregunta) # se agrega pregunta a lista preguntas_cerradas 
-        self.contador_preguntas += 1
+        self.contador_preguntas_cerradas += 1
 
     def _cerrar_pregunta_por_tiempo(self, pregunta: Pregunta, mensaje: Mensaje):
         pregunta.cerrar()
         self.mover_a_cerradas(pregunta)
         logger_msj.debug(" 🟢 CIERRE DE PREGUNTA: más de 8 HORAS hay de diferencia con el mensaje actual y posee al menos una pregunta validada ###")
         logger_msj.debug(f"### NUEVO MENSAJE PARA ANALIZAR: el mensaje actual es: {mensaje.contenido} y su autor es {mensaje.autor}")
-        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas, self.nombre_log)
+        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas_cerradas, self.nombre_log)
 
     
     def _debe_cerrarse_por_tiempo(self, pregunta: Pregunta, mensaje_timestamp: datetime) -> bool:
@@ -216,7 +243,7 @@ class Procesador:
         self.mover_a_cerradas(pregunta)
         logger_msj.debug(" 🟢 CIERRE DE PREGUNTA: más de 7 respuestas y posee al menos una pregunta validada ")
         logger_msj.debug(f"### NUEVO MENSAJE PARA ANALIZAR: el mensaje actual es: {mensaje.contenido} y su autor es {mensaje.autor}")
-        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas, self.nombre_log)
+        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas_cerradas, self.nombre_log)
 
     def _debe_cerrarse_por_cantidad(self, pregunta: Pregunta, max_respuestas: int) -> bool:
         return len(pregunta.respuestas) >= max_respuestas and pregunta.tiene_respuesta_validada()

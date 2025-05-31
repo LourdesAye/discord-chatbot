@@ -81,17 +81,27 @@ def guardar_respuestas_sin_pregunta(respuestas_huerfanas, ruta_archivo="log_resp
                 f.write("-------------------------------------------------------\n\n")
 
 # Función para guardar los CSVs con los resultados
-def guardar_csvs(df, visuales_df, sin_numeros_solos_df, solo_simbolos_df,nombre_base):
+def guardar_csvs(df, df_vacios, df_gifs, df_signos, df_simbolos,nombre_base):
     # Crear carpeta si no existe
     nombre_carpeta = f"{CSV_DIR_FINAL}"
     if not os.path.exists(nombre_carpeta):
         os.makedirs(nombre_carpeta) # para crear una carpeta con el nombre base si no existe.
      # Guardar los CSVs dentro de la carpeta
-    visuales_df[["content"]].to_csv(os.path.join(nombre_carpeta,f"{nombre_base}_emojis_gifs_descartados.csv"), index=False, encoding="utf-8")
-    sin_numeros_solos_df[["content"]].to_csv( os.path.join(nombre_carpeta,f"{nombre_base}_numeros_descartados.csv"), index=False, encoding="utf-8")
-    solo_simbolos_df[["content"]].to_csv( os.path.join(nombre_carpeta,f"{nombre_base}_simbolos_descartados.csv"), index=False, encoding="utf-8")
+    df_vacios[["content"]].to_csv(os.path.join(nombre_carpeta,f"{nombre_base}_mensajes_vacios.csv"), index=False, encoding="utf-8")
+    df_gifs[["content"]].to_csv(os.path.join(nombre_carpeta,f"{nombre_base}_emojis_gifs_descartados.csv"), index=False, encoding="utf-8")
+    df_signos[["content"]].to_csv( os.path.join(nombre_carpeta,f"{nombre_base}_numeros_descartados.csv"), index=False, encoding="utf-8")
+    df_simbolos[["content"]].to_csv( os.path.join(nombre_carpeta,f"{nombre_base}_simbolos_descartados.csv"), index=False, encoding="utf-8")
     df[["content"]].to_csv(os.path.join(nombre_carpeta,f"{nombre_base}_json_limpio.csv"), index=False, encoding="utf-8")
     # os.path.join(nombre_carpeta, archivo.csv) para armar la ruta completa al archivo dentro de esa carpeta.
 
+def guardar_pregunta(pregunta, numero_pregunta, ruta_archivo):
+    nombre_carpeta = f"{LOG_DIR_FINAL}"
+    os.makedirs(nombre_carpeta, exist_ok=True)
+    ruta_completa = os.path.join(nombre_carpeta, ruta_archivo)
 
+    with open(ruta_completa, "a", encoding="utf-8") as f:
+        f.write("═══════════════════════════════════════════════════════\n")
+        f.write(f"[PREGUNTA {numero_pregunta}]\n")
+        f.write(pregunta+ "\n")
+        f.write("═══════════════════════════════════════════════════════\n\n")
 

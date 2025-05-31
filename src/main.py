@@ -1,9 +1,11 @@
-from src.utils_for_all.conexion_bdd import config
+from utils_for_all.conexion_bdd import config
 from database.knowledge_base.services.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.knowledge_base.data_base.clase_cargar_bdd import GestorBD
 from database.knowledge_base.config.admin_rutas import rutas_json
 from database.knowledge_base.services.procesamiento_json import procesar_archivos_json
-from src.utils_for_all.utilidades_logs import setup_logger
+from utils_for_all.utilidades_logs import setup_logger
+from embeddings.crear_vectores import crear_base_vectorial
+from embeddings.utilidades_vectores import probar_busqueda
 
 # LOGGER para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -35,8 +37,16 @@ bd.cerrar_conexion() # cerrar conexión con bdd
 logger_proc.debug(f" ")
 logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
 
+# crear base de datos de vectores una vez persistidos los datos
+vectordb = crear_base_vectorial()
+
+# probar búsqueda semántica en embeddings
+probar_busqueda(vectordb, "¿Qué es Github?", k=5)
+probar_busqueda(vectordb, "¿Cómo se usa el patrón state?", k=5)
+probar_busqueda(vectordb, "¿qué es java?",k=5)
+
 def main():
-    logger_proc.debug("Ejecutando main.py")
+    logger_proc.debug("Finalizando la Ejecución del archivo main.py")
 
 if __name__ == "__main__":
     main()
