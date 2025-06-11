@@ -6,6 +6,7 @@ from database.knowledge_base.services.procesamiento_json import procesar_archivo
 from utils_for_all.utilidades_logs import setup_logger
 from embeddings.crear_vectores import crear_base_vectorial
 from embeddings.utilidades_vectores import probar_busqueda
+from embeddings.borrando_vectores import eliminar_vectores_chroma
 
 # LOGGER para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -37,6 +38,7 @@ bd.cerrar_conexion() # cerrar conexión con bdd
 logger_proc.debug(f" ")
 logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
 
+eliminar_vectores_chroma()
 # crear base de datos de vectores una vez persistidos los datos
 vectordb = crear_base_vectorial()
 

@@ -1,0 +1,87 @@
+2025-06-01 20:48:16,096 - DEBUG - ✅ Base vectorial creada con éxito.
+2025-06-01 20:48:16,183 - DEBUG -  
+2025-06-01 20:48:16,183 - DEBUG - ❓PREGUNTA NUEVA : ¿Qué es Github?
+2025-06-01 20:48:16,184 - DEBUG - 🔝 MÁS PARECIDA:
+2025-06-01 20:48:16,184 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-06-01 20:48:16,184 - DEBUG - Metadatos: {'id': 16}
+2025-06-01 20:48:16,184 - DEBUG - Similitud: 0.6140
+2025-06-01 20:48:16,184 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,184 - DEBUG - 🔍 Resultado #2:
+2025-06-01 20:48:16,184 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-06-01 20:48:16,184 - DEBUG - Metadatos: {'id': 16}
+2025-06-01 20:48:16,184 - DEBUG - Similitud: 0.6140
+2025-06-01 20:48:16,184 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,184 - DEBUG - 🔍 Resultado #3:
+2025-06-01 20:48:16,184 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-06-01 20:48:16,184 - DEBUG - Metadatos: {'id': 6}
+2025-06-01 20:48:16,184 - DEBUG - Similitud: 0.3162
+2025-06-01 20:48:16,184 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,184 - DEBUG - 🔍 Resultado #4:
+2025-06-01 20:48:16,184 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-06-01 20:48:16,184 - DEBUG - Metadatos: {'id': 6}
+2025-06-01 20:48:16,184 - DEBUG - Similitud: 0.3162
+2025-06-01 20:48:16,185 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,185 - DEBUG - 🔍 Resultado #5:
+2025-06-01 20:48:16,185 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-06-01 20:48:16,185 - DEBUG - Metadatos: {'id': 7}
+2025-06-01 20:48:16,185 - DEBUG - Similitud: 0.0701
+2025-06-01 20:48:16,185 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,210 - DEBUG -  
+2025-06-01 20:48:16,210 - DEBUG - ❓PREGUNTA NUEVA : ¿Cómo se usa el patrón state?
+2025-06-01 20:48:16,210 - DEBUG - 🔝 MÁS PARECIDA:
+2025-06-01 20:48:16,210 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-06-01 20:48:16,210 - DEBUG - Metadatos: {'id': 392}
+2025-06-01 20:48:16,210 - DEBUG - Similitud: 0.5663
+2025-06-01 20:48:16,210 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,210 - DEBUG - 🔍 Resultado #2:
+2025-06-01 20:48:16,211 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-06-01 20:48:16,211 - DEBUG - Metadatos: {'id': 392}
+2025-06-01 20:48:16,211 - DEBUG - Similitud: 0.5663
+2025-06-01 20:48:16,211 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,211 - DEBUG - 🔍 Resultado #3:
+2025-06-01 20:48:16,211 - DEBUG - Pregunta: entonces, ¿cómo se aplicaría el patrón state considerando que los gastos los puse como una lista dentro del usuario en vez de la solución que propuso ezequiel que era que en la clase gasto se tenga como atributo al usuario?
+2025-06-01 20:48:16,211 - DEBUG - Metadatos: {'id': 228}
+2025-06-01 20:48:16,211 - DEBUG - Similitud: 0.1868
+2025-06-01 20:48:16,211 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,211 - DEBUG - 🔍 Resultado #4:
+2025-06-01 20:48:16,211 - DEBUG - Pregunta: entonces, ¿cómo se aplicaría el patrón state considerando que los gastos los puse como una lista dentro del usuario en vez de la solución que propuso ezequiel que era que en la clase gasto se tenga como atributo al usuario?
+2025-06-01 20:48:16,211 - DEBUG - Metadatos: {'id': 228}
+2025-06-01 20:48:16,211 - DEBUG - Similitud: 0.1868
+2025-06-01 20:48:16,211 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,211 - DEBUG - 🔍 Resultado #5:
+2025-06-01 20:48:16,211 - DEBUG - Pregunta: buenas! unas consultas sobre el patrón state.
+las relaciones de dependencia entre los estados: 
+1. ¿son obligatorias? 
+2. en caso no de serlo, ¿en qué caso irían? 
+3. ¿es relevante la dirección de la relación?
+4. ¿en algún caso serían bidireccionales?
+2025-06-01 20:48:16,211 - DEBUG - Metadatos: {'id': 70}
+2025-06-01 20:48:16,211 - DEBUG - Similitud: 0.1726
+2025-06-01 20:48:16,211 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,226 - DEBUG -  
+2025-06-01 20:48:16,227 - DEBUG - ❓PREGUNTA NUEVA : ¿qué es java?
+2025-06-01 20:48:16,227 - DEBUG - 🔝 MÁS PARECIDA:
+2025-06-01 20:48:16,227 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-06-01 20:48:16,227 - DEBUG - Metadatos: {'id': 17}
+2025-06-01 20:48:16,227 - DEBUG - Similitud: 0.2557
+2025-06-01 20:48:16,227 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,227 - DEBUG - 🔍 Resultado #2:
+2025-06-01 20:48:16,227 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-06-01 20:48:16,227 - DEBUG - Metadatos: {'id': 17}
+2025-06-01 20:48:16,227 - DEBUG - Similitud: 0.2557
+2025-06-01 20:48:16,227 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,227 - DEBUG - 🔍 Resultado #3:
+2025-06-01 20:48:16,227 - DEBUG - Pregunta: buenas noches, yo tenía una pregunta acerca del seminario de java. quería saber si el try y catch es para exception y runtimexception o es para alguna de las dos específicamente, ya que eso no me quedó muy claro
+2025-06-01 20:48:16,227 - DEBUG - Metadatos: {'id': 23}
+2025-06-01 20:48:16,227 - DEBUG - Similitud: 0.2334
+2025-06-01 20:48:16,227 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,227 - DEBUG - 🔍 Resultado #4:
+2025-06-01 20:48:16,227 - DEBUG - Pregunta: buenas noches, yo tenía una pregunta acerca del seminario de java. quería saber si el try y catch es para exception y runtimexception o es para alguna de las dos específicamente, ya que eso no me quedó muy claro
+2025-06-01 20:48:16,227 - DEBUG - Metadatos: {'id': 23}
+2025-06-01 20:48:16,227 - DEBUG - Similitud: 0.2334
+2025-06-01 20:48:16,227 - DEBUG - ----------------------------------------
+2025-06-01 20:48:16,227 - DEBUG - 🔍 Resultado #5:
+2025-06-01 20:48:16,227 - DEBUG - Pregunta: buenas tardes, una duda muy pequeña: en el seminario de java se habla de dependencia. es un sinonimo de biblioteca o se diferencia en algo?
+2025-06-01 20:48:16,227 - DEBUG - Metadatos: {'id': 344}
+2025-06-01 20:48:16,227 - DEBUG - Similitud: 0.1947
+2025-06-01 20:48:16,227 - DEBUG - ----------------------------------------

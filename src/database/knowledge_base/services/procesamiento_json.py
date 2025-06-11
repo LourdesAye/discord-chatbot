@@ -1,4 +1,3 @@
-from database.knowledge_base.services.filtros_json import FiltradorContenido
 import pandas as pd
 from utils_for_all.utilidades_logs import guardar_csvs
 from database.knowledge_base.services.clase_procesador_mensajes import Procesador

@@ -1,0 +1,2 @@
+2025-06-01 21:55:34,265 - DEBUG - tus atributos son: base_de_conocimiento_chatbot,postgres,0909casajardinpaz0707,localhost,5432
+2025-06-01 21:55:34,265 - DEBUG - tus atributos son: base_de_conocimiento_chatbot,postgres,0909casajardinpaz0707,localhost,5432
