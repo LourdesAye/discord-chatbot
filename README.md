@@ -62,17 +62,17 @@ Construir un sistema que permita:
 ├── src/                     # Código fuente del sistema
 │   ├── database/
 │   │   ├── backups/         # Backups de la base
+│   │   ├── knowledge_base/
+│   │   │      ├──  llm_analys/      # Experimentos con LLAMA (no implementado por rendimiento)
+│   │   │      ├──  models/          # Modelo de dominio: Clases Pregunta, Mensaje, Respuesta, etcétera. 
+│   │   │      ├── services/         # Filtros y procesamiento de mensajes, análisis y validaciones
+│   │   │      └──config/           # Configuración de rutas
 │   │   └── scripts/
-│   │       └── inic_tables/ # Scripts de creación de tablas e inserts
+│   │          ├──  inic_tables/           # Scripts de creación de tablas e inserts
+│   │          ├──  repeticiones_tables/   # Scripts para análisis de registros repetidos
+│   │          └── test_tables/           # Scripts de pruebas: cantidad de registros, preguntas sin respuestas, respuestas sin respuestas, entre otras.
 │   ├── embeddings/          # Funcionalidad de embeddings y búsqueda semántica
-│   ├── utils_for_all/       # Logs y configuración de conexión a la base
-│   ├── clasificadores/      # Lógica de detección de preguntas y respuestas
-│   ├── filtros/             # Filtros de limpieza de mensajes
-│   ├── services/            # Procesamiento de mensajes, análisis y validaciones
-│   ├── config/              # Configuración de rutas
-│   ├── models/              # Clases del dominio: Pregunta, Respuesta, Mensaje, etc.
-│   ├── knowledge_base/
-│   │   └── llm_analys/      # Experimentos con LLAMA (no implementado por rendimiento)
+│   ├── utils_for_all/       # Lógica para almacenamiento de los logs y configuración de conexión a la base
 │   └── main.py              # Pipeline principal
 ├── requirements.txt         # Dependencias del proyecto
 └── README.md                # Este archivo
@@ -87,8 +87,7 @@ Construir un sistema que permita:
 - **Bases de datos**: PostgreSQL (relacional) + ChromaDB (vectorial)
 - **Librerías principales**:
   - `pandas`, `json`, `re`, `psycopg2`
-  - `langchain`, `sentence-transformers`, `chromadb`
-  - `python-dotenv`, `logging`, `fastapi`, `scikit-learn`
+  - `langchain`, `sentence-transformers`, `chromadb`,`logging`
   - Planeado: `transformers`, `mistral`, `llama` u otros LLMs
 - **Integración futura**: API de Discord
 
@@ -107,7 +106,7 @@ cd discord-chatbot
 
 ```bash
 python -m venv venv
-.env\Scripts\Activate.ps1  # Windows PowerShell
+.\venv\Scripts\Activate.ps1
 ```
 
 ### 3. Instalar dependencias
@@ -131,8 +130,6 @@ Debés tener PostgreSQL instalado. Creá una base de datos con los siguientes pa
 "port": "5432"
 ```
 
-⚠️ Recomendación: Para producción, usar un archivo `.env` para ocultar credenciales.
-
 ---
 
 ### 4.1 Ejecutar desde cero
@@ -146,18 +143,15 @@ Debés tener PostgreSQL instalado. Creá una base de datos con los siguientes pa
 ### 4.2 Restaurar desde backup `.sql` (opcional)
 
 1. Abrí pgAdmin.
-2. Seleccioná la base `base_de_conocimiento_chatbot`.
-3. Click derecho > **Restore...** > Seleccioná tu archivo `.sql`.
+2. Crear una base de datos
+3. Click derecho > **Restore...** > Seleccioná el archivo de backup `.sql`.
 4. Ejecutá.
 
 ---
 
 ### 5. Ejecutar el sistema
 
-```bash
-python src/main.py
-```
-
+Se ejecuta el archivo main.py.   
 Los logs con los resultados se encuentran en la carpeta `logs/`.
 
 ---
