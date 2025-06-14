@@ -66,14 +66,17 @@ Construir un sistema que permita:
 │   │   │      ├──  llm_analys/      # Experimentos con LLAMA (no implementado por rendimiento)
 │   │   │      ├──  models/          # Modelo de dominio: Clases Pregunta, Mensaje, Respuesta, etcétera. 
 │   │   │      ├── services/         # Filtros y procesamiento de mensajes, análisis y validaciones
-│   │   │      └──config/           # Configuración de rutas
+│   │   │      └──config/            # Configuración de rutas
 │   │   └── scripts/
 │   │          ├──  inic_tables/           # Scripts de creación de tablas e inserts
 │   │          ├──  repeticiones_tables/   # Scripts para análisis de registros repetidos
-│   │          └── test_tables/           # Scripts de pruebas: cantidad de registros, preguntas sin respuestas, respuestas sin respuestas, entre otras.
+│   │          └── test_tables/            # Scripts de pruebas: cantidad de registros, preguntas sin respuestas, respuestas sin respuestas, entre otras.
 │   ├── embeddings/          # Funcionalidad de embeddings y búsqueda semántica
 │   ├── utils_for_all/       # Lógica para almacenamiento de los logs y configuración de conexión a la base
 │   └── main.py              # Pipeline principal
+├── .gitattributes           # Reglas para el tratamiento de archivos por parte de Git (evitar conversiones innecesarias, entre otras) 
+├── .gitignore               # Define los archivos y directorios que deben excluirse del seguimiento en Git (como entornos virtuales por seguridad, entre otros)
+├── env.example              # Plantilla para crear el archivo .env (necesario para conectarse a la base de datos)
 ├── requirements.txt         # Dependencias del proyecto
 └── README.md                # Este archivo
 ```
@@ -119,16 +122,22 @@ pip install -r requirements.txt
 
 ### 4. Configuración de base de datos relacional
 
-Debés tener PostgreSQL instalado. Creá una base de datos con los siguientes parámetros por defecto:
+Debés tener PostgreSQL instalado y una base de datos creada previamente.
 
-```python
-# src/utils_for_all/conexion_bdd.py
-"dbname": "base_de_conocimiento_chatbot",
-"user": "postgres",
-"password": "0909casajardinpaz0707",
-"host": "localhost",
-"port": "5432"
+Luego, creá un archivo `.env` en la raíz del proyecto con la siguiente estructura:
+
 ```
+DB_NAME=base_de_conocimiento_chatbot
+DB_USER=postgres
+DB_PASSWORD=tu_contraseña
+DB_HOST=localhost
+DB_PORT=5432
+```
+**Importante:**  
+Este archivo `.env` **no se sube al repositorio** por razones de seguridad.  
+En su lugar, el proyecto incluye un archivo `env.example` como plantilla para facilitar la configuración inicial. 
+
+El código carga automáticamente estas variables de entorno para establecer la conexión a la base de datos.
 
 ---
 
