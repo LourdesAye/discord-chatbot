@@ -18,3 +18,8 @@ def crear_base_vectorial():
     )
     logger_embeddings.debug("✅ Base vectorial creada con éxito.")
     return vectordb
+
+def get_base_de_datos_vectorial(): 
+    # Carga de modelo y base vectorial persistente
+    modelo = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    return Chroma(persist_directory="./chroma", embedding_function=modelo)

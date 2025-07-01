@@ -1,3 +1,4 @@
 # Ignorar configuración sensible
 .env
 .env.*
+venv/
