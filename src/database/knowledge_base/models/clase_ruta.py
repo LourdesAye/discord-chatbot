@@ -11,8 +11,8 @@ class Ruta:
         return self.nombre_ruta.exists()
 
     def leer_json(self):
-        with open(self.nombre_ruta, "r", encoding="utf-8") as f:
-            return json.load(f)
+        with open(self.nombre_ruta, "r", encoding="utf-8") as f: # abrir el archivo json (nombre_ruta), modo lectura (r) y considerando cacarteres especiales
+            return json.load(f) # si el json es clave-valor: load devuelve un diccionario (este caso), si el json es secuencia de valores: devuelve lista
 
     def __str__(self):
         # definir cómo se representa un objeto cuando se lo convierte en una cadena

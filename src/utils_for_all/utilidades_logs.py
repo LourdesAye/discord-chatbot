@@ -1,16 +1,18 @@
 import logging
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+from utils_for_all.config import LOG_DIR_ABS
 
 # Ruta base donde estarán todas las carpetas de logs con timestamp
-DIR_BASE = "C:\\Users\\lourd\\Downloads\\python_con_json\\obtener_preguntas_y_respuestas\\logs"
+directorio_logs = LOG_DIR_ABS
 
 # Generar nombre de carpeta con fecha y hora
 FECHA_LOG = datetime.now().strftime("logs_%d_%m_%y_%H_%M")
-LOG_DIR_FINAL = os.path.join(DIR_BASE, FECHA_LOG)
+LOG_DIR_FINAL = os.path.join(directorio_logs, FECHA_LOG)
 
 FECHA_CSV = datetime.now().strftime("csv_%d_%m_%y_%H_%M")
-CSV_DIR_FINAL = os.path.join(DIR_BASE, FECHA_CSV)
+CSV_DIR_FINAL = os.path.join(directorio_logs, FECHA_CSV)
 
 def setup_logger(name, log_file):
     nombre_carpeta = f"{LOG_DIR_FINAL}"
@@ -80,10 +82,9 @@ def guardar_respuestas_sin_pregunta(respuestas_huerfanas, ruta_archivo="log_resp
                 f.write(f"Contenido: {respuesta.contenido}\n")
                 f.write("-------------------------------------------------------\n\n")
 
-# Función para guardar los CSVs con los resultados
-def guardar_csvs(df, df_vacios, df_gifs, df_signos, df_simbolos,nombre_base):
-    # Crear carpeta si no existe
-    nombre_carpeta = f"{CSV_DIR_FINAL}"
+# Función para guardar los datos que se obtienen de los dataFrames filtrados y poder analizar
+def guardar_resultados_en_csvs(df, df_vacios, df_gifs, df_signos, df_simbolos,nombre_base):
+    nombre_carpeta = f"{CSV_DIR_FINAL}" # Crear carpeta si no existe
     if not os.path.exists(nombre_carpeta):
         os.makedirs(nombre_carpeta) # para crear una carpeta con el nombre base si no existe.
      # Guardar los CSVs dentro de la carpeta
