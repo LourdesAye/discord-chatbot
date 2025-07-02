@@ -2,7 +2,7 @@ import logging
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-from utils_for_all.config import LOG_DIR_ABS
+from utils_for_all.config_rutas import LOG_DIR_ABS
 
 # Ruta base donde estarán todas las carpetas de logs con timestamp
 directorio_logs = LOG_DIR_ABS
