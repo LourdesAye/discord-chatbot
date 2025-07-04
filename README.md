@@ -165,6 +165,34 @@ Los logs con los resultados se encuentran en la carpeta `logs/`.
 
 ---
 
+## 🔧 Configuración y Mantenimiento  
+
+### Desactivar telemetría en Chroma/LangChain    
+
+Tanto **LangChain** como **ChromaDB** utilizan internamente herramientas como `OpenTelemetry` y `PostHog` para recolectar métricas de uso, activando la **telemetría automáticamente**. En algunos entornos, como **Visual Studio Code**, esto puede generar **conflictos al ejecutar scripts**, como `crear_vectores.py`, debido a argumentos inesperados en funciones internas.
+Para evitar estos problemas, se recomienda desactivar explícitamente la telemetría.   
+
+#### 1. Añadidir variables de entorno en `crear_vectores.py`:  
+Al comienzo del script, agregar:  
+  ``` python
+  import os
+  os.environ["ANONYMIZED_TELEMETRY"] = "False"  # Desactiva telemetría en ChromaDB  
+  os.environ["LANGCHAIN_TRACING"] = "False"  # Desactiva trazas internas en LangChain  
+  os.environ["OTEL_SDK_DISABLED"] = "true"  # Desactiva OpenTelemetry 
+  ``` 
+#### 2. Desactivar telemetría en Visual Studio Code  
+  1. Presionar Ctrl + Shift + P (Windows/Linux) o Cmd + Shift + P (Mac).  
+  2. Buscar y seleccionar "Preferences: Open Settings (JSON)". 
+    - Si no existe, crear manualmente el archivo en: .vscode/settings.json, en la raíz del proyecto (donde está main.py).
+  3. Agregar lo siguiente al archivo JSON:  
+  ``` json
+  {
+  "telemetry.telemetryLevel": "off",       // Desactiva la telemetría en VS Code
+  "python.analysis.logLevel": "Error"      // Muestra solo errores críticos del analizador
+  }
+  ```  
+  Esta configuración ayuda a evitar errores inesperados durante el desarrollo y mejora el rendimiento general del entorno.
+
 ## ✅ Resultados actuales
 
 - Archivos `.json` son cargados y consolidados en un único DataFrame.

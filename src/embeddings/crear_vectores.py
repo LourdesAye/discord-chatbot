@@ -24,7 +24,7 @@ def crear_base_vectorial():
         embedding=modelo,
         metadatas=metadatos,
         persist_directory="./chroma",
-        anonymized_telemetry=False  # 👈 Desactiva telemetría aquí
+        anonymized_telemetry=False  # Para desactivar telemetría
     )
     logger_embeddings.debug("✅ Base vectorial creada con éxito.")
     return vectordb
