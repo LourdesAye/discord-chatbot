@@ -182,7 +182,7 @@ Al comienzo del script, agregar:
   ``` 
 #### 2. Desactivar telemetría en Visual Studio Code  
   1. Presionar Ctrl + Shift + P (Windows/Linux) o Cmd + Shift + P (Mac).  
-  2. Buscar y seleccionar "Preferences: Open Settings (JSON)". 
+  2. Buscar y seleccionar "Preferences: Open Settings (JSON)".  
     - Si no existe, crear manualmente el archivo en: .vscode/settings.json, en la raíz del proyecto (donde está main.py).
   3. Agregar lo siguiente al archivo JSON:  
   ``` json
@@ -192,6 +192,8 @@ Al comienzo del script, agregar:
   }
   ```  
   Esta configuración ayuda a evitar errores inesperados durante el desarrollo y mejora el rendimiento general del entorno.
+
+---
 
 ## ✅ Resultados actuales
 
