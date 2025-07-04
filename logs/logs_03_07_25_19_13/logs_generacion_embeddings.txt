@@ -1,0 +1,83 @@
+2025-07-03 19:13:12,343 - DEBUG - ⚠️ No existe esa base vectorial.
+2025-07-03 19:13:39,379 - DEBUG - ✅ Base vectorial creada con éxito.
+2025-07-03 19:13:39,413 - DEBUG -  
+2025-07-03 19:13:39,414 - DEBUG - ❓PREGUNTA NUEVA : ¿Qué es Github?
+2025-07-03 19:13:39,414 - DEBUG - 🔝 MÁS PARECIDA:
+2025-07-03 19:13:39,414 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:13:39,414 - DEBUG - Metadatos: {'id': 785}
+2025-07-03 19:13:39,414 - DEBUG - Similitud: 0.6140
+2025-07-03 19:13:39,415 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,415 - DEBUG - 🔍 Resultado #2:
+2025-07-03 19:13:39,415 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:13:39,415 - DEBUG - Metadatos: {'id': 306}
+2025-07-03 19:13:39,415 - DEBUG - Similitud: 0.6140
+2025-07-03 19:13:39,415 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,415 - DEBUG - 🔍 Resultado #3:
+2025-07-03 19:13:39,415 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:13:39,415 - DEBUG - Metadatos: {'id': 1264}
+2025-07-03 19:13:39,415 - DEBUG - Similitud: 0.6140
+2025-07-03 19:13:39,415 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,415 - DEBUG - 🔍 Resultado #4:
+2025-07-03 19:13:39,415 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-07-03 19:13:39,415 - DEBUG - Metadatos: {'id': 775}
+2025-07-03 19:13:39,415 - DEBUG - Similitud: 0.3162
+2025-07-03 19:13:39,415 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,415 - DEBUG - 🔍 Resultado #5:
+2025-07-03 19:13:39,415 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-07-03 19:13:39,415 - DEBUG - Metadatos: {'id': 296}
+2025-07-03 19:13:39,416 - DEBUG - Similitud: 0.3162
+2025-07-03 19:13:39,416 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,448 - DEBUG -  
+2025-07-03 19:13:39,449 - DEBUG - ❓PREGUNTA NUEVA : ¿Cómo se usa el patrón state?
+2025-07-03 19:13:39,449 - DEBUG - 🔝 MÁS PARECIDA:
+2025-07-03 19:13:39,449 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:13:39,449 - DEBUG - Metadatos: {'id': 203}
+2025-07-03 19:13:39,449 - DEBUG - Similitud: 0.5663
+2025-07-03 19:13:39,449 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,449 - DEBUG - 🔍 Resultado #2:
+2025-07-03 19:13:39,449 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:13:39,449 - DEBUG - Metadatos: {'id': 682}
+2025-07-03 19:13:39,449 - DEBUG - Similitud: 0.5663
+2025-07-03 19:13:39,449 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,449 - DEBUG - 🔍 Resultado #3:
+2025-07-03 19:13:39,449 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:13:39,449 - DEBUG - Metadatos: {'id': 1161}
+2025-07-03 19:13:39,449 - DEBUG - Similitud: 0.5663
+2025-07-03 19:13:39,449 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,449 - DEBUG - 🔍 Resultado #4:
+2025-07-03 19:13:39,449 - DEBUG - Pregunta: entonces, ¿cómo se aplicaría el patrón state considerando que los gastos los puse como una lista dentro del usuario en vez de la solución que propuso ezequiel que era que en la clase gasto se tenga como atributo al usuario?
+2025-07-03 19:13:39,449 - DEBUG - Metadatos: {'id': 518}
+2025-07-03 19:13:39,449 - DEBUG - Similitud: 0.1868
+2025-07-03 19:13:39,449 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,449 - DEBUG - 🔍 Resultado #5:
+2025-07-03 19:13:39,449 - DEBUG - Pregunta: entonces, ¿cómo se aplicaría el patrón state considerando que los gastos los puse como una lista dentro del usuario en vez de la solución que propuso ezequiel que era que en la clase gasto se tenga como atributo al usuario?
+2025-07-03 19:13:39,449 - DEBUG - Metadatos: {'id': 997}
+2025-07-03 19:13:39,449 - DEBUG - Similitud: 0.1868
+2025-07-03 19:13:39,449 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,478 - DEBUG -  
+2025-07-03 19:13:39,478 - DEBUG - ❓PREGUNTA NUEVA : ¿qué es java?
+2025-07-03 19:13:39,478 - DEBUG - 🔝 MÁS PARECIDA:
+2025-07-03 19:13:39,478 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:13:39,478 - DEBUG - Metadatos: {'id': 1265}
+2025-07-03 19:13:39,478 - DEBUG - Similitud: 0.2557
+2025-07-03 19:13:39,478 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,478 - DEBUG - 🔍 Resultado #2:
+2025-07-03 19:13:39,478 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:13:39,478 - DEBUG - Metadatos: {'id': 786}
+2025-07-03 19:13:39,478 - DEBUG - Similitud: 0.2557
+2025-07-03 19:13:39,478 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,478 - DEBUG - 🔍 Resultado #3:
+2025-07-03 19:13:39,478 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:13:39,478 - DEBUG - Metadatos: {'id': 307}
+2025-07-03 19:13:39,478 - DEBUG - Similitud: 0.2557
+2025-07-03 19:13:39,478 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,478 - DEBUG - 🔍 Resultado #4:
+2025-07-03 19:13:39,478 - DEBUG - Pregunta: buenas noches, yo tenía una pregunta acerca del seminario de java. quería saber si el try y catch es para exception y runtimexception o es para alguna de las dos específicamente, ya que eso no me quedó muy claro
+2025-07-03 19:13:39,478 - DEBUG - Metadatos: {'id': 1271}
+2025-07-03 19:13:39,478 - DEBUG - Similitud: 0.2334
+2025-07-03 19:13:39,478 - DEBUG - ----------------------------------------
+2025-07-03 19:13:39,478 - DEBUG - 🔍 Resultado #5:
+2025-07-03 19:13:39,478 - DEBUG - Pregunta: buenas noches, yo tenía una pregunta acerca del seminario de java. quería saber si el try y catch es para exception y runtimexception o es para alguna de las dos específicamente, ya que eso no me quedó muy claro
+2025-07-03 19:13:39,478 - DEBUG - Metadatos: {'id': 313}
+2025-07-03 19:13:39,478 - DEBUG - Similitud: 0.2334
+2025-07-03 19:13:39,478 - DEBUG - ----------------------------------------

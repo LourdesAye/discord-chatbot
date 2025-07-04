@@ -1,0 +1,1216 @@
+content
+"Buenas, que tal? No pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+La clase que se unieron al repo no pude asistir, y cuando intente despues no pude"
+Buenas noches! Envianos tu usuario de github
+mi usuario es gmeneseUTN
+Enviada la invite!
+"buenas, yo tambien colgue con unirme. Lo quise hacer con el link que me había guardado y ahora me figura el equipo lleno. Soy del grupo 11, martes a la mañana. Mi usario es feliperusso."
+"Buenas, yo pensé que tenia acceso al repo, pero era de otra cursada 🫠  Soy del grupo 26, miércoles noche. Mi usuario de Github es AlejoKoprivnikar. Me podrían unir al repositorio?"
+En qué repo estás? Así te saco del que no te pertenece
+"Actualmente estoy en ""2023-tpa-vi-no-grupo-12"" y me quiero pasar a ""2024-tpa-vi-no-grupo-26"""
+"Ya te agregué al 26, pero no te veo en el 12! De todas formas: ¿Cómo llegaste ahí?! Confirmame si ya ves tu grupo y listo"
+"Perfecto! muchas gracias, ya pude entrar. Como respuesta a como llegue ahí, es el repo que me designaron el año pasado y cuando revise el Github pensé que era el nuevo repo."
+Holii puede ser que en el aula no esten todas las ppts ?
+xq queria repasar y no las encuentro 😦
+ya las encontreee no dije nadaa
+¡Buenas! En su momento no pude unirme al repo de mi grupo. Mi usuario es manugomezp y soy del grupo 4. ¿Podrían unirme? Muchas gracias.
+Buenas! Turno mañana o noche?
+turno noche
+OK! Ahora en un rato te agregamos
+perdon la tardanza! <@831979058865897533> ahi deberia aparecerte la invitacion
+"No hay problema, ya me pude sumar. Gracias!"
+"Hola BUneas, una consutla"
+Buen dia
+Que necesitas?
+Ya vi q escribiste en el otro canal..
+"Hola, buenas tardes. Quería consultar si de casualidad el curso de UI/UX podrá quedar grabado, porque me interesaría participar pero tengo que cursar en el mismo horario en campus. Gracias, un saludo!"
+Buenas! Si! Los seminarios quedan grabados
+"Buenas, queria preguntar si los seminarios entran para el parcial o si son para ayudarnos en el TP. Salduos!"
+"Buenos días Elias! El contenido de los seminiarios es necesario para el desarrollo del TPA, pero allí dentro también hay varias cuestiones que acompañan los temas de la cursada. Si bien no se les va a hacer una pregunta específica sobre contenido de alguno de los seminarios, es importante su visualización a medida que se los vayamos indicando."
+Perfecto. Muchas Gracias Eze!
+"Hola, cual es la modalidad de la clase de mañana?"
+según el cronograma
+tengo entendido que es virtual
+"no sé si el hecho de haber tenido virtual la clase anterior cambia algo, pero x ahora no se avisó nada"
+"Buenas, buscamos al grupo 43, somos del 25. No se si este es el chat para eso"
+"Buenos días Bruno, cómo estás? No, este no es el canal indicado pues este es general para la cursada Martes + Miércoles. Tenes que escribir en el canal de consultas de tu curso!"
+"Buen día, para ver el seminario grabado de UI/UX tengo que enviar el form de google o está el link por algún lado? Gracias"
+"Buen día Joaquín! El seminario se realiza el día de mañana. Cuando esté subido, lo disponibilizaremos por los distintos canales"
+"Hola!!
+Estoy teniendo el siguiente problema a la hora de correr un test con Junit, antes me corrían pero después cambiar algunas clases ya no. 
+actualicé el pom por si era ese el problema, busqué el error en la web pero no solucionó mi problema, no sé a alguno le pasó o si sabe por qué pasa. Muchas graciass"
+"Hola Gustavo, cómo estás? De casualidad cambiaste nombre de packages ? Porque veo que no te está reconociendo clases"
+"Sí, pero en cada cambio utilice la opción de ""refactor"", para no tener problemas de incompatibilidades en los nombres de clases y paquetes"
+Ahora me cree un nuevo proyecto para ver el requerimiento de la carga masiva de usuarios desde un archivo csv y me apareció un mensaje parecido cuando traté de correr el main
+Fíjate la SDK de Java si se te cambio por alguna casualidad.. sospecho que puede venir por ahí
+"Ya me funciona, desinstalé el intellIj que tenía e instalé la última versión. Muchas graciass!"
+"Buenas noches, tengo una consulta respecto a la parte de Mockear la API para la recomendación de puntos de ubicación de las heladeras en el TP Anual
+
+¿Los datos en que se basa para la recomendación de puntos de ubicación se deberían pasar desde el body como un objeto?"
+"Osea por ejemplo pasarle en el body:
+```json
+{
+  latitud: 33.22
+  longitud: 40.05
+  radio: 20
+  ....
+}```"
+"Hola Luciano! ¿Te referís al mockeo de lo que devuelve la API? En ese caso, sí, en el body indicás qué puntos recomendados devolvería ante una determinada coordenada y radio que se pase en la ruta."
+"Hola Aylen! Nono, me refiero a los datos en que se basaria la API para devolver los puntos recomendados"
+"Es decir, por dónde habría que enviarle esos datos? O es algo que se va a ver después?"
+"Ahhh! Los factores de densidad demográfica y etc que menciona el enunciado? Nono, eso es lógica que va a usar la API ""que está en desarrollo"" dentro de su procesamiento, así que no los tenés"
+La idea es darle un input y mockear el resultado de la API
+Me explico?
+"Claro, mi duda es como le pasamos ese input, por parámetro del endpoint?"
+https://medium.com/@a.herrerapuertas/query-params-path-params-614e878957ce
+Fíjense si les sirve 🙂 En el ejemplo que les pasamos de Postman se usa Path Param porque era solo con un ID
+"Aa joya, entonces dependiendo de la query que le pases tenemos que mockear distintas ubicaciones recomendadas que devolveria la api?"
+Claro 😄
+"Perfecto, gracias Aylen"
+"Buenas, por casualidad grabaciones d clases de años anteriores hay?"
+"Buenas tardes Tomás, de algún tema en particular? Así <@1219766711415209984> te lo puede disponibilizar!"
+Cualquier cosa decinos sobre qué clases y con <@392419836812197888>  te facilitamos las que podamos
+Buenas! Mañana es virtual ?
+Buenas! Sí! Ahí <@1219766711415209984> dejó un mensaje en el canal de los Martes🤗
+"Hola buenas, donde esta el video de como encarar la entrega del TPA3? no la encuentro"
+"Hola buenas Laureano. Si sos del curso de los miércoles, esta noche se presentará. Si sos de los martes, fue presentado ayer durante la clase"
+Buenas! Correcto. Esta semana son virtuales
+A perfecto muchas gracias
+<@1219766711415209984> está bien si doy mi presente a la noche cuando tenga acceso a una computadora de escritorio? La semana pasada no tuve problema en mi laptop pero en el celular no me deja cambiar de cuenta o abrir en link en una app con un selector de cuentas. Generalmente los links de Google tienen un path `/u/{id}` donde puedo hardcodear el user ID de mi cuenta institucional pero en este caso no aparece
+Te escribo al privado
+"@everyone
+
+¡Buenos días!🤗
+
+¿Cómo están? En vista de que se aproxima el Primer Parcial, queríamos dejarles tal como comentamos en las clases una encuesta para definir qué día haríamos la clase de consulta para el examen.
+
+Esta clase de consulta la realizaremos para ambos cursos (Martes y Miércoles) a la vez, se realizará en forma virtual y se enfocará únicamente en consultas que provengan de ustedes. Pueden ser enviadas previamente, pero no es obligatorio.
+
+**Les pedimos que voten a la brevedad, así para el día miércoles 10 tenemos la fecha definida.**
+
+¡Que tengan buena semana y buen cierre de cuatrimestre!💪🏻"
+@everyone Buenas tardes! Tienen una última media hora para votar🙂
+"Buenas, estaba repasando la clase de command. En un momento pregunte que pasaría si a cada tipo de evento le quiero guardar sus atributos específicos y me dijeron que debia romper el enumerado y crear una clase distinta por cada tipo de evento. Lo que no entiendo es como quedaría lo demás. La clase evento dejaría de tener el atributo ""TipoDeEvento"" o dejaría de existir? el accionador como registraría el evento? con un método diferente x cada ""tipoDeEvento""?"
+"Hola <@542517801315729408> buen día, cómo estás?!  Efectivamente si quisieras guardar atributos por cada tipo de evento en específico se prodrían crear clases por cada tipo en particular (si es que lo amerita). Estaría bueno ver si se le encuentra algún método en común entre ellos (por ejemplo, detalleCompleto(): String), para que la clase evento pueda seguir teniendo el atributo ""tipo"" pero en vez de apuntar al enum apunte a una clase que implemente la interface ""TipoDeEventoRegistrable"" (o similar). 
+El accionador podría hacer uso de un Factory para que la instanciación del tipo de evento quede lo más prolijo (""clean"") posible. 
+¿Cómo le paso parámetros extras a esa instancia de TipoDeEventos? 
+- Una forma podría ser pensar de crear algún Value Object que llegue desde los receptores hacia el accionador, para que éste le pase este VO al factory. 
+- La otra alternativa es delegar la instanciación de los tipos de eventos a los receptores, para que cada uno configure los atributos que necesite. 
+
+Espero se comprenda, sino nos avisas y la seguimos!"
+Clarísimo eze! muchas graciass!!
+"Hola, buenas noches!!
+Estaba viendo una clase de consulta de un final del Excel que compartieron los ayudantes y en una slide de la presentación se muestran las siguientes estrategias de integración de la materia. La opción de ""cola de mensajes"" puede ser que aún no la hayamos visto? o sí lo vimos, y yo no entendí a lo que se refiere"
+"Buenas noches! 
+Si, tengan en cuenta que en las clases de consulta se tratan finales. Es decir que se mencionan los 3 grandes ejes de la materia (dominio, datos y arquitectura)
+La cola de mensajes aún no la vieron, así que tranqui 😃. Hagan foco sobre todo en la parte de dominio!"
+listooooooo
+gracias
+"Hola buenas tardes, yo rindo el final el sábado y quería hacer una consulta, cuando me dicen que hay una entidad que se almacena en una base de datos no relacional, tengo que diagramarla en el DER? O se diagrama y se aclara?"
+"Buen día! Cómo va? En ese caso no es necesario diagramarlo pero sí justificarlo por escrito, entendiendo que si existe alguna relación con alguna entidad de tu modelo relacional, deberías mencionar cómo generas esa consistencia de forma manual"
+"Genial, clarisimo, muchas gracias"
+"Buenas estuve intenando hacer el final de mis gastos y tengo algunas dudas tanto generales como del enunciado en particular
+* Primero, tema justificaciones: recomiendan ir haciendolas al mismo tiempo que uml o primero hacer todo el uml y despues emepzar a justificar uno por uno?
+* Segundo: hay siempre algunos requerimientos que no necesariamente son de la capa de dominio. La duda es si para resolverlo se puede escribir un textito o conviene dejar alguna clase o interfaz ""en el aire"" como por ejemplo cuando te piden exponer una API
+* Con respecto al enunciado: Adjunto mi UML para mas contexto, pero la duda tiene que ver mas con la pregunta de pseudocodigo: Explique cómo resolvería los requerimientos referidos al ingreso de gastos: “El Sistema debe permitir el registro de gastos por parte de los usuarios finales y mediante API REST”.
+la verdad que yo lo pense mas por el lado de la capa de controllers pero como nunca implementamos una api rest en la materia no estoy tan seguro de que es lo que se busca acá (mas o menos nivel de detalle). Les adjunto el pseudocodigo:
+```java
+public class GastosController {
+  @POST (""gastos/"")
+  void crearGasto(GastoDTO gastoDTO){
+    Gasto nuevoGasto = GastosFactory.createFrom(gastoDTO);
+    this.gastosRepository.guardar(nuevoGasto);
+    nuevoGasto.getUsuario().restarSaldo(nuevoGasto.getMonto());
+    nuevoGasto.getCategoria().notificarObservers();
+    // mismo para presupeusto con un repository
+    nuevoGasto.getUsuario().getEstados().findFirst().actuar(nuevoGasto.getUsuario());
+  }
+```
+
+}"
+Buenas estuve intenando hacer el final
+"Buenas noches, estoy resolviendo el parcial de ""Espacios Colaborativos"" y me surgió una duda con una parte del enunciado, en la sección de accesorios dice que ""el Sistema deberá permitir que el interesado defina una serie de acciones (previamente implementadas)"", con implementadas se refiere a que ya hay acciones creadas en el sistema y que solo son esas y que el usuario ni el administrador pueden crear otras? porque luego dice que el usuario puede CONFIGURAR esas acciones, no sé si con ese ""configurar"" trata de decir que el usuario puede crear una nueva o solo selecciona cuales quiere que esté y listo, como si se mostrara un desplegable en la pantalla de interacción. También habla de ""pre-configuraciones"" que son realizadas por un administrador, yo entiendo que esas pre-configuraciones son otras acciones a realizar en la notebook y el ""pre-"" es solo descriptivo, pero llegué a un punto de dudar de cada palabra y no querer olvidarme ninguna abstracción que no esté explícita"
+"Hola Gustavo! Con implementadas se refiere a que el Sistema debe contemplarlas y tener su lógica asociada. Ejemplo: descargar un archivo, saber qué archivo particular es y cómo se va a **ejecutar la acción**. Pueden ser selecionadas por el usuario o que estén precargadas por un administrador, como si fueran acciones ""recomendadas"", a eso se refiere 🙂"
+"Buenas yo tengo una pregunta relacionada con este enunciado. Cuando te pide poder exportar la reserva en 3 formatos distintos. se puede asumir usar alguna especie de patron strategy y que cada implementacion de la interfaz tenga un adapter para el formato requerido.
+Mi problema es que solo para hacer ese requerimiento ya son como 10 cuadraditos que hay que dibujar y es escaso el espacio. La pregunta seria: Hasta que nivel hay que dibujar para que se entienda? o quizas con algun texto eso se puede dar por entendido?"
+"Buen día una consulta respecto a la fecha de entrega 4 del tp grupal en el tp dice que va a ser en la semana entre el 19 al 24 de agosto, pero en el cronograma dice que va a ser el 10 de septiembre, cual seria la correcta?"
+"Hola Gonza! Lo ideal siempre sería llegar a representar lo máximo posible. En este caso, podrías representar las estrategias de exportación (PDF, ...), colocarles de atributo la interfaz Adapter y ""saltearte"" la implementación concreta de la interfaz pues no la conocés en este caso. También sirve si lo queres dejar por escrito 🙂"
+"Buenas! Guiense por el cronograma, porque lo que dice la consigna puede variar según el curso. En este caso, el 10/09 se evalúa la entrega **5** (Persistencia & Servicio), pero se evalúa también la entrega **4** (Maquetado) 😄"
+Entendido muchas gracias!
+oka!. Muchas gracias
+"Hola!. Realice el parcial ""Espacios colaborativos"". Paso el diagrama de mi modelo de dominio y justificaciones por si alguno quiere comparar, comentar o añadir alguna corrección. También, si se puede, un vistazo general de algún ayudante a modo de análisis para ver si mis justificaciones van por buen camino o si le estoy errando muy fuerte en algo. 
+Muchas Gracias!!"
+"Buenas, queria consultar si toman practica de Arquitectura tambien  o es solo de modelado de dominio lo que hay que hacer de practico y el resto es Teoria. Gracias"
+"Osea hicimos practica y todo, tengo entendido que te pueden pedir eso tbm"
+Buenas ahora pregunto directamente por este VoF: **f) Los requerimientos funcionales hacen referencia a atributos de calidad.**
+Hola! Como dijo Nico. En los documentos de las clases de repaso / práctica integradora dejamos algunas preguntas de Arquitectura que tienen que ver con el dominio. No es solo teoría sino también poder aplicar lo que vimos de Arquitectura en los distintos enunciados 🙂
+"Gonza, ¿vos qué pondrías? 😄"
+"lo mando porque la verdad no sabemos bien a que apunta la pregunta. Podria ser verdadero porque los atributos de calidad hacen referencia al grado de satisfaccion de los requerimientos funcionales. Podria ser falso porque la relacion esta al reves. 
+O tambien un poco mas rebuscado, es porque son los requerimientos **no funcionales** los que referencian atributos de calidad"
+Preguntas comunitarias
+"Ahí te está preguntando directamente si los requerimientos funcionales refieren a atributos de calidad, entonces sería la última opción que mencionás, porque los requerimientos **no funcionales** son los que detallan cómo realiza las funciones el Sistema, entonces ahí podrías meter requerimientos asociados a un atributo de calidad. Ejemplo: Ante una caída del sistema, debe recuperarse en no menos de 5 minutos."
+"Hola Gustavo! Perdón la demora! En tus justificaciones de diseño se podría agregar algún detalle más sobre las ventajas que proveen los patrones de diseño que usaste. En el hilo de ""Preguntas comunitarias"" charlamos un poco de eso.  De todas formas, las vemos bien! Lo importante ahí es que te midas con el tiempo a ver aproximadamente cuántas llegás a escribir, y que priorices las decisiones de las entidades más ""críticas"". 
+
+Lo que me parece súper importante sobre todo es la distinción que hiciste entre la Solicitud y la Reserva. No es tan explícito pero podrías haber agregado que la reserva conozca a la solicitud o viceversa, para saber de dónde provino. La interfaz Contactable vs. Contacto podría ser un poco discutible, porque como está implementado pareciera que la interfaz responde a getters. Por otra parte, el TransmisorDeRecordatorios podría recibir por parámetro las reservas en vez de tenerlas como atributo. 
+
+Eso a líneas muuuuy generales, buen trabajo! Cualquier cosa decinos 🙂"
+muchas graciass!!
+"Hola! Una pregunta de algo que vi en varios parciales/finales. Cuando se pide guardar trazabilidad y auditoria de algun elemento del sistema. Generalmente lo basico es guardar la fecha o el timestamp y el usuario que creó o modificó el elemento en cuestion.
+1. Pero que hacemos si, por ejemplo, no se especifica que usuarios o entidades pueden generar el cambio?
+2. Si tenemos una entidad, por ejemplo ""RegistroCambio"", que ahi guardamos los datos del timestamp y el usuario. Para el usuario, deberiamos agregarle un atributo de tipo Usuario o le guardamos el idUsuario? (Creo que esto ya se empieza a mezclar con el tema de persistencia)
+
+Y otra cosa distinta sobre el uso del patron Broker (esto nos paso en el enunciado de ""Salvando Animales""):
+3. Hay que modelar el broker en el UML? O sino como lo podriamos poner en las justificaciones?
+4. En este enunciado en particular, que dice que los datos de los sensores llegan como csv, json o txt. La logica de la interpretacion de cada formato se puede delegar por completo al broker?"
+"Buenas! Uriel!
+Te respondo:
+1) Si no te especifican, lo podes agregar en tus justificaciones! que te falta ese detalle y que harías en el caso de que lo indiquen.
+2)  No seria correcto tener una Entidad de Registro cambio para todas las entidades, tal vez los podes agrupar en una clase, pero no tienen sentido de existencia propio.
+
+3) En un diagrama de arquitectura (componentes/despliegue, sí), pero no en el diagrama de  clases
+
+4) ⁠No, no podes delegar en el boker ese parsero. El broker solamente se encarga de entregarte el mensaje, pero es resposabilidad tuya/de tu sistema que interpretes el mensaje que te está llegando de forma correcta."
+"Gracias por la respuesta. 1) y 3) perfecto, pero despues de las otras:
+
+2) Capaz no se entendio lo que quise decir. Yo pensaba, por ejemplo, cuando tenes que guardar trazabilidad de los cambios de estado en una entidad (""Producto"" ponele).
+Esta mal modelar una clase asi?
+
+class CambioProducto
+    -producto: Producto
+    -autor: Usuario //mi duda era si aca poner un Usuario o un IdUsuario
+    -timestamp: int
+    -estadoAnterior: Estado // un enum podria ser
+    -nuevoEstado: Estado
+    -motivoCambio: String
+    
+4) Claro, aca me explique mal yo. Lo que habiamos pensado eran sensores que tenian un metodo que recibia un dato (ya parseado) y lo registraba. Para recibir estos datos, nuestro sistema necesitaba algun componente capaz de suscribirse a un topic del broker y llamar al metodo del sensor para registrar lo que le llega del broker. (parecido a lo que hicimos en el tp)
+La pregunta era si la interpretacion del formato se podia hacer en este componente suscriptor propio, o si habria que hacerlo dentro de cada sensor especifico."
+"Holaa buenas, hice el final de Mis Gastos y quería consultar si alguien lo pudo resolver o simplemente si encuentran algún error en mi resolución.
+
+Por otro lado, mientras lo hacía me surgió la duda de si podíamos justificar los puntos teóricos con todos los atributos de calidad, ya que en la clase de repaso se mencionó que algunos eran más del segundo cuatrimestre.
+
+PD: Perdón por la letra horrible."
+En unos días lo hago y paso como lo hice
+Si alguien hizo EquiApp avisen 💪
+"Hola, casualmente tengo las mismas dudas !"
+Gracias por la respuesta. 1) y 3)
+Buenas! ¿A cuáles puntos teóricos te referís? 🙂
+"Holaa, este es el punto: Seleccionar 2 atributos de calidad que sugeriría considerar para el contexto y
+requerimientos previstos. Explique brevemente cada atributo de calidad y porqué lo seleccionaría."
+"En ese caso sí podés pensar en cualquier atributo de calidad, porque es pensando a líneas generales sobre el dominio del final. Los que pusiste están OK 🙂 En lo que es justificaciones del diseño que realizás no podrías mencionar todos, porque algunos son más del 2do cuatrimestre."
+"Geniaal, gracias."
+"Buenaas, esta es la resolución que hice del final de Tinderizr. Si alguno también lo hizo y tiene alguna corrección para hacerme estaría genial."
+Buenass! Estoy haciendo la resolucion del parcial del año pasado. Quería ver si la resolucion de los formularios es correcta
+<@1090639225860395120> en la clase de consulta el profe habla del formato de pregunta/respuesta
+sis ya me respondieron! Muchas gracias!
+"Holaa buenas, quería consultar sobre las preguntas teóricas que pueden aparecer en el parcial. Estuve practicando con algunos finales, pero siento que la mayoría de las preguntas no son del primer cuatrimestre (salvo las de dominio). Me gustaría saber si hay parciales para practicar este tipo de preguntas o cómo son, o si, en su defecto, son similares a los finales."
+"Buenas, hice el final de La Universidad Te lleva a Catar, y quería consultar si estaría bien encaminado como pensé la solución, gracias!"
+"Hola Juan Cruz! En el canal de tu curso compartimos un link con modelos de parcial y links utiles: 
+https://drive.google.com/file/d/12Pi2iohmhABQ4rA-OHlJBniEwHalE525/view?usp=sharing
+
+A su vez, en la práctica integradora hay varias preguntas de Arquitectura teóricas que pueden entrar 🙂"
+Ahh no habia visto que eran de primer parcial esos sajasj. Mil gracias <@801796163367469106>
+"Buenas, hay algun ejemplo de alguna integracion de api rest que tenga que ser si o si sincronica? porque por ejemplo en la pregunta de arquitectura del final de catar yo en una primera instancia pense que tenia que ser sincronico para validar la autenticidad del participante, sin embargo en el video dice lo contario. Por eso pido si alguien tiene algun ejemplo para orientarme un poco"
+"Me sumo a la consulta, en esos casos también imagine que debian ser sincronicas"
+"Buenas! 
+En líneas generales viene bien 💪🏻
+Consideraciones del diagrama:
+- El participante conoce muchos participantes, pero a la vez conoce su referente. Faltaría una flecha de asociación simple dirigida! 
+- El Calculador de probabilidades podría tener diferentes ""estrategias"" de cálculo y que no esté todo en una única clase. A su vez, no se llega a leer qué atributos tiene el Calculador. Preferible que sea stateless, te recomendamos revisar eso😅
+- Universidad/ Regional deberían estar como clases concretas por cuestión de consistencia de datos.
+- No me queda claro cómo distinguís entre un referido que acepta y no, pues uno de los requerimientos es guardar trazabilidad de los referidos (fecha invitación, fecha aceptación... algo asi)
+
+Si alguien quiere sumar algo, bienvenido!"
+"Buenaas, hice el final de *Viajes Compartidos* y me vi la clase de consulta pero me quedaron algunas dudas como por ejemplo si resolví bien el tema de las rutas y el servicio externo. Si alguno lo hizo y me puede tirar algún centro para ver si planteé bien el core estaría genial."
+"Hola Gonza y Juanma, en realidad los procesamientos son más asincronicos de lo que realmente parece. Por ejemplo: el procesamiento de un pago con el envío de la factura en forma diferida. Hay cuestiones que, por naturaleza, tienen que ser sincronicas / dar una respuesta en el momento. Por ejemplo, ver si se puede o no realizar un cobro / cotización actual de una moneda. 
+
+El caso del final de Qatar es muy particular porque preguntarle a una API ""¿X es alumno de alguna universidad?"" requiere un procesamiento muy complejo y que podría generar un timeout."
+"Buenas! gracias por responder. Entonces si entendí bien, en criollo seria que siempre te conviene usar integración asincrónica siempre y cuando no tenga que ver con plata?
+o quizas algun componente de naturaleza sincrónica como llamada telefónicas pero ya me estoy yendo por fuera de lo que es api rest"
+"No necesariamente algo que tenga que ver con $, pero sí cualquier cosa que por naturaleza requiera una respuesta **en el momento**, porque es un dato que puede variar. 
+En líneas generales, es preferible lo asincrónico porque una comunicación de tipo sincrónica es bloqueante. Te dejo un link que te podría servir:
+
+https://medium.com/@vvrr.17.4/embracing-asynchronous-apis-evolution-pros-and-cons-b13f0df464ce
+
+Recomiendo para eso revisar el final de Fuiden, en particular la pregunta 1 de Arquitectura (y sólo esa jeje, la 2 es del 2do parcial).
+
+De todas formas, hay mecanismos de integración que quedan para el segundo cuatrimestre y que van a sumar mucho a esta discusión🤗"
+"Buenas! Quería consultar cuál es el criterio para elegir entre una relación de asociación y composición. Vengo eligiendo entre las dos en base a si el atributo que referencia a una desde la otra es nulificable, y me da la impresión que no es la idea"
+"A ver si entiendo bien porque quizás me estoy mareando. 
+En la pregunta del final en particular te dice que primero el sistema externo te manda al sistema propio un mensaje y después se desconecta a los 5 mlisegundos .
+Entonces lo que estas diciendo ahí es que la conexión entre mi api y el cliente tiene que ser sincrónica para poder contestarle lo mas rápido posible digamos? 
+En base a eso me surgió otra duda. Uno entonces puede elegir de que manera integrarse con un componente externo o es al revés (el componente externo define como es la conexión) ?"
+"Nico, esto lo hablamos en la primera clase (de hecho está definida la diferencia en una PPT, la primera la de repaso). Tenes que evaluar los ciclos de vida de los objetos y en base a eso elegís"
+"Gonza, te estás embarrando en algo que es más del segundo cuatrimestre. Cuando veamos integraciones, puntualmente, vamos a evaluar cuestiones de sincronismo de esas integraciones y cuestiones de sincronismo de los procesos de negocio. Si bien ya tuvimos una clase donde charlamos sobre ello (molinetes), y también estuvimos pensando algunas de estas cosas en el TP, despreocupate que estas cuestiones de pensar sincronismo de PROCESOS va más en el segundo parcial. Ahora, en este parcial, va a estar un poco más ""contado"" si alguna integración es sincrónica o no (lo vas a tener que interpretar según te narre el enunciado)"
+"Ahí les paso mi resolución de mis gastos, esta bien que haya tardado 2 horas 40 en resolverlo? Sé que es de los más complejos"
+<@439446435356999680> en un rato comparo con el tuyo
+"Buenas!
+Disculpen la hora, tengo una consulta del final de esTim.
+
+Dejando de lado la idea de crear una clase DLC (porque ya sé que está bien, lo ví en la clase de consulta), ¿estaría bien crear un atributo ""juegoAlQueEstaRelacionado"" (que sea una instancia de Juego) dentro de la clase Juego? 
+1. Si está instanciado, entonces quiere decir que ese juego es un DLC y por consecuencia solo se instanciarían, ademas del juegoPadre, su precio y su nombre. 
+2. De no estar instanciado, entonces el juego no es un DLC y se instancian el resto de atributos con normalidad.
+
+Me suena que algo habíamos hablado en la clase antes de las vacaciones, pero la verdad no me acuerdo.
+
+Desde ya, muchas gracias!"
+"No creo que haga falta, pero dejo la parte de la consigna:"
+"Lo vi y hice algunas cosas diferentes
+* Creé services para tanto mail y Whatsapp para mandar notificaciones
+* Los gastos tienen un atributo de clase `EtiquetaGasto`, con esa clase siendo un enum con los valores `POT_EN_VANO` y `POT_DUDOSO` acorde a los estados
+* Agregué una clase `Configuracion` para cargar el valor que se usa en `DudosamenteCumpulsivo`
+* No grafiqué la API REST del categorizador porque no es parte del sistema, sólo tengo una clase `ServicioCategorizador` con un método `categorizar(String): String`"
+"Buen día Iván! asumo que tu alternativa la estás sugiriendo para no crear la clase DLC. Si, sería válido. Podes tener atributos en null y que ese null represente algo, como es tu caso. Si JuegoPadre o como le llames esta en null, es porque no es un dlc. También podrías agregarle una etiqueta ""Tipo""🙂"
+"Buenas, estaba realizando el final de mis gastos, y me surgieron algunas dudas:
+Para los gastos externos, estaría bien en el diagrama poner una interfaz que represente un service?
+Para las alertas, seria correcto pensar que corren cada cierto tiempo con un cron para verificar si se supero el umbral, o que luego de que se genere un nuevo gasto, en la capa de controller se fije si se cumple alguna alerta?
+
+Dejo el diagrama de clases así se entiende un poco mejor, gracias!"
+"Holaa buenas, una consulta porque lo vi en varios finales y me quería asegurar de estar haciéndolo bien. Cuando aparecen distintos medios de contacto y hay que notificar a través de ellos, esta bien implementarlo así ? O no es necesario hacer la parte del adapter y se puede solucionar solo con la interfaz de medio de contacto ?"
+"Porque sino tambien podria implementarlo asi, imagino que podria implementar la solucion con el adapter cuando el medio de notificacion tenga mas peso en el dominio y la interfaz cuando es un requerimiento mas"
+"Buenas, para los gastos externos tenés que representar la interfaz entrante para permitir que otras aplicaciones los carguen. Así que sí, deberías colocarla. Para las alertas sí, podrías manejarlo cada vez que se genere un nuevo gasto 🙂"
+Hola! Si te mencionan por qué medio exactamente deberías pensar en un Adapter para integrarse con el servicio que te permita el envío efectivo de la notificación. No entendí a que te referís con un requerimiento más 😄
+"Buenas tardees, como va?
+Tenia una duda sobre el parcial de Espacios Colaborativos (https://drive.google.com/file/d/19dFyyb0tKjYs_AZqZwNT2NpsePq3pG3_/view).
+La duda es sobre como las acciones de los elementos/accesorios de las reservas los ejecuta un 3er. Actualmente tengo esto.  Estaria ok? No se si del todo pense bien los elementos y las acciones configurables de las notebooks mas que nada estas acciones/customizaciones.
+Seria como que pido una notebook, y para cuando tengo la reserva esta me deje instalar app, apagarla, reiniciarla, etc. O que Haga todas estas acciones antes de que sea mi reserva?
+Gracias"
+"Buenas!
+Tengo unas pregunta del final de RebaH.
+
+**RespuestaPregunta**
+     Respuesta
+     Metricas
+     Puntaje
+     Pregunta
+
+Tengo planteada la clase ""RespuestaPregunta"" (con sus respectivos atributos, que son los que están ahí) para las preguntas respondidas (pese a que las preguntas y respuestas ya están modeladas en otro componente (como dice en las aclaraciones), considero que es importante que esté presente en el diagrama de nuestro dominio, así que la modelé).
+
+1. 
+
+Las métricas las conocemos, pero no sabemos nada de ellas (como dice la consigna). A la hora de incluirlas en esta clase RespuestaPregunta, ¿cómo debería hacerlo? 
+a.  Un atributo de tipo ""Metrica"" (una clase que desconocemos) y dejarlo así.
+b.  Que la clase RespuestaPregunta conozca una interfaz cuyo método retorne las metricas (básicamente, esa interfaz sería un adapter de las métricas).
+c. Otra manera que no se me ocurre 😦 .
+
+2. 
+
+a. ¿Está bien incluir un atributo pregunta de tipo ""Pregunta""? (Para conocer QUÉ pregunta es la que se respondió). 
+b. De estar bien,  ¿está bien hacerlo sin incluir la clase Pregunta? Justificando en las decisiones de diseño que no lo agregamos al diagrama por lo ya dicho antes, es parte de un componente que ya existe, y para nuestro dominio con solo tener la RespuestaPregunta es suficiente.
+
+Muchas gracias."
+Buenas! tengo dudas sobre como justificar el uso de Enum contra una clase con varias instancias (clase con solo un nombre por ejemplo). Podría ser válido decir que es mejor el enumerado porque me ahorro tener objetos en memoria? o va por otro lado la cosa?
+"Hola Juani! Fijate que hace unos días <@619124331317952533> compartió su resolución. Te faltaría un método que permita ejecutar todas las acciones en su totalidad en el Elemento. Podrías pensar en un único Adapter que permite integrarse en forma desacoplada con el Sistema Externo. La idea es esa, que tengas todas acciones ejecutadas antes del día de la reserva, como para dejar preparado el/los equipo/s 🙂"
+"Buenas! 
+
+1. Ahí hay que distinguir entre lo que es una **métrica** (ejemplo, tiempo que tarda en responder en segundos) vs el valor que se obtiene para la métrica cuando responde esa determinada pregunta (60 segundos). Lo que van a tener las respuestas son las métricas con su valor, ¿me explico? No se menciona mucho así que una métrica podría tener simplemente un nombre / descripción pero la diferencia entre estas dos cosas que te menciono tiene que estar 🙂 Fijate si podés identificar esas dos abstracciones y cualquier cosa nos decís.
+
+2. a. Está bien y es necesario, de hecho 🙂
+
+b. Si bien es parte de un componente que ya existe, son datos que se necesitan para lo que sí confiere al objetivo del final que es diseñar el componente *evaluador de las campañas*. Deberías tener una referencia a la pregunta, en la clase de consulta lo tocamos pero con otros dominios, por si te sirve revisarlo!"
+"hola! Podrías tirarlo por esa posibilidad, sí (por debajo los enum son enteros), pero también podrías ir contra el contexto. Si tenés tres estados (ACTIVO, INACTIVO, DESCONOCIDO) por ejemplo, y se sabe que no hay forma de que se modifiquen / la posibilidad de cambio es muy baja, podés ir por el enum en vez de porla clase."
+"Entonces, si entendí bien, lo correcto sería hacer una clase Metrica lo más básica posible, solo con nombre y descripción, no?
+
+Y gracias por responder!"
+"Hola! Tengo una consulta sobre el final EsTim, entiendo que el método comprarJuego es un Caso de Uso que se va desglosando y que por eso no va en esta capa como un método. Sin embargo, al luego seguir con el ejercicio, me surgió la duda de si el método prestarJuego podría ser un método válido o también se lo consideraría un CU. Pregunto porque luego los préstamos tienen que ser evaluados luego para detectar fraudes."
+"Una clase Metrica y una clase ""intermedia"" que guarde el valor que obtuvo una respuesta concreta a la metrica. La podes llamar MetricaEvaluada, algo por el estilo"
+"Buen dia Yanel! No, tambien se lo considera un caso de uso. Pensá en qué haría ese método si tuvieras que codearlo. Si tenés una abstracción Préstamo y se tiene referencia del jugador que efectúa el préstamo y quien lo recibe, ya te alcanza para que el detector de fraudes pueda utilizarlos. Si no queda claro, cualquier cosa pasanos cómo viene tu DC en esa parte del detector de fraudes y lo vemos 🙂"
+"Buenass, me surgió una duda con los generadores de imágenes/pdfs que aparecen en varios parciales/finales. Entiendo que debería haber una estrategia distinta para cada formato de imagen pero mi duda es si es conveniente implementar un adapter para cada estrategia distinta? En un principio yo lo había implementado con adapters, pero en la resolución propuesta de un final que ví se resolvían con un simple metodo void y por eso me surgió la duda."
+Perfecto!! mil gracias!!
+"Buenas! Una pregunta sobre el diagrama de componentes. Suponiendo que tenemos un componente propio (componente 1 del diagrama) que se tiene que conectar a un componente externo (componente 2 del diagrama), que expone una API rest.
+Para una integracion sincronica, se haría tal cual esta en el diagrama de la imagen, pero si usamos un asincronica, por ejemplo con webhook, hay que agregar la interfaz que nosotros exponemos para el callback url?
+Es decir, nuestro sistema tambien expone un endpoint a donde el componente externo va a mandar la respuesta final una vez que termine de procesar lo que necesita. Esto hay que simbolizarlo de alguna forma en el diagrama, o se explica aparte?"
+Hola buenas! Tenía una consulta sobre el parcial de espacios colaborativos. En una parte del enunciado (lo dejo en una imagen) indicaba que los elementos de tipo Notebook podian tener una lista de acciones que luego iban a ser efectivamente ejecutadas por un componente externo al que nos ibamos a conectar. Mi duda principal es si está bien que tenga el metodo ejecutarAcciones() y la lista de acciones en la propia clase Elemento o tendría que hacer una especie de herencia de Elemento llamada ElementoConAcciones que tenga la lista de acciones y el metodo ejecutarAcciones() ahí metido para no caer en una especie de herencia rechazada en los elementos que no son notebooks en este caso.
+"Buenas quiero sumar un poquito a lo que pregunto uri hace un rato.
+Me marié un poco a la hora de diseñar los adapters que se usan para consumir api_rest, porque hasta el momento, por lo general yo venia haciendo una firma por ejemplo **consultarVeracidadPersona(Persona): bool** en la cual asumía que se consultaba una api externa y esta te devolvía un json con datos y luego de ahí deducir si la persona es veraz o no.
+El problema con esto es que al definir un valor de retorno estaría medio forzando a que la integracion sea sincrónica (A menos que use algún recurso tipo hilos y me quede esperando ahi) 
+En el caso del webhook como hay que definir un endpoint aparte entonces la firma pasaría a ser void **consultarVeracidadPersona(Persona)**
+Entonces cambia completamente la firma del adapter según el tipo de integración
+Ademas sigo medio dando vueltas con el tema de quien define si la respuesta es sincrónica o asincronica. si el que te expone la api o nosotros como clientes de la misma. Puesto que en varios finales solo dice algo como ""consulto tal cosa mediante una API REST"" y no hay mucho mas detalle que eso"
+"Esa clase Metrica estaría vacía, no?
+Y la que tendría los atributos que mencionabas (nombre y descripción) sería la MetricaEvaluada.
+
+Tengo también unas dudas con el modelo de parcial de ""La Universidad Te Lleva a Qatar""
+Creo son similares a esta (y similares entre sí), así que aprovecho a preguntarla en este mensaje.
+
+1. 
+
+Cuando nos integramos con el SUA DINO para obtener el historial académico, ¿cómo se vería eso reflejado en el Diagrama de Clases?
+
+a. ¿Sería  la misma idea que en el caso anterior Una clase ""HistorialAcademicoRecibido"" (o algún nombre más descriptivo) y un ""HistorialAcademico""
+
+b. Lo que había pensado también era un adapter del SUA DINO (o sea, que exista una clase ""SUA DINO"" y un ""SUA DINO Adapter""), pero no es que nos esté ofreciendo una funcionalidad en sí a adaptar, sino que queremos adaptar el dato que nos devuelve, entonces esto lo descarté un poco y me incline un poco más por el (a). ¿Está bien el razonamiento?
+
+2. 
+
+Duda similar para la integración con ArU2022. ¿Habría que tener alguna clase en el diagrama que refleje esta integración?
+Me da duda más que nada porque al ser una API REST está basada en HTTP, o sea que nos devuelve el DNI como texto, que es como lo modelé inicialmente, un atributo ""dni"" en el Participante que es un String.
+O sea, problema con el tipo de datos no parece haber, entonces adaptar algo como tal me da la impresión de que no haría falta. Pero no sé si de igual manera ""ArU2022"" tendría que estar representada de alguna manera en nuestro diagrama."
+"Hola! Qué final y qué resolución? En caso de que te pidan generar imágenes / pdf con distintas estrategias deberías pensar en un adapter por estrategia, sí, por la diversidad de dependencias. El método que genere el documento podrías pensarlo como que devuelve un string que representa el path, no sería un void en ese caso"
+"Hola! Podrías tenerlo desde la clase Elemento, o si tenés una abstracción para el tipo de elemento también. Depende mucho de cómo lo justifiques luego en las decisiones de diseño 🙂"
+Final Rebah
+"Ayluu buenísimo. Claro en mi abstracción TipoElemento solo tengo un simple string para normalizar la información. 
+Entonces estaría bien una justificación de diseño así? Por simplicidad tengo la lista de acciones en el Elemento. Si es un elemento que no es de TipoElemento ""Notebook"" es instanciado tendrá en null la lista de acciones y el método ejecutar acciones no tendría comportamiento, lo mismo sucedería si no se decidiera ejecutar acciones sobre un elemento ""Notebook"" particular."
+Exacto!
+"Buenas! Estaba resolviendo el final de Mis Gastos y viendo la clase de consulta. En mi resolución, puse que el Usuario conoce sus Gastos, es decir, lo tiene como atributo. En la clase de consulta se habla de que esto está bien, pero lo ponen al revés, es decir, que el Gasto tenga como atributo al Usuario. 
+Hasta acá, no habría problema. El tema es cuando se debe plantear un Patrón State para cambiar el Estado del Usuario a partir del registro de gastos, no termino de entender bien cómo aplicarlo. Tengo pensado que el Controller es quien, ante cada nuevo gasto, verifique si se debe cambiar el Estado o no del Usuario. ¿Esto está bien? ¿O me estoy olvidando de algo más?"
+tengo entendido que es cada estado en sí que tiene que saber cómo transicionar al próximo
+"Exacto, si tenés un State, la transición la gestionan los Estados."
+"Entonces, ¿cómo se aplicaría el patrón State considerando que los Gastos los puse como una lista dentro del Usuario en vez de la solución que propuso Ezequiel que era que en la clase Gasto se tenga como atributo al Usuario?"
+"lo que yo hice fue almacenar una copia de los gastos de las últimas 24 horas en la instancia del estado en sí. cada vez que se registra un gasto, evalúo. si hay suficientes gastos para cambiar de estado, instancio el estado nuevo y le paso los gastos que conocía. si el gasto nuevo viene después de 10 horas sin consumir, seteo el estado apropiado y le paso los gastos de las últimas 24hs"
+"Buenas! Me quedaron algunas dudas del final “Mis gastos”:
+
+1. ¿La interfaz entrante de la API REST que expone mi sistema para registrar gastos no debe graficarse en el diagrama de clases? Por lo que entendí de la clase de consulta, no se debería poner dado que el registro se realiza directamente en el GastosController.
+
+2. ¿Es correcto que el GastosController utilice el método getEstadoPersona() de la clase Persona y, según este, setee el estadoGasto de los nuevos gastos como “potencialmente en vano” o “potencialmente dudoso”?"
+Buenas! Una pregunta sobre el diagrama
+"Hola!! Pregunto por las dudas, puedo llevar hojas tamaño oficio para hacer el diagrama de clases? Me queda mucho mas cómodo😭"
+Buenas quiero sumar un poquito a lo que
+"No hay problema! Oficio, A3 (mejor) porque al doblar la hoja queda una A4."
+"Buenas! Vi el video de la resolución del parcial ""GTV - Gestion de Tramites Virtuales"", pero no entiendo porqué son necesarias 3 entidades para el estado (Estado, PodibleEstadoTramite y PosibleEstado)?"
+"Yanel, no te impacta la aplicación del Patrón, ya que lo que te cambia es la direccionalidad de la relación, pero el State se sigue aplicando al Gasto. Siempre que apliquen el State, validen el cambio de comportamiento para cada Estado y las transiciones entre ellos."
+"Me gustaría sumarme a la duda de Yanel porque a mí tampoco me quedó muy claro eso del final de ""Mis Gastos"".
+
+La persona tiene un estado (como atributo) y en base a ese estado, su comportamiento cambia (recibe distintas notificaciones, se intensifican las alertas). Ese estado cambia en tiempo de ejecución.
+Hasta ahí me cierra bien, habría que aplicar el patrón State.
+
+Lo que no entiendo es a qué se refieren con ""aplicar el State al gasto"".
+Como a mí se me ocurre, tendríamos una interface ""Estado"" que tendría un método actuar(Persona). Habría también una clase que implementa dicha interfaz por cada estado al que puede pasar la persona. 
+Al estado recibir a la Persona como parámetro en el método actuar, ya puede conocer su lista de gastos y hacer las verificaciones que sean necesarias para variar el estado si fuera necesario.
+La Persona también un método cambiarEstado(Estado).
+
+¿Hay algo que esté omitiendo o que esté mal?
+Lo que planteé es un poco seguir la plantilla del Patrón State, por eso no sé si faltaría algo aplicado al contexto de este final."
+"Ivan, disculpá me equivoqué yo al escribirlo, quería hacer hincapié que el   estado se debe aplicar al Contexto(en este caso la Persona) y ese cambio de Estado cambia el comportamiento del Contexto. El contexto como decís se pasa como parámetro. Es correcto lo que planteas! Mil disculpas por el error anterior."
+"Perfecto, muchas gracias!"
+"Una duda más sobre eso.
+Los gastos también tienen un estado que va cambiando (como “potencialmente en vano”, “potencialmente dudoso”), sin embargo, este no tiene comportamiento. 
+Al no tener comportamiento supongo que no es necesario hacer un patrón State para el estado del comportamiento, sencillamente podría ser una atributo (que sea un enum) que se pueda ir cambiando y nulleando según haga falta.
+
+Mi duda es, ¿dónde se cambia ese estado de los gastos? (o sea, ¿debería haber algo en el diagrama que represente ese cambio de estado (un método, por ejemplo) o sería parte de otra capa?) Imagino que meterlo dentro del método ""actuar"" de los Estados de la persona es incorrecto, aunque estén fuertemente relacionados."
+"Buenas, esta subida la clase de consulta del miércoles? Quería revisar una cosa pero no la estaría encontrando."
+"Buenas tardes Lucas. 
+
+Puede copiar la información de la grabación que aparece abajo y compartirla con otros
+https://utn.zoom.us/rec/share/M8-Y6CySjQFDlcLPUyC4AJKT3p6M1CclQTauOQEcfA2bOkrEmFPtiGAlaJDhyxgk.XASpCAVvgalefK1h
+Código de acceso: ?qKt+0TQ"
+"Iván, lo que se le agrega al gasto es una simple etiqueta, no cambia comportamiento y no cambia. Fijate cuál es el motivo de la elección de esas etiquetas y dónde podés implementar ese comportamiento."
+GameTrack - Gestion de videojuegos
+"Buenas Matías! ¿Cómo va?
+
+1. Claro, vos en GastosController podrías definir la URI necesaria para registrar un gasto mediante API Rest. El 23/07 otro compañero en este mismo hilo consultó y compartió su pseudocódigo y es correcto. 
+
+2. Sí, podrías resolverlo de esta forma 🙂"
+"Hola Sahira! El PosibleEstado representa la etiqueta de cada estado por el que puede pasar un trámite (Ej: En Revisión). El PosibleEstadoTramite representa por cada posible estado, las acciones que se van a tener que ejecutar para el estado (pensando concretamente en UN trámite de UNA entidad). Por último, el Estado es el registro concreto. Podrías pensar que PosibleEstadoTramite es la configuración genérica de un trámite, mientras que Estado representa que para X trámite tal fecha estuvo ""En revisión"""
+Ahora si lo entendí! Gracias!!
+"Con respecto al 1, estuve leyendo el hilo en el que mencionás:
+
+""si te pidieran exponer un endpoint diagramás la interfaz en el UML y en las decisiones de diseño podrías detallar que es una interfaz entrante, que permite resolver tal cosa"". 
+
+No termino de entender si es obligatorio/recomendable graficarla o si es opcional como dieron a entender en la clase de consulta de ese final.
+
+Por otro lado, ¿con ""graficar la interfaz entrante"" se refieren a ubicar el GastosController en el diagrama de clases o se refieren a una nueva clase distinta? Porque de ser una clase distinta al controller, no entiendo qué sentido tiene representarla. No le veo comportamiento, el controller hace todo."
+"Mati, en el momento podes preguntar si es necesario graficarlo y listo. Recordá siempre el lema de: mientras más comunique en mi solución mejor. Nosotros no estamos en tu cabeza y si no graficas/mencionas algo, no sabemos si es que no lo hiciste porque no lo sabes o simplemente porque no querías mencionarlo/graficarlo.
+
+Respecto a la segunda pregunta: graficar la interface entrante sería mostrar el controller con el método y el DTO involucrado en la exposición de dicho endpoint."
+"Perfecto, muchas gracias a los 2!"
+"Hola! Respecto al parcial de los miércoles 2023, GTV Gestión de trámites, no entiendo bien cómo se modelaría la acción de llamar a cualquier API con get/post. Me imagino que la clase de la acción en sí (había un patrón command) tiene toda una configuración (uri, info para arma el body, si es método get o post) para hacer el llamado y lo termina delegando en alguna clase que se relaciona con apis externas. Lo que no entiendo bien es qué haría en el caso del get. El ""ejecutar"" de una acción no devuelve nada en ningún caso, ¿pero para el get sí debería devolver algo?¿Cómo?¿Y a quién debería darle el resultado del get?"
+hola! como va? Para el parcial la teoría que podemos llevar tiene que ser si o si los pdf/documentos que están subidos en el aula o podríamos tener un resumen hecho por nosotros de todos los documentos?
+"Buen día! Pueden llevar lo que quieran, tal como fue mencionado en el mensaje, pero en medios NO DIGITALES. O sea que incluye resumenes propios si quisieran"
+excelente muchas gracias!
+"Perfecto quedo claro, muchas gracias!"
+"Buenas!! Estoy haciendo el final EsTim y me surgio una duda. Para la parte del Prestamo, modele la clase prestamo de esta manera ``` class Prestamo {
+    - duenio : Usuario
+    - solicitante : Usuario
+    - juego : JuegoBase
+    - dlc : DLC
+    - fechaPrestamo : LocalDate
+    - fechaLimite : LocalDate
+    - fueDevuelvo : Boolean
+} ``` 
+Ahora, para la parte de deteccion de fraudes estoy entre dos alternativas para poder resolverlo: 
+1. Hacer que el Usuario tenga una Lista de Prestamos y asi de una manera mas ''directa'' saber que prestamos realizo cada usuario, lo que generaría una bidireccion que es la que menos me convence.
+2.  No tener una lista de Prestamos en Usuario, y modelar la parte de la deteccion justificando que voy a buscar a un hipotetico Repositorio de Prestamos los Prestamos realizados por X Usuario. 
+
+Entiendo que quizás la solución 1 es un poco mas directa, pero la 2 me parece mas correcta aunque tenga que buscar en el repositorio. Cual pinta mejor? Gracias desde ya 😄"
+"Buenas!
+
+Me está costando darme cuenta cuándo estoy cayendo en una Data Class y cuándo no.
+
+Estaba repasando mi solución del final de ¡La Universidad te lleva a Catar!
+Cuando un miembro es de la UDDS, creé una clase que se llama ""MiembroDeUDDS"" que tiene como atributos la regional y su historial acádemico.
+Si el alumno no fuera de la UDDS, el atributo queda nulleado.
+¿Sería MiembroDeUDDS una Data Class o es una abstracción válida?
+
+¿Podrían darme un ejemplo de una Data Class? 
+
+Muchas gracias."
+"Buenas!
+
+La clase Prestamo la veo bien.
+
+Respecto al análisis del fraude.
+Me convence un poco mas la segunda alternativa. En ese sentido, lo que podrías plantear es una clase abocada a resolver dicho analisis. Tener un AnlizadorDeFraude por ejemplo, con el metodo analizarFraude(...) y podría recibir una coleccion de prestamos o algo por el estilo. Luego, en prosa tendrías que explicar en las decisiones de diseño que cuando un usuario quiere hacer un préstamo, se llama al repositorio, se obtiene una colección de los prestamos de ese usuario y se le pasan a nuestro ""Analizador"" para detectar el fraude.
+
+Por otro lado recordá que hay distintos algoritmos que permiten identificar el fraude. Esa parte pensala vos y cualquier cosa la charlamos! 😁"
+"Buenas, Tengo una duda sobre diagrama de componentes
+Contexto: un requerimiento del sistema es poder generar semanalmente un resumen de los movimientos del negocio para el gerente. 
+Como ya vimos para resolver esto podemos usar un CronTask. Además en el modelo de dominio creo la clase GeneradorResumen que se va a encargar de generar el resumen como tal, el cronJob simplemente se limita a llamar a una instancia de GeneradorResumen, eventualmente le podría pasar alguna dependencia quizás.
+La duda es: En el diagrama de componentes el CronTask va como un componente aparte y consume a la clase GeneradorResumen como interfaz? Caso contrario cuál sería la interfaz si no?
+O directamente el CronJob no es un componente y esta todo englobado dentro del componente/sistema que estamos diseñando?"
+Buenas! ¿Puede ser que te hayas confundido el nombre del final? En el de rebah creo que no se menciona lo de la UDDS. Si podes pasa el link!
+"Es cierto, quise decir el de ¡La Universidad Te Lleva A Catar! 
+Mil disculpas. Ahí corregí el mensaje."
+EsTim
+"Bien, las data class son clases que solo estan almacenando datos en sus atributos y que no tienen comportamiento (mas que getters y setters).
+
+En este caso, la clase ""MiembroDeUDDS"" sería un data class si no tiene nada mas que atributos, y no esta mal que así sea.
+
+Un ejemplo podría ser la tipica clase ""Persona"", tiene nombre apellido dni etc etc. Es más en este caso capaz convenga tener la clase Persona, con un atributo boolean para saber si esDeUDDS, pero eso ya depende de tu diseño!"
+"Perfecto, muchas gracias!"
+"Me quede pensando y me quedó una duda (disculpá que te joda otra vez)
+
+¿Debería intentar evitar esas Data Classes? 
+Me da duda más que nada porque se supone que es un code smell.
+
+Creo que el problema es que me está costando identificar Data Classes por sobre Value Objects."
+"Bien! Es correcto lo que mencionas del code smell.
+
+Mi comentario iba mas orientado a las entidades. Aquellas clases que no te pueden faltar porque sino no tenes sistema, por ejemplo una factura en el sistema de facturación.
+
+Vamos con el ejemplo de antes. La clase Persona, tiene sus datos personales, y ademas podría tener una dirección (calle, nro, piso, dpto etc etc) la cual es relevante para el dominio por algun motivo.
+
+La Persona es una entidad. No te puede faltar.
+Ahora bien, que tal si sus datos personales los separamos en otra clase llamada DatosPersonales, y allí guardamos nombre apellido dni etc. Esta sería una data class. Sobra completamente, ya que podríamos tener esos atributos en la Persona y ya.
+Por otro lado tenemos la dirección. Digamos que también la separamos en una clase. En este caso será un value object, ya que tiene mayor relevancia para el dominio y ademas porque no tiene sentido de existencia propio, es decir que tiene que haber una persona con esa dirección, para que exista en el sistema.
+
+¿Quedo mas claro ahora? 😁"
+"Ahí entendí mucho mejor la diferencia.
+Entonces, en el caso de mi solución, ¿podría considerar que la clase MiembroDeUDDS es un value object?
+Se me hace relevante para el dominio (por como planteé mi solución, considerando que esa clase es la que tiene el historial académico y la regional (que son a su vez relevantes para el calculo de la probabilidad))."
+GTV
+"Una consulta con respecto al final de Mis Gastos.
+
+Con el tema del Categorizador (el otro día pregunté algo de esto, pero no es la misma pregunta).
+
+En la clase de consulta de este final (por el min 55:30 aprox.) Eze dice que quien debería conocer al Categorizador es el gasto.
+Me gustaría saber si esto DEBERÍA ser así o si es solo una posible alternativa.
+Si es que esto debería ser así y es la única alternativa, no termino de entender por qué.
+
+Yo lo que había pensado (y como suelo pensar en estos casos) es que nuestra clase adaptada (que implementa el categorizador) sea quien conoce al gasto, de esta manera acoplando el categorizador al gasto (que existe solo por y para el gasto) y no al revés.
+¿Hay algún error en lo que pienso?
+
+Muchas gracias."
+"Hola! En el parcial ""Espacios colaborativos"", ¿está bien considerar la posibilidad de dos entidades, ""ElementoGenerico"" y ""ElementoConcreto""?"
+Espacios colaborativos
+"Buenas profes, quería consultar por la parte de arquitectura del parcial. Específicamente si los diagramas de Despliegue y de Componentes entran en este parcial o no, ya que estuvimos debatiendo 
+por el grupo de wpp y no quedaba del todo claro."
+Disculpas si ya lo preguntaron pero cuánto va a durar el parcial?
+Dijeron que en principio 2:30hs
+"Buenas! Sí, podría entrar!"
+Mis gastos
+Raddi - Cuestionarios interactivos
+Bolsa de trabajo
+"Buenas! Tengo una consulta con respecto al parcial de ""Raddi - Cuestionarios interactivos"" (en la parte  de la foto)
+Queria saber si hacer métodos en el docente sería correcto, ya que inicialmente lo pensé como una interfaz de reportes (que el docente tenga un atributo reportes con la lista clases pertenecientes a dicha interfaz, ya que le podria dar esos ""permisos"" a alguien más en un futuro), pero los resultados de los metodos eran dinstintos (uno me devolvia Alumno, otro Integer y otro Time) por lo que pensé en hacer métodos en la clase Cuestionario, pero ahí sucedía que cualquiera podría hacerlo, no solo el docente. 
+Otra alternativa que se me ocurrió es hacer la interfaz, pero que devuelva un tipo de dato generico (por ejemplo T) y de ahí obtener los resultados. Acá lo que me surge es la duda si sería correcto hacer esto.
+Finalmente se me ocurrió que podría hacer una clase Reporte que solo se instancie una vez y tenga como metodos los reportes. Lo que me pasa con esta solución es que no se si es conveniente tener un atributo reporte en el docente o solo instanciarlo en el controller"
+hola! tengo la misma duda que sahira
+"De paso pregunto sobre el patron adapter, que sería más correcto, tener un atributo en el cliente (como por ejemplo en los docentes), instanciarlo en el controller, pasarlo como atributo en un metodo o manejarlo como Singleton?"
+"Siguiendo con esa consulta, en muchos enunciados siempre se encuentra algo del tipo ""cuando se da de alta X entidad hay que verificar que sea parte X lugar, que no tenga antecedentes, que esté dado de alta en otro sistema, etc"". Y siempre mencionan que esa verificación lo hace un sistema externo, cuando implemento el adapter, si implemento el patrón a raja tabla, en algún lugar debería tener un atributo adapter que tenga alguna implementación de la interface que creo para comunicarme al servicio externo, mi pregunta es si está bien que el atributo esté siempre en el contexto del caso particular o si estaría bien pensar que es en la capa de controllers donde se instancia una implementación del adapter, cuando se crea esa entidad que requiere verificar X condición"
+"Buenas! Ahí deberían pensar en realidad en alguna abstraccion ""GeneradorDeReportes"" + algún tipo de Calculador  y buscar qué métodos son necesarios, no está mal que los mismos devuelvan tipos de datos distintos! 
+
+Si bien el docente es quien puede acceder a esos datos, en todo caso eso se resuelve en la capa de controladores. Piénsenlo a nivel capa de presentación en un Kahoot por ejemplo, el que responde ve solamente las preguntas pero el que arma el cuestionario tiene acceso a los ganadores, preguntas, algún tipo de estadística respecto a las preguntas...
+
+No sé como lo tienen hasta ahora, avisen si con esto me expliqué o necesitan algo más🤗"
+"Si te atenés a lo que dice el patrón de diseño, lo tendrías como atributo y lo recibís mediante inyección de dependencias por constructor. Es esa tu pregunta?🙂"
+"Buenas! En esos casos tendrías algún tipo de Verificador, como en el final de Qatar (hay un hilo abierto donde mencionamos algo al respecto) que es equivalente al Cliente. 
+
+Lo que va a suceder, mediante inyección de dependencias y cuando se llame a este Cliente es que vas a tener la implementación concreta del adapter. ¿Cómo se resuelve esa implementación concreta? Salvo que te lo preguntaran por pseudocodigo, no necesitas contemplarlo en el diagrama de clases"
+"Si, si! Gracias!"
+"Bárbaro, lo voy a intentar hacer así entonces! Gracias!"
+"Fijate que <@334093637367365641> compartió su resolución ayer, por si quieren comparar entre ustedes 🙂"
+"Consulta, cuando tengo que usar una API y quiero usar un adapter en el examen, tengo que poner la clase a la que hace referencia o solo con poner la interfaz y la clase que la incluye es suficiente? Porque no se que metodos hay en la API"
+"Buenas! Si conocés la implementación concreta deberías representarla. Ejemplo con el final de Qatar: se usa el Sistema X para verificar si una persona es alumna de alguna institución educativa.
+
+Verificador -> IAdapter -> AdapterConcretoX
+
+Podés asumir una firma que es la q te devuelva lo que estas esperando."
+"Paso a comentar que subí mi resolución de bolsa de trabajo <#1270211172028911750>, escucho opiniones"
+"Hola!. Estaba resolviendo el enunciado del final Fixtures auto-mágicos y en la pregunta 1 de la sección de arquitectura, respondía lo siguiente:
+Utilizaría el método de integración mediante la utilización de una API REST. Nuestro sistema expondría
+un endpoint para que el sistema externo nos pueda consumir mediante un llamado GET, al cuál se le envíaría 
+el response con el fixture del torneo solicitado. Porque me parece una manera simple de ofrecer el recurso 
+solicitado. Se podría utilizar un patrón suscriptor/publicador como un broker, pero demandaría tal vez una 
+mayor uso de recursos y lógica, porque nosotros no queremos recibir mensajes del otro sistema (las estadísticas o resultados)
+por ahora, entonces con exponer la interfaz necesario es suficiente"
+"estaría bien? escucho sugerencias, muchas gracias"
+"Buenas! Va bien! Podrías detallar cuál sería la entrada, porque la salida ya la mencionás que sería el fixture 🙂"
+"Hola!! En el enunciado de ""Bolsa De trabajo"" que aparece como primer parcial en el excel, falta una hoja (la 2da)"
+la sacaron apropósito o relamente falta una hoja?
+"hola! Nono, no falta una hoja! Quedó asi no se por que🙂"
+"ah, oka!"
+"Hola buenas, cómo están? el mismo sábado sería la colecta de juguetes no?"
+"Hola! Cómo va? En realidad la colecta en sí se estuvo haciendo ya,  llevando los juguetes a las oficinas de la SAE. Lo que vamos a hacer nosotros en el seminario es centralizar las donaciones para entregárselas a ellos🤗"
+Genial!
+"Hola Buenas una consulta. Quería saber si hay una clase grabada de la primera de persistencia de algun año anterior, ya que es presencial y se me complica ir"
+"Buenas noches. Ayer a la noche rendí en el aula 113, donde estaban Eze y Maxi. No encuetro mi cuaderno gris (creo que era avon). Alguno lo vio? Yo me senté adelante de todo."
+Hola <@334093637367365641> el cuaderno está en el Laboratorio de Sistemas - Medrano! Lo podés retirar cuando quieras!
+Gracias!!
+"<@&1219817855818661976> Algun ayudante me puede tirar el link del zoom para entrar a la clase, creo que se cayo el campus"
+"buenas, https://utn.zoom.us/j/99188484632?pwd=ZGkxbi9ZNkx4bXhGZVBYVUduSnpzQT09"
+Gracias Aylu
+Buenas! se me venció la licencia del starUml y no me deja entrar más (probe borrándolo e instalándolo otra vez pero de alguna manera se acuerda de que no puedo usarlo mas) hay alguna manera de solucionar esto? o debería empezar a usar otra herramienta?
+"Buenas, Gabi, un chico de mi grupo encontro este foro y explica como hacerle un crack: https://gist.github.com/trandaison/40b1d83618ae8e3d2da59df8c395093a
+
+Pd: de todas maneras recomendamos comprar la versión original para apoyar a los desarrolladores"
+Confirmo que anduvo bien!
+"Buenos días, todo bien?
+
+Les quería consultar si hay alguna manera establecida de truncar toda la base de datos después de cada test"
+"Buenas! Más que truncar la BD después de la ejecución de los tests, deberías usar un motor de BD en memoria para el ambiente de tests, en este caso para Java sería HSQLDB. 😄"
+"Hola, como estan? Adjunto los ""caused by"" del error que me tira el log al intentar conectarme con mi base de datos desde el intelliJ al correr los test de la clase ContestText, ya verifique tanto el usuario como la contraseña sean correctas porque puedo conectarme sin problemas desde el workbench de mysql. Tambien el primer test que eze corrio en la clase antes de modificar el persistene.xml me habia corrido sin problemas"
+"Buenas! Como va? 
+Ahi te falta definirle el dialect al Hibernate. En el archivo donde tengas la configuracion deberias agregar una prop para eso. Ahi te adjunte un ejemplo de como podria ser con un archivo de config .properties, pero en tu caso probablemente tengas que meterlo dentro del persistance. Eso ya te lo dejo a vos para que lo investigues!"
+"Hola Facu,  ahi pude gracias! Ademas del dialect le tuve que especificar la zona horaria a la conexion en los dos xml de persistence y corrieron bien los tests."
+Excelente!
+ahhh eso es algo que se puede configurar? lo voy a estar mirando. gracias!
+"Sí, podes tener dos persistence.xml. Uno en la carpeta main y otro en la carpeta de tests y cambiar el motor"
+"Buenos días, estoy teniendo inconvenientes al conectarme a mi bd en local, ya verifique que tenga creada la base de datos en mysql, y que tanto el nombre usuario (root), la contraseña y el nombre de la bd sean los mismos del mysql. Adjunto los ""caused by""
+También agregué el Dialect en .xml y la zona horaria pero sigue fallando"
+"yo tuve un problema así y te recomiendo mirar las dependencias, me paso que tenia errores hasta que actualice algunas y se fue.
+tambien cuando me salio agregue esto:
+jdbc:mysql://<host>:<port>/<database>?
+serverTimezone=America/Argentina/Buenos_Aires 
+otra opcion es:
+<property name=""hibernate.jdbc.time_zone"">UTC</property> y creo que me lo soluciono.
+espero te sirva o solucione algo."
+"Buenas, todo bien?
+
+Les quería consultar porque estaba leyendo sobre JPA+Hibernate y vi que generar una factory de `EntityManager`s es bastante caro computacionalmente. Cuando estoy implementando `WithSimplePersistenceUnit`, eso es algo que tengo que tener en cuenta o puedo asumir que llamar `entityManager()` toma el mismo tiempo que solicitarlo de una factory preexistente?
+
+Misma pregunta en términos más prácticos: es caro instanciar un repositorio que implementa `WithSimplePersistenceUnit`? Lo necesito hacer un singleton? O puedo instanciar la clase cada vez que la necesito.
+
+Gracias!"
+"Buenassss, ya lo pude resolver 🫡"
+"Hola, como están ? Quería avisar que no voy a poder estar en la clase de hoy ya que me encuentro enfermo. Saludos!"
+"Nico, buenas tardes. No hace falta que hagas tus repositorios Singleton, de hecho te recomendamos no hacerlo. Si manejas los repositorios correctamente dentro de los controllers/services, los mismos deberían ser inyectados a estas clases mediante el uso de Inyecciones de Dependencias. Para esto vas a necesitar implementar un Service Locator en algún punto. 
+No te preocupes por el costo del factory del entityManager: quedate tranquilo que está bien gestionado en la dependencia que les dimos!"
+"Buenas tardes Eze, perfecto, muchas gracias!"
+"Buenas, como hiciste por que me salio el mismo error"
+"Buenas!! probá de agregar esto en el persistence.xml(obviamente cambialo a tu contraseña y tu nombre de archivo). Además, si contás con algún antivirus (ej: avast antivirus o McAfee desactiva todas sus funciones)
+
+
+
+
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<persistence xmlns=""http://java.sun.com/xml/ns/persistence""
+             xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+             xsi:schemaLocation=""http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd""
+             version=""2.0"">
+
+    <persistence-unit name=""simple-persistence-unit"" transaction-type=""RESOURCE_LOCAL"">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <properties>
+            <property name=""hibernate.archive.autodetection"" value=""class""/>
+            <property name=""hibernate.connection.driver_class"" value=""com.mysql.jdbc.Driver"" />
+            <property name=""hibernate.connection.url"" value=""jdbc:mysql://localhost:3306/grupo5tpa2024dds?serverTimezone=America/Argentina/Buenos_Aires"" />
+            <property name=""hibernate.connection.username"" value=""root"" />
+            <property name=""hibernate.connection.password"" value=""12345678"" />
+            <property name=""hibernate.dialect"" value=""org.hibernate.dialect.MySQLDialect""/>
+            <property name=""hibernate.show_sql"" value=""true""/>
+            <property name=""hibernate.format_sql"" value=""true""/>
+            <property name=""use_sql_comments"" value=""true""/>
+            <property name=""hibernate.hbm2ddl.auto"" value=""create""/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>"
+Genio! Gracias!
+"buenos dias, queria saber si les pasa esto tambien:
+se conecta con la base de dato, adjunto una imagen, pero 
+me salen esas letras rojas como si me faltara agregar dependencias, ignoro el mensaje  o eso es normal ?"
+"Buenas! Eso es porque probablemente tengas en el pom.xml alguna dependencia para logging, pero no está configurada la clase y por eso te salta el error 🙂"
+"Buenas, todo bien? Alguien está haciendo el servicio externo en Python+SQLAlchemy? Les quería consultar si están teniendo problemas consultando datos con UUIDs también
+
+```
+File ""/home/nicol/Uni/dds/java/2024-tpa-ma-ma-grupo-06/src/microservice/venv/lib/python3.10/site-packages/sqlalchemy/sql/sqltypes.py"", line 3650, in process
+    value = _python_UUID(value)
+  File ""/usr/lib/python3.10/uuid.py"", line 174, in __init__
+    hex = hex.replace('urn:', '').replace('uuid:', '')
+TypeError: a bytes-like object is required, not 'str'
+```"
+Buenas! Hoy es en Medrano?
+creo que hoy es entrega de tp y la prox en medrano
+Buenas! Exacto!
+ah hoy no hay clase?
+jeje no porque hay entrega de tp
+"ahh perdon, vi mal"
+michas graciass
+"Buenas tardes, todo bien?"
+"Les quería consultar si los script files funcionan son simple-persistence-unit para poder popular la db durante la creación 
+
+https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#schema-generation-script-files"
+"Buenas tardes <@325824337187700736>, cuál es tu duda? O querés realizar? Disculpá no entendí bien la pregunta."
+Buenas <@757767776159924335> ! Mi pregunta era si la implementación de simple-persistence-unit soporta usar archivos include.sql. Nuestra idea era que durante la inicialización podamos popular nuestra base de datos con unos valores default
+"Si nico … debería funcionar igual que import … asegúrate de agregar la/s properties correctas, toma en cuenta que el ORM no te va a validar las sentencias sql que uses en el archivo de inicializacion deberias asegursrte que los insert funcionen bien basicamente"
+"Ahhh no tenía ese detalle! Es decir que incluso si corre bien, el loggeo de sentencias no va a mostrar lo que está haciendo?"
+Nosotros veíamos los `CREATE TABLE` y `ALTER TABLE` y nos preocupábamos que no salía lo que teníamos especificado en `import.sql`
+"Prueben esto: en el archivo ⁠ persistence.xml
+
+<property name=""hibernate.format_sql"" value=""true""/>
+<property name=""hibernate.show_sql"" value=""true""/>"
+Las tenemos!
+Lo que se me ocurre que pueden hacer es generar un logging personalizado directamente en el archivo del import.sql
+Uhhh lo vamos a probar
+Gracias!
+"<@325824337187700736> perdón la demora, gracias <@410226816125763607>! Seguramente van a tener que armar algo más personalizado, por ejemplo si estuvieran con Spring es algo que está resuelto. Después cuenten cómo lo avanzaron! Buena semana!"
+"Tenemos el siguiente problema
+Intentamos de todo pero no encontramos solución"
+"Buenas! En primer lugar, si tienen una estrategia de herencia Table Per Class, Hibernate con MySQL no soporta generar los IDs como lo están haciendo, que es en forma automática porque no aclararon el generationType. Les dejo estos links de referencia (https://stackoverflow.com/questions/3154649/java-hibernate-jpa-inheritancetype-table-per-class-and-ids, https://docs.jboss.org/hibernate/stable/annotations/reference/en/html/entity.html#d0e1191).
+ 
+Por otro lado, la dependencia que están usando es jakarta, no es la que se usó en clase, necesitaríamos un detalle un poco más concreto de cómo están creando el entity manager en el repo! 🙂 Revisen en ese caso las dependencias del pom"
+El repo lo tenemos así. igual pasamos los test que mostraron el la clase de persistencia
+"buenas noches, todo bien?"
+les podría hacer una consulta? hay algún patrón de diseño que exista para implementar toasts de notificaciones en javalin?
+"como para que podamos hacer un redirect a otra página después de que pase una acción (por ej, que hicimos una contribución) y eso aparezca en la página a la que el usuario fue redirigido"
+"Buenas <@325824337187700736> ! Patrón de diseño no, pero sí podes tomar varias ideas. Por ejemplo, podrías guardarte en sesión alguna variable que te indique que en la próxima pantalla tenes que mostrar algún mensaje de exito. En cada request deberías verificar esa variable de sesión, y si está seteada deberías consumirla para no volver a mostrarla otra vez. En base a esa variable, se la deberías pasar al template y allí renderizar alguna parte extra (exito.hbs por ejemplo). Si queres mostrarlo como toast, propiamente dicho, vas a tener que sumar código js adicional."
+"Claro, mil gracias!"
+"Buenas! Todo bien? Estaba haciendo el seg parcial del año pasado, quería saber si alguien tiene la resolución para comparar. Gracias😊"
+Hola! Estaba buscando y no encuentro puede ser que había un apunte con todas las  annotations para persistir ? O jamás existió y me lo inventé jejej 🫤
+"Hola Cami! Todas las annotations no, pero sí la mayoría están en https://docs.google.com/document/d/1SoBag_7CIZiEwGdz7V6ArQUF7T1mjOv86y0BWvFJcqo/edit?usp=sharing. Además, tiene links y bibliografía de referencia 😄"
+Esooo mismo. Gracias
+"Holaa buenas, les quería consultar si de casualidad podrían pasar un temario del segundo parcial como el que nos dieron en la clase de repaso del primero ? Porque quería adelantar el resumen y revisar que no me falte ningún tema"
+"Buenas, queria consultar que pordia ser este error que sale al ejecutar el .jar del tp, ya intentamos varias cosas pero no podemos encontrar la solucion, gracias!"
+"Juan Cruz, buenas! Lo tenemos agendado para estos días, así que apenas lo tengamos se los enviamos"
+"Jona, generaste el  jar junto con las dependencias?"
+Hice primero mvn clean install y despues mvn clean package
+"Revisa si están todos los jars de las dependencias, al lado del jar que te generó y que contiene tu app Java"
+Buenas! Mañana hay clase? Pregunto por el paro
+"Buenas noches <@1090639225860395120>, mañana se dictan clases de forma virtual! ¡Te esperamos!"
+Genial profe! Ahí lo vi. Nos vemos☺️
+"Hola buenas, quería consultarles si de casualidad nos podrían pasar enunciados de segundos parciales para practicar (como la carpeta de driver que había en el primer cuatri)"
+Por lo pronto todos esos ejercicios podes persistirlos para practicar modelo de datos … ademas estan todos los finales de la carpeta publica de ahi podes observar los puntos de arquitectura tambien…
+Asi mismo tambien todos los años vamos incorporando temas
+Ademas de lo que se toma en los finales se toma un ejercicio netamente de persistencia es decir dado un diagrama de clases  deberán  no solo hacer el modelo de datos sino que  ademas deberan escribir las anotations necesarias para lograrlo … la practica de eso es el tp …
+"También seguro hay parte teórica  igual que el primer parcial ( acordate que si hay un ejemplo que la sentencia  no se cumple entonces es falso)  aprovecho para pasarle al resto ese dato la justificación la pueden hacer con ese ejemplo …… 
+Si a pesar de eso queres  mas … avisame  y el finde te busco en los exámenes que tengo de otros años para subirte algún enunciado mas"
+Genial Nico entonces me guío con los finales y los ejercicios que hayamos resuelto en clase. De todas formas estaría genial si en algún momento pueden subir algún parcial de años anteriores para chusmearlo
+"Buenas! Una cosnulta, saben cuando va a ser la fecha de recuperatorio del primer parcial?"
+"Hola Mili! Las fechas coinciden con las de finales de diciembre. 7, 14 o 21. Luego directo en feb"
+Graciass❤️
+"Buenas, quería saber si es recomendable algún algoritmo específico para el hashing/encriptación de contraseñas, o si hay alguna guía para saber cuál podríamos utilizar?"
+"Hola 👋 , una consulta, estaba siguiendo la guia para desplegar el tp y me esta saltando un mensaje en la configuracion de red cuando intento lanzar la instancia, estaba siguiendo la guia paso a paso, pero capaz le pifie en algo 😅 . Saben que podria estar mal?"
+"Buenas Gary, ¿Cómo estás? 
+ Según indica la alerta parece que ya creaste dicha regla para el grupo de seguridad (puerto 8080 con el origen y protocolo indicado) pero por lo que veo en el video no hay ninguna otra regla que especifiques con ese puerto. Por lo que entiendo no deberia crear reglas por default AWS por lo que no tendría que habilitarse solo ese tráfico. 
+ En caso de que no estes ingresando 2 vees esa regla, procede de igual manera con la guía y una vez creada la instancia, podes verificar que la regla indicada este habilitada desde: VPC --> Seguridad --> Grupos de Seguridad --> Reglas de Entrada (seleccionando el security group creado).
+
+Como se ve en la captura aca deberías poder ver todas las reglas creadas y en caso de que no se encuentre el puerto 8080 podes seleccionar **editar reglas de entrada**y agregarla a mano."
+"Buenas noches <@295323619381477377> te paso un link de referencia.
+
+https://davidbertoldi.medium.com/hashing-passwords-in-java-757e787ce71c
+
+Por las dudas para el resto, siempre es importante diferenciar la encriptación del hasheo. Si alguien tiene dudas, revise el link!"
+"buenas, como va?
+Alguno podria pasarme la guia para instalar el mysql si la tiene a mano? Cambie de PC y el campus esta caido desde el viernes :(("
+"Perdón la demora <@588739213030326287>, ya está activo el Campus!"
+gracias lucas!!
+"Buenas tardes, todo bien?
+
+Les podría consultar si hay algún documento con las anotaciones de JPA que nos podrían tomar en el parcial?"
+Hola Nico! Como va? La mayoría (recomendamos consultar con la docu oficial de todas formas) las podes encontrar aca!  https://docs.google.com/document/d/1SoBag_7CIZiEwGdz7V6ArQUF7T1mjOv86y0BWvFJcqo/edit?usp=sharing
+Ahhh verdad que estaba esa guía! Mil gracias
+"Buenas! Consulta, el aula es la de siempre 277? O la 4?"
+"Buenas!  Ya pregunté, es el aula 4 y está abierta"
+@everyone exacto Aula 4! Nos vemos en unos minutos!
+"<@1219766711415209984> buen día profe, del apunte de arquitectura p.8 definición de base de datos réplica, debiera decir lectura, dice escritura. Saludos"
+Correcto <@290312874209837056> debería decir lectura! Le decimos a <@694888486918029362> para que lo ajuste! Muchas Gracias!
+"Corregido, muchas gracias!"
+"Buenos días, todo bien?
+
+Les quería consultar por qué en el parcial de monopatines se consideraría que está mal tener los precios de los viajes en un archivo de configuración afuera de la db"
+"Nico, buen día! Porque uno de los reqs ahí era permitir que se gestionen los valores de los costos de utilización, y necesitás mantener trazabilidad de cuándo lo actualizaste. Si los modelás directamente en un arch de config perdés esa trazabilidad pq los irías pisando. Me explico? 🙂"
+"Claro, o sea que cada entrada en la tabla sería el esquema de precios con la fecha cuando cambió?"
+exacto!
+"Claro, gracias Aylén!"
+"A la orden, va otra pero de quisquilloso nomás, ya que es un apunte lindo y útil. P.17 última oración, falta un ""que"" al principio entre ""para"" y ""el"""
+"Corregido, gracias!"
+"Buenas, todo bien? Les podría hacer una consulta del DER de TalentHub?
+
+Si y tengo dos tablas, una de personas físicas y otra de organizaciones, y las dos pueden tener perfiles en redes sociales,
+
+* Tiene sentido tener una sola tabla de ""perfil de red social"" con un valor discriminador para saber a qué tipo de entidad se relaciona? O debería tener una tabla separada para personas físicas y jurídicas?
+* Conviene tener una tabla de redes sociales, sólo para tener un id y el nombre? O directamente pongo el nombre como varchar en la tabla de los perfiles?"
+"Hola Nico! La tabla de redes Sociales seria conveniente para garantizar consistencia de datos, aunque tengas ""pocos"" registros. 
+No sé cómo pensaste a las personas físicas y jurídicas, necesitaría un poquito más de contexto para responderte, pero la tabla ""perfil de red social"" tendría sentido porque un creador podría tener muchas redes sociales, y a la vez una red social podría estar en muchos creadores. Te quedaría una tabla intermedia así con la URL asociada. Dependiendo de como lo modelos la podrias teutilizar para las redes de las organizaciones, no veo por qué no"
+"Claro, gracias!"
+Considero que las organizaciones deberían ser una tabla separada porque tienen un rol muy distinto en el sistema y no tienen ningún atributo en común
+Entonces si alguna vez estás buscando el perfil de una org nunca vas a querer encontrar el de una persona física
+Creo que por eso me voy a tirar por tablas de perfiles separadas
+"Hola! Una consulta, esta respuesta estaría bien? Porque no termino de entender si el hecho de que el backend este desacoplado y exponga una API REST significa que vamos a estar utilizando un servicio externo o no."
+"a) En primer lugar, en cuanto a la fiabilidad y más precisamente la disponibilidad, el cliente liviano resulta de una fiabilidad media, ya que, precisamos que nuestro servidor este funcionando correctamente tanto para generar las vistas como para manejar la lógica de nuestro sistema. En segundo lugar, el cliente pesado con un backend que expone una API REST para la manipulación de los recursos, podemos decir que tiene una mejor fiabilidad y disponibilidad que el anteriormente mencionado, pues las vistas se generarán en el cliente y no requeriremos que nuestro sistema esté disponible en ese momento para generarlas. Sin embargo, al exponer una API REST para la manipulación de recursos, tendrá cierto acoplamiento en el manejo de datos y lógica quitandole así algo de fiabilidad a la solución. Luego, el cliente liviano desacoplado del backend, el cual expone una API REST para permitir la manipulación de los recursos, podríamos decir que es el menos fiable, visto que, precisamos en primer lugar precisamos que nuestro sistema funcione correctamente para la generación de visitas y luego necesitamos que la API REST este disponible para el manejo de datos y lógica, teniendo así más posiblidades de fallo. 
+Por otro lado, en cuanto a mantenibilidad y más precisamente modularidad, el cliente liviano podríamos decir que es el menos modular y mantible, porque todas las responsabilidades recaen sobre nuestro servidor. Luego, el cliente pesado con un backend que expone una API REST para la manipulación de los recursos, sería algo más modular y mantenible, teniendo divididas las responsabilidades de las vistas y la lógica y pudiendo mantenerlas por separado. Por último, el cliente liviano desacoplado del backend, el cual expone una API REST para permitir la manipulación de los recursos también sería más mantenible, ya que nuevamente tenemos separadas las responsabilidades de vistas y lógica."
+"Buenas! Estabamos haciendo el parcial del 2023 y nos agarro una duda respecto al primer punto del Modelo de Datos (esto es de este parcial o es del anterior?) Ya que en donde hay que hacer el der y las anotaciones es en el punto de persistencia, pero no sabemos si además tenemos que hacer el modelo de datos
+https://drive.google.com/file/d/1q5weXknlStL7ZtNKGB77TbnL7Ez7k8qe/view"
+"Hola Bren! Tenes dos secciones referidas a Modelo de Datos y Persistencia. 
+
+La primera es para realizar el modelo de datos del enunciado. 
+
+La segunda es para persistir con las anotaciones de Java un enunciado y generar el modelo de datos resultante en base al diagrama de clases. 
+
+Son dos diferentes! Esa era tu pregunta?🙂"
+Hola Aylu! Entonces hay que hacer el diagrama de clases para el primer punto?
+"Nono, diagrama de clases no! El modelo de datos (DER pero con los detalles de claves primarias / foráneas/ relaciones)"
+Entonces se haría solo el DER del punto de persistencia (en base al diagrama de clases presentado ) o serian 2 DER uno del problema general y otro del punto de persistencia?
+2! Uno del problema y otro del punto de persistencia
+"Ahh okey, genial
+Gracias Aylu!!"
+"Buenas, tengo una consulta. Estaba haciendo el final de viajes compartidos. La parte de creacion de viajes e Identificación de relación entre usuarios no me importa para mi modelo de datos no? 
+
+Dejo mi resolución por las dudas"
+"Buenas! Consulta, al hacer el DER, si queremos poner un ENUM, que nos conviene, poner un vaarchar o una tabla extra?"
+"Existe el tipo de dato enum en MySQL!
+ https://dev.mysql.com/doc/refman/8.4/en/enum.html#:~:text=An%20ENUM%20is%20a%20string,specification%20at%20table%20creation%20time.
+
+Otra alternativa (en un final, por ejemplo) es partir del diagrama de clases, indicar que es un enum y transformarlo en varchar"
+"Estaba viendo las consideraciones del Parcial 2023 del Martes, y quería saber si en la opcio otro, no podria estar en la misma tabla motivos. Ya que yo considere que al marcar ese ""otro""  solo se sea ""visual"" la diferenciación, que al enviar el ""formulario"" se haga un nuevo insert en la tabla ya existente."
+"No entiendo como relacionar el precio servicio en el DER, puse el dato del costo del viaje desnormalizado, pero no se donde enganchar la entidad precio_servicio"
+"Buenass, quería avisar que en el doc de la ultima clase, el link a las consideraciones del segundo parcial del martes de 2023 te redirecciona a las consideraciones del parcial de ese mismo año pero del miércoles"
+Es el correcto. Por las dudas te lo mando
+"graciass, me redirecciona mal nose xq"
+"El del miercoles te redirecciona al correcto, pero tiene el nombre equivocado"
+"Hola <@1090639225860395120> en los enunciados de final, les puede pasar, que parte de la solución quede impactada en la parte de Objetos, ya que son cuestiones más de comportamiento."
+"Hola <@694565479397720165> puede ser que la opción no sea necesaria en la Tabla, de igual manera no cambia el modelo. Si es importante que esté el campo para guardar la respuesta."
+"Hola <@694565479397720165> nuevamente! Este Parcial es un caso particular ya que es un Sistema ""monoproducto/monoservicio"" a diferencia de otros que tenemos. Pero como indica ahí tenemos que tener una tabla para persistir esos datos y la relación será simplemente una FK al Servicio que se utilizó."
+"<@694565479397720165> sumo un detalle, si tenés Tabla no tenés Enum. Si tenés Enum podés ir a un Enum de DB o a un Varchar. El Enum de DB te limita los campos válidos."
+"El servicio sería el viaje, no? Porque ahí estan los km recorridos"
+"Claro, tendrías PrecioServicio ---- Viaje (IdViaje (PK), idPrecioServicio (FK),.....)"
+"Consulta, en el mapeo, cuando quiero usar columnDefinition, siempre tengo que poner el name antes? Porque siempre lo puse, pero no sé si es obligatorio, más si estoy a mano"
+Jajajaja
+"Debería funcionar sin problema, porque son atributos distintos dentro del @Column!"
+DentalBA - Parcial 2022
+"Buenas! Conlsuta, a que se refiere con ""(5 puntos) Enumere las entidades identificadas y mencione, de forma concisa, qué representa cada una de
+ellas.""? Porque luego se hace el DER"
+"Sahira, es un checklist que tenes que armar con las entidades principales que identificaste. A ustedes les sirve para tomar como guía para el modelo de datos, y a nosotros para detectar rápidamente si no vieron alguna entidad core del enunciado"
+"Uhh! Yo las subrayo, con colores para no perder tiempo"
+Jajajaj
+"Buenas, como va? Hay alguna resolución de los ejercicios de persistencia o algun video referencial?"
+"Buenas! No. Recomendamos que lo intenten mapear en código para que se aseguren que su mapeo funciona (en un proyecto real de Hibernare, tal como vimos en clases)"
+Graciasss!
+"Buenas, todo bien?
+
+Les quería consultar si ""trazabilidad"" y ""consistencia eventual"" se pueden considerar atributos de calidad incluso si no están considerados en la norma ISO 25000"
+La  consistencia eventual estarían como implícita o digamos embebida dentro de robustez o confiabilidad
+La trazabilidad perce  puede ser muchas cosas dependiendo el contexto en si … puede ser req funcional / restrccion / regla de negocio y hasta req no funcional de conformidad  (para no quemarte la cabeza con eso me inclinaria a decir sali de ahi maravilla)
+Fue muy buena pregunta
+"Claro, gracias!"
+"Buenas! No pude entrar a la clase de consultas, en algún momento se va a subir una grabación al drive? Saludos"
+"buenas! sí, se termina de procesar y la subimos 🙂"
+Mil gracias!
+"Hola!!. Tengo una consulta respecto al siguiente punto de arquitectura del ""Segundo Parcial 2023 - Martes"", En las opciones de ""Cliente Liviano"" y ""Cliente liviano desacoplado de la lógica de negocio"", no pueden estar haciendo referencia a lo mismo? yo tenía entendido que solo por ser ""cliente liviano"" ya estaba desacoplado de la lógica del negocio, puede ser que no siempre sea así? en qué casos se podría aplicar lógica de negocio en un cliente liviano?"
+gracias!
+"Buenas! No, no se trata de lo mismo. En Cliente Liviano ""tradicional"" (el TP, por ejemplo) vos tenés todo integrado: lógica de negocio y lógica de renderizado de las vistas (Handlebars, devolver en los controllers directamente la vista etc. ). 
+
+En un Cliente Liviano desacoplado de lógica de negocio seguís teniendo el renderizado de vistas como responsabilidad del servidor, pero la lógica para renderizarlas está en otro repositorio. Podrías devolver una API REST y que este otro componente renderice las vistas con lo que consume. Hay otros parciales (creo q el de 2022) que detallan un poco mejor el mecanismo! A eso apunta lo de que esté desacoplado. 
+
+Me explico? 🙂"
+"mmmmmmmmmmm, no me estaria quedando del todo claro, hay dos componentes? el servidor back que tiene toda la lógica de nogocios y expone una API Rest, para que el ""cliente liviano desacoplado"" la consuma y renderize páginas con esos JSON's y este cliente devuelve al navegador las vistas renderizadas?"
+"En los primeros minutos de la clase de consulta de hoy <@757767776159924335> lo menciona, pero se llama Cliente Liviano Desacoplado por tener los dos componentes. Uno que tiene la lógica de negocio, devuelve una API REST que es consumida por un componente que solo renderiza vistas. El servidor las devuelve. Sigue siendo la misma idea que el cliente liviano, pero se divide. Es como si en el TP tuvieras un repo que devuelve una API REST en vez de las vistas, y otro repo con solo la parte de Handlebars. 
+
+Tiene sentido que estén implementados en la misma tecnología ambos componentes, ejemplo, en Java."
+"ahhhhh, con lo de Handlebars lo entendí!"
+muchas graciasss
+"buenas! todo bien? 
+Alguno tendra por casualidad la resolucion del segundo parcial de 2021? (https://drive.google.com/file/d/17o9H1KuzAt26bjVEASgHFL3R3WCnIqvh/view)
+quiero ver si le pifie en algo"
+"Buenas! Consulta, estaba haciendo el parcial del 2021 y en el final aparece que el cliente puede subir documentos. Como yo tengo una tabla Documento, que la uso en más ocaciones, puedo poner en mis consideraciones que Cuando son muchos archivos se sube un .zin o un .rar (y de paso me aumenta la performance porque aparte de ocupar menos espacio no debo hacer join)? O si o si debo crear una tabla ""intermedia""?"
+Hola! Sí! Esta bien! En definitiva en lel modelo de datos impacta en que es un path al archivo subido
+Hola! Estaba viendo este 2do parcial (https://drive.google.com/file/d/1q5weXknlStL7ZtNKGB77TbnL7Ez7k8qe/view) y vi esto en las consideraciones (https://drive.google.com/file/d/1bzgy7PFJiRxFcnIUW4YrcYajnf4aPT4Q/view). Entiendo que esto sería una tabla que queda flotando porque no tiene relación con ninguna entidad. ¿Eso está bien?¿Es por el hecho de poder darle alguna trazabilidad a los precios?
+"Hola! Si esta bien, igual podrías relacionarlo con los usos de las bicicletas para que quede un registro de a qué precio pagó el costo adicional x KM, si querés."
+"Hola! Buen día, una consulta, cuando mapeo un Converter tengo entendido se hace de esta manera:"
+y luego el convertidor propiamente dicho
+"Ahora sobre MedioDeNotificacion en sí, no tengo que hacer más nada no?"
+"Hola <@580903983321972746> ! No, nada más, tal cual lo vimos en clases."
+"@everyone este DER quedó huerfano, de quien es?. La hoja NO tiene nombre ni apellido"
+"Hola buenas es mío 
+Disculpen es que no llegue a ponerle nombre"
+<@868238015762427975> <@830646287116402739> <@352189361800085504>  el resto del examen lo tengo yo
+Ok
+"Hola! Buen dia, estoy teniendo un problema cuando genero y corro el `.jar` en la instancia y en mi local. En ambos puedo correr los comandos `mvn clean install` y `mvn clean package`, pero cuando lo levanto me encuentro con distintos problemas.
+
+En local me deja ver la vista de iniciar sesión pero cuando hago algo con un repositorio, como buscar el usuario en la base de datos me salta este error: `javax.persistence.PersistenceException: Unable to build entity manager factory`
+
+Y en EC2, me dice que levanta el projecto en el puerto 8080 pero cuando voy a la ip con el puerto no carga nada y tmp aparecen logs de que pasa algo en la consola.
+
+Es un error común? o se les ocurre porque puede estar pasando? Ya intente generar el `.jar` de distintas maneras para que incluya las dependencias externas pero no hubo caso 😅 ."
+Buenas! Una consulta los recuperatorios van a ser en fechas de finales y podríamos rendir cualquiera de los recuperatorio en cualquiera de las fechas ?
+Buenas! Correcto.
+Excelente! muchas gracias eze
+"<@1219766711415209984> <@410226816125763607> <@757767776159924335> Buenas, como estan? Sumo una consulta sobre los recus, nos podemos presentar en la segunda fecha y luego en la tercera a recuperar los mismos temas? O se complica por el tema de las correcciones?"
+"Sí, siempre y cuando tengamos las notas a tiempo, intentaremos tenerlas lo más pronto posible; pero no te garantizo que te la corrijamos de un sábado para un domingo!"
+buenisimo eze gracias
+"Buenas! Aquellos que estamos en situacion de rendir final, vamos a poder anotarnos para rendirlo este sabado 7/12? ya que al no estar cargadas las actas todavía, no es posible anotarse. gracias!"
+Si quieren anotarse les pedimos por favor nos avisen así pasamos puntualmente esas notas! Gracias.
+"Buenas, alguno hizo el final de IA - Proyectos de Investigación? que tengo algunas dudas con respecto al diagrama de clases, gracias!"
+"Buen día <@646060215900569600>! Te paso el link a la clase de consulta, tal vez te puede servir.
+
+https://drive.google.com/drive/mobile/folders/1e07bIJSDoEErfFu-7uWSUoCAUUx8BIFr?fbclid=PAY2xjawG77f9leHRuA2FlbQIxMAABph4PTKEG1w_ZFZikoq2aoh0ba6fCqB3peArwtUwiPAVnzjGTlHX8N__XBg_aem_7DRsiggww7IA2gQ9krdbhQ"
+"Hola equipo, como están? Entiendo que el 21/12 también es fecha de final, estoy en lo correcto? Consulto para poder reservarme ese sabado para rendir, estimo que las notas las irán cargando de a poco al siu. Gracias 🙂"
+"Hola! Correcto. 
+Si tu intención es rendir, te pedimos por favor que nos avises así te cargamos la nota."
+"Gracias por la respuesta Eze, si lo quiero dar el  21/12!"
+"Buenas, todo bien? Les quería consultar si en tinderizer estaba mal no persistir las búsquedas, ya que consideré que representaban una query más que una entidad"
+"Buenas! Si bien podrías pensar que es una query, quizá te resulte relevante persistirlo"
+"Claro, gracias!"
+Buenas! Alguien se olvido un cuaderno abajo del banco en el aula 402
+Otro cuaderno olvidado
+"buenas, perdón recién veo, es mio"
+Hola buenas! Ando buscando la clase de caché cdn y no la estaría encontrando. Si alguno sabe me dice porfi ? Gracias 👍🏻
+hola Cami! está en el final de esta clase: https://drive.google.com/drive/folders/1OQt156-lEuA5T7wq8jFNoodOMvxYOvGd
+Genial gracias 🫶
+"Buenas! Una consulta, existe la posibilidad de mandar archivos enteros por broker? Entiendo que al ser flujos tan grandes, no es lo ideal. Sería una buena alternativa, por ejemplo, subir el archivo a un sistema externo de almacenamiento y enviar el enlace al mismo por broker?"
+"Tomás, depende un poco el caso de uso. Se pueden hacer de ambas maneras, lo que planteas es válido y se utiliza. Te paso un ejemplo de uso combinado. https://www.emqx.com/en/blog/file-transfer-over-mqtt
+Si es verdad que generas mayor carga sobre el broker."
+"Hola buenas, no estaría encontrando las consideraciones del segundo parcial"
+De los miércoles
+Si alguien sabe dónde están 🥲
+"Genia, gracias"
+"Holaa, estaba viendo las consideraciones del parcial del Miercoles a la noche y dice ""Debe haber una relación OneToOne entre la tabla CriterioCalculoAvance e Hito""
+pero en el Diagrama de Clases la relacion es de uno a muchos, no deberia ser de CriterioCalculoAvance un OneToMany a Hito?
+Ahí marque con colores a lo que me refiero"
+Correcto Joaquín!
+"Buenas! Estaba resolviendo un ejercicio de persistencia, y algunas de mis entidades tienen id, pero en String (y otras no tienen), yo soy partidaria del id numérico auto-incremental. Puedo ponerlo igual y ese ponerlo como algo ""extra"" (más de BI)"
+tengo la misma duda!
+"buenas! sisi, lo podrías plantear justificando por qué"
+"Hola!
+Se me olvidó pedir el certificado de asistencia al parcial, hay algún día en la semana en la que alguien del equipo docente esté en alguna de las dos sedes para que me lo firme?"
+"Buenas, cómo va? Estaba haciendo este punto de arquitectura del final de TalentHub y no termino de entender porque nos sería tan útil utilizar un SSO, teniendo en cuenta que nuestro sistema se conforma de una única aplicación entonces siento que no estaríamos aprovechando tanto el potencial de este componente. Escribí esta respuesta pero siento que esta floja/incompleta: Propongo trabajar con un SSO que nos permita aprovechar el inicio de sesión en nuestro sistema para también iniciar sesión en sus respectivas redes sociales. Este componente externo se encargará de autenticar al usuario y permitirle el inicio de sesión en nuestro sistema asignándole el rol y permisos que correspondan. Es decir, el usuario ingresaría sus credenciales y el componente se encargaría de iniciar la sesión de la organización en un caso, o en el otro, iniciaría sesión del creador de contenido y sus respectivas redes sociales. Asignando en ambos casos los roles y permisos correspondientes."
+Hola buenas tardes! En algunos finales aparece que se pueda tener trazabilidad de los estados por los que pasa una entidad... Quisiera preguntarles si lo que estaría bien sería modelarlo simplemente como un enum en el caso que no tenga comportamiento alguno y sean siempre los mismos como en el primer caso. O si conviene hacer una clase aparte que tenga un enum con el estado y otro con un local date que diga cuando entro en ese estado...
+"Buenas! Exacto, sería pata poder iniciar sesion con las redes sociales o incluso con el mail empresarial, por la primera parte q se menciona de que tiene acceso toda el área de Marketing. Podrías sumar algún atributo de calidad que te aporte la utilización de un SSO para tu justificación, probablemente usabilidad"
+"Buenas! Sí, deberías tener registro de las fechas y si te pidiera auditoria quién realizó el cambio de estado. Un enum no sería suficiente"
+Buenísimo gracias! En este caso entonces estaría bien ir por el lado de usabilidad? Porque normalmente recuerdo escuchar que ir por los atributos de usabilidad o adecuación funcional no suele gustar mucho
+Si en este caso sí! Porque refiere a la interfaz de usuario y la interacción con la misma. No siempre se puede establecer esa relación 😉
+Claro buenísimo. Gracias!!
+"Buenas, cómo va? Teniendo en cuenta que nos pide desplegar el sistema en una infraestructura propia, entonces podríamos descartar el cliente pesado visto que estaríamos usando los recursos del cliente para generar nuestras vistas no? Gracias, saludos."
+"Buenas! No, al contrario, no sería motivo para descartar Cliente Pesado. Que tengas que desplegar el Sistema en una infraestructura propia te puede llevar a pensar en limitaciones al escalar. Me quedo ahí para no spoilear más, pero obvio cualquier cosa nos volvés a preguntar😊"
+"Perdón no entendí porque estaría bien considerar al cliente pesado en este caso, se lo considera parte de nuestra infraestructura al cliente? O porque cumpliría con el requerimiento de que el sistema debe ser desplegado en una infraestructura propia? Lo que si comprendo es que nos sería útil para prever que vamos a realizar mejoras notables a nivel visual, ya que nos da mantenibilidad por su modularidad (aunque habría que considerar que los recursos del cliente sean suficientes para esas mejoras en la generación de vistas que tenemos proyectadas) y en caso que lo pueda correr también mejoraría la performance de nuestro sistema ya que tendría una responsabilidad menos, pero lo de la infraestructura propia me había hecho descartarlo. Gracias!"
+"No, el cliente no forma parte de la infraestructura. Si pensás en un diagrama de Despliegue, el dispositivo del cliente es un modo aparte. Tendrías un dispositivo (móvil, PC) y el cliente en sí es el Browser. Si el Sistema debe ser desplegado en una infraestructura propia, entonces cuestiones a considerar para escalar se complejizan. Pero al no ser parte de la infraestructura, no es motivo para descartarlo. Me explico?"
+"Perdón no termino de entender, o sea no comprendo porque esta tan íntimamente relacionado con la escalabilidad ni por qué el hecho de que no sea parte de nuestra infraestructura no es motivo suficiente para descartarlo...  intento desmenuzar mi pensamiento para ver si se nota donde me estoy equivocando:
+El enunciado me dice que el sistema debe ser desplegado en una infraestructura propia
+Evaluo el cliente pesado:
+Que recursos utiliza el cliente pesado?
+- Nuestro servidor para la lógica de negocio y los recursos del cliente para la generación de vistas 
+El cliente es parte de nuestra infraestructura propia?
+- No
+Entonces el cliente pesado no me permite desplegar la totalidad del sistema dentro de nuestra propia infraestructura
+Descarto cliente pesado
+Perdón por molestar y gracias!!"
+"Justamente, te querés sacar ""de encima"" la lógica de interacción (interfaz gráfica) porque vas a utilizar tu propia infraestructura. Tus recursos son limitados y deberías optimizarlos.
+Respecto a tu frase de ""Entonces el cliente pesado no me permite desplegar la totalidad del sistema dentro de nuestra propia infraestructura"" te contesto: ¿y? El enunciado no te dice que el 100% de las cosas DEBE ESTAR en tu server. Toda la lógica de negocio está de tu lado, mientras que la lógica de interacción la podes delegar en el cliente. Recordá que, además, tu server es quien brinda los archivos necesarios para que ese cliente pesado se levante (request inicial viaja todo el contenido)."
+"Aah ok perfecto, había entendido que con la frase de que debía ser desplegado en una infraestructura propia se refería a que no podíamos usar recursos externos como los del cliente. Entonces entiendo que sí, muchas gracias!"
+"Buenas! Una consulta, cuando hay que graficar un componente de SSO en un diagrama de despliegue de microservicios, se lo grafica como un nodo aparte entre el API Gateway y el nodo del servicio?"
+"Buenas <@589499545491079169>, tomá ese como referencia. 
+
+https://discord.com/channels/1219817855730843729/1219817856288686086/1314021576659963945
+
+¿Te sirve? Entiendo que es para Microservicios, cambia un poquito!"
+Sii perfecto! Mil gracias!! En Microservicios entonces seria externo y se conectaría directo con el API Gateway?
+"Exacto. Ahí te dejo un link complementario.
+
+https://developers.redhat.com/blog/2019/10/30/how-to-secure-microservices-with-red-hat-single-sign-on-fuse-and-3scale"
+Buenisimo muchisimas gracias! 😄
+"Y uno más de AWS
+
+https://awskarthik82.medium.com/part-1-securing-aws-api-gateway-using-aws-cognito-oauth2-scopes-410e7fb4a4c0"
+"Muchas gracias!! y ultima pregunta, ¿El único que se conectaria con el SSO seria el browser no? Porque también tengo servicios externos, pero entiendo que esos irían directo conectados con el API Gateway ¿O lo estoy interpretando mal?"
+"Browser y API Gateway al SSO. Los Servicios externos se conectan desde el Microservicio, pero el Usuario final no tiene nada que ver con esa autenticación. ¿Se entiende?"
+Sii perfecto! 🫡  quedo clarisimo!
+"@everyone espero que estén muy bien y cerrando cuestiones. 
+
+En lo personal este Viernes 20/12 voy a estar complicado para responder y el equipo también está a full con diferentes cuestiones de Diseño y también personales. Les prometo que no es mala voluntad, es muy fin de año para todos!
+ 
+Les pido que trabajen en equipo para las dudas, revisen apuntes, clases regulares, clases de consulta, búsqueda refinada en Google, IA generativa y todo el material que está disponible. 
+
+Si necesitan alguna pregunta, les pedimos preguntas más puntuales, así les podemos responder de forma más ágil! 
+
+Gracias por el compromiso de todo el año!"
+l
+¿Todo bien <@290312874209837056>?
+"Jajajaja si, me habrá quedado el celu sin bloquear, perdón"
+Buenas <@757767776159924335> <@1219766711415209984> en qué aula es el recuperatorio?
+En bedelía decía 618 pero están para paradigmas también acá
+Buenas @everyone ! Busquen a Nico Contreras en la 618. Tenemos asignada esa aula (que no significa que alguien más la pueda haber tomado 🤣 ). Quédense con él (Nico) que él resuelve el tema
+@everyone
+Alguien se olvidó un cuaderno
+Avisen si es de alguien!
+"Buenas! Cómo va? Quería consultar si ya se sabe en qué fecha serían los recuperatorios de febrero? Gracias, saludos!!"
+Buenas! Sábado 15 y Sábado 22 🙂
+Hola! Todo bien? Yo quería consultar si las fechas de los recuperatorios también coinciden con las fechas de los finales de diseño. Calculo que sí porque así fue en diciembre pero quería sacarme la duda
+Muchas gracias y buenas vacaciones!!
+Buenas! Efectivamente sí Gustavo
+Genial! Muchas gracias!
+"Buenas! Todo bien? Perdón que moleste pero estaba practicando para el recu y me surgieron algunas dudas resolviendo el segundo parcial de 2022 (https://drive.google.com/file/d/1yl4wVxEHfGqPCGOo-XFs1QY7VdeZ1Oso/view). Por un lado, me quedaba la entidad Tratamiento que solo persistía su PK y FKs a otras entidades (y recuerdo que eso estaba mal porque me lo habían corregido anteriormente), entonces revisando los alcances y requerimientos del enunciado vi que se pedía con máxima prioridad mantener una buena trazabilidad y auditoria de de las recomendaciones (y sus solicitudes), tratamientos, etapas y procesos de producción. Entonces le agregué una fecha de inicio y de fin al tratamiento, pero no sé si con persistir esta información es suficiente para que esté bien o el problema que comentaba de que solo persiste relaciones a otras entidades sigue existiendo. 
+Por otro lado, tengo una duda similar con la entidad SolicitudRecomendación, porque en este caso normalice al dentista y el consultorio pero no así a la consulta, entonces la entidad SolicitudRecomendacion persiste los datos de la consulta además de las relaciones a la entidad dentista y consultorio. Pero si hubiese decidido crear una entidad consulta y que SolicitudRecomendacion persista la FK a esa consulta, ¿entonces estaría mal porque guarda practicamente solo relaciones? (solo quedaría el motivo de rechazo que no es una relación a otra entidad). Después no sé si hay algún error importante o algo que esté mal en lineas generales. 
+Quedó un poco confuso capaz pero espero que se entienda. Muchas gracias, saludos!"
+"Fede, buen día! Contesto tus preguntas por partes:
+1.  La entidad Tratamiento por sí sola tiene muchisima relevancia en el dominio, eso ""pesa más"". Está perfecto que le agregues fechas para garantizar trazabilidad.
+2. Respecto a la consulta, está bien cómo lo diagramaste porque es lo que se requiere para la solicitud de recomendación. Si hubieras creado una tabla consulta, podríamos pensar en un sobrediseño y perdés performance al recuperar registros, por estar sumando tablas que debés unir por Join. La justificación podría ir por ahí, no tanto por la cantidad de FKs que tenga SolicitudDeRecomendación. 
+
+Si decidís crear una tabla, justificalo por lo que implica en el dominio y andá por ahí!
+
+Respecto al modelo, algunas observaciones rápidas (en líneas generales, muy bien): 
+- Recordá poner también la modalidad  (Si es Obligatoria o no) de las relaciones y no solo la cardinalidad. 
+- Los campos dinámicos del proceso de producción es en realidad un modelo pregunta-respuesta. Están los campos predefinidos y las ""respuestas"" concretas en base a la etapa."
+"Clarísimo, mil gracias!"
+"Hola! buen día 👋
+Realizando el primer parcial del Miércoles 2023 - GTV - https://drive.google.com/drive/u/2/folders/11Tr1oInEjE64Jv8ohwE9Hlvof-OFUeMQ
+Me surgieron dudas con los requerimientos 5 y 6 por como lo modelé
+
+""**Requerimiento 5** Permitir el seguimiento (cambio de estados) de las solicitudes de trámites por parte de las
+entidades.""
+
+Como **Entidad** es quien realiza los cambios de estado, se lo agregue a un método *cambiarEstado(...)* donde los parámetros, *motivo* y *documentos adjuntados*, los recibe del front. 
+El *Estado* (enum) de la **solicitudTramite** esta como atributo, como también la *fechaHora* para su trazabilidad
+
+""**Requerimiento 6** Permitir que las entidades configuren las acciones a ejecutar en cada estado.""
+
+**Entidad** tiene un **Configurador** para las distintas acciones y **solicitudTramite** tiene un **Accionador** para que se ejecute al momento de cambiar de estado.
+
+1. solicitudTramite debería tener un listado por cada Estado por el que paso?
+
+2. Esta bien modelado? Siento que mezcle conceptos
+
+Adjunto el DdC sin la parte del formulario
+
+Gracias, saludos 😊"
+"Buenas tardes, quería consultar si para asistir a los recuperatorios de estas semanas hay que inscribirse en algún forms como pasó con los recu de diciembre. Gracias!"
+"Hola Joaquín! 
+1. Si, para garantizar trazabilidad podes mantener ese enum ESTADO con la fecha de cambio en una entidad que podrías llamar EstadoTramite y SolicitudTramite tiene una lista de esta entidad.
+ Como lo tenes modelado, entiendo que es la última fecha de cambio de estado pero estás perdiendo las anteriores. 
+
+2. Las entidades son actores que van a operar sobre el Sistema, ejecutan casos de uso pero eso no implica que necesites un método cambiarEstado. Las acciones que se pueden realizar en el Sistema no se ""desglosan"" en un solo método. ¿Qué haría ese método, cómo lo codeas? Mucho del comportamiento necesario estaría puesto en un Controller, que no se modela en el Diagrama de Clases. Te recomiendo que lo veas en las Consideraciones de dicho parcial.
+
+Respecto al Configurador, ¿qué haría exactamente? Si es solo instanciar acciones, no es necesario modelarlo. 
+
+Cualquier cosa nos volvés a preguntar, buen domingo🤗"
+hola! El forms enviado en diciembre contempla también la inscripción a las fechas de febrero.
+"Buenas
+tengo consulta sobre del final  20241221, de la tercera de diciembre pasado
+en la parte de arquitectura, tengo una confusión en cuando a que se pide
+
+1)entiendo que habla de arquitectura de microservicios en general
+a) cuando se pide fundamentar que componentes, se refiere a componente dentro de un nodo como api gateway y service registry (y explicarla que hacen y por que usaría un service registry) , mencionar el balanceador de carga, Circuit breaker, Service Register (como alguna de esta slide de Componentes concretos)
+o 
+se refiere a Administración , Detección de Servicios y api gateway? tal como esta slide de componentes necesarios, estoy confundido
+es bastante confuso/ambiguo como me pide"
+"luego en la 
+2)b)
+sobre el componente arquitectónico que pide, a priori diría CDN (ya que imágenes y videos son archivos estáticos), pero no se me explicita si solo consistiría solo mostrar y solo peticiones GET o  si en el fondo hay mínimo un ABM de carga de imágenes por parte del usuario lo cual almenos hay un POST y existe un componente llamado ""Galería""  (que se encarga de los regalos y la galería valga la redundancia), lo cual ¿es correcto suponer y mencionar que puede existir un componente con su backend ?? (por que otra estrategia para mejorar el escenario seria escalarla horizontalmente con balanceador de carga y minimizar la request  de los cliente a cada componente de ""Galería"")
+3)
+esta duda es conceptual, siempre que me mencionen alguna api externa como en este ejercicio siempre esta el patrón Fachada? osea esta mal si no llego a mencionar el patrón fachada
+4)
+cuando me dice que mecanismos propongo para motivar a los usuarios y sabiendo que los usuarios no vuelven a interactuar, puedo asumir que no se almacena la información de la sesión y fundamentar el stateless, 
+o para obtener todos los datos de la sesión a fin de obtener el feedback (como regalos vistos, cual foto se vio por las tiempo para calcular  métricas dentro de la sesión y calcular un feedback), no entiendo como puedo relacionar una estrategia de engagement, esta mal el ejercicio si no menciono alguna estrategia de engagement?"
+"Muchas gracias!! Recién ahora lo entendí bien, tuve que releerlo varias veces 🥴
+
+No estaba entendiendo que “Posible estado del trámite"" seria como el ""accionador"" en el patron command
+
+Comparto captura de la corrección por si le sirve a quien tenga que recuperar objetos también 
+
+Gracias nuevamente 😄"
+"Buenas, estoy haciendo el parcial de recuperatorio o final de ""Mi amis invisible"" la parte de la persistencia/datos.
+Tengo algunas dudas sobre el enunciado y sobre el DER.
+
+1) Entre el participante y el juegoAmigoInvisible ¿tengo que colocar la doble fecha donde una indica que el juego contiene participantes, y la otra que el juego contiene al administrador(que también es participante) para saber quien lo creo al juego? o ¿bastaría con la primera flecha ya que incluye a la otra flecha?
+
+2) En las preferencias personales de un participante supuse que habría una lista de categorías que por defecto nuestro sistema ofrece al usuario para que elija y que posteriormente pueda colocar un valor libremente para la categoría que eligió.
+¿Es correcto dejar que el usuario pueda colocar sus preferencias personales libremente permitiendo que seguramente hay poca posibilidad que se repita para otro participante la preferencia ya sea a como lo escribió o error de tipeo?
+Esto viene a que quiero poder cumplir la estadísticas sobre las preferencias más populares y si dejo que el usuario elija libremente habrá pocas preferencias en común entre los participantes.
+
+3) Sobre la parte del regalo sugerido y las estadísticas que me piden ¿Esta bien que directamente al querer buscar los regalos más sugeridos lo haga con la respuesta cruda en texto que viene dentro de la respuesta en formato json de la API REST? Lo pregunto porque en el momento del recuperatorio me lo complique y quería saber si es asi de simple o no.
+
+4) Por ahora únicamente los participantes pueden estar en un solo juego del amigo invisible ¿esta bien o tengo que ser más abarcativo sobre que también los mismos participantes registrados puedan jugar otra vez el próximo año y no perder registro de los juegos anteriores?
+
+5) ¿Esta bien la parte de como persisti las estadísticas del juego? ¿Faltaría alguna entidad importante al DER o algo que este muy mal?
+
+¡Gracias!"
+"Buenas noches <@699097686959194303> lo vamos a estar conversando el miércoles en la clase de consulta de Final, si querés sumate y conversamos todas las dudas!"
+Buenas noches <@829040429398884423> también te invito el miércoles y conversamos todas estas dudas.
+"Dejo el link de la clase, revisaremos el último final. Está centrada para estudiante que rinden el final, pero se pueden sumar.
+
+Tema: Cátedra de Diseño de Sistemas - Clase de Consulta Final 12/2/25
+Hora: 12 feb 2025 07:00 p. m. Buenos Aires, Georgetown
+Únase a la reunión de Zoom
+https://utn.zoom.us/j/95492306932?pwd=sAbCfRXIB6P4gw9cNMgTs9r2w6qTpt.1
+
+ID de reunión: 954 9230 6932
+Código de acceso: utn2025"
+"Hola buenas! Espero que anden bien. Queria hacer una consulta con respecto a este parcial.
+No me termina de quedar claro si la parte del converter la estoy realizando bien o si me falta alguna entidad por realizar.
+Por otro lado, de dejar asi esta especie de pseudocodigo del sistema, no seria necesario crear una tabla para medioDeContacto, ya que solo lo guardo como atributo en la persona, cierto? 
+Desde ya muchas gracias !!"
+"Buenas Nico, el Converter lo tenes bien. La idea del mismo es que puedas tener  ""como ir"" de Objetos a Datos y viceversa. No, en este caso no necesitas la tabla MedioDeContacto pues si probas el codigo te quedaria nomas un varchar en la tabla que se llamaria ""medio_notificacion"". Eso es porque Persona tiene ""un"" solo medio de notificacion, el caso seria algo distinto si fuera una lista 🙂"
+Muchisimas gracias aylu!!
+"Buenas! Cómo va? Perdón que moleste pero estaba haciendo el segundo parcial del 2021 (https://drive.google.com/file/d/17o9H1KuzAt26bjVEASgHFL3R3WCnIqvh/view) y me surgieron algunas dudas.
+Por un lado, al modelar el nivel de urgencia y el nivel de confidencialidad decidí normalizarlo, creando sus propias entidades en busca de consistencia de datos. Pero me surge la duda de si será una buena decisión o si estaré cayendo en un sobrediseño innecesario pudiendo tener simplemente un atributo en la NecesidadDesarrollo que me indique el nivel de urgencia y de confidencialidad respectivamente. 
+Por otro lado, al modelar el estado de la solicitud dudé entre hacer un many to many contra la entidad estado y después guardo las fechas para la trazabilidad en la entidad que rompe el many to many (que fue lo que hice), o si hacer una relación one to many contra la entidad estado y que la entidad estado guarde como FK la id_necesidad ademas de las fechas y el estado, persistiendo así todo en la misma entidad. Caigo de vuelta en la duda de si hacer el many to many para tener más consistencia en los estados o si termina siendo un sobrediseño y en realidad es preferible tener menos join y un poco menos de consistencia de datos. 
+Por último, no sé si habrá algun error importante en lineas generales. 
+Muchas gracias! Saludos!"
+"Puedo dejar una consulta capaz medio boba sobre modalidad? Es suficiente con que una entidad A pueda existir varios segundos/minutos sin B para decir que A no es dependiente de B?
+
+Estaba mirando DataCat y una organización puede tener varias aplicaciones. No hay ningún caso de uso en el sistema para que alguien cree una organización sin crear apps también, pero hasta que el usuario llene el formulario para crear la primera app la organización va a existir ""sola"", por lo que no se podría decir que su existencia depende de una app. En ese caso, la relación entre organizaciones y apps es the 1 a 0-N o 1 a 1-N?"
+"Por otro lado, estoy buscando a alguien para hacer un DER que acordamos y después comparar resultados. Cualquier cosa mándenme un DM"
+"Buenas, como va?
+Tengo una consulta sobre la persistencia relacionada con el patrón Observer.
+Si tengo una interfaz llamada Interesado con el método serNotificado() y esta es implementada por las clases PersonaHumana y PersonaJuridica, que poseen distintos atributos y métodos, cómo debería persistir estas clases ya que tengo otra clase que contiene un atributo List<Interesado>?
+En el apunte vi que se sugiere convertir la interfaz en una clase abstracta y mapearla de esa forma para la persistencia. Pero tengo la duda de si es correcto usar una clase abstracta para Interesado o si existe alguna otra forma de mapear las clases PersonaHumana y PersonaJuridica."
+"Hola Fede! Por lo que se menciona en el enunciado, nivel de urgencia y nivel de confidencialidad cuentan con valores predefinidos, en Objetos te harian pensar en un ENUM quiza. Dependeria del nivel de cambio que vos consideres que puede llegar a tener. Si lo tuvieras como tabla aparte tenes la ventaja de poder agregar nuevos registros con un UPDATE vs. si agregas un literal en el ENUM vas a tocar codigo. Si optas por crear una entidad aparte, justificalo por ese lado y estaría bien. Si optas por pensar que en Objetos se representa con un enum, lo dejarías en datos como VARCHAR. Como siempre decimos, preferible que mantengas esa elección y la justifiques en un recu o final por el poco tiempo del que se dispone. 
+
+Respecto al estado de la solicitud, está bien cómo lo pensaste. El estado en sí es algo genérico (Completado, por ejemplo), la entidad intermedia es la que te da el Cambio de Estado con su trazabilidad de fechas etc. Pensarlo así te permite reutilizar estados y mantener consistencia de datos. 🙂 
+
+En cuanto al Diagrama, lo veo muy encaminado."
+"buenas! Claro, convertirías Interesado en abstracta y optas por mapear con alguna estrategia de mapeo vista"
+"perfectoo, muchas gracias!"
+"Nico, eso es muy dependiente a cómo esté implementado, pero es como el caso de un Usuario de una Red Social y una Publicación. Un usuario puede no tener publicaciones, pero una publicacion si o si es de un Usuario. Va a depender también de cómo definas la relación 🙂"
+"Claro, pero en ese caso puedo imaginar un caso de uso para un usuario sin publicaciones -- mirar las publicaciones de otra gente y dar likes. Capaz estoy hilando demasiado fino"
+"Claro! Es que Usuario tiene una relacion 0 a N con publicaciones, pero visto del lado de Publicaciones es N a 1 (muchas publicaciones pertenecen a un usuario en forma obligatoria). Me explico? Para el caso de DataCat, una organización puede no tener aplicaciones cargadas en un primer momento, pero las aplicaciones sí o sí tienen asociadas una organización"
+"> una organización puede no tener aplicaciones cargadas en un primer momento
+
+Mi pregunta iba por este lado, por tu analogía entiendo que es mejor poner 0-a-N que 1-a-N. Me quedo más tranqui. Gracias!"
+"Entiendo, buenísimo. Mil gracias!"
+"Perdón, me quedé pensando... porque teniendo en cuenta la primera explicación, entonces en lo de los estados no sería válido también trabajar el estado como un ENUM y tener una relación one to many desde Necesidad hacia Estado? Porque una vez definidos los estados dudo que cambien... Entonces me quedaría Estado: PK id_estado, FK id_necesidad, estado (varchar), fecha_inicio, fecha_fin... y si manejo al estado como un enum también tengo consistencia de datos y me ahorro un join"
+"Sí! también sería válido, justo en este caso no te detalla exactamente qué estados manejarías, con justificar una alternativa u otra está bien."
+Aah ok perfecto! Muchas gracias!
+"Buenas, el polling y webhook es solamente para el integración asincornica o es para sincronica también?"
+"Buen día Jaemin, Polling - Sincrónica con Espera Activa, WebHook Asincrónica."
+"Buenas, para el siguiente pregunta, el mejor opción sera el cliente liviano desacoplado? No estoy seguro si es este o simplemente cliente liviano.
+
+¿Mantendría la elección de la capa de presentación visual del punto anterior para todas las tareas que tienen que realizar los administradores (empleados del Gobierno de la Ciudad)? Justifique su respuesta adecuadamente y genere otra propuesta en caso negativo."
+"Hola <@694892987666268170> podrían ser los dos, depende la justificación, si seguro que es un Cliente Liviano. Recordá siempre justificar a través de los atributos de calidad."
+"Hola! Buenas Noches!
+Puedo consultar si será posible que puedan pasar el enunciado del recuperatorio de objetos del sábado pasado?
+Estamos estudiando con un compañero del curso y tener el enunciado del último recu nos ayudaría banda
+Muchas gracias!"
+"hola! Coincide con el final que se tomó el sábado, se le agregó un punto de pseudocodigo."
+"Hola, pueden pasar el link del zoom de consultas por favor?"
+"Hola! Buenas Noches!
+ Puedo consultar si es posible que puedan pasar el enunciado del recuperatorio de arquitectura del sabado pasado?"
+"hola, coincide con el final: https://docs.google.com/spreadsheets/d/1Ku3b_iQbke2jz-4yi4pv74mL9Iw-pzeFc2JJ8mcSmE4/edit?gid=1223938210#gid=1223938210 😄"
+Muchas gracias
+"(10 puntos) Para la recepción de información relacionada con siniestros, necesaria para el cálculo del valor de la póliza, se propone una integración mediante una API REST, la cual será proporcionada por el servicio propio.
+
+a. Defina: Protocolo, Método/s, Código de Estados, Estructura del Cuerpo de Solicitud/Respuesta y todo lo que considere necesario para especificar la integración.
+
+
+Buenas, para este pregunta el protocolo sera el HTTP, metodo sera lo de POST y GE, codigo de estado sera el de 200,201,400,401,403,404,500 y los estructuras de cuerpo de solicitud sera basicamente escrbir una struct definida para cada solicitud y respuestas exitosa y con error no?"
+Hola Jaemin! Sí! Apunta a eso
+Dale muchas gracias
+"(15 puntos) Dado que el valor de la póliza puede estar en Pesos o Dólares, es necesario obtener la cotización
+de un Servicio Externo, el cual presenta caídas frecuentes, tiempos de respuesta elevados y costos por cada
+solicitud.
+a. ¿Qué estrategia propone para garantizar el funcionamiento del sistema?
+b. ¿Qué atributos de calidad se ven vinculados en esta integración? Defina cada uno de ellos y explique la
+vinculación con el escenario planteado.
+
+A- Propongo una estrategia de integración asincronica. Una webhook mas concretamente.
+B- Los atributos vinculados serian:
+ *Eficiencia: Se ve afectada al depender del servicio externo el cual presenta caidas y altos tiempos de respuesta. Se podria mitigar el riesgo utilizando una cache que contenga valores recientes.
+ *Fiabilidad: Ya que su disponibilidad y tolerancia a fallos se ve afectada a este servicio externo. Esto puede mitigarse utilizando reintentos y como ultima instancia la cache previamente mencionada.
+ *Mantenibilidad: Esta integración permite un mayor grado de testeabilidad.
+ *Compatibilidad: Nuestro sistema debe ser capaz de comunicarse con un sistema externo que no se encuentra en su mismo entorno de ejecución."
+"Hola! Tu rta está encaminada, te recomendamos explicar un poco más el mecanismo de Web Hook y por qué optaste por ella. Igualmente, consultar la cotizacion es algo que deberia ser sincronico, quiza lo revisaria. Lo de definir los atributos de calidad antes de usarlos es importante,  así entendemos que estamos hablando de lo mismo 🙂"
+"Yo para esa pregunta había pensado usar una caché local para almacenar las últimas cotizaciones y que nuestro sistema primero consulte allí antes que en la API. La caché semanal o quincenalmente se puede ir actualizando.
+
+Esta bien encaminado?"
+"Sí, perfecto!"
+"Buenas! 
+Les pasamos el link para revisar el final del sábado pasado. Tengamos en cuenta que la prioridad es que quienes rinden final este sábado puedan consultar todo lo referido a ese final en particular🙌🏽
+
+Tema: Catedra Diseño de Sistemas - Clase de Consulta 20/2/2025
+Hora: 20 feb 2025 07:30 p. m. Buenos Aires, Georgetown
+Únase a la reunión de Zoom
+https://utn.zoom.us/j/98060512857?pwd=EWyKG4rVDbCC5xutccLdVORAyYU2zu.1
+
+ID de reunión: 980 6051 2857
+Código de acceso: utn2025"
+"Hola, el sabado pasado rendi el recu de Sistema de Gestión de Seguros de Autos. Yo tengo una duda de como hacer el calculo del valor de poliza. Hice este diagrama despues con lo que escuche de la clase de consultas:
+Estoy haciendo un builder del calculo que despues obtiene un valorPoliza.
+Mi pregunta son estas:
+Es necesario tener la intefaz builder o puedo poner la clase Calculador directamente? Yo la agregue porque me estoy copiando del resumen que tengo, pero siento que no es necesario porque no voy a construir otros calculadores.
+Para las interfaces de los servicios, tengo que hacer un adapter para cada 1 o con hacer las interfaces asi alcanza? En el diagrama resumen el adaptar lo muestra con una clase adaptador concreto que conoce una clase ""Adaptada"" pero tampoco entiendo si es necesario generar esas clases."
+Esta es otra idea que pense antes como un strategy pero tengo la misma dudas si tengo que crear un adaptar para cada 1 de los servicios y no se si me faltan cosas.
+"Hola, donde puedo conseguir ese resumen?"
+"Lo arme yo con las presentaciones de la clase, te paso en privado las ppt con los diagramas y sus resumenes"
+Dale. Muchas gracias por la ayuda
+"Buenas, estuve mirando los finales pasados y vi que en uno tenia este para la parte de arquitectura. Podría ser que tenemos algo similar a esto para la recuperatorio?"
+"Buenas,
+Tengo unas dudas con esta parte del ultimo final. 
+1- No me queda claro quien verifica las condiciones y crea la poliza; la Solicitud deberia tener un metodo ***crearPoliza(): Poliza*** o seria mejor tener una clase tipo ""ProcesarDeSolicitudes"" con el metodo ***crearPoliza(solicitud): Poliza***??
+2- Las condiciones es atributo de la Solicitud? o es el ProcesarDeSolicitudes quien va a usar esas condiciones? (las condiciones las modelo como un strategy)"
+"Buenas, con Martin nos quedamos haciendo el diagrama de clases. le queriamos preguntar si es correcto el caso de alerta solo debe diagramarse ya que la recepcion y generacion de la misma se hace mediante un controller"
+"@everyone les dejo la grabación de la última clase de consulta. 
+
+https://drive.google.com/drive/u/1/folders/1YqldA-NNfM-nwXpBpP-HS7vf6l2U82-p
+
+Mañana apenas tenga un ratito, les voy respondiendo las dudas que quedaron!"
+"Buenas! En un modelo de Dominio podes omitir realizar un Builder, te quedas con el Calculsdor y con eso va bien. Como vos decís, no vas a crear más calculadores. En todo caso lo que le varía al Calculador son los servicios que requiere para realizar el cálculo del valor de póliza. 
+
+La segunda opcion que mostrás es más extensible porque de esa forma no necesitas crear un método por cálculo, tenés un solo método que llama a todos. Lo que sí necesitas son los Adapters, dependiendo del espacio / tiempo del que dispongas en el examen con que modeles uno y aclares que todas las clases que implementan la interfaz servicio van a componerse de ... podría andar bien. Lo que sí, deberías revisar que calcular no recibe nada, y necesitas ciertos datos del Vehiculo! 🤗"
+"Buenas! Pensando en una arq MVC la creación de la póliza en sí se haría en un PolizaController, que no necesitas modelarlo en tu Diagrama de Clase y tampoco  necesitas tener el método crear en tus clases de dominio. Sí podrías tener la clase ProcesadorDeSolicitudes para mostrar estas condiciones extensibles."
+"Hola Aylen, gracias por las respuestas. Como vos decis en la segunda opcion el metodo calcular no recibe nada, pero en realidad deberia recibir diferentes cosas dependiendo del servicio. Por ejemplo el servicio 1 necesita la marca y el modelo, el segundo la ubicacion,etc. Como se modela eso? Tengo que poner un metodo calcular en la interfaz con todos los parametros necesarios para los otros servicios? Se tiene que crear un metodo calcular para cada uno de los servicios con lo que necesitan cada uno? Por que entiendo que si el metodo recibe diferentes parametros entonces es una ""funcion"" diferente"
+"Buenos dias, sobre esto tengo una consulta, si modelaras solamente la solicitud por ejemplo ¿Como cambiarías el estado de la solicitu y de la poliza por separado?"
+Podes quedarte con un VehiculoDTO y que cada servicio use de él lo que necesite
+<@801796163367469106> ahhh tiene sentido. Muchas gracias!
+Hola! Es que no deberías modelar únicamente la solicitud sino tener ambas 🙂 Lo que no necesitás son los métodos de ABM
+"ahh claro, gracias! 😅"
+"Hice este diagrama del dominio al final, creo que se puede resolver todo en general pero tengo duda si los enumerados que hice tal vez irian mejor como clases mas que nada el tema de la cobertura y medio que de los estados invente un par de estados sino quedaban con un solo estado aprox ¿Estaria bien dentro de todo?"
+"tengo un tema mas que nada con los siniestros, no se si deberia el siniestro saber el vehiculo o la poliza porque dice que afecta pero no dice que la poliza tenga el historial de siniestros o que tenga que haber uno"
+"Los siniestros son del vehículo, lo que necesitas por el enunciado es el total, la forma más simple es tener algún atributos que tenga ese valor."
+"Hola! Perdón por la ingenuidad de mi pregunta, pero el enunciado del recu de objetos va a coincidir con el del final de ese mismo día, no?  
+Gracias!"
+"hola, no! depende. De todas formas si llegara a coincidir lo que es el Dominio, le tendrías que sumar el punto de pseudocódigo. 🙂"
+"Buenas! Algunas consideraciones que veo a alto nivel: 
+- ¿Por qué la herencia para PersonaHumana y Juridica? El comportamiento que tendrían en común en realidad son métodos fuera de lugar, qué haría el método generarPoliza, por ejemplo? Revisen lo que le contestamos hoy a otro chico sobre el mismo final. La creación de polizas se resolvería a nivel Controller. 
+- Por lo que charlamos con Martín durante el día, entiendo que el Calculador de Poliza tendría una pequeña variación. 
+- ¿Qué representa la clase GPS? ¿La ubicación? Eso no queda muy claro.
+- Convendría distinguir la SolicitudDePoliza de la Poliza en sí. 
+- Faltaría dejar como atributo la cantidad de siniestros que se registraron en un vehículo. 
+- Respecto a la pregunta en sí, podrían tener un Generador de Alertas como propone <@839634535213301772> en su solución."
+"Va bien! Lo único, quizá sería mejor para desacoplar los servicios no pasarle una entidad de Dominio sino un DTO o los atributos por separado. Lo del ENUM para Cobertura podrías pensarlo como una clase concreta (nomás por ese etc. en el enunciado :D) si pensás que podrían surgir a demanda y que en vez de tocar código podés crear nuevos niveles de cobertura desde la BD, por ej. Igual es bastante específico lo que te menciono y en un final es preferible ir por lo primero a lo que llegues, más que nada por el tiempo 😄"
+"Gracias. Te queria consultar tambien, es correcto el localidad-Provincia? o tengo que agregar una direccion? y a que se refiere con distinguir solicitudDePoliza de poliza?"
+"Hola <@694892987666268170>, es un Diagrama de Componentes, no más que eso, no se asunten por el ""tamaño"".  Siempre respasen los Diagrama de Componentes y Despliegue!"
+"Hola <@694661527109763102>, es conveniente proponer un GeneradorDePoliza.  La condiciones pueden no ser estrategias, pero si pueden compartir una interfaz común."
+Hola. estaba realizando la parte de objetos de este final https://drive.google.com/file/d/1PWXNUUYivgL4bWeVGNYH0z5auWOaKZgw/view. Y tenia dudas en cuanto a la parte del representante y el recomendador externo que menciona. No se si estaria bien representarlo asi en el diagrama
+"Buenas noches, cual es el horario y sede de mañana?"
+hola! 9.30 en Medrano 🙂
+"genial, gracias, lo deberia sumar entonces : )"
+"Ah bueno es verdad, lo del DTO no se como lo pondria en el diagrama igual pero lo de las caberturas lo tomo en cuenta para otros finales, gracias! 😄"
+"Hola! Sí, es correcto, quizá podes ver de agregar un radio o una dirección concreta como para especificar mss la ubicación. 
+
+Y con distinguir solicitud de póliza de póliza me refería a que una cosa es solicitar la emisión de una póliza y otra cosa es que sea esta emitida. Son dos estados diferentes que podrías distinguirlos en dos entidades distintas."
+Gracias. ahi deje correjida la solicitud.
+"Hola buenas noches, disculpen la hora. Quería consultar la disponibilidad del enunciado de ayer en el drive. Muchas gracias"
+Buenas! Todo bien? De casualidad tienen el enunciado del final del sabado pasado?
+"Buenas noches, disculpen la demora! Subido al Drive.
+https://drive.google.com/drive/u/0/folders/1z5QsgYdpg7hLo3AT5teVAhvtnAuYEAXw"
+"Buenas, como va? estos días habrá clase de consulta antes del final del 27 ?"
+"Buenas! Perdon por el horario, el miercoles envian por mail el contexto general del final del jueves? O como es eso?"
+Muchas gracias!
+"hola Lucas! Si exacto😃, 24 hs antes!"
+El jueves corrigen ahi mismo o dsp suben la nota al siu?
+Consulto x la hora
+"Estuve resolviendo el final del sabado pasado, quería saber si la reso era correcta"
+gracias!
+"Hola Matías, sí! dejamos el link:
+
+Tema: Cátedra Diseño de Sistemas - Clase de Consulta
+Hora: 26 feb 2025 07:30 p. m. Buenos Aires, Georgetown
+Únase a la reunión de Zoom
+https://utn.zoom.us/j/98035223765?pwd=n1Itw5EQEPbNHl2zMQwNqE4eiIHjVh.1
+
+ID de reunión: 980 3522 3765
+Código de acceso: utn2025"
+excelente muchas gracias!

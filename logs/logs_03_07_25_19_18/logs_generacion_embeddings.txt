@@ -1,0 +1,83 @@
+2025-07-03 19:18:36,191 - DEBUG - 🗑️ Base vectorial eliminada.
+2025-07-03 19:19:16,228 - DEBUG - ✅ Base vectorial creada con éxito.
+2025-07-03 19:19:16,310 - DEBUG -  
+2025-07-03 19:19:16,310 - DEBUG - ❓PREGUNTA NUEVA : ¿Qué es Github?
+2025-07-03 19:19:16,310 - DEBUG - 🔝 MÁS PARECIDA:
+2025-07-03 19:19:16,311 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:19:16,311 - DEBUG - Metadatos: {'id': 1743}
+2025-07-03 19:19:16,311 - DEBUG - Similitud: 0.6140
+2025-07-03 19:19:16,311 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,311 - DEBUG - 🔍 Resultado #2:
+2025-07-03 19:19:16,312 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:19:16,313 - DEBUG - Metadatos: {'id': 2222}
+2025-07-03 19:19:16,313 - DEBUG - Similitud: 0.6140
+2025-07-03 19:19:16,313 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,313 - DEBUG - 🔍 Resultado #3:
+2025-07-03 19:19:16,314 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:19:16,314 - DEBUG - Metadatos: {'id': 785}
+2025-07-03 19:19:16,314 - DEBUG - Similitud: 0.6140
+2025-07-03 19:19:16,315 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,315 - DEBUG - 🔍 Resultado #4:
+2025-07-03 19:19:16,315 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:19:16,315 - DEBUG - Metadatos: {'id': 306}
+2025-07-03 19:19:16,315 - DEBUG - Similitud: 0.6140
+2025-07-03 19:19:16,315 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,315 - DEBUG - 🔍 Resultado #5:
+2025-07-03 19:19:16,316 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-07-03 19:19:16,316 - DEBUG - Metadatos: {'id': 1264}
+2025-07-03 19:19:16,316 - DEBUG - Similitud: 0.6140
+2025-07-03 19:19:16,316 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,367 - DEBUG -  
+2025-07-03 19:19:16,367 - DEBUG - ❓PREGUNTA NUEVA : ¿Cómo se usa el patrón state?
+2025-07-03 19:19:16,368 - DEBUG - 🔝 MÁS PARECIDA:
+2025-07-03 19:19:16,368 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:19:16,368 - DEBUG - Metadatos: {'id': 203}
+2025-07-03 19:19:16,368 - DEBUG - Similitud: 0.5663
+2025-07-03 19:19:16,368 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,368 - DEBUG - 🔍 Resultado #2:
+2025-07-03 19:19:16,368 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:19:16,369 - DEBUG - Metadatos: {'id': 1640}
+2025-07-03 19:19:16,369 - DEBUG - Similitud: 0.5663
+2025-07-03 19:19:16,369 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,369 - DEBUG - 🔍 Resultado #3:
+2025-07-03 19:19:16,369 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:19:16,369 - DEBUG - Metadatos: {'id': 682}
+2025-07-03 19:19:16,369 - DEBUG - Similitud: 0.5663
+2025-07-03 19:19:16,369 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,370 - DEBUG - 🔍 Resultado #4:
+2025-07-03 19:19:16,370 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:19:16,370 - DEBUG - Metadatos: {'id': 1161}
+2025-07-03 19:19:16,370 - DEBUG - Similitud: 0.5663
+2025-07-03 19:19:16,370 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,370 - DEBUG - 🔍 Resultado #5:
+2025-07-03 19:19:16,370 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-07-03 19:19:16,371 - DEBUG - Metadatos: {'id': 2119}
+2025-07-03 19:19:16,371 - DEBUG - Similitud: 0.5663
+2025-07-03 19:19:16,371 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,421 - DEBUG -  
+2025-07-03 19:19:16,421 - DEBUG - ❓PREGUNTA NUEVA : ¿qué es java?
+2025-07-03 19:19:16,421 - DEBUG - 🔝 MÁS PARECIDA:
+2025-07-03 19:19:16,422 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:19:16,422 - DEBUG - Metadatos: {'id': 1744}
+2025-07-03 19:19:16,422 - DEBUG - Similitud: 0.2557
+2025-07-03 19:19:16,422 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,422 - DEBUG - 🔍 Resultado #2:
+2025-07-03 19:19:16,423 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:19:16,423 - DEBUG - Metadatos: {'id': 1265}
+2025-07-03 19:19:16,423 - DEBUG - Similitud: 0.2557
+2025-07-03 19:19:16,423 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,423 - DEBUG - 🔍 Resultado #3:
+2025-07-03 19:19:16,424 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:19:16,424 - DEBUG - Metadatos: {'id': 2223}
+2025-07-03 19:19:16,424 - DEBUG - Similitud: 0.2557
+2025-07-03 19:19:16,424 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,424 - DEBUG - 🔍 Resultado #4:
+2025-07-03 19:19:16,424 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:19:16,424 - DEBUG - Metadatos: {'id': 786}
+2025-07-03 19:19:16,425 - DEBUG - Similitud: 0.2557
+2025-07-03 19:19:16,425 - DEBUG - ----------------------------------------
+2025-07-03 19:19:16,425 - DEBUG - 🔍 Resultado #5:
+2025-07-03 19:19:16,425 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-07-03 19:19:16,425 - DEBUG - Metadatos: {'id': 307}
+2025-07-03 19:19:16,425 - DEBUG - Similitud: 0.2557
+2025-07-03 19:19:16,425 - DEBUG - ----------------------------------------
