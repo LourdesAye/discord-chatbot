@@ -185,8 +185,8 @@ Estos errores **no afectan la ejecución ni la funcionalidad del sistema**. Se p
   langchain==0.1.13 
   ```   
 ##### 📝 Referencias oficiales:  
-[Issue #917](https://github.com/vanna-ai/vanna/issues/917)   
-[Issue #2235](https://github.com/chroma-core/chroma/issues/2235)   
+- [Issue #917](https://github.com/vanna-ai/vanna/issues/917)   
+- [Issue #2235](https://github.com/chroma-core/chroma/issues/2235)   
 
 ---
 
