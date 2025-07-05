@@ -180,11 +180,13 @@ Estos errores **no afectan la ejecución ni la funcionalidad del sistema**. Se p
 
 ✅ Alternativa (opcional):
 - Utilizar versiones estables: 
-chromadb==0.4.22
-langchain==0.1.13
-📝 Referencias oficiales:
-[Issue #917](https://github.com/vanna-ai/vanna/issues/917) 
-[Issue #2235](https://github.com/chroma-core/chroma/issues/2235) 
+```bash 
+chromadb==0.4.22  
+langchain==0.1.13 
+```   
+📝 Referencias oficiales:  
+[Issue #917](https://github.com/vanna-ai/vanna/issues/917)   
+[Issue #2235](https://github.com/chroma-core/chroma/issues/2235)   
 
 ---
 
