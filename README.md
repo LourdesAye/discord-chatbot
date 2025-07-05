@@ -175,16 +175,16 @@ Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positiona
 ```
 Estos mensajes fueron generados internamente por `ChromaDB` y `LangChain`, que utilizan herramientas de telemetría como `OpenTelemetry` y `PostHog` para recolectar métricas de uso. Actualmente se encuentran en proceso de actualización de esas funcionalidades.
 
-🔍 **Importante:**  
+##### 🔍 **Importante:**  
 Estos errores **no afectan la ejecución ni la funcionalidad del sistema**. Se pueden ignorar sin inconvenientes.
 
-✅ Alternativa (opcional):
+##### ✅ Alternativa (opcional):
 - Utilizar versiones estables: 
-```bash 
-chromadb==0.4.22  
-langchain==0.1.13 
-```   
-📝 Referencias oficiales:  
+  ```bash 
+  chromadb==0.4.22  
+  langchain==0.1.13 
+  ```   
+##### 📝 Referencias oficiales:  
 [Issue #917](https://github.com/vanna-ai/vanna/issues/917)   
 [Issue #2235](https://github.com/chroma-core/chroma/issues/2235)   
 
