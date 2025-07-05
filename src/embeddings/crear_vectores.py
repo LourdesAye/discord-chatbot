@@ -1,5 +1,6 @@
 import os
 os.environ["ANONYMIZED_TELEMETRY"] = "False"  # Para desactivar telemetría en ChromaDB
+os.environ["LANGSMITH_OTEL_ENABLED"]="False"
 os.environ["LANGCHAIN_TRACING"] = "False"  # Para desactivar telemetría en LangChain
 os.environ["OTEL_SDK_DISABLED"] = "true"  # Para desactivar telemetría en OpenTelemetry
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -23,8 +24,7 @@ def crear_base_vectorial():
         texts=preguntas,
         embedding=modelo,
         metadatas=metadatos,
-        persist_directory="./chroma",
-        anonymized_telemetry=False  # Para desactivar telemetría
+        persist_directory="./chroma"
     )
     logger_embeddings.debug("✅ Base vectorial creada con éxito.")
     return vectordb
