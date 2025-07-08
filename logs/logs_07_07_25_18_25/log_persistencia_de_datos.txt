@@ -1,0 +1,76 @@
+2025-07-07 18:25:34,602 - DEBUG -  ... ingresando a la persistencia de datos ... 
+2025-07-07 18:25:34,602 - DEBUG - ... se va a procesar en JSON 1 ... 
+2025-07-07 18:25:34,602 - DEBUG -  ... SE VAN A PERSISTIR 153 PREGUNTAS CERRADAS EN LA BASE DE DATOS ...
+2025-07-07 18:25:34,603 - DEBUG - 
+📌 [1/153] Procesando un mensaje que es pregunta: buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude del autor gonza3843
+2025-07-07 18:25:34,603 - DEBUG - Se inserta o se obtiene autor
+2025-07-07 18:25:34,608 - DEBUG - ❌ Error al persistir las preguntas y respuestas: no existe la relación «autores»
+LINE 1: SELECT id_autor FROM autores WHERE nombre_autor = 'gonza3843...
+                             ^
+
+2025-07-07 18:25:34,610 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\lourd\Downloads\discord-chatbot\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 138, in persistir_preguntas
+    autor_id = self.insertar_o_obtener_autor(pregunta.autor)
+  File "c:\Users\lourd\Downloads\discord-chatbot\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 31, in insertar_o_obtener_autor
+    cur.execute("SELECT id_autor FROM autores WHERE nombre_autor = %s", (nombre_autor,))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lourd\Downloads\discord-chatbot\venv\Lib\site-packages\psycopg2\extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: no existe la relación «autores»
+LINE 1: SELECT id_autor FROM autores WHERE nombre_autor = 'gonza3843...
+                             ^
+
+
+2025-07-07 18:25:34,611 - DEBUG - ⛔ Transacción revertida debido al error.
+2025-07-07 18:25:34,622 - DEBUG -  ... ingresando a la persistencia de datos ... 
+2025-07-07 18:25:34,622 - DEBUG - ... se va a procesar en JSON 2 ... 
+2025-07-07 18:25:34,622 - DEBUG -  ... SE VAN A PERSISTIR 137 PREGUNTAS CERRADAS EN LA BASE DE DATOS ...
+2025-07-07 18:25:34,623 - DEBUG - 
+📌 [1/137] Procesando un mensaje que es pregunta: hola profe, buenos días. tenía una consulta sobre el material de lectura para la segunda clase (03/04/2024). ¿lo estarían subiendo en estos días? muchas gracias y felices pascuas 😄 del autor martinsintas
+2025-07-07 18:25:34,623 - DEBUG - Se inserta o se obtiene autor
+2025-07-07 18:25:34,624 - DEBUG - ❌ Error al persistir las preguntas y respuestas: no existe la relación «autores»
+LINE 1: SELECT id_autor FROM autores WHERE nombre_autor = 'martinsin...
+                             ^
+
+2025-07-07 18:25:34,626 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\lourd\Downloads\discord-chatbot\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 138, in persistir_preguntas
+    autor_id = self.insertar_o_obtener_autor(pregunta.autor)
+  File "c:\Users\lourd\Downloads\discord-chatbot\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 31, in insertar_o_obtener_autor
+    cur.execute("SELECT id_autor FROM autores WHERE nombre_autor = %s", (nombre_autor,))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lourd\Downloads\discord-chatbot\venv\Lib\site-packages\psycopg2\extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: no existe la relación «autores»
+LINE 1: SELECT id_autor FROM autores WHERE nombre_autor = 'martinsin...
+                             ^
+
+
+2025-07-07 18:25:34,626 - DEBUG - ⛔ Transacción revertida debido al error.
+2025-07-07 18:25:34,639 - DEBUG -  ... ingresando a la persistencia de datos ... 
+2025-07-07 18:25:34,639 - DEBUG - ... se va a procesar en JSON 3 ... 
+2025-07-07 18:25:34,639 - DEBUG -  ... SE VAN A PERSISTIR 189 PREGUNTAS CERRADAS EN LA BASE DE DATOS ...
+2025-07-07 18:25:34,640 - DEBUG - 
+📌 [1/189] Procesando un mensaje que es pregunta: buenas tardes, que debería tildar para instalar intellij correctamente. del autor feinez_
+2025-07-07 18:25:34,640 - DEBUG - Se inserta o se obtiene autor
+2025-07-07 18:25:34,640 - DEBUG - ❌ Error al persistir las preguntas y respuestas: no existe la relación «autores»
+LINE 1: SELECT id_autor FROM autores WHERE nombre_autor = 'feinez_'
+                             ^
+
+2025-07-07 18:25:34,641 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\lourd\Downloads\discord-chatbot\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 138, in persistir_preguntas
+    autor_id = self.insertar_o_obtener_autor(pregunta.autor)
+  File "c:\Users\lourd\Downloads\discord-chatbot\src\database\knowledge_base\data_base\clase_cargar_bdd.py", line 31, in insertar_o_obtener_autor
+    cur.execute("SELECT id_autor FROM autores WHERE nombre_autor = %s", (nombre_autor,))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lourd\Downloads\discord-chatbot\venv\Lib\site-packages\psycopg2\extras.py", line 236, in execute
+    return super().execute(query, vars)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: no existe la relación «autores»
+LINE 1: SELECT id_autor FROM autores WHERE nombre_autor = 'feinez_'
+                             ^
+
+
+2025-07-07 18:25:34,641 - DEBUG - ⛔ Transacción revertida debido al error.

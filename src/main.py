@@ -4,8 +4,8 @@ from database.knowledge_base.data_base.clase_cargar_bdd import GestorBD
 from database.knowledge_base.services.procesamiento_json import procesar_archivos_json
 from utils_for_all.utilidades_logs import setup_logger
 from utils_for_all.config_rutas import BuscadorArchivos
-from embeddings.crear_vectores import crear_base_vectorial
-from embeddings.utilidades_vectores import probar_busqueda
+from embeddings.gestor_vectores import GestorBaseVectorial
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # LOGGER para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -39,13 +39,19 @@ bd.cerrar_conexion() # cerrar conexión con bdd
 logger_proc.debug(f" ")
 logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
 
+modelo = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+gestor = GestorBaseVectorial(modelo)
+
 # crear base de datos de vectores una vez persistidos los datos
-vectordb = crear_base_vectorial()
+vectordb = gestor.crear_si_no_existe()
 
 # probar búsqueda semántica en embeddings
-probar_busqueda(vectordb, "¿Qué es Github?", k=5)
-probar_busqueda(vectordb, "¿Cómo se usa el patrón state?", k=5)
-probar_busqueda(vectordb, "¿qué es java?",k=5)
+if vectordb:
+    gestor.buscar("¿Qué es Github?")
+    gestor.buscar("¿Cómo se usa el patrón state?")
+    gestor.buscar("¿qué es java?")
+
+print(gestor.responder("¿Cómo usar el patrón Strategy en Python?"))
 
 def main():
     logger_proc.debug("Finalizando la Ejecución del archivo main.py")

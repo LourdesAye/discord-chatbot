@@ -1,0 +1,5 @@
+2025-07-07 18:25:40,740 - ERROR - Error: no existe la relación «preguntas»
+LINE 3:             FROM preguntas p
+                         ^
+
+2025-07-07 18:25:40,741 - DEBUG - ⚠️ No se generaron embeddings por falta de preguntas.

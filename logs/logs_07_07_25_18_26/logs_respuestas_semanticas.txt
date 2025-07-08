@@ -1,0 +1,4 @@
+2025-07-07 18:27:04,732 - DEBUG - 🧠 Pregunta: ¿Cómo usar el patrón Strategy en Python?
+2025-07-07 18:27:04,732 - DEBUG - 🔍 Resultado #1: buenas tardes, cual sería la diferencia entre estas dos flechas del patron strategy? porque la flecha verde es de asociación la roja no sé
+2025-07-07 18:27:04,732 - DEBUG - Similitud: 0.0724
+2025-07-07 18:27:04,732 - DEBUG - ----------------------------------------

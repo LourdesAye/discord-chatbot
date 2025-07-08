@@ -1,3 +1,0 @@
-# Eliminar base vectorial
-from embeddings.utilidades_vectores import eliminar_vectores_chroma
-eliminar_vectores_chroma()
