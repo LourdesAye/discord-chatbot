@@ -5,6 +5,7 @@ from database.knowledge_base.llm_analysis.config_llama import url,headers,armate
 import time
 from utils_for_all.utilidades_logs import setup_logger
 from database.knowledge_base.models.clase_preguntas import Pregunta
+from database.knowledge_base.models.clase_autores import lista_docentes
 
 logger_msj = setup_logger('procesamiento_de_mensajes','logs_procesar_mensajes.txt')
 logger_llama = setup_logger('procesamiento_de_mensajes_llama','logs_procesar_mensajes_llama.txt')
@@ -72,7 +73,7 @@ def clasificar_mensaje_y_actualizar(mensaje, preguntas_abiertas):
         logger_msj.debug(f"[RESULTADO] Clasificación: {clasificacion} (tardó {fin - inicio:.2f} segundos)")
 
     if mejor_relacion:
-        mejor_pregunta.agregar_respuesta(mensaje)
+        mejor_pregunta.agregar_respuesta(mensaje,lista_docentes)
         logger_msj.debug(f"🟢 Mensaje agregado como {mejor_relacion} a: '{mejor_pregunta.contenido}'")
     else:
         # si no hay coincidencias, se trata como nueva pregunta

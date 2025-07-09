@@ -1,4 +1,5 @@
 from utils_for_all.utilidades_logs import setup_logger
+from database.knowledge_base.models.utilidades_modelo_dominio import FRASES_ADMINISTRATIVAS
 
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
@@ -11,12 +12,12 @@ class AnalizadorPreguntasCerradas:
 
     def marcar_preguntas_sin_contexto(self):
         for pregunta in self.preguntas:
-            pregunta.marcar_sin_contexto()
+            pregunta.marcar_sin_contexto_si_corta()
         return self.preguntas
 
     def agregar_es_administrativa (self,preguntas_a_marcar):
         for pregunta in preguntas_a_marcar:
-            pregunta.marcar_administrativa()
+            pregunta.marcar_administrativa(FRASES_ADMINISTRATIVAS)
         return preguntas_a_marcar
 
     def marcar_respuestas_cortas(self,preguntas_a_marcar):

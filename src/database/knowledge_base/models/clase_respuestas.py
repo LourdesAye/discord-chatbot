@@ -1,6 +1,5 @@
 from database.knowledge_base.models.clase_mensajes import Mensaje
-
-MAX_CANT_CARACTERES_RESP_CORTA = 14
+from database.knowledge_base.models.utilidades_modelo_dominio import MAX_CARACTERES_RESP_CORTA
 
 class Respuesta:
     def __init__(self, mensaje:Mensaje):
@@ -16,19 +15,10 @@ class Respuesta:
 
     def validar(self):
         self.es_validada=True
-
-    def marcar_es_corta(self):
-        self.es_corta= True
-    
-    def es_respuesta_corta(self):
-        cantidad_caracteres = len(self.contenido)
-        # Retorna True si la cantidad de palabras es menor o igual al límite
-        return cantidad_caracteres <= MAX_CANT_CARACTERES_RESP_CORTA
     
     def marcar_como_corta(self):
-        if self.es_respuesta_corta():
-            self.marcar_es_corta()
-
+        if len(self.contenido) <= MAX_CARACTERES_RESP_CORTA:
+            self.es_corta = True
 
 
         

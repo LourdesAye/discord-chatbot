@@ -1,0 +1,11 @@
+2025-07-08 16:03:20,190 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-07-08 16:03:20,191 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'vacio': 15
+2025-07-08 16:03:20,193 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'irrelevante_visual': 2
+2025-07-08 16:03:20,195 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_numeros_signos': 0
+2025-07-08 16:03:20,196 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_simbolos': 0
+2025-07-08 16:03:20,196 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 584
+2025-07-08 16:03:20,333 - DEBUG -  
+2025-07-08 16:03:20,333 - DEBUG -  ✅ Procesamiento completado para el archivo 1
+2025-07-08 16:03:20,336 - DEBUG -  📊 Resultados de procesamiento:
+2025-07-08 16:03:20,336 - DEBUG -        📊 0 mensajes sueltos
+2025-07-08 16:03:20,336 - DEBUG -        📊 0 mensajes concatenados

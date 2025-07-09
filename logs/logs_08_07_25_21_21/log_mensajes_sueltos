@@ -1,0 +1,26 @@
+2025-07-08 21:21:03,866 - DEBUG -  ✅ Procesamiento completado para el archivo JSON 1
+2025-07-08 21:21:03,866 - DEBUG -  📊 34 mensajes de cierre de alumnos
+2025-07-08 21:21:03,866 - DEBUG -  📊 17 mensajes de cierre de docentes
+2025-07-08 21:21:03,866 - DEBUG -  📊 51 mensajes totales de cierre (tanto de alumnos como de docentes) para el archivo 1
+2025-07-08 21:21:03,866 - DEBUG -  ✅ Cantidad de mensajes sueltos detectados: 0
+2025-07-08 21:21:03,866 - DEBUG -  
+2025-07-08 21:21:04,026 - DEBUG -  ✅ Procesamiento completado para el archivo JSON 2
+2025-07-08 21:21:04,026 - DEBUG -  📊 32 mensajes de cierre de alumnos
+2025-07-08 21:21:04,026 - DEBUG -  📊 6 mensajes de cierre de docentes
+2025-07-08 21:21:04,028 - DEBUG -  📊 38 mensajes totales de cierre (tanto de alumnos como de docentes) para el archivo 2
+2025-07-08 21:21:04,028 - DEBUG -  ✅ Cantidad de mensajes sueltos detectados: 1
+2025-07-08 21:21:04,028 - DEBUG -  ✉️ Mostrando mensajes sueltos...
+2025-07-08 21:21:04,028 - DEBUG -  ✉️ El mensaje suelto 1: 'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂'
+2025-07-08 21:21:04,028 - DEBUG -  
+2025-07-08 21:21:04,240 - DEBUG -  ✅ Procesamiento completado para el archivo JSON 3
+2025-07-08 21:21:04,240 - DEBUG -  📊 77 mensajes de cierre de alumnos
+2025-07-08 21:21:04,240 - DEBUG -  📊 11 mensajes de cierre de docentes
+2025-07-08 21:21:04,240 - DEBUG -  📊 88 mensajes totales de cierre (tanto de alumnos como de docentes) para el archivo 3
+2025-07-08 21:21:04,240 - DEBUG -  ✅ Cantidad de mensajes sueltos detectados: 1
+2025-07-08 21:21:04,240 - DEBUG -  ✉️ Mostrando mensajes sueltos...
+2025-07-08 21:21:04,240 - DEBUG -  ✉️ El mensaje suelto 1: 'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂'
+2025-07-08 21:21:04,240 - DEBUG -  

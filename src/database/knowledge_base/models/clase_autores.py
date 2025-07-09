@@ -4,7 +4,7 @@ class Autores:
         self.rol= rol
 
 # DOCENTE DETECTADOS EN CONVERSACIONES
-docentes = [
+lista_docentes = [
         "ezequieloescobar", "aylenmsandoval",
         "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio",
         "valentinaalberio","nacho_borda"

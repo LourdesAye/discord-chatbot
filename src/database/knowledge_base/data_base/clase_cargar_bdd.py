@@ -5,7 +5,7 @@ from dateutil.parser import isoparse
 from psycopg2.extras import RealDictCursor
 from utils_for_all.utilidades_logs import setup_logger
 import traceback
-from database.knowledge_base.models.clase_autores import docentes 
+from database.knowledge_base.models.clase_autores import lista_docentes 
 from utils_for_all.utilidades_logs import guardar_pregunta_y_respuestas_en_log
 
 # agregando logger para seguimiento de la carga de datos
@@ -20,7 +20,7 @@ class GestorBD:
             host=config["host"],
             port=config["port"],
         )
-        self.docentes = docentes
+        self.docentes = lista_docentes
 
     def es_docente(self, nombre_usuario):
         return nombre_usuario in self.docentes
