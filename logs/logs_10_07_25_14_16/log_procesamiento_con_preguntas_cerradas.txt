@@ -1,0 +1,6 @@
+2025-07-10 14:16:05,170 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-07-10 14:16:05,171 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'vacio': 15
+2025-07-10 14:16:05,173 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'irrelevante_visual': 2
+2025-07-10 14:16:05,175 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_numeros_signos': 0
+2025-07-10 14:16:05,176 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_simbolos': 0
+2025-07-10 14:16:05,176 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 584

@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 from utils_for_all.config_rutas import LOG_DIR_ABS
+import pandas as pd
 
 # Ruta base donde estarán todas las carpetas de logs con timestamp
 directorio_logs = LOG_DIR_ABS
@@ -82,17 +83,27 @@ def guardar_respuestas_sin_pregunta(respuestas_huerfanas, ruta_archivo="log_resp
                 f.write(f"Contenido: {respuesta.contenido}\n")
                 f.write("-------------------------------------------------------\n\n")
 
-# Función para guardar los datos que se obtienen de los dataFrames filtrados y poder analizar
-def guardar_resultados_en_csvs(df, df_vacios, df_gifs, df_signos, df_simbolos,nombre_base):
-    nombre_carpeta = f"{CSV_DIR_FINAL}" # Crear carpeta si no existe
+# Guarda un DataFrame filtrado principal y los resultados de cada filtro en CSVs separados.
+# Si algún DataFrame está vacío, se genera un CSV con un mensaje aclaratorio.
+def guardar_resultados_en_csvs(df_filtrado, filtros_aplicados,nombre_base):
+
+    nombre_carpeta = f"{CSV_DIR_FINAL}"
     if not os.path.exists(nombre_carpeta):
         os.makedirs(nombre_carpeta) # para crear una carpeta con el nombre base si no existe.
-     # Guardar los CSVs dentro de la carpeta
-    df_vacios[["content"]].to_csv(os.path.join(nombre_carpeta,f"{nombre_base}_mensajes_vacios.csv"), index=False, encoding="utf-8")
-    df_gifs[["content"]].to_csv(os.path.join(nombre_carpeta,f"{nombre_base}_emojis_gifs_descartados.csv"), index=False, encoding="utf-8")
-    df_signos[["content"]].to_csv( os.path.join(nombre_carpeta,f"{nombre_base}_numeros_descartados.csv"), index=False, encoding="utf-8")
-    df_simbolos[["content"]].to_csv( os.path.join(nombre_carpeta,f"{nombre_base}_simbolos_descartados.csv"), index=False, encoding="utf-8")
-    df[["content"]].to_csv(os.path.join(nombre_carpeta,f"{nombre_base}_json_limpio.csv"), index=False, encoding="utf-8")
+    
+    nombre_archivo_filtrado = f"{nombre_base}_filtrado_limpio.csv"
+    ruta_salida_filtrado = os.path.join(nombre_carpeta, nombre_archivo_filtrado)
+    df_filtrado.to_csv(ruta_salida_filtrado, index=False,encoding="utf-8")
+    
+    for nombre_filtro, df_filtrado in filtros_aplicados.items():
+        nombre_archivo = f"{nombre_base}_{nombre_filtro}.csv"
+        ruta_salida = os.path.join(nombre_carpeta, nombre_archivo)
+        if df_filtrado.empty:
+            # se crea un DataFrame con un mensaje para informar que no hay coincidencias
+            mensaje = pd.DataFrame({"info": [f"No se encontraron mensajes que cumplan con el filtro: {nombre_filtro}"]})
+            mensaje.to_csv(ruta_salida, index=False,encoding="utf-8")
+        else:
+            df_filtrado.to_csv(ruta_salida, index=False,encoding="utf-8")
     # os.path.join(nombre_carpeta, archivo.csv) para armar la ruta completa al archivo dentro de esa carpeta.
 
 def guardar_pregunta(pregunta, numero_pregunta, ruta_archivo):

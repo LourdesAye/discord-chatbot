@@ -63,11 +63,7 @@ class Procesador:
         logger_msj.debug(f"🟢 PREGUNTA CERRADA por {origen} ({motivo if motivo else mensaje.contenido})")
         guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas_cerradas, self.nombre_log)
 
-    def _asociar_o_registrar_suelto(self, mensaje: Mensaje):
-        if self.preguntas_cerradas:
-            for pregunta in self.preguntas_cerradas[-2:]:
-                pregunta.agregar_respuesta(mensaje,lista_docentes)
-                logger_msj.debug(f" 🔶 RESPUESTA TARDÍA: '{mensaje.contenido}' asociada a: '{pregunta.contenido}'")
-        else:
+    def registrar_mensaje_suelto(self, mensaje: Mensaje):
             self.mensajes_sueltos.append(mensaje)
-            logger_msj.debug(f" 🔴 MENSAJE SUELTO: '{mensaje.contenido}'")
+            autor_tipo = "DOCENTE" if mensaje.es_autor_docente() else "ALUMNO"
+            logger_msj.debug(f" 🔴 MENSAJE SUELTO: '{mensaje.contenido}' de {autor_tipo} : {mensaje.autor} ")

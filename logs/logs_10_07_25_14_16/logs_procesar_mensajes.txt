@@ -1,0 +1,29 @@
+2025-07-10 14:16:05,186 - DEBUG -  🔵 Iniciando procesamiento del DataFrame...
+2025-07-10 14:16:05,186 - DEBUG -  ... PROCESANDO MENSAJE 1: 'buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude' 
+2025-07-10 14:16:05,186 - DEBUG - 🟡 NUEVA PREGUNTA: buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude
+2025-07-10 14:16:05,186 - DEBUG -  ... PROCESANDO MENSAJE 2: 'buenas noches! envianos tu usuario de github' 
+2025-07-10 14:16:05,186 - DEBUG -  ... PROCESANDO MENSAJE 3: 'mi usuario es gmeneseutn' 
+2025-07-10 14:16:05,187 - DEBUG -  ... PROCESANDO MENSAJE 4: 'enviada la invite!' 
+2025-07-10 14:16:05,187 - DEBUG -  ... PROCESANDO MENSAJE 5: 'buenas, yo tambien colgue con unirme. lo quise hacer con el link que me había guardado y ahora me figura el equipo lleno. soy del grupo 11, martes a la mañana. mi usario es feliperusso.' 
+2025-07-10 14:16:05,187 - DEBUG - 🟢 PREGUNTA CERRADA por sistema (tiempo)
+2025-07-10 14:16:05,188 - DEBUG -  ... PROCESANDO MENSAJE 6: 'buenas, yo pensé que tenia acceso al repo, pero era de otra cursada 🫠  soy del grupo 26, miércoles noche. mi usuario de github es alejokoprivnikar. me podrían unir al repositorio?' 
+2025-07-10 14:16:05,188 - DEBUG - 🟡 NUEVA PREGUNTA: buenas, yo pensé que tenia acceso al repo, pero era de otra cursada 🫠  soy del grupo 26, miércoles noche. mi usuario de github es alejokoprivnikar. me podrían unir al repositorio?
+2025-07-10 14:16:05,188 - DEBUG -  ... PROCESANDO MENSAJE 7: 'en qué repo estás? así te saco del que no te pertenece' 
+2025-07-10 14:16:05,191 - DEBUG -  ... PROCESANDO MENSAJE 8: 'actualmente estoy en "2023-tpa-vi-no-grupo-12" y me quiero pasar a "2024-tpa-vi-no-grupo-26"' 
+2025-07-10 14:16:05,192 - DEBUG -  ... PROCESANDO MENSAJE 9: 'ya te agregué al 26, pero no te veo en el 12! de todas formas: ¿cómo llegaste ahí?! confirmame si ya ves tu grupo y listo' 
+2025-07-10 14:16:05,192 - DEBUG -  ... PROCESANDO MENSAJE 10: 'perfecto! muchas gracias, ya pude entrar. como respuesta a como llegue ahí, es el repo que me designaron el año pasado y cuando revise el github pensé que era el nuevo repo.' 
+2025-07-10 14:16:05,192 - DEBUG -  ... PROCESANDO MENSAJE 11: 'holii puede ser que en el aula no esten todas las ppts ?' 
+2025-07-10 14:16:05,192 - DEBUG - 🟡 NUEVA PREGUNTA: holii puede ser que en el aula no esten todas las ppts ?
+2025-07-10 14:16:05,192 - DEBUG -  ... PROCESANDO MENSAJE 12: 'xq queria repasar y no las encuentro 😦' 
+2025-07-10 14:16:05,192 - DEBUG -  ... PROCESANDO MENSAJE 13: 'ya las encontreee no dije nadaa' 
+2025-07-10 14:16:05,193 - DEBUG -  ... PROCESANDO MENSAJE 14: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.' 
+2025-07-10 14:16:05,193 - DEBUG - 🟢 PREGUNTA CERRADA por sistema (tiempo)
+2025-07-10 14:16:05,193 - DEBUG - 🟡 NUEVA PREGUNTA: ¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.
+2025-07-10 14:16:05,193 - DEBUG -  ... PROCESANDO MENSAJE 15: 'buenas! turno mañana o noche?' 
+2025-07-10 14:16:05,193 - DEBUG -  ... PROCESANDO MENSAJE 16: 'turno noche' 
+2025-07-10 14:16:05,193 - DEBUG - 🟢 PREGUNTA CERRADA por sistema (tiempo)
+2025-07-10 14:16:05,194 - DEBUG -  ... PROCESANDO MENSAJE 17: 'ok! ahora en un rato te agregamos' 
+2025-07-10 14:16:05,194 - DEBUG -  ... PROCESANDO MENSAJE 18: 'perdon la tardanza! <@831979058865897533> ahi deberia aparecerte la invitacion' 
+2025-07-10 14:16:05,194 - DEBUG - 🟢 PREGUNTA CERRADA por sistema (tiempo)

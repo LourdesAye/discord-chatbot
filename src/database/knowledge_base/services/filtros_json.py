@@ -31,7 +31,7 @@ class FiltroContenidoVacio(EstrategiaFiltro): # la clase FiltroContenidoVacio he
         return texto.strip() == ""
     
     def nombre(self) -> str: # Implementa el método abstracto
-        return "vacio"
+        return "mensajes_solo_vacios"
 
 class FiltroContenidoIrrelevanteVisual(EstrategiaFiltro): # la clase FiltroContenidoIrrelevanteVisual  hereda de EstrategiaFiltro
     
@@ -43,7 +43,7 @@ class FiltroContenidoIrrelevanteVisual(EstrategiaFiltro): # la clase FiltroConte
         return bool(solo_emojis or es_link_tenor_giphy or es_sticker_gif)
    
     def nombre(self) -> str: # Implementa el método abstracto
-        return "irrelevante_visual"
+        return "mensajes_solo_emojis_stickers_gifs"
 
 class FiltroSoloNumerosSignos(EstrategiaFiltro): # la clase FiltroSoloNumerosSignos hereda de EstrategiaFiltro
    
@@ -51,7 +51,7 @@ class FiltroSoloNumerosSignos(EstrategiaFiltro): # la clase FiltroSoloNumerosSig
         return bool(re.fullmatch(r"[+\d\s]+", texto))
     
     def nombre(self) -> str: # Implementa el método abstracto
-        return "solo_numeros_signos"
+        return "mensajes_solo_numeros_signos"
 
 class FiltroSoloSimbolos(EstrategiaFiltro): # la clase  FiltroSoloSimbolos hereda de EstrategiaFiltro
    
@@ -60,7 +60,7 @@ class FiltroSoloSimbolos(EstrategiaFiltro): # la clase  FiltroSoloSimbolos hered
         return not re.search(r'[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]', texto)
    
     def nombre(self) -> str: # Implementa el método abstracto
-        return "solo_simbolos"
+        return "mensajes_solo_simbolos"
     
 
     

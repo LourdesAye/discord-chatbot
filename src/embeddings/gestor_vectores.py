@@ -1,5 +1,5 @@
 import os
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from embeddings.extraer_preguntas import obtener_preguntas_y_metadatos
 from utils_for_all.utilidades_logs import setup_logger
 

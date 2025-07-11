@@ -1,0 +1,10 @@
+2025-07-10 14:15:02,954 - DEBUG -  🔵 Iniciando procesamiento del DataFrame...
+2025-07-10 14:15:02,954 - DEBUG -  ... PROCESANDO MENSAJE 1: 'buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude' 
+2025-07-10 14:15:02,954 - DEBUG - 🟡 NUEVA PREGUNTA: buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude
+2025-07-10 14:15:02,955 - DEBUG -  ... PROCESANDO MENSAJE 2: 'buenas noches! envianos tu usuario de github' 
+2025-07-10 14:15:02,955 - DEBUG -  ... PROCESANDO MENSAJE 3: 'mi usuario es gmeneseutn' 
+2025-07-10 14:15:02,955 - DEBUG -  ... PROCESANDO MENSAJE 4: 'enviada la invite!' 
+2025-07-10 14:15:02,955 - DEBUG -  ... PROCESANDO MENSAJE 5: 'buenas, yo tambien colgue con unirme. lo quise hacer con el link que me había guardado y ahora me figura el equipo lleno. soy del grupo 11, martes a la mañana. mi usario es feliperusso.' 
+2025-07-10 14:15:02,955 - DEBUG - 🟢 PREGUNTA CERRADA por sistema (tiempo)

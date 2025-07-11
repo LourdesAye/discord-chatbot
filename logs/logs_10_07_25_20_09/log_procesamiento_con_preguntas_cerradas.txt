@@ -1,0 +1,77 @@
+2025-07-10 20:09:01,492 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-07-10 20:09:01,494 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'vacio': 15
+2025-07-10 20:09:01,496 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'irrelevante_visual': 2
+2025-07-10 20:09:01,498 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_numeros_signos': 0
+2025-07-10 20:09:01,499 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_simbolos': 0
+2025-07-10 20:09:01,499 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 584
+2025-07-10 20:09:01,657 - DEBUG -  
+2025-07-10 20:09:01,657 - DEBUG -  ✅ Procesamiento completado para el archivo 1
+2025-07-10 20:09:01,660 - DEBUG -  📊 Resultados de procesamiento:
+2025-07-10 20:09:01,660 - DEBUG -        📊 0 mensajes sueltos
+2025-07-10 20:09:01,660 - DEBUG -        📊 20 mensajes concatenados
+2025-07-10 20:09:01,660 - DEBUG -        📊 33 mensajes de cierre de alumnos
+2025-07-10 20:09:01,660 - DEBUG -        📊 153 preguntas generadas
+2025-07-10 20:09:01,660 - DEBUG -        📊 378 mensajes detectados como respuesta
+2025-07-10 20:09:01,660 - DEBUG -        ✅ 584 total de mensajes analizados
+2025-07-10 20:09:01,660 - DEBUG -        📊 17 mensajes de cierre de docentes
+2025-07-10 20:09:01,660 - DEBUG -        📊 0 preguntas abiertas
+2025-07-10 20:09:01,660 - DEBUG -  
+2025-07-10 20:09:01,662 - DEBUG -  ✉️ Cantidad de mensajes en el json: 622
+2025-07-10 20:09:01,663 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'vacio': 18
+2025-07-10 20:09:01,665 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'irrelevante_visual': 1
+2025-07-10 20:09:01,666 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_numeros_signos': 0
+2025-07-10 20:09:01,667 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_simbolos': 1
+2025-07-10 20:09:01,668 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 602
+2025-07-10 20:09:01,798 - DEBUG -  
+2025-07-10 20:09:01,799 - DEBUG -  ✅ Procesamiento completado para el archivo 2
+2025-07-10 20:09:01,799 - DEBUG -  📊 Resultados de procesamiento:
+2025-07-10 20:09:01,799 - DEBUG -        📊 1 mensajes sueltos
+2025-07-10 20:09:01,799 - DEBUG -        📊 29 mensajes concatenados
+2025-07-10 20:09:01,799 - DEBUG -        📊 32 mensajes de cierre de alumnos
+2025-07-10 20:09:01,799 - DEBUG -        📊 137 preguntas generadas
+2025-07-10 20:09:01,799 - DEBUG -        📊 403 mensajes detectados como respuesta
+2025-07-10 20:09:01,799 - DEBUG -        ✅ 602 total de mensajes analizados
+2025-07-10 20:09:01,799 - DEBUG -        📊 5 mensajes de cierre de docentes
+2025-07-10 20:09:01,799 - DEBUG -        📊 0 preguntas abiertas
+2025-07-10 20:09:01,799 - DEBUG -  
+2025-07-10 20:09:01,804 - DEBUG -  ✉️ Cantidad de mensajes en el json: 793
+2025-07-10 20:09:01,805 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'vacio': 18
+2025-07-10 20:09:01,807 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'irrelevante_visual': 0
+2025-07-10 20:09:01,809 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_numeros_signos': 0
+2025-07-10 20:09:01,810 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_simbolos': 1
+2025-07-10 20:09:01,811 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 774
+2025-07-10 20:09:01,992 - DEBUG -  
+2025-07-10 20:09:01,992 - DEBUG -  ✅ Procesamiento completado para el archivo 3
+2025-07-10 20:09:01,992 - DEBUG -  📊 Resultados de procesamiento:
+2025-07-10 20:09:01,992 - DEBUG -        📊 1 mensajes sueltos
+2025-07-10 20:09:01,992 - DEBUG -        📊 18 mensajes concatenados
+2025-07-10 20:09:01,992 - DEBUG -        📊 79 mensajes de cierre de alumnos
+2025-07-10 20:09:01,993 - DEBUG -        📊 189 preguntas generadas
+2025-07-10 20:09:01,993 - DEBUG -        📊 487 mensajes detectados como respuesta
+2025-07-10 20:09:01,993 - DEBUG -        ✅ 774 total de mensajes analizados
+2025-07-10 20:09:01,993 - DEBUG -        📊 11 mensajes de cierre de docentes
+2025-07-10 20:09:01,993 - DEBUG -        📊 0 preguntas abiertas
+2025-07-10 20:09:01,993 - DEBUG -  
+2025-07-10 20:09:01,993 - DEBUG -  🔍 Cantidad de procesadores generados: 3
+2025-07-10 20:09:01,993 - DEBUG -  🗃️ Conectándose a la base de datos...
+2025-07-10 20:09:02,050 - DEBUG -  
+2025-07-10 20:09:02,050 - DEBUG -  🔢 Analizando el json número : 1 ... 
+2025-07-10 20:09:02,050 - DEBUG -  ✅ Preguntas cerradas: 153 
+2025-07-10 20:09:02,051 - DEBUG -  ✅ Preguntas sin contexto: 3 
+2025-07-10 20:09:02,057 - DEBUG -  ✅ Cantidad de Respuestas: 619
+2025-07-10 20:09:03,320 - DEBUG -  
+2025-07-10 20:09:03,320 - DEBUG -  🔢 Analizando el json número : 2 ... 
+2025-07-10 20:09:03,320 - DEBUG -  ✅ Preguntas cerradas: 137 
+2025-07-10 20:09:03,321 - DEBUG -  ✅ Preguntas sin contexto: 1 
+2025-07-10 20:09:03,325 - DEBUG -  ✅ Cantidad de Respuestas: 625
+2025-07-10 20:09:04,039 - DEBUG -  
+2025-07-10 20:09:04,039 - DEBUG -  🔢 Analizando el json número : 3 ... 
+2025-07-10 20:09:04,039 - DEBUG -  ✅ Preguntas cerradas: 189 
+2025-07-10 20:09:04,040 - DEBUG -  ✅ Preguntas sin contexto: 4 
+2025-07-10 20:09:04,046 - DEBUG -  ✅ Cantidad de Respuestas: 775
+2025-07-10 20:09:04,926 - DEBUG -  
+2025-07-10 20:09:04,926 - DEBUG -  ✅ La cantidad total de preguntas generadas : 479
+2025-07-10 20:09:04,926 - DEBUG -  ✅ La cantidad total de respuestas generadas : 2019
+2025-07-10 20:09:04,926 - DEBUG -  
+2025-07-10 20:09:04,926 - DEBUG -  💾 Conexión cerrada y datos guardados.
+2025-07-10 20:09:12,949 - DEBUG - Finalizando la Ejecución del archivo main.py

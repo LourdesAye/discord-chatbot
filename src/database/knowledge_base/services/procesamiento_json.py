@@ -34,12 +34,8 @@ def procesar_archivos_json(rutas_json):
         df = procesar_json(ruta_json) # Cargar de cada directorio el JSON y lo convierte a DataFrame
         nombre_base = f"chat_{idx}"  # Obtener nombre base para los archivos
         estrategias = [ FiltroContenidoVacio(),FiltroContenidoIrrelevanteVisual(), FiltroSoloNumerosSignos(),FiltroSoloSimbolos()]  # definiendo lista de estrategias para aplicar sobre el DataFrame 
-        df, filtrados = aplicar_filtros_mensajes_json(df, estrategias) # Filtrar 5 dataframes: 1- con mensajes filtrados 
-        df_vacios = filtrados["vacio"] # 2- con mensajes vacios 
-        df_gifs = filtrados["irrelevante_visual"] # 3- con solo gifs, sticker y emoticones 
-        df_signos = filtrados["solo_numeros_signos"] # 4- solo números 
-        df_simbolos = filtrados["solo_simbolos"] # 5- solo símbolos
-        guardar_resultados_en_csvs(df,df_vacios, df_gifs, df_signos,df_simbolos,nombre_base)# Guardar los dataframes en CSVs para su control visual
+        df, filtrados = aplicar_filtros_mensajes_json(df, estrategias) # Filtrar 5 dataframes: mensajes con todos los filtros aplicados, con solo mensajes vacios, con mensajes irrelevantes (solo gifs,sticker o emoticón), con mensjaes que son solo número con signo, o mensajes con solo signo
+        guardar_resultados_en_csvs(df, filtrados ,nombre_base)# Guardar los dataframes en CSVs para su control visual
         nombre_log = f"log_json_{idx:02d}.txt" # se va a tener un log por cada archivo json procesado
         procesador = Procesador(nombre_log) # Crear procesador por cada archivo json procesado
         df = df.sort_values(by='timestamp', ascending=True)  # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)

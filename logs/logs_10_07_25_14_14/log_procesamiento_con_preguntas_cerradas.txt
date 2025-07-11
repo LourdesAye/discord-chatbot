@@ -1,0 +1,12 @@
+2025-07-10 14:14:01,379 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-07-10 14:14:01,381 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'vacio': 15
+2025-07-10 14:14:01,383 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'irrelevante_visual': 2
+2025-07-10 14:14:01,385 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_numeros_signos': 0
+2025-07-10 14:14:01,386 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_simbolos': 0
+2025-07-10 14:14:01,387 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 584
+2025-07-10 14:14:37,087 - DEBUG -  ✉️ Cantidad de mensajes en el json: 601
+2025-07-10 14:14:37,088 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'vacio': 15
+2025-07-10 14:14:37,093 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'irrelevante_visual': 2
+2025-07-10 14:14:37,095 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_numeros_signos': 0
+2025-07-10 14:14:37,096 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'solo_simbolos': 0
+2025-07-10 14:14:37,096 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 584

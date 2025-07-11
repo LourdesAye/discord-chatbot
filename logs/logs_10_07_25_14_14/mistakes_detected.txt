@@ -1,0 +1,2 @@
+2025-07-10 14:14:37,103 - DEBUG - Mensaje:mi usuario es gmeneseutn y Pregunta: buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude poseen mismo autor
