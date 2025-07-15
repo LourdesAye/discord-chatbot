@@ -64,25 +64,6 @@ def guardar_pregunta_y_respuestas_en_log(pregunta, numero_pregunta, ruta_archivo
             f.write("⚠️ No hubo respuestas para esta pregunta.\n")
         f.write("═══════════════════════════════════════════════════════\n\n")
 
-def guardar_respuestas_sin_pregunta(respuestas_huerfanas, ruta_archivo="log_respuestas_sin_pregunta.txt"):
-    nombre_carpeta = f"{LOG_DIR_FINAL}"
-    os.makedirs(nombre_carpeta, exist_ok=True)
-    ruta_completa = os.path.join(nombre_carpeta, ruta_archivo)
-    with open(ruta_completa, "w", encoding="utf-8") as f:
-        f.write("═══════════════════════════════════════════════════════\n")
-        f.write("LOG DE RESPUESTAS SIN PREGUNTA\n")
-        f.write("═══════════════════════════════════════════════════════\n\n")
-        
-        if not respuestas_huerfanas:
-            f.write("✅ No quedaron respuestas sin pregunta.\n")
-        else:
-            for idx, respuesta in enumerate(respuestas_huerfanas, start=1):
-                f.write(f"[RESPUESTA {idx}]\n")
-                f.write(f"Fecha: {respuesta.timestamp}\n")
-                f.write(f"Autor: {respuesta.autor}\n")
-                f.write(f"Contenido: {respuesta.contenido}\n")
-                f.write("-------------------------------------------------------\n\n")
-
 # Guarda un DataFrame filtrado principal y los resultados de cada filtro en CSVs separados.
 # Si algún DataFrame está vacío, se genera un CSV con un mensaje aclaratorio.
 def guardar_resultados_en_csvs(df_filtrado, filtros_aplicados,nombre_base):
@@ -103,7 +84,15 @@ def guardar_resultados_en_csvs(df_filtrado, filtros_aplicados,nombre_base):
             mensaje = pd.DataFrame({"info": [f"No se encontraron mensajes que cumplan con el filtro: {nombre_filtro}"]})
             mensaje.to_csv(ruta_salida, index=False,encoding="utf-8")
         else:
-            df_filtrado.to_csv(ruta_salida, index=False,encoding="utf-8")
+            # Creamos una fila resumen con la cantidad
+            # se va a crear un nuevo DataFrame llamado fila_conteo
+            fila_conteo = pd.DataFrame({
+                col: [""] for col in df_filtrado.columns # toma las mismas columnas que df_filtrado con una única fila que rellena con una cadena vacia
+            })
+            fila_conteo.iloc[0, 0] = f"Cantidad de registros: {len(df_filtrado)}" # iloc[fila, columna] , iloc[0, 0] = primera fila, primera columna
+            # Concatenar el DataFrame filtrado con la fila resumen
+            df_con_fila_extra = pd.concat([df_filtrado, fila_conteo], ignore_index=True)
+            df_con_fila_extra.to_csv(ruta_salida, index=False, encoding="utf-8")
     # os.path.join(nombre_carpeta, archivo.csv) para armar la ruta completa al archivo dentro de esa carpeta.
 
 def guardar_pregunta(pregunta, numero_pregunta, ruta_archivo):

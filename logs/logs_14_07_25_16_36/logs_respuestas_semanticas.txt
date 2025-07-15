@@ -1,0 +1,4 @@
+2025-07-14 16:36:49,756 - DEBUG - 🧠 Pregunta: ¿Cómo usar el patrón Strategy en Python?
+2025-07-14 16:36:49,756 - DEBUG - 🔍 Resultado #1: buenas tardes, cual sería la diferencia entre estas dos flechas del patron strategy?
+2025-07-14 16:36:49,757 - DEBUG - Similitud: 0.1945
+2025-07-14 16:36:49,757 - DEBUG - ----------------------------------------

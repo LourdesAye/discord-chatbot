@@ -13,25 +13,31 @@ class GestorBaseVectorial:
 
     def existe_base(self):
         return os.path.exists(self.persist_directory) and os.listdir(self.persist_directory)
-
-    def crear_si_no_existe(self):
-        if self.existe_base():
-            self.logger_embeddings.debug("✅ Base vectorial ya existe. No se creó nuevamente.")
-            self.vectordb = Chroma(persist_directory=self.persist_directory, embedding_function=self.modelo)
+    
+    def crear_si_no_existe(self, forzar_actualizacion=False):
+        if self.existe_base() and not forzar_actualizacion:
+            self.logger_embeddings.info("✅ Usando base vectorial existente")
+            self.vectordb = Chroma(persist_directory=self.persist_directory, 
+                                embedding_function=self.modelo)
             return self.vectordb
-
-        preguntas, metadatos = obtener_preguntas_y_metadatos()
-        if not preguntas:
-            self.logger_embeddings.debug("⚠️ No se generaron embeddings por falta de preguntas.")
+        
+        # Verificar si hay datos nuevos
+        nuevas_preguntas, nuevos_metadatos = obtener_preguntas_y_metadatos()
+        if not nuevas_preguntas:
+            self.logger_embeddings.error("❌ No hay datos para crear la base vectorial")
             return None
 
+        # Eliminar base existente si se fuerza actualización
+        if forzar_actualizacion and self.existe_base():
+            self.eliminar_base()
+
         self.vectordb = Chroma.from_texts(
-            texts=preguntas,
+            texts=nuevas_preguntas,
             embedding=self.modelo,
-            metadatas=metadatos,
+            metadatas=nuevos_metadatos,
             persist_directory=self.persist_directory
         )
-        self.logger_embeddings.debug("✅ Base vectorial creada con éxito.")
+        self.logger_embeddings.info(f"🔄 Base vectorial {'actualizada' if forzar_actualizacion else 'creada'} con {len(nuevas_preguntas)} preguntas")
         return self.vectordb
 
     def buscar(self, pregunta, k=5):
@@ -82,3 +88,19 @@ class GestorBaseVectorial:
             self.logger_embeddings.debug("🗑️ Base vectorial eliminada.")
         else:
             self.logger_embeddings.debug("⚠️ No existe la base vectorial a eliminar.")
+    
+    def verificar_consistencia(self):
+        """Compara conteo de preguntas en BDD vs VectorDB"""
+        preguntas_bdd, _ = obtener_preguntas_y_metadatos()
+        if not self.vectordb:
+            self.logger_embeddings.warning("⚠️ No se puede verificar consistencia: VectorDB no cargada")
+            return False
+        conteo_vectordb = self.vectordb._collection.count()
+        dif = abs(len(preguntas_bdd) - conteo_vectordb)
+        
+        if dif > 0:
+            self.logger_embeddings.warning(
+                f"🔍 Inconsistencia detectada: BDD={len(preguntas_bdd)} vs VectorDB={conteo_vectordb}"
+            )
+            return False
+        return True

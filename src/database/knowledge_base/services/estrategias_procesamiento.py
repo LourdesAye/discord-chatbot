@@ -5,7 +5,6 @@ from utils_for_all.utilidades_logs import setup_logger
 from database.knowledge_base.models.clase_autores import lista_docentes
 
 logger_msj = setup_logger('procesamiento_de_mensajes', 'logs_procesar_mensajes.txt')
-logger_detectando_error = setup_logger('detectando_error','mistakes_detected.txt')
 MAX_DELTA_SEGUNDOS_MSJ = 360
 
 class ProcesamientoStrategy(ABC): # Hereda de ABC para ser una clase abstracta (que en este caso simula ser una interface)
@@ -19,24 +18,13 @@ class ProcesamientoDocenteStrategy(ProcesamientoStrategy): # ProcesamientoDocent
             procesador.contador_mensaje_respuesta += 1
             for pregunta in procesador.preguntas_abiertas[:]:
                 pregunta.agregar_respuesta(mensaje,lista_docentes)
+                logger_msj.debug(f" ✅️ Se ha agregado una nueva respuesta : {mensaje.contenido}")
                 if mensaje.es_cierre_docente():
                     procesador.cerrar_pregunta(pregunta, mensaje, origen='docente')
                     procesador.cant_mens_cierre_docente += 1
         else:
             if procesador.preguntas_cerradas:
-                procesador.contador_mensaje_respuesta += 1
-                if len(procesador.preguntas_cerradas) == 1:
-                    lista_unica_pregunta = procesador.preguntas_cerradas[-1:]
-                    for pregunta in lista_unica_pregunta:
-                        pregunta.agregar_respuesta(mensaje,lista_docentes)
-                        logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
-                        logger_msj.debug(f" 🔶 SE ASOCIA A LA ULTIMA PREGUNTA CERRADA: '{pregunta.contenido}'")
-                else: 
-                    ultimas_dos = procesador.preguntas_cerradas[-2:]
-                    for pregunta in ultimas_dos:
-                        pregunta.agregar_respuesta(mensaje,lista_docentes)
-                        logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
-                        logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
+                procesador.asociar_respuesta_a_preguntas_cerradas(mensaje,lista_docentes)
             else:
                 procesador.registrar_mensaje_suelto(mensaje)
 
@@ -47,16 +35,16 @@ class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):# ProcesamientoAlumnoSt
             if mensaje.autor in autores_abiertos:
                 for pregunta in procesador.preguntas_abiertas[:]:
                     if pregunta.tiene_mismo_autor(mensaje):
-                        logger_detectando_error.debug(f"Mensaje:{mensaje.contenido} y Pregunta: {pregunta.contenido} poseen mismo autor")
                         if pregunta.es_extensible_con(mensaje, MAX_DELTA_SEGUNDOS_MSJ):
-                            logger_detectando_error.debug(f"Es extensible la pregunta {pregunta.contenido} con el mensaje {mensaje.contenido}")
                             pregunta.concatenar_contenido(mensaje.contenido)
+                            logger_msj.debug(f" 📌 Se concatenó la pregunta: \n {pregunta.contenido} \n con el mensaje: {mensaje.contenido}")
                             procesador.cant_concatenaciones += 1
                         elif mensaje.es_cierre_alumno() and pregunta.tiene_respuesta_validada():
                             procesador.cerrar_pregunta(pregunta, mensaje, origen='alumno')
                             procesador.cant_mens_cierre_alumnos += 1
                         else:
                             pregunta.agregar_respuesta(mensaje,lista_docentes)
+                            logger_msj.debug(f" ✅️ Se ha agregado una nueva respuesta : {mensaje.contenido}")
                             procesador.contador_mensaje_respuesta += 1
             else:
                 if mensaje.es_pregunta():
@@ -68,6 +56,7 @@ class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):# ProcesamientoAlumnoSt
                     procesador.contador_mensaje_respuesta += 1
                     for preg in procesador.preguntas_abiertas[:]:
                         preg.agregar_respuesta(mensaje,lista_docentes)
+                        logger_msj.debug(f" ✅️ Se ha agregado una nueva respuesta : {mensaje.contenido}")
         else:
             if mensaje.es_pregunta():
                 nueva = Pregunta(mensaje)
@@ -76,15 +65,7 @@ class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):# ProcesamientoAlumnoSt
                 logger_msj.debug(f"🟡 NUEVA PREGUNTA: {nueva.contenido}")
             else:
                 if procesador.preguntas_cerradas:
-                    procesador.contador_mensaje_respuesta +=1
-                    if len(procesador.preguntas_cerradas)== 1:
-                        lista_unica_pregunta = procesador.preguntas_cerradas[-1:]
-                        for preg in lista_unica_pregunta:
-                            preg.agregar_respuesta(mensaje,lista_docentes)
-                    else:
-                        ultimas_dos = procesador.preguntas_cerradas[-2:]
-                        for preg in ultimas_dos:
-                            preg.agregar_respuesta(mensaje,lista_docentes)
+                    procesador.asociar_respuesta_a_preguntas_cerradas(mensaje,lista_docentes)
                 else:
                     procesador.registrar_mensaje_suelto(mensaje)
 

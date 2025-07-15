@@ -3,7 +3,7 @@ from database.knowledge_base.models.clase_preguntas import Pregunta
 from datetime import timedelta
 from datetime import datetime
 from dateutil.parser import isoparse
-from utils_for_all.utilidades_logs import setup_logger,guardar_pregunta_y_respuestas_en_log,guardar_respuestas_sin_pregunta
+from utils_for_all.utilidades_logs import setup_logger,guardar_pregunta_y_respuestas_en_log
 from database.knowledge_base.utils.utilidades_conversiones import convertir_a_datetime,tiempo_transcurrido
 from database.knowledge_base.llm_analysis.clasificador_ia import clasificar_mensaje_y_actualizar
 
@@ -41,7 +41,6 @@ class Procesador:
         logger_msj.debug(f"✅ Se procesaron {self.contador_mensajes} filas" )
         logger_msj.debug(f"\n✅ Se registraron {self.contador_preguntas_cerradas} preguntas en total.\n")
         logger_msj.debug(f"✅ RESULTADOS DE LISTAS: \n {len(self.preguntas_abiertas)} PREGUNTAS ABIERTAS. \n {len(self.preguntas_cerradas)} PREGUNTAS CERRADAS.")
-        guardar_respuestas_sin_pregunta(self.mensajes_sueltos)
         
 
     def procesar_mensaje(self, mensaje: Mensaje):

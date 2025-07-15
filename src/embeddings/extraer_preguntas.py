@@ -21,20 +21,33 @@ def obtener_preguntas_y_metadatos():
         """) 
         resultados = cursor.fetchall() # Obtiene todos los resultados de la consulta
 
-        # Extrae las preguntas y genera metadatos para vincular luego con los embeddings.
-        preguntas = [fila["texto"] for fila in resultados]
-        metadatos = [{"id": fila["id_pregunta"]} for fila in resultados]
+        if not resultados:
+            logger_preguntas.warning("⚠️ No se encontraron preguntas válidas en la BDD")
+            return [], []
 
-        for i, pregunta in enumerate(preguntas, start=1):
-            guardar_pregunta(pregunta, i, "logs_preguntas_para_embeddings.txt")
+        # Validación explícita de estructura de datos
+        for fila in resultados:
+            if not all(key in fila for key in ["id_pregunta", "texto"]):
+                logger_preguntas.error("❌ Estructura de datos inesperada en fila")
+                continue   
+            preguntas.append(fila["texto"])
+            metadatos.append({"id": fila["id_pregunta"]})
 
+    except psycopg2.OperationalError as e:
+        logger_preguntas.error(f"🚨 Error de conexión a la BDD: {e}")
+        return [], []
+    except psycopg2.Error as e:
+        logger_preguntas.error(f"💾 Error en consulta SQL: {e}")
+        return [], []
     except Exception as e:
-        logger_preguntas.error(f"Error: {e}")
-
-    finally: # asegura que se cierren la conexión y el cursor aunque ocurra un error.
+        logger_preguntas.error(f"⚠️ Error inesperado: {e}")
+        return [], []
+    finally:
         if 'cursor' in locals(): cursor.close()
         if 'conn' in locals(): conn.close()
 
+    # Log de resumen final
+    logger_preguntas.info(f"📊 Total preguntas obtenidas: {len(preguntas)}")
     return preguntas, metadatos
 
     # cursor = conn.cursor(cursor_factory=DictCursor)

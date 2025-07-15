@@ -1,6 +1,6 @@
 from database.knowledge_base.models.clase_mensajes import Mensaje
 from database.knowledge_base.models.clase_preguntas import Pregunta
-from utils_for_all.utilidades_logs import setup_logger, guardar_pregunta_y_respuestas_en_log, guardar_respuestas_sin_pregunta
+from utils_for_all.utilidades_logs import setup_logger, guardar_pregunta_y_respuestas_en_log
 from database.knowledge_base.utils.utilidades_conversiones import convertir_a_datetime, tiempo_transcurrido
 from datetime import timedelta
 from database.knowledge_base.services.estrategias_procesamiento import ProcesamientoAlumnoStrategy,ProcesamientoDocenteStrategy
@@ -39,7 +39,6 @@ class Procesador:
             self.procesar_mensaje(mensaje)
         logger_msj.debug("✅ PROCESAMIENTO FINALIZADO.")
         logger_msj.debug(f"Total mensajes: {self.contador_mensajes}, Preguntas nuevas: {self.contador_preguntas_nuevas}, Cerradas: {self.contador_preguntas_cerradas}")
-        guardar_respuestas_sin_pregunta(self.mensajes_sueltos)
 
     def procesar_mensaje(self, mensaje: Mensaje):
         tipo = 'docente' if mensaje.es_autor_docente() else 'alumno'
@@ -60,10 +59,23 @@ class Procesador:
         self.preguntas_abiertas.remove(pregunta)
         self.preguntas_cerradas.append(pregunta)
         self.contador_preguntas_cerradas += 1
-        logger_msj.debug(f"🟢 PREGUNTA CERRADA por {origen} ({motivo if motivo else mensaje.contenido})")
+        logger_msj.debug(f"🟢 PREGUNTA CERRADA por {origen} \n por el mensaje \n { mensaje.contenido})")
         guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas_cerradas, self.nombre_log)
 
     def registrar_mensaje_suelto(self, mensaje: Mensaje):
             self.mensajes_sueltos.append(mensaje)
             autor_tipo = "DOCENTE" if mensaje.es_autor_docente() else "ALUMNO"
             logger_msj.debug(f" 🔴 MENSAJE SUELTO: '{mensaje.contenido}' de {autor_tipo} : {mensaje.autor} ")
+
+    def asociar_respuesta_a_preguntas_cerradas(self, mensaje, lista_docentes):
+        self.contador_mensaje_respuesta += 1
+        cantidad = len(self.preguntas_cerradas)
+        preguntas_a_asociar = (
+            self.preguntas_cerradas[-1:]
+            if cantidad == 1
+            else self.preguntas_cerradas[-2:]
+        )
+        for pregunta in preguntas_a_asociar:
+            pregunta.agregar_respuesta(mensaje, lista_docentes)
+            logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
+            logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
