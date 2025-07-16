@@ -160,7 +160,6 @@ class GestorBD:
         return nombre_usuario in self.docentes
 
     def insertar_o_obtener_autor(self, nombre_autor):
-        logger_db.debug(f"Se inserta o se obtiene autor")
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute("SELECT id_autor FROM autores WHERE nombre_autor = %s", (nombre_autor,))
             fila = cur.fetchone()
@@ -179,7 +178,8 @@ class GestorBD:
 
     def insertar_mensaje(self, id_mensaje_discord, autor_id, fecha_mensaje,
                          contenido, es_pregunta=False, origen=None):
-        logger_db.debug(f"Se va a ingresar un nuevo mensaje a la base de datos : {contenido}")
+        tipo_mensaje = "PREGUNTA" if es_pregunta else "RESPUESTA"
+        logger_db.debug(f"Se va a ingresar un mensaje ({tipo_mensaje}) a la base de datos : {contenido}")
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(
                 """
@@ -219,7 +219,6 @@ class GestorBD:
             return cur.fetchone()["id_adjunto"]
 
     def insertar_pregunta(self, pregunta: Pregunta, id_mensaje):
-        logger_db.debug(f"se agrega una nueva pregunta a la base de datos : {pregunta.contenido} asociado al mensaje {id_mensaje}")
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(
                 """
@@ -232,7 +231,6 @@ class GestorBD:
             return cur.fetchone()["id_pregunta"]
 
     def insertar_respuesta(self, respuesta: Respuesta, mensaje_id, pregunta_id, orden):
-        logger_db.debug(f"se agrega una nueva respuesta : {respuesta.contenido} asociado al mensaje {mensaje_id} y a la pregunta {pregunta_id}")
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute(
                 """
@@ -248,8 +246,8 @@ class GestorBD:
         return isoparse(timestamp_str)
 
     def persistir_preguntas(self, preguntas_cerradas: list[Pregunta],index):
-        logger_db.debug(" ... ingresando a la persistencia de datos ... ")
-        logger_db.debug (f"... se va a procesar en JSON {index} ... ")
+        logger_db.debug(" 🗄️ Persistencia de datos")
+        logger_db.debug (f" 📁 se va a procesar en JSON {index} ... ")
         cont_preg_sin_resp=0
         nombre_ruta = (f"log_preg_sin_respuestas_{index}")
         preguntas_a_persistir =[]
@@ -261,15 +259,15 @@ class GestorBD:
             else:
                 preguntas_a_persistir.append(pregunta)
 
-        ruta_preg_persistidas = (f"log_preguntas_efectivamente_pesistidas_{index}")
-        logger_db.debug(f" ... SE VAN A PERSISTIR {len(preguntas_a_persistir)} PREGUNTAS CERRADAS EN LA BASE DE DATOS ...")
+        ruta_preg_persistidas = (f"log_preguntas_efectivamente_pesistidas_{index}.txt")
+        logger_db.debug(f" 🗄️ Se van a persistir {len(preguntas_a_persistir)} preguntas cerradas")
         try:
             for idx, pregunta in enumerate(preguntas_a_persistir, start=1):
                 guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
             
-                logger_db.debug(f"\n📌 [{idx}/{len(preguntas_a_persistir)}] Procesando un mensaje que es pregunta: {pregunta.contenido} del autor {pregunta.autor}")
+                logger_db.debug(f"\n📌 [{idx}/{len(preguntas_a_persistir)}] Procesando un mensaje que es pregunta: \n{pregunta.contenido} \n Autor: {pregunta.autor}")
                 autor_id = self.insertar_o_obtener_autor(pregunta.autor)
-                logger_db.debug(f" se obtuvo un autor_id: {autor_id} para la pregunta")
+                logger_db.debug(f"👤 Se obtuvo un el id para el autor: {autor_id} ")
                
                 mensaje_id = self.insertar_mensaje(
                     id_mensaje_discord=pregunta.id_pregunta,
@@ -279,19 +277,22 @@ class GestorBD:
                     es_pregunta=True,
                     origen=pregunta.origen
                 )
-                logger_db.debug(f" se obtuvo un mensaje_id: {mensaje_id} para la pregunta")
-                logger_db.debug(f" Se van a guardar los archivos adjuntos asociados")
+                logger_db.debug(f" ✉️ se obtuvo un mensaje_id (para la pregunta): {mensaje_id}")
                 
                 for nombre_archivo, tipo in pregunta.attachments: 
                     self.insertar_attachment(mensaje_id, nombre_archivo, tipo)
+                
+                logger_db.debug(f" 📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
 
                 id_pregunta = self.insertar_pregunta(pregunta, mensaje_id)
+                logger_db.debug(f" 💾 Se persiste pregunta en la base de datos")
 
                 # se ordenan las preguntas por fecha de la más antigua a la más actual
-                logger_db.debug(f" se ordenan las respuestas de la pregunta {idx} cuyo id es {id_pregunta}")
+                logger_db.debug(f" 📩 Se ordenan sus respuestas para ser persistidas")
                 respuestas_ordenadas = sorted(pregunta.respuestas, key=lambda r: self.convertir_a_datetime(r.timestamp))
-                for orden, respuesta in enumerate(respuestas_ordenadas,start=1): # por defecto empieza en 0 
-                    logger_db.debug(f" se almacena la respuesta {orden} para la pregunta")
+                for orden, respuesta in enumerate(respuestas_ordenadas,start=1): # por defecto empieza en 0
+                    logger_db.debug(f"")
+                    logger_db.debug(f" 📩 respuesta {orden} : {respuesta.contenido}")
                     autor_id_r = self.insertar_o_obtener_autor(respuesta.autor)
                     mensaje_id_r = self.insertar_mensaje(
                         id_mensaje_discord=respuesta.id_respuesta,
@@ -301,12 +302,12 @@ class GestorBD:
                         es_pregunta=False,
                         origen=respuesta.origen
                     )
-                    logger_db.debug(f" se obtuvo un mensaje_id: {mensaje_id_r} para la respuesta")
-                    logger_db.debug(f" Se van a guardar los archivos adjuntos asociados")
+                    logger_db.debug(f" ✉️ se obtuvo un mensaje_id (para la respuesta): {mensaje_id_r}")
                     for nombre_archivo, tipo in respuesta.attachments:
                         self.insertar_attachment(mensaje_id_r, nombre_archivo, tipo)
-
+                    logger_db.debug(f" 📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
                     self.insertar_respuesta(respuesta, mensaje_id_r, id_pregunta, orden)
+                    logger_db.debug(f" 💾 Se persiste al repuesta en la base de datos")
             self.conn.commit()
         except Exception as e:
             logger_db.debug(f"❌ Error al persistir las preguntas y respuestas: {e}")

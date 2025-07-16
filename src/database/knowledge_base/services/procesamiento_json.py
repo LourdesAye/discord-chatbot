@@ -6,7 +6,6 @@ from database.knowledge_base.services.filtros_json import FiltroContenidoIrrelev
 
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
-logger_mensajes_sueltos = setup_logger('mensajes_sueltos','log_mensajes_sueltos')
 
 # Función para procesar el archivo JSON y convertirlo a DataFrame
 def procesar_json(ruta_json):
@@ -16,7 +15,7 @@ def procesar_json(ruta_json):
 
 # Función oara aplicar las estrategias (filtros o algoritmos) en el dataframe
 def aplicar_filtros_mensajes_json(df, estrategias):
-    logger_proc.debug(f" ✉️ Cantidad de mensajes en el json: {len(df)}") # para mantener la trazabilidad de la cantidad de registros que se analizan
+    logger_proc.debug(f" \n ✉️ Cantidad de mensajes en el json: {len(df)}") # para mantener la trazabilidad de la cantidad de registros que se analizan
     df["content"] = df["content"].astype(str).str.strip() # asegura que valor de esa columna content sea string y quita espacios vacios al inicio y al final
     mensajes_filtrados = {} # para tener un diccionario de dataframes que se obtienen por cada filtro aplicado
     for estrategia in estrategias: # estartegia es cada uno de los filtros que se aplican al dataframe
@@ -45,27 +44,24 @@ def procesar_archivos_json(rutas_json):
 
         # Registrar resultados del procesamiento
         logger_proc.debug(f" ")
-        logger_proc.debug(f" ✅ Procesamiento completado para el archivo {idx}")
+        logger_proc.debug(f" \n ✅ Procesamiento completado para el archivo JSON {idx}")
         logger_proc.debug(f" 📊 Resultados de procesamiento:")
+        logger_proc.debug(f" \n 📊 Análisis de las listas de preguntas una vez finalizado el procesamiento:")
+        logger_proc.debug(f"       📊 {len(procesador.preguntas_abiertas)} preguntas abiertas")
+        logger_proc.debug(f"       📊 {len(procesador.preguntas_cerradas)} preguntas cerradas")
+        logger_proc.debug(f" \n 📊 Análisis de los mensajes procesados:")
         logger_proc.debug(f"       📊 {len(procesador.mensajes_sueltos)} mensajes sueltos")
         logger_proc.debug(f"       📊 {procesador.cant_concatenaciones} mensajes concatenados")
         logger_proc.debug(f"       📊 {procesador.cant_mens_cierre_alumnos} mensajes de cierre de alumnos")
         logger_proc.debug(f"       📊 {procesador.contador_preguntas_nuevas} preguntas generadas")
         logger_proc.debug(f"       📊 {procesador.contador_mensaje_respuesta} mensajes detectados como respuesta")
         logger_proc.debug(f"       ✅ {len(procesador.mensajes_sueltos) + procesador.cant_concatenaciones + procesador.cant_mens_cierre_alumnos + procesador.contador_preguntas_nuevas + procesador.contador_mensaje_respuesta } total de mensajes analizados")
-        logger_proc.debug(f"       📊 {procesador.cant_mens_cierre_docente} mensajes de cierre de docentes")
-        logger_proc.debug(f"       📊 {len(procesador.preguntas_abiertas)} preguntas abiertas")
-        logger_proc.debug(f" ")
-
-        logger_mensajes_sueltos.debug(f" ✅ Procesamiento completado para el archivo JSON {idx}")
-        logger_mensajes_sueltos.debug(f" 📊 {procesador.cant_mens_cierre_alumnos} mensajes de cierre de alumnos")
-        logger_mensajes_sueltos.debug(f" 📊 {procesador.cant_mens_cierre_docente} mensajes de cierre de docentes")
-        logger_mensajes_sueltos.debug(f" 📊 {procesador.cant_mens_cierre_alumnos + procesador.cant_mens_cierre_docente} mensajes totales de cierre (tanto de alumnos como de docentes) para el archivo {idx}")
-        logger_mensajes_sueltos.debug(f" ✅ Cantidad de mensajes sueltos detectados: {len(procesador.mensajes_sueltos)}")
+        logger_proc.debug(f"       📊 {procesador.cant_mens_cierre_docente} mensajes detectados como respuesta que también son de cierre de docentes")
+        logger_proc.debug(f"       📊 {procesador.cant_mens_cierre_alumnos + procesador.cant_mens_cierre_docente} mensajes totales de cierre (tanto de alumnos como de docentes)")
         if len(procesador.mensajes_sueltos) >=1:
             for indice,mensaje_suelto in enumerate(procesador.mensajes_sueltos,start=1):
-                logger_mensajes_sueltos.debug(f" ✉️ Mostrando mensajes sueltos...")
-                logger_mensajes_sueltos.debug(f" ✉️ El mensaje suelto {indice}: '{mensaje_suelto.contenido}'")
-        logger_mensajes_sueltos.debug(f" ")
+                logger_proc.debug(f" \n✉️ Listado de mensajes sueltos: ")
+                logger_proc.debug(f" ✉️ El mensaje suelto {indice}: \n'{mensaje_suelto.contenido}'")
+        logger_proc.debug(f" ")
     return procesadores
 

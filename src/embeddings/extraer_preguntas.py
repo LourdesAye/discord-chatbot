@@ -8,7 +8,7 @@ def obtener_preguntas_y_metadatos():
     preguntas, metadatos = [], []
 
     try:
-        conn = psycopg2.connect(**config) # es la conexión a tu base de datos PostgreSQL.
+        conn = psycopg2.connect(**config) # es la conexión a la base de datos PostgreSQL.
         # DictCursor hace que los resultados sean accesibles por nombre de columna (ej. fila["texto"]).
         cursor = conn.cursor(cursor_factory=DictCursor) # permite ejecutar consultas SQL y recorrer los resultados.
         cursor.execute("""
@@ -47,7 +47,7 @@ def obtener_preguntas_y_metadatos():
         if 'conn' in locals(): conn.close()
 
     # Log de resumen final
-    logger_preguntas.info(f"📊 Total preguntas obtenidas: {len(preguntas)}")
+    logger_preguntas.info(f"📊 Total de preguntas obtenidas de la base de datos relacional para generar embeddings : {len(preguntas)}")
     return preguntas, metadatos
 
     # cursor = conn.cursor(cursor_factory=DictCursor)

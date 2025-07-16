@@ -38,6 +38,8 @@ class Procesador:
             self.cerrar_por_reglas(mensaje)
             self.procesar_mensaje(mensaje)
         logger_msj.debug("✅ PROCESAMIENTO FINALIZADO.")
+        for numero_pregunta,pregunta in enumerate(self.preguntas_cerradas,start=1):
+            guardar_pregunta_y_respuestas_en_log(pregunta, numero_pregunta,self.nombre_log)
         logger_msj.debug(f"Total mensajes: {self.contador_mensajes}, Preguntas nuevas: {self.contador_preguntas_nuevas}, Cerradas: {self.contador_preguntas_cerradas}")
 
     def procesar_mensaje(self, mensaje: Mensaje):
@@ -54,13 +56,12 @@ class Procesador:
                 elif len(pregunta.respuestas) >= MAX_RESPUESTAS:
                     self.cerrar_pregunta(pregunta, mensaje, motivo='cantidad')
 
-    def cerrar_pregunta(self, pregunta: Pregunta, mensaje: Mensaje, origen='sistema', motivo=None):
+    def cerrar_pregunta(self, pregunta: Pregunta, mensaje: Mensaje, motivo=None):
         pregunta.cerrar()
         self.preguntas_abiertas.remove(pregunta)
         self.preguntas_cerradas.append(pregunta)
         self.contador_preguntas_cerradas += 1
-        logger_msj.debug(f"🟢 PREGUNTA CERRADA por {origen} \n por el mensaje \n { mensaje.contenido})")
-        guardar_pregunta_y_respuestas_en_log(pregunta, self.contador_preguntas_cerradas, self.nombre_log)
+        logger_msj.debug(f"🟢 PREGUNTA CERRADA por {motivo}")
 
     def registrar_mensaje_suelto(self, mensaje: Mensaje):
             self.mensajes_sueltos.append(mensaje)

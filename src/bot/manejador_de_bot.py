@@ -4,7 +4,6 @@ from dotenv import load_dotenv  # para cargar variables de entorno desde un arch
 import os  # para acceder a variables de entorno del sistema
 import logging  # para registrar mensajes en un archivo de log
 from embeddings.crear_vectores import get_base_de_datos_vectorial
-from embeddings.utilidades_vectores import responder_a_pregunta
 from utils_for_all.utilidades_logs import setup_logger
 import asyncio
 from datetime import datetime

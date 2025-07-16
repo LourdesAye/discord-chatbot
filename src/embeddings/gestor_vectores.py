@@ -8,7 +8,6 @@ class GestorBaseVectorial:
         self.persist_directory = persist_directory
         self.modelo = modelo
         self.logger_embeddings = setup_logger("logger_embeddings", "logs_generacion_embeddings.txt")
-        self.logger_semantico = setup_logger("logger_semantico", "logs_respuestas_semanticas.txt")
         self.vectordb = None
 
     def existe_base(self):
@@ -43,44 +42,34 @@ class GestorBaseVectorial:
     def buscar(self, pregunta, k=5):
         if not self.vectordb:
             self.logger_embeddings.error("❌ La base vectorial no está cargada.")
-            return
-
-        resultados = self.vectordb.similarity_search_with_score(query=pregunta, k=k)
-        resultados_con_similitud = [(doc, 1 - score) for doc, score in resultados]
-        resultados_filtrados = [(doc, sim) for doc, sim in resultados_con_similitud if sim > 0]
-        resultados_ordenados = sorted(resultados_filtrados, key=lambda x: x[1], reverse=True)
-
-        self.logger_embeddings.debug(f"\n❓PREGUNTA NUEVA: {pregunta}")
-        for i, (doc, sim) in enumerate(resultados_ordenados):
-            etiqueta = "🔝 MÁS PARECIDA:" if i == 0 else f"🔍 Resultado #{i + 1}:"
-            self.logger_embeddings.debug(etiqueta)
-            self.logger_embeddings.debug(f"Pregunta: {doc.page_content}")
-            self.logger_embeddings.debug(f"Metadatos: {doc.metadata}")
-            self.logger_embeddings.debug(f"Similitud: {sim:.4f}")
-            self.logger_embeddings.debug("-" * 40)
-
-    def responder(self, pregunta, k=3):
-        if not self.vectordb:
-            self.logger_semantico.error("❌ La base vectorial no está cargada.")
-            return "❌ No hay base vectorial disponible."
-
-        resultados = self.vectordb.similarity_search_with_score(query=pregunta, k=k)
-        resultados_con_similitud = [(doc, 1 - score) for doc, score in resultados]
-        resultados_filtrados = [(doc, sim) for doc, sim in resultados_con_similitud if sim > 0]
-        resultados_ordenados = sorted(resultados_filtrados, key=lambda x: x[1], reverse=True)
-
-        respuestas = []
-        for i, (doc, sim) in enumerate(resultados_ordenados):
-            respuesta = doc.page_content
-            respuestas.append(f"Respuesta {i + 1}: {respuesta}")
-
-            self.logger_semantico.debug(f"🧠 Pregunta: {pregunta}")
-            self.logger_semantico.debug(f"🔍 Resultado #{i + 1}: {respuesta}")
-            self.logger_semantico.debug(f"Similitud: {sim:.4f}")
-            self.logger_semantico.debug("-" * 40)
-
-        return "\n\n".join(respuestas) if respuestas else "❌ No encontré respuestas relevantes."
-    
+            return None
+        
+        try:
+            resultados = self.vectordb.similarity_search_with_score(query=pregunta, k=k)
+            resultados_con_similitud = [(doc, 1 - score) for doc, score in resultados]
+            resultados_filtrados = [(doc, sim) for doc, sim in resultados_con_similitud if sim > 0]
+            resultados_ordenados = sorted(resultados_filtrados, key=lambda x: x[1], reverse=True)
+            # def obtener_segundo(x):return x[1] y ordenados = sorted(lista, key=obtener_segundo)
+            # lambda reemplaza la definición con def
+            # sorted (secuencia_a_ordenar,criterio_de_orden,reverse= orden_ascendente_true_o_decendente_false)
+            
+            self.logger_embeddings.debug(f"\n❓PREGUNTA NUEVA: {pregunta}")
+            for i, (doc, sim) in enumerate(resultados_ordenados):
+                etiqueta = "🔝 MÁS PARECIDA:" if i == 0 else f"🔍 Resultado #{i + 1}:"
+                self.logger_embeddings.debug(etiqueta)
+                self.logger_embeddings.debug(f"Pregunta: {doc.page_content}")
+                self.logger_embeddings.debug(f"Metadatos: {doc.metadata}")
+                self.logger_embeddings.debug(f"Similitud: {sim:.4f}")
+                self.logger_embeddings.debug("-" * 40)
+            
+            if not resultados_ordenados:
+                self.logger_embeddings.error(f"❌ No hay resultados de preguntas parecidas a la pregunta: \n  ❓'{pregunta}' ❓")
+                return None
+        
+        except Exception as e:
+            self.logger_embeddings.error(f"❌ Error en la búsqueda: {str(e)}")
+            return None
+        
     def eliminar_base(self):
         import shutil
         if os.path.exists(self.persist_directory):

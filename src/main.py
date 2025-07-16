@@ -40,10 +40,10 @@ logger_proc.debug(f" ")
 logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
 
 modelo = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-gestor = GestorBaseVectorial(modelo)
+gestor_base_vectorial = GestorBaseVectorial(modelo)
 
 # crear base de datos de vectores una vez persistidos los datos
-vectordb = gestor.crear_si_no_existe()
+vectordb = gestor_base_vectorial.crear_si_no_existe()
 
 # Opción 2: Forzar actualización si hay cambios en BDD
 #if gestor.existe_base() and gestor.verificar_consistencia():
@@ -51,11 +51,9 @@ vectordb = gestor.crear_si_no_existe()
 
 # probar búsqueda semántica en embeddings
 if vectordb:
-    gestor.buscar("¿Qué es Github?")
-    gestor.buscar("¿Cómo se usa el patrón state?")
-    gestor.buscar("¿qué es java?")
-
-print(gestor.responder("¿Cómo usar el patrón Strategy en Python?"))
+    gestor_base_vectorial.buscar("¿Qué es Github?")
+    gestor_base_vectorial.buscar("¿Cómo se usa el patrón state?")
+    gestor_base_vectorial.buscar("¿qué es java?")
 
 def main():
     logger_proc.debug("Finalizando la Ejecución del archivo main.py")
