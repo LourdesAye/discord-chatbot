@@ -6,6 +6,7 @@ from utils_for_all.utilidades_logs import setup_logger
 from utils_for_all.config_rutas import BuscadorArchivos
 from embeddings.gestor_vectores import GestorBaseVectorial
 from langchain_huggingface import HuggingFaceEmbeddings
+from bot.manejador_de_bot import DiscordChatbot
 
 # LOGGER para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -54,6 +55,9 @@ if vectordb:
     gestor_base_vectorial.buscar("¿Qué es Github?")
     gestor_base_vectorial.buscar("¿Cómo se usa el patrón state?")
     gestor_base_vectorial.buscar("¿qué es java?")
+
+bot = DiscordChatbot()
+bot.run()
 
 def main():
     logger_proc.debug("Finalizando la Ejecución del archivo main.py")

@@ -3,107 +3,84 @@ from discord.ext import commands  # permite usar comandos con prefijo (como !ayu
 from dotenv import load_dotenv  # para cargar variables de entorno desde un archivo .env
 import os  # para acceder a variables de entorno del sistema
 import logging  # para registrar mensajes en un archivo de log
-from embeddings.crear_vectores import get_base_de_datos_vectorial
-from utils_for_all.utilidades_logs import setup_logger
-import asyncio
+from utils_for_all.utilidades_logs import setup_logger,LOG_DIR_ABS
 from datetime import datetime
 
-# Carga del entorno
-load_dotenv()  # carga las variables del archivo .env al entorno de ejecución
-token = os.getenv('DISCORD_TOKEN')  # obtiene el token del bot desde la variable de entorno
-nombre_canal_del_chatbot = os.getenv('NOMBRE_CANAL_CHATBOT')  # obtiene el nombre del canal desde .env
-id_canal_chatbot = os.getenv('ID_CANAL_CHATBOT')  # obtiene el ID del canal
+class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
+    def __init__(self):
+        # Carga del entorno
+        load_dotenv()  # carga las variables del archivo .env al entorno de ejecución
+        self.token = os.getenv('DISCORD_TOKEN')  # obtiene el token del bot desde la variable de entorno
+        self.nombre_canal_del_chatbot = os.getenv('NOMBRE_CANAL_CHATBOT')  # obtiene el nombre del canal desde .env
+        self.id_canal_chatbot = os.getenv('ID_CANAL_CHATBOT')  # obtiene el ID del canal
 
-# logs
-handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')  # guarda logs en un archivo llamado discord.log
+        # Crear 2 tipos de logs: 
+        # 1- el que es externo y no manejamos, popio con datos del funcionamiento de discord
+        fecha_discord_log = datetime.now().strftime("log_discord_%d_%m_%y_%H_%M")
+        archivo_log_discord = os.path.join(LOG_DIR_ABS, fecha_discord_log)
+        self.discord_handler = logging.FileHandler(filename=archivo_log_discord, encoding='utf-8', mode='w')  # guarda logs provenientes de discord (externos)
+        # 2- el que es de interno de nuestro sistema chatbot
+        self.logger_chatbot_discord= setup_logger('chatbot_con_discord','log_chatbot_integracion_discord.txt')
 
-intents = discord.Intents.default()  # crea un objeto Intents con configuración básica para detectar eventos
-intents.messages = True  # permite que el bot reciba eventos de mensajes nuevos
-intents.message_content = True  # permite que el bot acceda al texto de los mensajes
+        # Configuración de intents
+        intents = discord.Intents.default()  # crea un objeto Intents con configuración básica para detectar eventos
+        intents.messages = True  # permite que el bot reciba eventos de mensajes nuevos
+        intents.message_content = True  # permite que el bot acceda al texto de los mensajes
 
-bot = commands.Bot(command_prefix="!", intents=intents)  # crea una instancia del bot con prefijo "!" y los intents definidos
+        # Inicicialización del bot
+        self.bot = commands.Bot(command_prefix="",intents=intents)  # crea una instancia del bot con los intents definidos
+        self.setup_events()
 
-# 🔁 Base vectorial global
-base_vectorial = None
+    def setup_events(self):
+        @self.bot.event  
+        async def on_ready(): # mensaje que se da 1 única vez : cuando el bot se conecta a Discord y se logra la autenticación (no cada vez que se une a un servidor)
+            self.logger_chatbot_discord.debug(f"✅ Bot conectado como {self.bot.user}") # mensaje que se da por consola de VS studio
 
-# 🔁 Refresca la base cada 10 minutos
-async def refrescar_base_vectorial_periodicamente(intervalo_min=10):
-    global base_vectorial
-    while True:
-        await asyncio.sleep(intervalo_min * 60)
-        print(f"🔄 [{datetime.now().strftime('%H:%M:%S')}] Refrescando base vectorial...")
-        try:
-            nueva_base = get_base_de_datos_vectorial()
-            if nueva_base is not None:
-                base_vectorial = nueva_base
-                print(f"✅ Base vectorial actualizada a las {datetime.now().strftime('%H:%M:%S')}")
-            else:
-                print("⚠️ No se encontró contenido nuevo para actualizar la base.")
-        except Exception as e:
-            print(f"❌ Error al refrescar la base vectorial: {e}")
+            for guild in self.bot.guilds:  # recorre todos los servidores (guilds) donde está el bot (en el momento en que se autentica)
+                canal = None  # inicializa la variable canal
 
-@bot.event  # evento que se dispara cuando el bot está listo y conectado
-async def on_ready():
-    print(f"✅ Bot conectado como {bot.user}")  # mensaje en consola para confirmar conexión
+                if self.id_canal_chatbot:  # si se definió un ID de canal
+                    canal = self.bot.get_channel(int(self.id_canal_chatbot))  # obtiene el canal por ID
 
-    # Lanzamos tarea en segundo plano
-    bot.loop.create_task(refrescar_base_vectorial_periodicamente(10))
-    print("📚 Base vectorial cargada.")
-    
+                if not canal and self.nombre_canal_del_chatbot:  # si no se encontró por ID, intenta por nombre
+                    canal = discord.utils.get(guild.text_channels, name=self.nombre_canal_del_chatbot)  # obtiene canal por nombre
 
-    for guild in bot.guilds:  # recorre todos los servidores (guilds) donde está el bot
-        canal = None  # inicializa la variable canal
+                if canal:  # si se encontró el canal
+                    await canal.send(f"🤖 ¡Bot conectado como {self.bot.user}!")   # para enviar un mensaje en el canal avisando que el bot se conectó a discord, se encuentra autenticado (await: una operación de red que puede demorar)
+                    self.logger_chatbot_discord.debug(f"✅ Mensaje enviado al canal #{canal.name} en {guild.name}")  # también lo informa en consola
+                else:
+                    self.logger_chatbot_discord.debug(f"❌ Canal no encontrado en el servidor: {guild.name}")  # muestra error si no encuentra el canal
 
-        if id_canal_chatbot:  # si se definió un ID de canal
-            canal = bot.get_channel(int(id_canal_chatbot))  # busca el canal por ID
+        @self.bot.event  # evento que se ejecuta cada vez que se envía un mensaje a algún canal de algún servidor
+        async def on_message(message):
+            if message.author == self.bot.user:  # ignora mensajes enviados por el propio bot
+                return
 
-        if not canal and nombre_canal_del_chatbot:  # si no se encontró por ID, intenta por nombre
-            canal = discord.utils.get(guild.text_channels, name=nombre_canal_del_chatbot)  # busca canal por nombre
+            canal = message.channel  # obtiene el canal desde el que se envió el mensaje
 
-        if canal:  # si se encontró el canal
-            await canal.send(f"🤖 ¡Bot conectado como {bot.user}!")   # para enviar un mensaje en el canal avisando que el bot está online (await: una operación de red que puede demorar)
-            print(f"✅ Mensaje enviado al canal #{canal.name} en {guild.name}")  # también lo informa en consola
-        else:
-            print(f"❌ Canal no encontrado en el servidor: {guild.name}")  # muestra error si no encuentra el canal
+            if isinstance(canal, discord.TextChannel) and canal.name == self.nombre_canal_del_chatbot:  # si el mensaje fue en el canal principal del bot
+                thread = await canal.create_thread(  # crea un hilo a partir del mensaje recibido (await porque es una operación asíncrona que puede demorar)
+                    name=f"Consulta de {message.author.display_name}",  # nombre del hilo según el usuario
+                    message=message,  # mensaje base del hilo
+                    auto_archive_duration=60  # se archiva después de 60 min sin actividad
+                )
 
-@bot.event  # evento que se ejecuta cada vez que se envía un mensaje
-async def on_message(message):
-    if message.author == bot.user:  # ignora mensajes enviados por el propio bot
-        return
+                await canal.send(  # deja un aviso en el canal principal (operación asíncrona)
+                    f"📬 Hola {message.author.mention}! Creé un hilo para tu consulta. Hacé clic en él para continuar nuestra conversación."
+                )
 
-    canal = message.channel  # obtiene el canal desde el que se envió el mensaje
+            elif isinstance(canal, discord.Thread) and canal.parent.name == self.nombre_canal_del_chatbot:  # si el mensaje es dentro de un hilo de ese canal
+                await canal.send(  # responde también dentro del hilo ()
+                    "Estoy procesando tu mensaje en el hilo..."
+                )
 
-    if isinstance(canal, discord.TextChannel) and canal.name == nombre_canal_del_chatbot:  # si el mensaje fue en el canal principal del bot
-        thread = await canal.create_thread(  # crea un hilo a partir del mensaje recibido (await porque es una operación asíncrona que puede demorar)
-            name=f"Consulta de {message.author.display_name}",  # nombre del hilo según el usuario
-            message=message,  # mensaje base del hilo
-            auto_archive_duration=60  # se archiva después de 60 min sin actividad
-        )
-
-        aviso = await thread.send("⌛ Pensando una respuesta para vos...")
-
-        global base_vectorial
-        texto_pregunta = message.content.strip()
-        respuesta = responder_a_pregunta(base_vectorial, texto_pregunta)
-
-        await aviso.edit(content=respuesta)
-
-        await canal.send(  # deja un aviso visible en el canal principal (operación asíncrona)
-            f"📬 Hola {message.author.mention}! Creé un hilo para tu consulta. Hacé clic en él para continuar nuestra conversación."
-        )
-
-    elif isinstance(canal, discord.Thread) and canal.parent.name == nombre_canal_del_chatbot:  # si el mensaje es dentro de un hilo de ese canal
-        await canal.send(  # responde también dentro del hilo ()
-            "Estoy procesando tu mensaje en el hilo..."
-        )
-
-    else:  # si el mensaje viene de otro canal no relacionado
-        await canal.send(  # responde diciendo que captó el mensaje
-            f"Capté un mensaje del canal: `{canal.name}`, que decía: \"{message.content}\". Estoy probando captar mensajes."
-        )
-    
-
-bot.run(token, log_handler=handler, log_level=logging.DEBUG)  # ejecuta el bot con el token, guardando logs en el archivo definido
+            else:  # si el mensaje viene de otro canal no relacionado
+                await canal.send(  # responde diciendo que captó el mensaje
+                    f"Capté un mensaje del canal: `{canal.name}`, que decía: \"{message.content}\". Estoy probando captar mensajes."
+                )
+        
+    def run(self):
+        self.bot.run(self.token, log_handler=self.discord_handler, log_level=logging.DEBUG)  # ejecuta el bot con el token, guardando logs en el archivo definido
 
 
 

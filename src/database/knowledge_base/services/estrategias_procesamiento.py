@@ -20,7 +20,7 @@ class ProcesamientoDocenteStrategy(ProcesamientoStrategy): # ProcesamientoDocent
                 pregunta.agregar_respuesta(mensaje,lista_docentes)
                 logger_msj.debug(f" ✅️ Se ha agregado una nueva respuesta : {mensaje.contenido}")
                 if mensaje.es_cierre_docente():
-                    procesador.cerrar_pregunta(pregunta, mensaje, origen='docente')
+                    procesador.cerrar_pregunta(pregunta, mensaje, motivo='docente')
                     procesador.cant_mens_cierre_docente += 1
         else:
             if procesador.preguntas_cerradas:
@@ -40,7 +40,7 @@ class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):# ProcesamientoAlumnoSt
                             logger_msj.debug(f" 📌 Se concatenó la pregunta: \n {pregunta.contenido} \n con el mensaje: {mensaje.contenido}")
                             procesador.cant_concatenaciones += 1
                         elif mensaje.es_cierre_alumno() and pregunta.tiene_respuesta_validada():
-                            procesador.cerrar_pregunta(pregunta, mensaje, origen='alumno')
+                            procesador.cerrar_pregunta(pregunta, mensaje, motivo='alumno')
                             procesador.cant_mens_cierre_alumnos += 1
                         else:
                             pregunta.agregar_respuesta(mensaje,lista_docentes)

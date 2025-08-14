@@ -1,0 +1,228 @@
+2025-08-14 00:25:52,083 - DEBUG -  🔵 Iniciando procesamiento del DataFrame...
+2025-08-14 00:25:52,083 - DEBUG -  ... PROCESANDO MENSAJE 1: 'buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude' 
+2025-08-14 00:25:52,083 - DEBUG - 🟡 NUEVA PREGUNTA: buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude
+2025-08-14 00:25:52,083 - DEBUG -  ... PROCESANDO MENSAJE 2: 'buenas noches! envianos tu usuario de github' 
+2025-08-14 00:25:52,084 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : buenas noches! envianos tu usuario de github
+2025-08-14 00:25:52,084 - DEBUG -  ... PROCESANDO MENSAJE 3: 'mi usuario es gmeneseutn' 
+2025-08-14 00:25:52,084 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : mi usuario es gmeneseutn
+2025-08-14 00:25:52,084 - DEBUG -  ... PROCESANDO MENSAJE 4: 'enviada la invite!' 
+2025-08-14 00:25:52,084 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : enviada la invite!
+2025-08-14 00:25:52,084 - DEBUG -  ... PROCESANDO MENSAJE 5: 'buenas, yo tambien colgue con unirme. lo quise hacer con el link que me había guardado y ahora me figura el equipo lleno. soy del grupo 11, martes a la mañana. mi usario es feliperusso.' 
+2025-08-14 00:25:52,084 - DEBUG - 🟢 PREGUNTA CERRADA por tiempo
+2025-08-14 00:25:52,085 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buenas, yo tambien colgue con unirme. lo quise hacer con el link que me había guardado y ahora me figura el equipo lleno. soy del grupo 11, martes a la mañana. mi usario es feliperusso.'
+2025-08-14 00:25:52,085 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15
+la clase que se unieron al repo no pude asistir, y cuando intente despues no pude'
+2025-08-14 00:25:52,085 - DEBUG -  ... PROCESANDO MENSAJE 6: 'buenas, yo pensé que tenia acceso al repo, pero era de otra cursada 🫠  soy del grupo 26, miércoles noche. mi usuario de github es alejokoprivnikar. me podrían unir al repositorio?' 
+2025-08-14 00:25:52,085 - DEBUG - 🟡 NUEVA PREGUNTA: buenas, yo pensé que tenia acceso al repo, pero era de otra cursada 🫠  soy del grupo 26, miércoles noche. mi usuario de github es alejokoprivnikar. me podrían unir al repositorio?
+2025-08-14 00:25:52,085 - DEBUG -  ... PROCESANDO MENSAJE 7: 'en qué repo estás? así te saco del que no te pertenece' 
+2025-08-14 00:25:52,085 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : en qué repo estás? así te saco del que no te pertenece
+2025-08-14 00:25:52,085 - DEBUG -  ... PROCESANDO MENSAJE 8: 'actualmente estoy en "2023-tpa-vi-no-grupo-12" y me quiero pasar a "2024-tpa-vi-no-grupo-26"' 
+2025-08-14 00:25:52,085 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : actualmente estoy en "2023-tpa-vi-no-grupo-12" y me quiero pasar a "2024-tpa-vi-no-grupo-26"
+2025-08-14 00:25:52,085 - DEBUG -  ... PROCESANDO MENSAJE 9: 'ya te agregué al 26, pero no te veo en el 12! de todas formas: ¿cómo llegaste ahí?! confirmame si ya ves tu grupo y listo' 
+2025-08-14 00:25:52,085 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : ya te agregué al 26, pero no te veo en el 12! de todas formas: ¿cómo llegaste ahí?! confirmame si ya ves tu grupo y listo
+2025-08-14 00:25:52,085 - DEBUG -  ... PROCESANDO MENSAJE 10: 'perfecto! muchas gracias, ya pude entrar. como respuesta a como llegue ahí, es el repo que me designaron el año pasado y cuando revise el github pensé que era el nuevo repo.' 
+2025-08-14 00:25:52,085 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : perfecto! muchas gracias, ya pude entrar. como respuesta a como llegue ahí, es el repo que me designaron el año pasado y cuando revise el github pensé que era el nuevo repo.
+2025-08-14 00:25:52,086 - DEBUG -  ... PROCESANDO MENSAJE 11: 'holii puede ser que en el aula no esten todas las ppts ?' 
+2025-08-14 00:25:52,086 - DEBUG - 🟡 NUEVA PREGUNTA: holii puede ser que en el aula no esten todas las ppts ?
+2025-08-14 00:25:52,086 - DEBUG -  ... PROCESANDO MENSAJE 12: 'xq queria repasar y no las encuentro 😦' 
+2025-08-14 00:25:52,086 - DEBUG -  📌 Se concatenó la pregunta: 
+ holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 
+ con el mensaje: xq queria repasar y no las encuentro 😦
+2025-08-14 00:25:52,086 - DEBUG -  ... PROCESANDO MENSAJE 13: 'ya las encontreee no dije nadaa' 
+2025-08-14 00:25:52,086 - DEBUG -  📌 Se concatenó la pregunta: 
+ holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa 
+ con el mensaje: ya las encontreee no dije nadaa
+2025-08-14 00:25:52,086 - DEBUG -  ... PROCESANDO MENSAJE 14: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.' 
+2025-08-14 00:25:52,086 - DEBUG - 🟢 PREGUNTA CERRADA por tiempo
+2025-08-14 00:25:52,086 - DEBUG - 🟡 NUEVA PREGUNTA: ¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.
+2025-08-14 00:25:52,086 - DEBUG -  ... PROCESANDO MENSAJE 15: 'buenas! turno mañana o noche?' 
+2025-08-14 00:25:52,086 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : buenas! turno mañana o noche?
+2025-08-14 00:25:52,086 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : buenas! turno mañana o noche?
+2025-08-14 00:25:52,086 - DEBUG -  ... PROCESANDO MENSAJE 16: 'turno noche' 
+2025-08-14 00:25:52,086 - DEBUG - 🟢 PREGUNTA CERRADA por tiempo
+2025-08-14 00:25:52,086 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : turno noche
+2025-08-14 00:25:52,086 - DEBUG -  ... PROCESANDO MENSAJE 17: 'ok! ahora en un rato te agregamos' 
+2025-08-14 00:25:52,086 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : ok! ahora en un rato te agregamos
+2025-08-14 00:25:52,087 - DEBUG -  ... PROCESANDO MENSAJE 18: 'perdon la tardanza! <@831979058865897533> ahi deberia aparecerte la invitacion' 
+2025-08-14 00:25:52,087 - DEBUG - 🟢 PREGUNTA CERRADA por tiempo
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'perdon la tardanza! <@831979058865897533> ahi deberia aparecerte la invitacion'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'perdon la tardanza! <@831979058865897533> ahi deberia aparecerte la invitacion'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,087 - DEBUG -  ... PROCESANDO MENSAJE 19: 'no hay problema, ya me pude sumar. gracias!' 
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'no hay problema, ya me pude sumar. gracias!'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'no hay problema, ya me pude sumar. gracias!'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,087 - DEBUG -  ... PROCESANDO MENSAJE 20: 'hola buneas, una consutla' 
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'hola buneas, una consutla'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'hola buneas, una consutla'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,087 - DEBUG -  ... PROCESANDO MENSAJE 21: 'buen dia' 
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buen dia'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buen dia'
+2025-08-14 00:25:52,087 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,088 - DEBUG -  ... PROCESANDO MENSAJE 22: 'que necesitas?' 
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'que necesitas?'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'que necesitas?'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,088 - DEBUG -  ... PROCESANDO MENSAJE 23: 'ya vi q escribiste en el otro canal..' 
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'ya vi q escribiste en el otro canal..'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'ya vi q escribiste en el otro canal..'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,088 - DEBUG -  ... PROCESANDO MENSAJE 24: 'hola, buenas tardes. quería consultar si de casualidad el curso de ui/ux podrá quedar grabado, porque me interesaría participar pero tengo que cursar en el mismo horario en campus. gracias, un saludo!' 
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'hola, buenas tardes. quería consultar si de casualidad el curso de ui/ux podrá quedar grabado, porque me interesaría participar pero tengo que cursar en el mismo horario en campus. gracias, un saludo!'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'hola, buenas tardes. quería consultar si de casualidad el curso de ui/ux podrá quedar grabado, porque me interesaría participar pero tengo que cursar en el mismo horario en campus. gracias, un saludo!'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,088 - DEBUG -  ... PROCESANDO MENSAJE 25: 'buenas! si! los seminarios quedan grabados' 
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buenas! si! los seminarios quedan grabados'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buenas! si! los seminarios quedan grabados'
+2025-08-14 00:25:52,088 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,088 - DEBUG -  ... PROCESANDO MENSAJE 26: 'buenas, queria preguntar si los seminarios entran para el parcial o si son para ayudarnos en el tp. salduos!' 
+2025-08-14 00:25:52,089 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buenas, queria preguntar si los seminarios entran para el parcial o si son para ayudarnos en el tp. salduos!'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buenas, queria preguntar si los seminarios entran para el parcial o si son para ayudarnos en el tp. salduos!'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,089 - DEBUG -  ... PROCESANDO MENSAJE 27: 'buenos días elias! el contenido de los seminiarios es necesario para el desarrollo del tpa, pero allí dentro también hay varias cuestiones que acompañan los temas de la cursada. si bien no se les va a hacer una pregunta específica sobre contenido de alguno de los seminarios, es importante su visualización a medida que se los vayamos indicando.' 
+2025-08-14 00:25:52,089 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buenos días elias! el contenido de los seminiarios es necesario para el desarrollo del tpa, pero allí dentro también hay varias cuestiones que acompañan los temas de la cursada. si bien no se les va a hacer una pregunta específica sobre contenido de alguno de los seminarios, es importante su visualización a medida que se los vayamos indicando.'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'buenos días elias! el contenido de los seminiarios es necesario para el desarrollo del tpa, pero allí dentro también hay varias cuestiones que acompañan los temas de la cursada. si bien no se les va a hacer una pregunta específica sobre contenido de alguno de los seminarios, es importante su visualización a medida que se los vayamos indicando.'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,089 - DEBUG -  ... PROCESANDO MENSAJE 28: 'perfecto. muchas gracias eze!' 
+2025-08-14 00:25:52,089 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'perfecto. muchas gracias eze!'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'holii puede ser que en el aula no esten todas las ppts ? xq queria repasar y no las encuentro 😦 ya las encontreee no dije nadaa'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'perfecto. muchas gracias eze!'
+2025-08-14 00:25:52,089 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: '¡buenas! en su momento no pude unirme al repo de mi grupo. mi usuario es manugomezp y soy del grupo 4. ¿podrían unirme? muchas gracias.'
+2025-08-14 00:25:52,089 - DEBUG -  ... PROCESANDO MENSAJE 29: 'hola, cual es la modalidad de la clase de mañana?' 
+2025-08-14 00:25:52,089 - DEBUG - 🟡 NUEVA PREGUNTA: hola, cual es la modalidad de la clase de mañana?
+2025-08-14 00:25:52,089 - DEBUG -  ... PROCESANDO MENSAJE 30: 'según el cronograma' 
+2025-08-14 00:25:52,090 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : según el cronograma
+2025-08-14 00:25:52,090 - DEBUG -  ... PROCESANDO MENSAJE 31: 'tengo entendido que es virtual' 
+2025-08-14 00:25:52,090 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : tengo entendido que es virtual
+2025-08-14 00:25:52,090 - DEBUG -  ... PROCESANDO MENSAJE 32: 'no sé si el hecho de haber tenido virtual la clase anterior cambia algo, pero x ahora no se avisó nada' 
+2025-08-14 00:25:52,090 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : no sé si el hecho de haber tenido virtual la clase anterior cambia algo, pero x ahora no se avisó nada
+2025-08-14 00:25:52,090 - DEBUG -  ... PROCESANDO MENSAJE 33: 'buenas, buscamos al grupo 43, somos del 25. no se si este es el chat para eso' 
+2025-08-14 00:25:52,090 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : buenas, buscamos al grupo 43, somos del 25. no se si este es el chat para eso
+2025-08-14 00:25:52,090 - DEBUG -  ... PROCESANDO MENSAJE 34: 'buenos días bruno, cómo estás? no, este no es el canal indicado pues este es general para la cursada martes + miércoles. tenes que escribir en el canal de consultas de tu curso!' 
+2025-08-14 00:25:52,090 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : buenos días bruno, cómo estás? no, este no es el canal indicado pues este es general para la cursada martes + miércoles. tenes que escribir en el canal de consultas de tu curso!
+2025-08-14 00:25:52,090 - DEBUG -  ... PROCESANDO MENSAJE 35: 'buen día, para ver el seminario grabado de ui/ux tengo que enviar el form de google o está el link por algún lado? gracias' 
+2025-08-14 00:25:52,090 - DEBUG - 🟢 PREGUNTA CERRADA por tiempo
+2025-08-14 00:25:52,091 - DEBUG - 🟡 NUEVA PREGUNTA: buen día, para ver el seminario grabado de ui/ux tengo que enviar el form de google o está el link por algún lado? gracias
+2025-08-14 00:25:52,091 - DEBUG -  ... PROCESANDO MENSAJE 36: 'buen día joaquín! el seminario se realiza el día de mañana. cuando esté subido, lo disponibilizaremos por los distintos canales' 
+2025-08-14 00:25:52,091 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : buen día joaquín! el seminario se realiza el día de mañana. cuando esté subido, lo disponibilizaremos por los distintos canales
+2025-08-14 00:25:52,091 - DEBUG -  ... PROCESANDO MENSAJE 37: 'hola!!
+estoy teniendo el siguiente problema a la hora de correr un test con junit, antes me corrían pero después cambiar algunas clases ya no. 
+actualicé el pom por si era ese el problema, busqué el error en la web pero no solucionó mi problema, no sé a alguno le pasó o si sabe por qué pasa. muchas graciass' 
+2025-08-14 00:25:52,091 - DEBUG - 🟢 PREGUNTA CERRADA por tiempo
+2025-08-14 00:25:52,091 - DEBUG - 🟡 NUEVA PREGUNTA: hola!!
+estoy teniendo el siguiente problema a la hora de correr un test con junit, antes me corrían pero después cambiar algunas clases ya no. 
+actualicé el pom por si era ese el problema, busqué el error en la web pero no solucionó mi problema, no sé a alguno le pasó o si sabe por qué pasa. muchas graciass
+2025-08-14 00:25:52,091 - DEBUG -  ... PROCESANDO MENSAJE 38: 'hola gustavo, cómo estás? de casualidad cambiaste nombre de packages ? porque veo que no te está reconociendo clases' 
+2025-08-14 00:25:52,091 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : hola gustavo, cómo estás? de casualidad cambiaste nombre de packages ? porque veo que no te está reconociendo clases
+2025-08-14 00:25:52,092 - DEBUG -  ... PROCESANDO MENSAJE 39: 'sí, pero en cada cambio utilice la opción de "refactor", para no tener problemas de incompatibilidades en los nombres de clases y paquetes' 
+2025-08-14 00:25:52,092 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : sí, pero en cada cambio utilice la opción de "refactor", para no tener problemas de incompatibilidades en los nombres de clases y paquetes
+2025-08-14 00:25:52,092 - DEBUG -  ... PROCESANDO MENSAJE 40: 'ahora me cree un nuevo proyecto para ver el requerimiento de la carga masiva de usuarios desde un archivo csv y me apareció un mensaje parecido cuando traté de correr el main' 
+2025-08-14 00:25:52,092 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : ahora me cree un nuevo proyecto para ver el requerimiento de la carga masiva de usuarios desde un archivo csv y me apareció un mensaje parecido cuando traté de correr el main
+2025-08-14 00:25:52,092 - DEBUG -  ... PROCESANDO MENSAJE 41: 'fíjate la sdk de java si se te cambio por alguna casualidad.. sospecho que puede venir por ahí' 
+2025-08-14 00:25:52,092 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : fíjate la sdk de java si se te cambio por alguna casualidad.. sospecho que puede venir por ahí
+2025-08-14 00:25:52,092 - DEBUG -  ... PROCESANDO MENSAJE 42: 'ya me funciona, desinstalé el intellij que tenía e instalé la última versión. muchas graciass!' 
+2025-08-14 00:25:52,092 - DEBUG - 🟢 PREGUNTA CERRADA por tiempo
+2025-08-14 00:25:52,092 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'ya me funciona, desinstalé el intellij que tenía e instalé la última versión. muchas graciass!'
+2025-08-14 00:25:52,092 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'buen día, para ver el seminario grabado de ui/ux tengo que enviar el form de google o está el link por algún lado? gracias'
+2025-08-14 00:25:52,092 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'ya me funciona, desinstalé el intellij que tenía e instalé la última versión. muchas graciass!'
+2025-08-14 00:25:52,092 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'hola!!
+estoy teniendo el siguiente problema a la hora de correr un test con junit, antes me corrían pero después cambiar algunas clases ya no. 
+actualicé el pom por si era ese el problema, busqué el error en la web pero no solucionó mi problema, no sé a alguno le pasó o si sabe por qué pasa. muchas graciass'
+2025-08-14 00:25:52,092 - DEBUG -  ... PROCESANDO MENSAJE 43: 'buenas noches, tengo una consulta respecto a la parte de mockear la api para la recomendación de puntos de ubicación de las heladeras en el tp anual
+
+¿los datos en que se basa para la recomendación de puntos de ubicación se deberían pasar desde el body como un objeto?' 
+2025-08-14 00:25:52,092 - DEBUG - 🟡 NUEVA PREGUNTA: buenas noches, tengo una consulta respecto a la parte de mockear la api para la recomendación de puntos de ubicación de las heladeras en el tp anual
+
+¿los datos en que se basa para la recomendación de puntos de ubicación se deberían pasar desde el body como un objeto?
+2025-08-14 00:25:52,093 - DEBUG -  ... PROCESANDO MENSAJE 44: 'osea por ejemplo pasarle en el body:
+```json
+{
+  latitud: 33.22
+  longitud: 40.05
+  radio: 20
+  ....
+}```' 
+2025-08-14 00:25:52,093 - DEBUG -  📌 Se concatenó la pregunta: 
+ buenas noches, tengo una consulta respecto a la parte de mockear la api para la recomendación de puntos de ubicación de las heladeras en el tp anual
+
+¿los datos en que se basa para la recomendación de puntos de ubicación se deberían pasar desde el body como un objeto? osea por ejemplo pasarle en el body:
+```json
+{
+  latitud: 33.22
+  longitud: 40.05
+  radio: 20
+  ....
+}``` 
+ con el mensaje: osea por ejemplo pasarle en el body:
+```json
+{
+  latitud: 33.22
+  longitud: 40.05
+  radio: 20
+  ....
+}```
+2025-08-14 00:25:52,093 - DEBUG -  ... PROCESANDO MENSAJE 45: 'hola luciano! ¿te referís al mockeo de lo que devuelve la api? en ese caso, sí, en el body indicás qué puntos recomendados devolvería ante una determinada coordenada y radio que se pase en la ruta.' 
+2025-08-14 00:25:52,093 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : hola luciano! ¿te referís al mockeo de lo que devuelve la api? en ese caso, sí, en el body indicás qué puntos recomendados devolvería ante una determinada coordenada y radio que se pase en la ruta.
+2025-08-14 00:25:52,093 - DEBUG -  ... PROCESANDO MENSAJE 46: 'hola aylen! nono, me refiero a los datos en que se basaria la api para devolver los puntos recomendados' 
+2025-08-14 00:25:52,093 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : hola aylen! nono, me refiero a los datos en que se basaria la api para devolver los puntos recomendados
+2025-08-14 00:25:52,093 - DEBUG -  ... PROCESANDO MENSAJE 47: 'es decir, por dónde habría que enviarle esos datos? o es algo que se va a ver después?' 
+2025-08-14 00:25:52,093 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : es decir, por dónde habría que enviarle esos datos? o es algo que se va a ver después?
+2025-08-14 00:25:52,093 - DEBUG -  ... PROCESANDO MENSAJE 48: 'ahhh! los factores de densidad demográfica y etc que menciona el enunciado? nono, eso es lógica que va a usar la api "que está en desarrollo" dentro de su procesamiento, así que no los tenés' 
+2025-08-14 00:25:52,093 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : ahhh! los factores de densidad demográfica y etc que menciona el enunciado? nono, eso es lógica que va a usar la api "que está en desarrollo" dentro de su procesamiento, así que no los tenés
+2025-08-14 00:25:52,093 - DEBUG -  ... PROCESANDO MENSAJE 49: 'la idea es darle un input y mockear el resultado de la api' 
+2025-08-14 00:25:52,093 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : la idea es darle un input y mockear el resultado de la api
+2025-08-14 00:25:52,093 - DEBUG -  ... PROCESANDO MENSAJE 50: 'me explico?' 
+2025-08-14 00:25:52,094 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : me explico?
+2025-08-14 00:25:52,094 - DEBUG -  ... PROCESANDO MENSAJE 51: 'claro, mi duda es como le pasamos ese input, por parámetro del endpoint?' 
+2025-08-14 00:25:52,094 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : claro, mi duda es como le pasamos ese input, por parámetro del endpoint?
+2025-08-14 00:25:52,094 - DEBUG -  ... PROCESANDO MENSAJE 52: 'https://medium.com/@a.herrerapuertas/query-params-path-params-614e878957ce' 
+2025-08-14 00:25:52,094 - DEBUG - 🟢 PREGUNTA CERRADA por cantidad
+2025-08-14 00:25:52,094 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'https://medium.com/@a.herrerapuertas/query-params-path-params-614e878957ce'
+2025-08-14 00:25:52,094 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'hola!!
+estoy teniendo el siguiente problema a la hora de correr un test con junit, antes me corrían pero después cambiar algunas clases ya no. 
+actualicé el pom por si era ese el problema, busqué el error en la web pero no solucionó mi problema, no sé a alguno le pasó o si sabe por qué pasa. muchas graciass'
+2025-08-14 00:25:52,094 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'https://medium.com/@a.herrerapuertas/query-params-path-params-614e878957ce'
+2025-08-14 00:25:52,094 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'buenas noches, tengo una consulta respecto a la parte de mockear la api para la recomendación de puntos de ubicación de las heladeras en el tp anual
+
+¿los datos en que se basa para la recomendación de puntos de ubicación se deberían pasar desde el body como un objeto? osea por ejemplo pasarle en el body:
+```json
+{
+  latitud: 33.22
+  longitud: 40.05
+  radio: 20
+  ....
+}```'
+2025-08-14 00:25:52,094 - DEBUG -  ... PROCESANDO MENSAJE 53: 'fíjense si les sirve 🙂 en el ejemplo que les pasamos de postman se usa path param porque era solo con un id' 
+2025-08-14 00:25:52,094 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'fíjense si les sirve 🙂 en el ejemplo que les pasamos de postman se usa path param porque era solo con un id'
+2025-08-14 00:25:52,094 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'hola!!
+estoy teniendo el siguiente problema a la hora de correr un test con junit, antes me corrían pero después cambiar algunas clases ya no. 
+actualicé el pom por si era ese el problema, busqué el error en la web pero no solucionó mi problema, no sé a alguno le pasó o si sabe por qué pasa. muchas graciass'
+2025-08-14 00:25:52,094 - DEBUG -  🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: 'fíjense si les sirve 🙂 en el ejemplo que les pasamos de postman se usa path param porque era solo con un id'
+2025-08-14 00:25:52,094 - DEBUG -  🔶 SE ASOCIA A LA PREGUNTA CERRADA: 'buenas noches, tengo una consulta respecto a la parte de mockear la api para la recomendación de puntos de ubicación de las heladeras en el tp anual
+
+¿los datos en que se basa para la recomendación de puntos de ubicación se deberían pasar desde el body como un objeto? osea por ejemplo pasarle en el body:
+```json
+{
+  latitud: 33.22
+  longitud: 40.05
+  radio: 20
+  ....
+}```'
+2025-08-14 00:25:52,094 - DEBUG -  ... PROCESANDO MENSAJE 54: 'aa joya, entonces dependiendo de la query que le pases tenemos que mockear distintas ubicaciones recomendadas que devolveria la api?' 
+2025-08-14 00:25:52,094 - DEBUG - 🟡 NUEVA PREGUNTA: aa joya, entonces dependiendo de la query que le pases tenemos que mockear distintas ubicaciones recomendadas que devolveria la api?
+2025-08-14 00:25:52,094 - DEBUG -  ... PROCESANDO MENSAJE 55: 'claro 😄' 
+2025-08-14 00:25:52,094 - DEBUG -  ✅️ Se ha agregado una nueva respuesta : claro 😄
+2025-08-14 00:25:52,095 - DEBUG -  ... PROCESANDO MENSAJE 56: 'perfecto, gracias aylen' 
