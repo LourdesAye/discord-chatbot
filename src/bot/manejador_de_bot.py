@@ -78,6 +78,27 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
                 await canal.send(  # responde diciendo que captó el mensaje
                     f"Capté un mensaje del canal: `{canal.name}`, que decía: \"{message.content}\". Estoy probando captar mensajes."
                 )
+            
+        @self.bot.event
+        async def on_disconnect():
+            for guild in self.bot.guilds:
+                canal = discord.utils.get(guild.text_channels, name=self.nombre_canal_del_chatbot)
+                if canal:
+                    try:
+                        await canal.send("⚠️ El bot se ha desconectado. Puede que no responda hasta que vuelva a conectarse.")
+                    except discord.errors.Forbidden:
+                        self.logger_chatbot_discord.warning(f"No tengo permisos para enviar mensaje en {guild.name} #{canal.name}")
+
+        @self.bot.event
+        async def on_resumed():
+            for guild in self.bot.guilds:
+                canal = discord.utils.get(guild.text_channels, name=self.nombre_canal_del_chatbot)
+                if canal:
+                    try:
+                        await canal.send("✅ El bot está nuevamente en línea.")
+                    except discord.errors.Forbidden:
+                        self.logger_chatbot_discord.warning(f"No tengo permisos para enviar mensaje en {guild.name} #{canal.name}")
+
         
     def run(self):
         self.bot.run(self.token, log_handler=self.discord_handler, log_level=logging.DEBUG)  # ejecuta el bot con el token, guardando logs en el archivo definido
