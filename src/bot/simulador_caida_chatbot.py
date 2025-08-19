@@ -39,7 +39,7 @@ def enviar_alerta(mensaje: str):
             "image": {"url": IMAGEN_URL}
         }]
 
-    try:
+    try: # requests.post: para enviar información a un servidor (como un webhook). Si todo sale bien, status_code será 204 (sin contenido, pero exitoso).
         response = requests.post(WEBHOOK_URL, json=data)
         if response.status_code != 204:
             logger_bot_controlador.debug(f"⚠️ Webhook respondió con {response.status_code}, {response.text}")
