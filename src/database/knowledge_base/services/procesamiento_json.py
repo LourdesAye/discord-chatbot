@@ -1,8 +1,8 @@
 import pandas as pd
 from utils_for_all.utilidades_logs import guardar_resultados_en_csvs
-from database.knowledge_base.services.clase_procesador_mensajes import Procesador
+from procesamiento.procesamiento_base import Procesador
 from utils_for_all.utilidades_logs import setup_logger
-from database.knowledge_base.services.filtros_json import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio
+from utils_for_all.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio
 
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -36,7 +36,12 @@ def procesar_archivos_json(rutas_json):
         df, filtrados = aplicar_filtros_mensajes_json(df, estrategias) # Filtrar 5 dataframes: mensajes con todos los filtros aplicados, con solo mensajes vacios, con mensajes irrelevantes (solo gifs,sticker o emoticón), con mensjaes que son solo número con signo, o mensajes con solo signo
         guardar_resultados_en_csvs(df, filtrados ,nombre_base)# Guardar los dataframes en CSVs para su control visual
         nombre_log = f"log_json_{idx:02d}.txt" # se va a tener un log por cada archivo json procesado
-        procesador = Procesador(nombre_log) # Crear procesador por cada archivo json procesado
+
+        # ACA VOLVER CUANDO TERMINER DE HACER EL REFACTOR DEL PROCESAMIENTO BATCH Y TIEMPO REAL
+        # VER CÓMO SERÁ LA NUEVA INSTANCIACIÓN DEL PROCESADOR
+        procesador = Procesador(nombre_log) # Crear procesador por cada archivo json procesador
+
+
         df = df.sort_values(by='timestamp', ascending=True)  # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)
         df = df.reset_index(drop=True)  # se reinicia el índice del Dataframe para que quede ordenado y no haya saltos en los índices
         procesador.procesar_dataframe(df,str(ruta_json)) # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas

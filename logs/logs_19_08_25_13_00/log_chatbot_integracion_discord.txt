@@ -1,0 +1,2 @@
+2025-08-19 13:01:10,269 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2025-08-19 13:01:10,816 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González

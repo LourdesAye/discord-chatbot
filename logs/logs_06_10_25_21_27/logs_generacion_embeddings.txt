@@ -1,0 +1,85 @@
+2025-10-06 21:29:51,589 - INFO - ✅ Usando base vectorial existente
+2025-10-06 21:29:56,528 - DEBUG - 
+❓PREGUNTA NUEVA: ¿Qué es Github?
+2025-10-06 21:29:56,528 - DEBUG - 🔝 MÁS PARECIDA:
+2025-10-06 21:29:56,528 - DEBUG - Pregunta: buenas, consulta, es lo mismo usar el cliente desktop de github que github por la web?
+2025-10-06 21:29:56,528 - DEBUG - Metadatos: {'id': 306}
+2025-10-06 21:29:56,528 - DEBUG - Similitud: 0.6140
+2025-10-06 21:29:56,528 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,528 - DEBUG - 🔍 Resultado #2:
+2025-10-06 21:29:56,528 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-10-06 21:29:56,529 - DEBUG - Metadatos: {'id': 296}
+2025-10-06 21:29:56,529 - DEBUG - Similitud: 0.3162
+2025-10-06 21:29:56,529 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,529 - DEBUG - 🔍 Resultado #3:
+2025-10-06 21:29:56,529 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-10-06 21:29:56,529 - DEBUG - Metadatos: {'id': 297}
+2025-10-06 21:29:56,529 - DEBUG - Similitud: 0.0701
+2025-10-06 21:29:56,529 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,560 - DEBUG - 
+❓PREGUNTA NUEVA: ¿Cómo se usa el patrón state?
+2025-10-06 21:29:56,561 - DEBUG - 🔝 MÁS PARECIDA:
+2025-10-06 21:29:56,561 - DEBUG - Pregunta: buenas! tengo una consulta sobre el patrón state. los estados que derivan de la interfaz, ¿pueden tener atributos propios?
+2025-10-06 21:29:56,561 - DEBUG - Metadatos: {'id': 203}
+2025-10-06 21:29:56,561 - DEBUG - Similitud: 0.5663
+2025-10-06 21:29:56,561 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,561 - DEBUG - 🔍 Resultado #2:
+2025-10-06 21:29:56,561 - DEBUG - Pregunta: entonces, ¿cómo se aplicaría el patrón state considerando que los gastos los puse como una lista dentro del usuario en vez de la solución que propuso ezequiel que era que en la clase gasto se tenga como atributo al usuario?
+2025-10-06 21:29:56,561 - DEBUG - Metadatos: {'id': 39}
+2025-10-06 21:29:56,561 - DEBUG - Similitud: 0.1868
+2025-10-06 21:29:56,561 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,561 - DEBUG - 🔍 Resultado #3:
+2025-10-06 21:29:56,561 - DEBUG - Pregunta: buenas! unas consultas sobre el patrón state.
+las relaciones de dependencia entre los estados: 
+1. ¿son obligatorias? 
+2. en caso no de serlo, ¿en qué caso irían? 
+3. ¿es relevante la dirección de la relación?
+4. ¿en algún caso serían bidireccionales?
+2025-10-06 21:29:56,561 - DEBUG - Metadatos: {'id': 360}
+2025-10-06 21:29:56,561 - DEBUG - Similitud: 0.1726
+2025-10-06 21:29:56,561 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,561 - DEBUG - 🔍 Resultado #4:
+2025-10-06 21:29:56,561 - DEBUG - Pregunta: buenas! todo bien? estaba haciendo el seg parcial del año pasado, quería saber si alguien tiene la resolución para comparar. gracias😊
+2025-10-06 21:29:56,561 - DEBUG - Metadatos: {'id': 76}
+2025-10-06 21:29:56,561 - DEBUG - Similitud: 0.0164
+2025-10-06 21:29:56,561 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,561 - DEBUG - 🔍 Resultado #5:
+2025-10-06 21:29:56,561 - DEBUG - Pregunta: buenas, una consulta.
+
+1- para modelar el usuario y sus posibles tipos de usuario estabamos pensando usar el patron state que van a poder variar dependiendo de si el usuario está realizando un viaje y siendo transeúnte, o simplemente está en la aplicacion para ser un cuidador. decidimos modelarlo así y no como una única persona ya que no se puede ser ambos al mismo tiempo y no sería correcto que se pueda acceder a los métodos de los dos estados en simultaneo. 
+pero ahora el problema está en que no se nos ocurriría que método general usar para cada uno, que segun el patron state necesita de eso. lo demás si pudimos incluirlo.
+
+2- no entendemos como abstraernos de los botones que habría en la ui. por ejemplo, cuando dice: "si al menos un cuidador acepta la responsabilidad durante el trayecto, al transeúnte se le habilitará el botón de comenzar. al ser presionado este botón, **el sistema deberá calcular el tiempo de demora aproximado y volverle a notificar a sus cuidadores.**" 
+nosotros como era algo ajeno a lo que podemos diseñar no agregamos en las clases esa parte de notificaciones, pero por las dudas que fueron contestando a los demás compañeros vimos como que había que tenerlo en cuenta.
+2025-10-06 21:29:56,561 - DEBUG - Metadatos: {'id': 212}
+2025-10-06 21:29:56,561 - DEBUG - Similitud: 0.0071
+2025-10-06 21:29:56,561 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,580 - DEBUG - 
+❓PREGUNTA NUEVA: ¿qué es java?
+2025-10-06 21:29:56,580 - DEBUG - 🔝 MÁS PARECIDA:
+2025-10-06 21:29:56,580 - DEBUG - Pregunta: hola, una consulta, yo seguí estás instrucciones para instalar maven y pese a todo no me resultó, la principal situación que me encuentro es que la variable de sistema java_home no existe, busqué como setearla lo cual hice y aún así maven sigue sin figurar, java por otro lado figura correctamente
+2025-10-06 21:29:56,580 - DEBUG - Metadatos: {'id': 307}
+2025-10-06 21:29:56,580 - DEBUG - Similitud: 0.2557
+2025-10-06 21:29:56,580 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,580 - DEBUG - 🔍 Resultado #2:
+2025-10-06 21:29:56,580 - DEBUG - Pregunta: buenas noches, yo tenía una pregunta acerca del seminario de java. quería saber si el try y catch es para exception y runtimexception o es para alguna de las dos específicamente, ya que eso no me quedó muy claro
+2025-10-06 21:29:56,580 - DEBUG - Metadatos: {'id': 313}
+2025-10-06 21:29:56,580 - DEBUG - Similitud: 0.2334
+2025-10-06 21:29:56,580 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,580 - DEBUG - 🔍 Resultado #3:
+2025-10-06 21:29:56,581 - DEBUG - Pregunta: buenas tardes, una duda muy pequeña: en el seminario de java se habla de dependencia. es un sinonimo de biblioteca o se diferencia en algo?
+2025-10-06 21:29:56,581 - DEBUG - Metadatos: {'id': 155}
+2025-10-06 21:29:56,581 - DEBUG - Similitud: 0.1947
+2025-10-06 21:29:56,581 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,581 - DEBUG - 🔍 Resultado #4:
+2025-10-06 21:29:56,581 - DEBUG - Pregunta: buenas noches, tengo una duda al momento de crear el proyecto. no me aparece sdk como en el video y solo tengo la opción de eclipse y no me aparece java aunque chequee por consola y lo tengo instalado
+2025-10-06 21:29:56,581 - DEBUG - Metadatos: {'id': 163}
+2025-10-06 21:29:56,581 - DEBUG - Similitud: 0.1712
+2025-10-06 21:29:56,581 - DEBUG - ----------------------------------------
+2025-10-06 21:29:56,581 - DEBUG - 🔍 Resultado #5:
+2025-10-06 21:29:56,581 - DEBUG - Pregunta: hola!
+tengo una consulta técnica de java: en una clase se puede declarar una lista en donde el tipo sea la clase misma? 
+por ejemplo, tengo una clase "materia" y quiero que tenga un atributo "correlativas" que sea una lista donde, justamente, el tipo sea una "materia"
+2025-10-06 21:29:56,581 - DEBUG - Metadatos: {'id': 159}
+2025-10-06 21:29:56,581 - DEBUG - Similitud: 0.1414
+2025-10-06 21:29:56,581 - DEBUG - ----------------------------------------

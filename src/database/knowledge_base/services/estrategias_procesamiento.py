@@ -9,7 +9,7 @@ MAX_DELTA_SEGUNDOS_MSJ = 360
 
 class ProcesamientoStrategy(ABC): # Hereda de ABC para ser una clase abstracta (que en este caso simula ser una interface)
     @abstractmethod # para marcar métodos que deben ser implementados obligatoriamente por las clases hijas.
-    def procesar(self, procesador, mensaje: Mensaje): # os métodos abstractos no tienen implementación (solo firma)
+    def procesar(self, procesador, mensaje: Mensaje): # los métodos abstractos no tienen implementación (solo firma)
         pass # Esto obliga a que las clases hijas implementen este método
 
 class ProcesamientoDocenteStrategy(ProcesamientoStrategy): # ProcesamientoDocenteStrategy hereda de ProcesamientoStrategy

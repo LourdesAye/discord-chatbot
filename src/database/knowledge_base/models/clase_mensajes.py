@@ -25,6 +25,51 @@ class Mensaje:
             attachments=cls._procesar_attachments(row.get("attachments", [])), # Busca "attachments" en el diccionario row. Si existe, devuelve su valor sino [] (una lista vacía).
             origen=ruta_json)
     
+    @classmethod
+    def from_discord(cls, discord_message):
+        """
+        Construye un Mensaje partiendo del objeto `message` de discord.py.
+        el atributo message.attachments en discord.py es una lista de objetos discord.Attachment.
+        Cada elemento de esa lista representa un archivo adjunto en el mensaje, y puedes acceder a sus propiedades como:
+            attachment.id: el ID único del adjunto
+            attachment.filename: el nombre del archivo (nombre_archivo.extension)
+            attachment.url: la URL para descargar el archivo
+        """
+        # Lista para guardar nombres de archivos adjuntos
+        attachments = []
+        try: # algunos mensajes pueden no tener attachments
+            # ejemplo de attachments:
+                #  [<Attachment 
+                # id=1426312557093978203 
+                # filename='refelxion_uso_de_herrameintas_en_tic_y_general.docx' 
+                # url='refelxion_uso_de_herrameintas_en_tic_y_general.docx'>, 
+                # <Attachment 
+                # id=1426312557450498140 
+                # filename='Charlas_empleab_ilidad_utn_frba_2_oct.docx' 
+                # url='Charlas_empleab_ilidad_utn_frba_2_oct.docx'>]
+            for a in discord_message.attachments: 
+                # ejemplo de filename: Charlas_empleab_ilidad_utn_frba_2_oct.docx
+                filename = getattr(a, "filename", str(a))
+                # "Mi nombre es Lourdes".split(' ') -> ['Mi', 'nombre', 'es', 'Lourdes']
+                # ejemplo de ext: docx
+                ext = filename.split('.')[-1] if '.' in filename else ''
+                attachments.append((filename, ext)) # agrega una tupla (nombre,extensión) a la lista
+        except Exception:
+        # si no tiene attachments o estructura diferente, dejamos lista vacía
+            attachments = []
+
+        autor = discord_message.author.name if hasattr(discord_message.author, 'name') else str(discord_message.author)
+
+        return cls(
+        id_mensaje=str(discord_message.id),
+        autor=autor,
+        contenido=discord_message.content,
+        timestamp=discord_message.created_at.isoformat() if hasattr(discord_message, 'created_at') else "",
+        attachments=attachments,
+        origen="discord_tiempo_real",
+        )
+
+    
     @staticmethod # para indicar que es un método de clase, afecta a la clase no al objeto necesariamente
     def _procesar_attachments(lista_adjuntos):
         # os.path.basename(ruta) : "1223680537604915200_image.png" para obtener solo el nombre del archivo sin la ruta completa.

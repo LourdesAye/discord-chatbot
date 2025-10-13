@@ -7,14 +7,29 @@ from utils_for_all.utilidades_logs import setup_logger,LOG_DIR_ABS
 from datetime import datetime
 from discord import Embed, Colour
 from zoneinfo import ZoneInfo
+from bot.Edicion_mensajes import MessageDiff
+from bot.CapturadorMensajes import CapturadorMensajes
+from utils_for_all.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio 
 
 class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
     def __init__(self):
         # Carga del entorno
         load_dotenv()  # carga las variables del archivo .env al entorno de ejecución
+
+        # Se carga el canal en el que responde o funciona el chatbot
         self.token = os.getenv('DISCORD_TOKEN')  # obtiene el token del bot desde la variable de entorno
         self.nombre_canal_del_chatbot = os.getenv('NOMBRE_CANAL_CHATBOT')  # obtiene el nombre del canal desde .env
-        self.id_canal_chatbot = os.getenv('ID_CANAL_CHATBOT')  # obtiene el ID del canal
+        self.id_canal_chatbot = int(os.getenv('ID_CANAL_CHATBOT'))  # obtiene el ID del canal desde .env
+
+        # Carga el o los canales de consulta de los alumnos
+        canales_de_consultas = os.getenv("CANALES_DE_CONSULTAS_ALUMNOS") # obtiene el o los nombres de los canales del .env
+        ids_de_canales = os.getenv("ID_CANALES_DE_CONSULTAS_ALUMNOS") # obtiene el o los ids de los canales del .env
+        print("Hola! Aquí están los nombres de los canales de consulta:",canales_de_consultas)
+        print("Hola! Aquí están los id de los canales de consulta:",ids_de_canales)
+
+        # Si existen los canales de consultas, se convierten en lista
+        self.canales_de_consultas = [c.strip() for c in canales_de_consultas.split(",")] if canales_de_consultas else []
+        self.ids_canales_de_consultas = [int(i.strip()) for i in ids_de_canales.split(",")] if ids_de_canales else []
 
         # Crear 2 tipos de logs: 
         # 1- el que es externo y no manejamos, popio con datos del funcionamiento de discord
@@ -53,190 +68,155 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
                 else:
                     self.logger_chatbot_discord.debug(f"❌ Canal no encontrado en el servidor: {guild.name}")  # se documenta el error: no encuentra el canal
 
-        @self.bot.event  
-        async def on_message(message): # evento que se ejecuta cada vez que se envía un mensaje a algún canal de algún servidor
-            if message.author == self.bot.user:  # ignora mensajes enviados por el propio bot
+        @self.bot.event
+        async def on_message(message):
+            # Ignora mensajes del propio bot
+            if message.author == self.bot.user:
                 return
 
-            canal = message.channel  # obtiene el canal desde el que se envió el mensaje
+            # --- Datos base del canal ---
+            canal = message.channel                # Objeto canal o hilo
+            canal_nombre = getattr(canal, "name", "Sin nombre")  # más seguro
+            canal_id = getattr(canal, "id", None)  # puede no existir en casos raros
 
-            if isinstance(canal, discord.TextChannel) and canal.name == self.nombre_canal_del_chatbot:  # si el mensaje fue en el canal principal del bot
-                thread = await canal.create_thread(  # crea un hilo a partir del mensaje recibido (await porque es una operación asíncrona que puede demorar)
-                    name=f"Consulta de {message.author.display_name}",  # nombre del hilo según el usuario
-                    message=message,  # mensaje base del hilo
-                    auto_archive_duration=60  # se archiva después de 60 min sin actividad
+            # --- Caso 1: mensaje en el canal principal del chatbot ---
+            if isinstance(canal, discord.TextChannel) and canal_nombre == self.nombre_canal_del_chatbot:
+                thread = await canal.create_thread(
+                    name=f"Consulta de {message.author.display_name}",
+                    message=message,
+                    auto_archive_duration=60
                 )
-
-                await canal.send(  # deja un aviso en el canal principal (operación asíncrona)
-                    f"📬 Hola {message.author.mention}! Creé un hilo para tu consulta. Hacé clic en él para continuar nuestra conversación."
+                await canal.send(
+                    f"📬 Hola {message.author.mention}! Creé un hilo para tu consulta. "
+                    "Hacé clic en él para continuar nuestra conversación."
                 )
+                return  # ya manejado, evitamos seguir
 
-            elif isinstance(canal, discord.Thread) and canal.parent.name == self.nombre_canal_del_chatbot:  # si el mensaje es dentro de un hilo de ese canal
-                await canal.send(  # responde también dentro del hilo ()
-                    "Estoy procesando tu mensaje en el hilo..."
-                )
+            # --- Caso 2: mensaje dentro de un hilo del canal principal ---
+            if isinstance(canal, discord.Thread) and canal.parent.name == self.nombre_canal_del_chatbot:
+                await canal.send("Estoy procesando tu mensaje en el hilo...")
+                return
 
-            else:
-                embed = Embed(
-                title="📩 ¡Mensaje nuevo capturado!",
+            # --- Caso 3: mensaje en un canal de consulta ---
+            # (por nombre o por ID)
+            # 🔸 Convertimos todo a string para evitar comparaciones tipo int vs str
+            canales_validos = set(str(c) for c in self.canales_de_consultas)
+            ids_validos = set(str(i) for i in self.ids_canales_de_consultas)
+
+            if str(canal_nombre) in canales_validos or str(canal_id) in ids_validos:
+                # Obtener el texto del mensaje
+                texto_mensaje = message.content or ""  
+                # Generar los filtros para determinar si el mensaje se analizará o no
+                estrategias_filtro_mensaje =[ FiltroContenidoVacio(),FiltroContenidoIrrelevanteVisual(), FiltroSoloNumerosSignos(),FiltroSoloSimbolos()]
+                for estrategia_de_filtro in estrategias_filtro_mensaje: 
+                    nombre_filtro = estrategia_de_filtro.nombre() # se capta nombre de la estrategia
+                    es_aceptable_mensaje = estrategia_de_filtro.aplicar(texto_mensaje) # se aplica el filtro en el mensaje
+                    if es_aceptable_mensaje: # si el mensaje es filtrado (no es aceptable)
+                        self.logger_chatbot_discord.debug(f"❌ Mensaje filtrado por '{nombre_filtro}': {texto_mensaje}") # para trazabilidad de mensajes filtrados de acuerdo a la estrategia
+                        await canal.send(f"⚠️ Tu mensaje fue filtrado por el criterio '{nombre_filtro}' y no será procesado. Por favor, envía un mensaje válido.")
+                        return # se termina el proceso del mensaje
+                # Si pasa todos los filtros, se procesa el mensaje
+                await canal.send("Tu mensaje ha sido recibido y está siendo procesado...")
+                attachments = []
+                try: # algunos mensajes pueden no tener attachments
+                    for a in message.attachments: 
+                        # ejemplo de attachments:
+                            #  [<Attachment 
+                            # id=1426312557093978203 
+                            # filename='refelxion_uso_de_herrameintas_en_tic_y_general.docx' 
+                            # url='refelxion_uso_de_herrameintas_en_tic_y_general.docx'>, 
+                            # <Attachment 
+                            # id=1426312557450498140 
+                            # filename='Charlas_empleab_ilidad_utn_frba_2_oct.docx' 
+                            # url='Charlas_empleab_ilidad_utn_frba_2_oct.docx'>]
+                        filename = getattr(a, "filename", str(a))
+                            # ejemplo de filename: Charlas_empleab_ilidad_utn_frba_2_oct.docx
+                        ext = filename.split('.')[-1] if '.' in filename else ''
+                            # "Mi nombre es Lourdes".split(' ') -> ['Mi', 'nombre', 'es', 'Lourdes']
+                            # ejemplo de ext: docx
+                        attachments.append((filename, ext)) # agrega una tupla (nombre,extensión) a la lista
+                    return
+                except Exception:
+                # si no tiene attachments o estructura diferente, dejamos lista vacía
+                    attachments = []
+                    return
+
+            # --- Caso 4: mensaje en cualquier otro canal ---
+            content = message.content or "*[Vacío]*"
+            author = str(message.author)
+            guild = message.guild.name if message.guild else "DM"
+            msg_id = message.id
+
+            # Hora local (Argentina)
+            local_time = message.created_at.astimezone(ZoneInfo("America/Argentina/Buenos_Aires"))
+            timestamp = local_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            # Adjuntos, menciones, etc.
+            attachments = [a.url for a in message.attachments]
+            embeds = message.embeds
+            mentions = [m.name for m in message.mentions]
+            reactions = [str(r) for r in message.reactions]
+            flags = message.flags
+            pinned = message.pinned
+            msg_type = message.type.name
+            edited = message.edited_at.strftime("%Y-%m-%d %H:%M:%S") if message.edited_at else "Sin editar"
+            stickers = [s.name for s in message.stickers] if message.stickers else []
+
+            # Roles (si el autor los tiene)
+            roles = []
+            if hasattr(message.author, "roles"):
+                roles = [r.name for r in message.author.roles if r.name != "@everyone"]
+
+            # Enlace directo
+            jump = message.jump_url
+
+            # --- Construcción del Embed ---
+            embed = Embed(
+                title="📩 Nuevo Mensaje Registrado",
                 colour=Colour.green(),
-                timestamp=message.created_at  # Discord muestra el timestamp arriba a la derecha
-                )
-            # 👇 Avatar a la derecha, NO usamos set_author así el título queda primero
+                timestamp=message.created_at
+            )
             embed.set_thumbnail(url=message.author.display_avatar.url)
 
-            # 1) Autor (primero, debajo del título)
-            embed.add_field(
-                name="👤 Autor",
-                value=f"{message.author.mention}\nID: `{message.author.id}`",
-                inline=False
-            )
+            embed.add_field(name="👤 Autor del mensaje registrado:", value=author, inline=False)
+            embed.add_field(name="🆔 ID de autor:", value=message.author.id, inline=False)
 
-            # 2) Contenido
-            embed.add_field(name="🗨️ Contenido", value=content, inline=False)
+            if isinstance(message.channel, discord.Thread):
+                embed.add_field(name="#️⃣ Canal principal:", value=canal.parent.name, inline=False)
+                embed.add_field(name="🧵 Hilo:", value=canal.name, inline=True)
+            else:
+                embed.add_field(name="#️⃣ Canal:", value=canal_nombre, inline=False)
 
-            # 3) Ubicación e IDs
-            embed.add_field(name="📍 Canal", value=message.channel.name, inline=True)
-            embed.add_field(name="🏠 Servidor", value=guild, inline=True)
-            embed.add_field(name="🆔 ID del mensaje", value=str(message.id), inline=False)
+            embed.add_field(name="🗄️ Servidor:", value=guild, inline=False)
+            embed.add_field(name="🆔 ID del mensaje:", value=msg_id, inline=False)
+            embed.add_field(name="🕐 Fecha y hora:", value=timestamp, inline=False)
+            embed.add_field(name="📝 Editado:", value=edited, inline=False)
+            embed.add_field(name="💬 Contenido:", value=content, inline=False)
+            embed.add_field(name="📎 Archivos:", value="\n".join(attachments) if attachments else "Ninguno", inline=False)
+            embed.add_field(name="📋 Embeds:", value=f"{len(embeds)} encontrados" if embeds else "Ninguno", inline=False)
+            embed.add_field(name="👥 Menciones:", value=", ".join(mentions) if mentions else "Ninguna", inline=False)
+            embed.add_field(name="🧑‍💼 Roles:", value=", ".join(roles) if roles else "Ninguno", inline=False)
+            embed.add_field(name="💟 Stickers:", value=", ".join(stickers) if stickers else "Ninguno", inline=False)
+            embed.add_field(name="👍 Reacciones:", value=", ".join(reactions) if reactions else "Ninguna", inline=False)
+            embed.add_field(name="🏳️ Banderas:", value=str(flags) if flags else "Ninguna", inline=False)
+            embed.add_field(name="📌 Fijado:", value="Sí" if pinned else "No", inline=False)
+            embed.add_field(name="✉️ Tipo de mensaje:", value=msg_type, inline=False)
+            embed.add_field(name="🔗 Enlace:", value=jump, inline=False)
 
-            # 4) Tiempos
-            enviado = message.created_at.strftime("%Y-%m-%d %H:%M:%S")
-            editado = message.edited_at.strftime("%Y-%m-%d %H:%M:%S") if message.edited_at else "Sin editar"
-            embed.add_field(name="⏰ Enviado", value=enviado, inline=True)
-            embed.add_field(name="✏️ Editado", value=editado, inline=True)
+            await message.channel.send(embed=embed)
 
-            # 5) Otros detalles
-            embed.add_field(name="📎 Adjuntos", value=_fmt_list(attachments), inline=False)
-            embed.add_field(name="📦 Embeds", value=str(embeds_count) if embeds_count else "Ninguno", inline=True)
-            embed.add_field(name="👥 Menciones", value=_fmt_list(mentions, "Ninguna", ", "), inline=False)
-            embed.add_field(name="🎭 Roles", value=_fmt_list(roles, "Ninguno", ", "), inline=False)
-            embed.add_field(name="😀 Stickers", value=_fmt_list(stickers), inline=False)
-            embed.add_field(name="📊 Reacciones", value=_fmt_list(reactions, "Ninguna", ", "), inline=False)
-            embed.add_field(name="🚩 Banderas", value=str(message.flags) if message.flags else "Ninguna", inline=False)
-            embed.add_field(name="📌 Anclado", value="Sí" if message.pinned else "No", inline=True)
-            embed.add_field(name="📦 Tipo", value=message.type.name, inline=True)
-            embed.add_field(name="🔗 Enlace", value=message.jump_url, inline=False)
-
-
-
-
-
-                # Capturamos los datos
-                content = message.content # mensaje
-                author = str(message.author) # autor
-                channel = message.channel.name # nombre del canal
-                guild = message.guild.name if message.guild else "DM" # nombre del servidor
-                msg_id = message.id # id úncio del mensaje
-                local_time = message.created_at.astimezone(ZoneInfo("America/Argentina/Buenos_Aires"))
-                timestamp = local_time.strftime("%Y-%m-%d %H:%M:%S") # fecha del mensaje
-                attachments = [a.url for a in message.attachments] # nombre de cada archivo adjunto
-                embeds = message.embeds # lista de elementos agregados extra 
-                mentions = [m.name for m in message.mentions] # menciones dentro del mensaje
-                reactions = message.reactions # reacciones del mensaje
-                flags = message.flags # banderas varias en discord
-                pinned = message.pinned # booleano que indica si mensaje fue fijado o no en discord 
-                msg_type = message.type.name # tipo de mensaje : sistema, respuesta, texto
-                edited = message.edited_at.strftime("%Y-%m-%d %H:%M:%S") if message.edited_at else "Sin editar" # fecha de edición del mensaje si fue editado
-                stickers = [s.name for s in message.stickers] if message.stickers else [] # nombre de stickers 
-                roles = [r.name for r in message.author.roles] if hasattr(message.author, "roles") else [] # rol o roles del autor
-                jump = message.jump_url # url para ir directamente al mensaje original al que se hace referencia
-
-                # Embed que mostrará el chatbot para indicar los datos del mensaje captados en un canal por un usuario
-                # (representación visual enriquecida de un mensaje que va más allá del texto simple)
-                # (incluir elementos como títulos, descripciones, imágenes, campos personalizados y otros detalles que hacen que la información sea más atractiva y fácil de entender)
-                embed = Embed(
-                    title="📩 ¡Mensaje nuevo capturado!",
-                    colour=Colour.green(), # colorea : verde
-                    timestamp=message.created_at # fecha en la que fue creado el mensaje en discord
-                )
-
-                # coloca en el embed que aparecerá en discord el nombre del usuario que generó el mensaje original y su avatar
-                embed.set_author(name=author, icon_url=message.author.display_avatar.url)
-                # author = str(message.author) es el autor del mensaje y que aparece en la parte superior del mensaje embebido en Discord. 
-                # obtiene usuario del mensaje, para captar la URL de su avatar. 
-
-                embed.add_field(name="🧑 Autor", value=author, inline=False) # inline =True que ocupe toda una línea en el embed
-                embed.add_field(name="🆔 Autor ID", value=message.author.id, inline=False)
-                embed.add_field(name="📍 Canal", value=channel, inline=False)
-                embed.add_field(name="🏠 Servidor", value=guild, inline=False)
-                embed.add_field(name="🆔 ID del mensaje", value=msg_id, inline=False)
-                embed.add_field(name="⏰ Enviado", value=timestamp, inline=False)
-                embed.add_field(name="✏️ Editado", value=edited, inline=False)
-                embed.add_field(name="🗨️ Contenido", value=content or "*[Vacío]*", inline=False)
-                embed.add_field(name="📎 Adjuntos", value="\n".join(attachments) if attachments else "Ninguno", inline=False)
-                embed.add_field(name="📦 Embeds", value=f"{len(embeds)} encontrados" if embeds else "Ninguno", inline=False)
-                embed.add_field(name="👥 Menciones", value=", ".join(mentions) if mentions else "Ninguna", inline=False)
-                embed.add_field(name="🎭 Roles", value=", ".join(roles) if roles else "Ninguno", inline=False)
-                embed.add_field(name="😀 Stickers", value=", ".join(stickers) if stickers else "Ninguno", inline=False)
-                embed.add_field(name="📊 Reacciones", value=", ".join([str(r) for r in reactions]) if reactions else "Ninguna", inline=False)
-                embed.add_field(name="🚩 Banderas", value=str(flags) if flags else "Ninguna", inline=False)
-                embed.add_field(name="📌 Anclado", value="Sí" if pinned else "No", inline=False)
-                embed.add_field(name="📦 Tipo", value=msg_type, inline=False)
-                embed.add_field(name="🔗 Enlace", value=jump, inline=False)
-
-                if isinstance(message.channel, discord.Thread):
-                    embed.add_field(name="🧵 Hilo", value=message.channel.name, inline=True)
-
-                await message.channel.send(embed=embed)
-
+            # --- Procesar comandos (si existen) ---
             await self.bot.process_commands(message)
                     
         @self.bot.event
-        async def on_message_edit(before: discord.Message, after: discord.Message): # Evento: cuando un mensaje es editado
-            if after.author == self.bot.user:
+        async def on_message_edit(self,before_message: discord.Message, after_message: discord.Message): # Evento: cuando un mensaje es editado
+            
+            if after_message.author == self.bot.user: # no se responde a sí mismo
                 return
 
-            autor = str(after.author) # autor que aplico los cambios
-            canal = after.channel.name # nombre del canal
-            guild = after.guild.name if after.guild else "DM" # nombre del servidor 
-            timestamp = after.edited_at # fecha de edición
-
-            # Comparaciones
-            before_attachments = [a.url for a in before.attachments] # los adjuntos del mensaje original
-            after_attachments = [a.url for a in after.attachments] # los adjuntos del mensaje nuevo 
-            removed_attachments = set(before_attachments) - set(after_attachments) # set: para quitar duplicados, ordenar y aplicar operaciones
-            added_attachments = set(after_attachments) - set(before_attachments) 
-
-            before_embeds = [str(e.to_dict()) for e in before.embeds] # toma los embeds los convierte en diccionarios (to_dict) y luego en string 
-            after_embeds = [str(e.to_dict()) for e in after.embeds]
-            removed_embeds = set(before_embeds) - set(after_embeds) # set : listas en conjuntos,  para poder comparar.
-            added_embeds = set(after_embeds) - set(before_embeds)
-
-            stickers = [s.name for s in after.stickers] if after.stickers else [] # Si el mensaje tiene stickers (after.stickers), toma el nombre de cada uno (s.name).
-            roles = [r.name for r in after.author.roles] if hasattr(after.author, "roles") else [] # hasattr : si el objeto tiene cierto atributo , si el autor posee roles, obtener el nombre del rol
-            reactions = after.reactions # guarda las reacciones del mensaje después de la edición.
-
-            embed = Embed(
-                title="✏️ ¡Mensaje editado detectado!",
-                colour=Colour.orange(),
-                timestamp=timestamp
-            )
-            embed.set_author(name=autor, icon_url=after.author.display_avatar.url)
-
-            embed.add_field(name="👤 Autor", value=autor, inline=True)
-            embed.add_field(name="🆔 Autor ID", value=after.author.id, inline=True)
-            embed.add_field(name="📍 Canal", value=canal, inline=True)
-            embed.add_field(name="🏠 Servidor", value=guild, inline=True)
-            embed.add_field(name="🕒 Editado", value=timestamp.strftime("%Y-%m-%d %H:%M:%S"), inline=True)
-            embed.add_field(name="📄 Antes", value=before.content or "*[Vacío]*", inline=False)
-            embed.add_field(name="📄 Después", value=after.content or "*[Vacío]*", inline=False)
-
-            embed.add_field(name="📎 Adjuntos quitados", value="\n".join(removed_attachments) if removed_attachments else "Ninguno", inline=False)
-            embed.add_field(name="📎 Adjuntos agregados", value="\n".join(added_attachments) if added_attachments else "Ninguno", inline=False)
-
-            embed.add_field(name="📦 Embeds quitados", value=f"{len(removed_embeds)}" if removed_embeds else "Ninguno", inline=False)
-            embed.add_field(name="📦 Embeds agregados", value=f"{len(added_embeds)}" if added_embeds else "Ninguno", inline=False)
-
-            embed.add_field(name="😀 Stickers", value=", ".join(stickers) if stickers else "Ninguno", inline=False)
-            embed.add_field(name="🎭 Roles", value=", ".join(roles) if roles else "Ninguno", inline=False) # inline = False ocupará toda la fila del embed
-            embed.add_field(name="📊 Reacciones", value=", ".join([str(r) for r in reactions]) if reactions else "Ninguna", inline=False) # ",".join(...): une todos los elementos de esa lista en un solo string, separados por comas.
-            embed.add_field(name="🔗 Enlace al mensaje", value=after.jump_url, inline=False) # enlace al mensaje original 
-
-            if isinstance(after.channel, discord.Thread):
-                embed.add_field(name="🧵 Hilo", value=after.channel.name, inline=True) # también informa si se está utilizando un hilo
-
-            await after.channel.send(embed=embed)       
+            diff = MessageDiff(before_message, after_message)
+            embed = diff.build_embed()
+            await after_message.channel.send(embed=embed)       
         
         @self.bot.event
         async def on_disconnect(): # Este evento se dispara cuando el bot pierde conexión con Discord
@@ -258,5 +238,91 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
     def run(self):
         self.bot.run(self.token, log_handler=self.discord_handler, log_level=logging.DEBUG)  # ejecuta el bot con el token, guardando logs en el archivo definido
 
+    def hay_canal_de_consulta():
+        return True# aca van las validaciones de las dos listas nombre_canal_consulta y los ids_canales_consulta
 
+# tengo una carpeta llamada utils_for_all que tiene un archivo llamado
+# conexion_bdd.py y tiene este contenido: 
+# from dotenv import load_dotenv
+# import os
+# from utils_for_all.utilidades_logs import setup_logger
+
+# # Inicializar logger para esta parte del sistema
+# logger_db= setup_logger('carga_db','log_persistencia_de_datos.txt')
+
+# # Cargar variables desde .env
+# load_dotenv()
+
+# # Obtener configuración desde variables de entorno (.env)
+# config = {
+#     "dbname": os.getenv("DB_NAME"),
+#     "user": os.getenv("DB_USER"),
+#     "password": os.getenv("DB_PASSWORD"),
+#     "host": os.getenv("DB_HOST"),
+#     "port": os.getenv("DB_PORT")
+# }
+
+# # Validación con log
+# if not all(config.values()):
+#     logger_db.error("❌ Faltan variables de entorno para la conexión a la base de datos. Verificá el archivo .env.")
+#     raise ValueError("Faltan datos de conexión a la base de datos. Verificá el archivo .env")
+# else:
+#     logger_db.info("✅ Variables de entorno cargadas correctamente para la conexión a la base de datos.")
+
+
+# Por otro lado la estructura de la base de datos relacional es:
+# CREATE TABLE autores (
+#     id_autor SERIAL PRIMARY KEY,
+#     nombre_autor TEXT NOT NULL,
+#     es_docente BOOLEAN NOT NULL
+# );
+
+# CREATE TABLE mensajes (
+#     id_mensaje SERIAL PRIMARY KEY,
+#     id_mensaje_discord BIGINT NOT NULL,
+#     autor_id INTEGER NOT NULL REFERENCES autores(id_autor) ON DELETE CASCADE,
+#     fecha_mensaje TIMESTAMP NOT NULL,
+#     contenido TEXT NOT NULL,
+#     es_pregunta BOOLEAN DEFAULT FALSE,
+#     origen TEXT
+# );
+
+# CREATE TABLE adjuntos (
+#     id_adjunto SERIAL PRIMARY KEY,
+#     mensaje_id INTEGER NOT NULL REFERENCES mensajes(id_mensaje) ON DELETE CASCADE,
+#     url TEXT NOT NULL,
+#     tipo TEXT
+# );
+
+# CREATE TABLE preguntas (
+#     id_pregunta SERIAL PRIMARY KEY,
+#     mensaje_id INTEGER NOT NULL REFERENCES mensajes(id_mensaje) ON DELETE CASCADE,
+#     texto TEXT NOT NULL,
+#     esta_cerrada BOOLEAN DEFAULT FALSE,
+#     sin_contexto BOOLEAN DEFAULT FALSE,
+#     es_administrativa BOOLEAN DEFAULT FALSE
+# );
+
+# CREATE TABLE respuestas (
+#     id_respuesta SERIAL PRIMARY KEY,
+#     mensaje_id INTEGER NOT NULL REFERENCES mensajes(id_mensaje) ON DELETE CASCADE,
+#     pregunta_id INTEGER NOT NULL REFERENCES preguntas(id_pregunta) ON DELETE CASCADE,
+#     texto TEXT NOT NULL,
+#     orden INTEGER,
+#     es_validada BOOLEAN DEFAULT FALSE,
+#     es_corta BOOLEAN DEFAULT FALSE
+# );
+
+# CREATE TABLE fragmentos_preguntas (
+#     id_fragmento SERIAL PRIMARY KEY,
+#     pregunta_id INTEGER NOT NULL REFERENCES preguntas(id_pregunta) ON DELETE CASCADE,
+#     texto_fragmento TEXT NOT NULL,
+#     orden INTEGER NOT NULL
+# );
+
+# CREATE TABLE embeddings (
+#     id_embedding SERIAL PRIMARY KEY,
+#     fragmento_id INTEGER NOT NULL REFERENCES fragmentos_preguntas(id_fragmento) ON DELETE CASCADE,
+#     id_chroma_db TEXT NOT NULL
+# );
 

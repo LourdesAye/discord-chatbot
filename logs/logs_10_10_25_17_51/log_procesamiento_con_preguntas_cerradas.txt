@@ -1,0 +1,112 @@
+2025-10-10 17:51:40,241 - DEBUG -  
+ ✉️ Cantidad de mensajes en el json: 601
+2025-10-10 17:51:40,247 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_vacios': 15
+2025-10-10 17:51:40,249 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_emojis_stickers_gifs': 2
+2025-10-10 17:51:40,251 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_numeros_signos': 0
+2025-10-10 17:51:40,253 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_simbolos': 0
+2025-10-10 17:51:40,253 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 584
+2025-10-10 17:51:40,392 - DEBUG -  
+2025-10-10 17:51:40,392 - DEBUG -  
+ ✅ Procesamiento completado para el archivo JSON 1
+2025-10-10 17:51:40,394 - DEBUG -  📊 Resultados de procesamiento:
+2025-10-10 17:51:40,394 - DEBUG -  
+ 📊 Análisis de las listas de preguntas una vez finalizado el procesamiento:
+2025-10-10 17:51:40,394 - DEBUG -        📊 0 preguntas abiertas
+2025-10-10 17:51:40,394 - DEBUG -        📊 153 preguntas cerradas
+2025-10-10 17:51:40,394 - DEBUG -  
+ 📊 Análisis de los mensajes procesados:
+2025-10-10 17:51:40,394 - DEBUG -        📊 0 mensajes sueltos
+2025-10-10 17:51:40,394 - DEBUG -        📊 20 mensajes concatenados
+2025-10-10 17:51:40,394 - DEBUG -        📊 33 mensajes de cierre de alumnos
+2025-10-10 17:51:40,394 - DEBUG -        📊 153 preguntas generadas
+2025-10-10 17:51:40,394 - DEBUG -        📊 378 mensajes detectados como respuesta
+2025-10-10 17:51:40,394 - DEBUG -        ✅ 584 total de mensajes analizados
+2025-10-10 17:51:40,394 - DEBUG -        📊 17 mensajes detectados como respuesta que también son de cierre de docentes
+2025-10-10 17:51:40,394 - DEBUG -        📊 50 mensajes totales de cierre (tanto de alumnos como de docentes)
+2025-10-10 17:51:40,394 - DEBUG -  
+2025-10-10 17:51:40,397 - DEBUG -  
+ ✉️ Cantidad de mensajes en el json: 622
+2025-10-10 17:51:40,398 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_vacios': 18
+2025-10-10 17:51:40,399 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_emojis_stickers_gifs': 1
+2025-10-10 17:51:40,401 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_numeros_signos': 0
+2025-10-10 17:51:40,402 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_simbolos': 1
+2025-10-10 17:51:40,402 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 602
+2025-10-10 17:51:40,533 - DEBUG -  
+2025-10-10 17:51:40,533 - DEBUG -  
+ ✅ Procesamiento completado para el archivo JSON 2
+2025-10-10 17:51:40,533 - DEBUG -  📊 Resultados de procesamiento:
+2025-10-10 17:51:40,533 - DEBUG -  
+ 📊 Análisis de las listas de preguntas una vez finalizado el procesamiento:
+2025-10-10 17:51:40,533 - DEBUG -        📊 0 preguntas abiertas
+2025-10-10 17:51:40,533 - DEBUG -        📊 137 preguntas cerradas
+2025-10-10 17:51:40,533 - DEBUG -  
+ 📊 Análisis de los mensajes procesados:
+2025-10-10 17:51:40,533 - DEBUG -        📊 1 mensajes sueltos
+2025-10-10 17:51:40,533 - DEBUG -        📊 29 mensajes concatenados
+2025-10-10 17:51:40,533 - DEBUG -        📊 32 mensajes de cierre de alumnos
+2025-10-10 17:51:40,533 - DEBUG -        📊 137 preguntas generadas
+2025-10-10 17:51:40,533 - DEBUG -        📊 403 mensajes detectados como respuesta
+2025-10-10 17:51:40,533 - DEBUG -        ✅ 602 total de mensajes analizados
+2025-10-10 17:51:40,533 - DEBUG -        📊 5 mensajes detectados como respuesta que también son de cierre de docentes
+2025-10-10 17:51:40,533 - DEBUG -        📊 37 mensajes totales de cierre (tanto de alumnos como de docentes)
+2025-10-10 17:51:40,533 - DEBUG -  
+✉️ Listado de mensajes sueltos: 
+2025-10-10 17:51:40,533 - DEBUG -  ✉️ El mensaje suelto 1: 
+'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂'
+2025-10-10 17:51:40,533 - DEBUG -  
+2025-10-10 17:51:40,537 - DEBUG -  
+ ✉️ Cantidad de mensajes en el json: 793
+2025-10-10 17:51:40,538 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_vacios': 18
+2025-10-10 17:51:40,540 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_emojis_stickers_gifs': 0
+2025-10-10 17:51:40,542 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_numeros_signos': 0
+2025-10-10 17:51:40,543 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_simbolos': 1
+2025-10-10 17:51:40,543 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 774
+2025-10-10 17:51:40,718 - DEBUG -  
+2025-10-10 17:51:40,718 - DEBUG -  
+ ✅ Procesamiento completado para el archivo JSON 3
+2025-10-10 17:51:40,718 - DEBUG -  📊 Resultados de procesamiento:
+2025-10-10 17:51:40,718 - DEBUG -  
+ 📊 Análisis de las listas de preguntas una vez finalizado el procesamiento:
+2025-10-10 17:51:40,718 - DEBUG -        📊 0 preguntas abiertas
+2025-10-10 17:51:40,718 - DEBUG -        📊 189 preguntas cerradas
+2025-10-10 17:51:40,718 - DEBUG -  
+ 📊 Análisis de los mensajes procesados:
+2025-10-10 17:51:40,718 - DEBUG -        📊 1 mensajes sueltos
+2025-10-10 17:51:40,718 - DEBUG -        📊 18 mensajes concatenados
+2025-10-10 17:51:40,718 - DEBUG -        📊 79 mensajes de cierre de alumnos
+2025-10-10 17:51:40,718 - DEBUG -        📊 189 preguntas generadas
+2025-10-10 17:51:40,718 - DEBUG -        📊 487 mensajes detectados como respuesta
+2025-10-10 17:51:40,718 - DEBUG -        ✅ 774 total de mensajes analizados
+2025-10-10 17:51:40,718 - DEBUG -        📊 11 mensajes detectados como respuesta que también son de cierre de docentes
+2025-10-10 17:51:40,718 - DEBUG -        📊 90 mensajes totales de cierre (tanto de alumnos como de docentes)
+2025-10-10 17:51:40,718 - DEBUG -  
+✉️ Listado de mensajes sueltos: 
+2025-10-10 17:51:40,718 - DEBUG -  ✉️ El mensaje suelto 1: 
+'este canal será utilizado para realizar consultas (tpa, temas de la asignatura, parciales, etc.).esperamos que sea lo más colaborativo posible.
+
+siéntanse libres de contestar las dudas de sus compañeros y/o aportar nuevas ideas 🙂'
+2025-10-10 17:51:40,718 - DEBUG -  
+2025-10-10 17:51:40,718 - DEBUG -  🔍 Cantidad de procesadores generados: 3
+2025-10-10 17:51:40,718 - DEBUG -  🗃️ Conectándose a la base de datos...
+2025-10-10 17:51:41,059 - DEBUG -  
+2025-10-10 17:51:41,059 - DEBUG -  🔢 Analizando el json número : 1 ... 
+2025-10-10 17:51:41,060 - DEBUG -  ✅ Preguntas cerradas: 153 
+2025-10-10 17:51:41,060 - DEBUG -  ✅ Preguntas sin contexto: 3 
+2025-10-10 17:51:41,065 - DEBUG -  ✅ Cantidad de Respuestas: 619
+2025-10-10 17:51:41,753 - DEBUG -  
+2025-10-10 17:51:41,753 - DEBUG -  🔢 Analizando el json número : 2 ... 
+2025-10-10 17:51:41,753 - DEBUG -  ✅ Preguntas cerradas: 137 
+2025-10-10 17:51:41,754 - DEBUG -  ✅ Preguntas sin contexto: 1 
+2025-10-10 17:51:41,758 - DEBUG -  ✅ Cantidad de Respuestas: 625
+2025-10-10 17:51:42,419 - DEBUG -  
+2025-10-10 17:51:42,419 - DEBUG -  🔢 Analizando el json número : 3 ... 
+2025-10-10 17:51:42,419 - DEBUG -  ✅ Preguntas cerradas: 189 
+2025-10-10 17:51:42,420 - DEBUG -  ✅ Preguntas sin contexto: 4 
+2025-10-10 17:51:42,425 - DEBUG -  ✅ Cantidad de Respuestas: 775
+2025-10-10 17:51:43,753 - DEBUG -  
+2025-10-10 17:51:43,753 - DEBUG -  ✅ La cantidad total de preguntas generadas : 479
+2025-10-10 17:51:43,753 - DEBUG -  ✅ La cantidad total de respuestas generadas : 2019
+2025-10-10 17:51:43,753 - DEBUG -  
+2025-10-10 17:51:43,753 - DEBUG -  💾 Conexión cerrada y datos guardados.
