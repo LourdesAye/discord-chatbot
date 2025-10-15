@@ -5,13 +5,20 @@ from database.knowledge_base.utils.utilidades_conversiones import convertir_a_da
 from datetime import timedelta
 from database.knowledge_base.services.estrategias_procesamiento import ProcesamientoAlumnoStrategy,ProcesamientoDocenteStrategy
 from database.knowledge_base.models.clase_autores import lista_docentes
-from estrategias_cierre_mensajes.estrategias_cierre_menajes import EstrategiaCierre
+from estrategias_cierre_mensajes.estrategias_de_cierre_de_menajes import EstrategiaCierre
+from abc import ABC, abstractmethod
+
+# ABC : Abstract Base Class (Clase Base Abstracta):  
+    # Cuando tu clase hereda de ABC: 
+        # no se puede instanciar la clase base directamente.
+        # puede contener métodos abstractos (@abstractmethod) que no tienen implementación.
+        # que las subclases deben implementar esos métodos abstractos antes de poder crearlas.
 
 MAX_RESPUESTAS = 7
 TIEMPO_CIERRE_HORAS = 8
 
-class ProcesadorBase:
-    def __init__(self, nombre_log, estrategia_cierre: EstrategiaCierre,  estrategias=None):
+class ProcesadorBase(ABC): # importante heredar de ABC
+    def __init__(self, nombre_log, estrategias=None):
         """Constructor común para ambos procesadores (batch y tiempo real)."""
         self.nombre_log = nombre_log
         self.preguntas_abiertas = []
@@ -20,14 +27,19 @@ class ProcesadorBase:
             'docente': ProcesamientoDocenteStrategy(),
             'alumno': ProcesamientoAlumnoStrategy()
         }
-        self.estrategia_cierre = estrategia_cierre
+        self.estrategia_cierre = None # se define en las subclases
+    
+    @property # para que se interprete como atributo y no como método ( self.preguntas_abiertas y no: self.preguntas_abiertas() )
+    @abstractmethod # obligaa definir este método en las subclases
+    def preguntas_abiertas(self):
+        pass # para que se implemente en las subclases
     
     def cerrar_pregunta(self, pregunta: Pregunta, mensaje: Mensaje, motivo=None):
         self.estrategia_cierre.cerrar(pregunta, mensaje, motivo) # FALTA CERRAR PREGUNTA PARA REAL TIME
     
     def cerrar_por_reglas(self, mensaje: Mensaje):
         ahora = convertir_a_datetime(mensaje.timestamp)
-        for pregunta in self.preguntas_abiertas[:]:
+        for pregunta in self.preguntas_abiertas[:]: # en lo que es tiempo real la lista debe ser el resultado de una consulta a la base de datos de preguntas abiertas
             tiempo = tiempo_transcurrido(convertir_a_datetime(pregunta.timestamp), ahora)
             if pregunta.tiene_respuesta_validada():
                 if tiempo > timedelta(hours=TIEMPO_CIERRE_HORAS):

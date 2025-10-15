@@ -1,6 +1,6 @@
 import pandas as pd
 from utils_for_all.utilidades_logs import guardar_resultados_en_csvs
-from procesamiento.procesamiento_base import Procesador
+from database.knowledge_base.services.procesamiento_batch import ProcesadorBatch
 from utils_for_all.utilidades_logs import setup_logger
 from utils_for_all.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio
 
@@ -39,7 +39,7 @@ def procesar_archivos_json(rutas_json):
 
         # ACA VOLVER CUANDO TERMINER DE HACER EL REFACTOR DEL PROCESAMIENTO BATCH Y TIEMPO REAL
         # VER CÓMO SERÁ LA NUEVA INSTANCIACIÓN DEL PROCESADOR
-        procesador = Procesador(nombre_log) # Crear procesador por cada archivo json procesador
+        procesador = ProcesadorBatch(nombre_log) # Crear procesador por cada archivo json procesador
 
 
         df = df.sort_values(by='timestamp', ascending=True)  # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)
