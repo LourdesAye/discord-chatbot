@@ -6,7 +6,7 @@ from database.knowledge_base.utils.utilidades_conversiones import tiempo_transcu
 
 class Pregunta:
     def __init__(self, mensaje: Mensaje):
-        self.id_pregunta = mensaje.id
+        self.id_pregunta = mensaje.id_discord
         self.autor = mensaje.autor
         self.contenido = mensaje.contenido
         self.timestamp = mensaje.timestamp

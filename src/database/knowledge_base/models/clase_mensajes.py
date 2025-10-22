@@ -7,7 +7,8 @@ from database.knowledge_base.models.utilidades_modelo_dominio import FRASES_CLAV
 
 class Mensaje:
     def __init__(self, id_mensaje, autor, contenido, timestamp,attachments,origen):
-        self.id = id_mensaje.lower().strip()
+        self.id_mensaje_base_de_datos= None  # se asigna al guardar en la base de datos
+        self.id_mensaje_discord = id_mensaje.lower().strip()
         self.autor = autor.lower().strip()
         self.contenido = contenido.lower().strip()
         self.timestamp = timestamp.lower().strip()
@@ -18,7 +19,7 @@ class Mensaje:
     def from_dataframe_row(cls, row, ruta_json): # 'cls' es la clase, es como self para una instancia
         #se crea una nueva instancia de la clase usando una fila (row) (objeto serie) de un DataFrame como fuente de datos.
         return cls(   # Esto llama al constructor de la clase (es como hacer Clase(...)) para crear una nueva instancia.
-            id_mensaje=row["id"], # row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
+            id_mensaje_discord=row["id"], # row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
             autor=row["author"],
             contenido=row["content"],
             timestamp=row["timestamp"],
@@ -61,7 +62,7 @@ class Mensaje:
         autor = discord_message.author.name if hasattr(discord_message.author, 'name') else str(discord_message.author)
 
         return cls(
-        id_mensaje=str(discord_message.id),
+        id_mensaje_discord=str(discord_message.id),
         autor=autor,
         contenido=discord_message.content,
         timestamp=discord_message.created_at.isoformat() if hasattr(discord_message, 'created_at') else "",

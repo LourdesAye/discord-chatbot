@@ -3,7 +3,7 @@ from database.knowledge_base.models.utilidades_modelo_dominio import MAX_CARACTE
 
 class Respuesta:
     def __init__(self, mensaje:Mensaje):
-        self.id_respuesta = mensaje.id
+        self.id_respuesta = mensaje.id_discord
         self.autor = mensaje.autor
         self.contenido = mensaje.contenido
         self.timestamp = mensaje.timestamp

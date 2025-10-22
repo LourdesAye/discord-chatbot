@@ -54,9 +54,54 @@
 -- where id_mensaje = 9995
 
 -- 14 actualizo fecha
--- UPDATE mensajes SET fecha_mensaje= TO_DATE('2025-10-21 05:10:20','AAAA-MM-DD HH:MM:SS')
--- WHERE id_mensaje=9995
+--UPDATE mensajes SET fecha_mensaje= TO_DATE('2025-10-21 05:10:20','AAAA-MM-DD HH:MM:SS')
+--WHERE id_mensaje=9995
 
 -- 15 viendo si actualizo mensaje
-select * from mensajes
-where id_mensaje = 9995
+--select * from mensajes
+-- where id_mensaje = 9995
+
+-- 16 no actualizo investigacion en chatgpt de por qué no funciona tal cual como lo puse
+/*
+PROBLEMAS:
+1- TO_DATE() devuelve solo una fecha sin hora, convierte a DATE, no a TIMESTAMP. 
+2- El formato 'AAAA-MM-DD HH:MM:SS' no es válido en PostgreSQL (usa 'YYYY-MM-DD HH24:MI:SS').  
+3- Como el campo fecha_mensaje es tipo TIMESTAMP, PostgreSQL hace una conversión implícita errónea 
+desde una fecha sin hora (por eso te aparece 0001-10-21 00:00:00 BC).
+
+SOLUCIONES: 
+1- Usar TO_TIMESTAMP (no TO_DATE) y el formato correcto:
+UPDATE mensajes
+SET fecha_mensaje = TO_TIMESTAMP('2025-10-21 05:10:20', 'YYYY-MM-DD HH24:MI:SS')
+WHERE id_mensaje = 9995;
+
+2- evitar el formato y usar directamente un literal de timestamp
+UPDATE mensajes
+SET fecha_mensaje = '2025-10-21 05:10:20'::timestamp
+WHERE id_mensaje = 9995;
+*/
+
+-- Probando solución
+/*
+UPDATE mensajes
+SET fecha_mensaje = TO_TIMESTAMP('2025-10-21 05:10:20', 'YYYY-MM-DD HH24:MI:SS')
+WHERE id_mensaje = 9995;
+*/
+
+-- Verificando el cambio
+--SELECT *
+--FROM mensajes
+--WHERE id_mensaje = 9995;
+
+-- ahora si primer lote manual de mensaje- pregunta y mensaje - respuesta ya persistidos 
+-- en base de datos relacional
+-- para probar funcionalidad de traer preguntas abiertas desde la base de datos necesarios para
+-- el chatbot en discord, para mensajes en tiempo real
+
+
+
+
+
+
+
+
