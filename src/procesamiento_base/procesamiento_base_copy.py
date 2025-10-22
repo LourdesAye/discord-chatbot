@@ -41,7 +41,7 @@ class ProcesadorBase(ABC): # importante heredar de ABC
         ahora = convertir_a_datetime(mensaje.timestamp)
         for pregunta in self.preguntas_abiertas[:]: # en lo que es tiempo real la lista debe ser el resultado de una consulta a la base de datos de preguntas abiertas
             tiempo = tiempo_transcurrido(convertir_a_datetime(pregunta.timestamp), ahora)
-            if pregunta.tiene_respuesta_validada():
+            if pregunta.tiene_respuesta_validada(): # en tiempo real se debe tomar la pregunta con su id, buscarlo en la base de datos en la tabla respuestas, de las respuestas obtengo un id de usuario y por cada id de susuario hay que ir a al tabla autor para saber si es o no docente y por lo tanto si esta validada
                 if tiempo > timedelta(hours=TIEMPO_CIERRE_HORAS):
                     self.cerrar_pregunta(pregunta, mensaje, motivo='tiempo')
                 elif len(pregunta.respuestas) >= MAX_RESPUESTAS:
@@ -60,9 +60,38 @@ class ProcesadorBase(ABC): # importante heredar de ABC
         self.estrategias[tipo].procesar(self, mensaje)
 
 
+    # va como método o va como atributo? 
+    @abstractmethod
+    def obtener_preguntas_abiertas(self) -> list[Pregunta]:
+        pass
+
+    # va como método o va como atributo?
+    @abstractmethod
+    def obtener_preguntas_cerradas(self) -> list[Pregunta]:
+        pass
 
 
+    # en tiempo real es distinto, se debe persistir la nueva prengunta en la base de datos relacional 
+    @abstractmethod
+    def guardar_pregunta(self, pregunta: Pregunta):
+        pass
 
+    # en batch es convertir el mensaje en un objeto Respuesta, 
+    # ver si es de un docente para marcarla como validada, analizar si es corta para marcarla como tal, 
+    # y agregarla a la lista de respuestas de la pregunta
+    # en tiempo real necesito que se convierta en un objeto respuesta, para ver ver si es de docente
+    # para marcarla como validada, ver si es corta para marcarla como tal, 
+    # y también se necesita que se asociie a la pregunta pero con el id de la pregunta que se obtiene de la base de datos 
+    # porque esta respuesta no queda en una lista, se debe persistir como mensaje y como respuesta en la base de datos con su id pregunta 
+    @abstractmethod
+    def guardar_respuesta(self, respuesta):
+        pass
 
-
-   
+    # en el procesamiento batch cerrar_pregunta es marcar el objeto Pregunta como cerrrada, 
+    # quitarla de la lista de preguntas abiertas
+    # agregarla a la lista de preguntas cerradas y aumentar el contador de preguntas cerradas
+    # y también hacer un log de que se cerró la pregunta
+    # en tiempo real se debe marcar la pregunta como cerrada en la base de datos
+    @abstractmethod
+    def cerrar_pregunta(self, pregunta, mensaje, motivo):
+        pass
