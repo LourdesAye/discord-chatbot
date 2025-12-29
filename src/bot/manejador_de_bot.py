@@ -3,14 +3,20 @@ from discord.ext import commands  # permite usar comandos con prefijo (como !ayu
 from dotenv import load_dotenv  # para cargar variables de entorno desde un archivo .env
 import os  # para acceder a variables de entorno del sistema
 import logging  # para registrar mensajes en un archivo de log
-from utils_for_all.utilidades_logs import setup_logger,LOG_DIR_ABS
+from utils.utilidades_logs import setup_logger,LOG_DIR_ABS
 from datetime import datetime
 from discord import Embed, Colour
 from zoneinfo import ZoneInfo
 from bot.Edicion_mensajes import MessageDiff
 from bot.CapturadorMensajes import CapturadorMensajes
-from utils_for_all.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio 
+from database.models.clase_mensajes import Mensaje
+from processing.procesamiento_tiempo_real import ProcesadorTiempoReal
+from utils.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio 
+from embeddings.gestor_vectores import GestorBaseVectorial
+from langchain.embeddings import HuggingFaceEmbeddings
 
+log_real_time = setup_logger('log_real_time', 'log_procesamiento_mensaje_tiempo_real.txt'
+                             )
 class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
     def __init__(self):
         # Carga del entorno
@@ -24,6 +30,7 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
         # Carga el o los canales de consulta de los alumnos
         canales_de_consultas = os.getenv("CANALES_DE_CONSULTAS_ALUMNOS") # obtiene el o los nombres de los canales del .env
         ids_de_canales = os.getenv("ID_CANALES_DE_CONSULTAS_ALUMNOS") # obtiene el o los ids de los canales del .env
+        # Esto es a mido de inormación temporal, pasar a logs después
         print("Hola! Aquí están los nombres de los canales de consulta:",canales_de_consultas)
         print("Hola! Aquí están los id de los canales de consulta:",ids_de_canales)
 
@@ -48,9 +55,18 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
         self.bot = commands.Bot(command_prefix="",intents=intents)  # crea una instancia del bot con los intents definidos
         self.setup_events()
 
+        # GESTIÓN DE LA BASE VECTORIAL DE EMBEDDINGS
+        # configuración del modelo de embeddings y gestor de base vectorial
+        modelo = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        self.gestor_vectorial = GestorBaseVectorial(modelo)
+
+        # intenta cargar/crear base al iniciar
+        self.vectordb = self.gestor_vectorial.crear_si_no_existe()
+
     def setup_events(self):
-        @self.bot.event  
-        async def on_ready(): # mensaje que se da cuando el bot se auetntica en discord (pasó mucho tiempo de la última conexión o comienza a funcionar) : No cada vez que se une a un servidor
+        @self.bot.event
+        # mensaje que se da cuando el bot se autentica en discord (cuando comienza a funcionar): No cada vez que se une a un servidor
+        async def on_ready(): 
             self.logger_chatbot_discord.debug(f"✅ Bot conectado como {self.bot.user}") # log que registra autenticación en Discord
 
             for guild in self.bot.guilds:  # recorre todos los servidores (guilds) donde está el bot (en el momento en que se autentica)
@@ -80,20 +96,55 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
             canal_id = getattr(canal, "id", None)  # puede no existir en casos raros
 
             # --- Caso 1: mensaje en el canal principal del chatbot ---
+            # por aquí se deben crear filtros y no crear hilo si no corresponde o genrar hilo indicando que su pegunta no es valida y cerarrlo
             if isinstance(canal, discord.TextChannel) and canal_nombre == self.nombre_canal_del_chatbot:
                 thread = await canal.create_thread(
                     name=f"Consulta de {message.author.display_name}",
                     message=message,
                     auto_archive_duration=60
                 )
+                # Mensaje informando en el canal principal
                 await canal.send(
                     f"📬 Hola {message.author.mention}! Creé un hilo para tu consulta. "
                     "Hacé clic en él para continuar nuestra conversación."
                 )
+
+                # Mensaje automático dentro del hilo
+                await thread.send("🕓 Estoy procesando tu mensaje...")
+
+                texto = message.content
+
+                # Si aún no existe, crearla (lazy init : si no existe crearla en el momento en que se necesita)
+                if not self.vectordb:
+                    self.vectordb = self.gestor_vectorial.crear_si_no_existe()
+
+                if not self.vectordb:
+                    await message.channel.send("Todavía no tengo preguntas cargadas para buscar 😕. Intentalo más tarde")
+                    return
+
+                las_tres_preguntas_mas_parecidas = self.gestor_vectorial.buscar(texto, k=3)
+
+                if not las_tres_preguntas_mas_parecidas:
+                    await message.channel.send("No encontré algo parecido. Podrías preguntar en el canal 🙂")
+                    return
+
+                # Se elige la pregunta más parecida
+                doc, similitud = las_tres_preguntas_mas_parecidas[0]
+
+                pregunta_mas_parecida = (
+                    f"Creo que ya habían preguntado algo parecido 👇\n\n"
+                    f"**Pregunta:** {doc.page_content}\n"
+                )
+
+                await message.channel.send(pregunta_mas_parecida)
+
+                respuesta_pregunta_mas_parecida = doc.metadata
+
                 return  # ya manejado, evitamos seguir
 
             # --- Caso 2: mensaje dentro de un hilo del canal principal ---
             if isinstance(canal, discord.Thread) and canal.parent.name == self.nombre_canal_del_chatbot:
+
                 await canal.send("Estoy procesando tu mensaje en el hilo...")
                 return
 
@@ -117,6 +168,9 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
                         return # se termina el proceso del mensaje
                 # Si pasa todos los filtros, se procesa el mensaje
                 await canal.send("Tu mensaje ha sido recibido y está siendo procesado...")
+                mensaje = Mensaje.from_discord(message)  # procesa el mensaje recibido desde Discord
+                procesador_real_time = ProcesadorTiempoReal(log_real_time)
+                procesador_real_time.procesar_mensaje(mensaje)  # procesa el mensaje usando el procesador de tiempo real
                 attachments = []
                 try: # algunos mensajes pueden no tener attachments
                     for a in message.attachments: 
@@ -135,6 +189,10 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
                             # "Mi nombre es Lourdes".split(' ') -> ['Mi', 'nombre', 'es', 'Lourdes']
                             # ejemplo de ext: docx
                         attachments.append((filename, ext)) # agrega una tupla (nombre,extensión) a la lista
+                    
+                    # aca recibo mensaje: debo tomar texto y adjuntos
+                    # debo enviar a procesar al mensaje
+                    # hay que crear un procesador y que se encargue de ello
                     return
                 except Exception:
                 # si no tiene attachments o estructura diferente, dejamos lista vacía

@@ -1,6 +1,6 @@
 import shutil
 import os
-from utils_for_all.utilidades_logs import setup_logger
+from utils.utilidades_logs import setup_logger
 
 # por ahora conviven dos logs : el primero para responder_a_pregunta, y el segundo para probar_busqueda
 logger_embeddings = setup_logger("logger_embeddings", "logs_generacion_embeddings.txt")

@@ -1,0 +1,1 @@
+2025-11-26 16:38:34,704 - INFO - ✅ Variables de entorno cargadas correctamente para la conexión a la base de datos.

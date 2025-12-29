@@ -1,5 +1,5 @@
-from utils_for_all.conexion_bdd import config
-from utils_for_all.utilidades_logs import setup_logger,guardar_pregunta
+from utils.conexion_bdd import config
+from utils.utilidades_logs import setup_logger,guardar_pregunta
 import psycopg2 
 from psycopg2.extras import DictCursor
 

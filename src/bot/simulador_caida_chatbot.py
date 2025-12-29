@@ -1,7 +1,7 @@
 import os
 import requests
 from dotenv import load_dotenv
-from utils_for_all.utilidades_logs import setup_logger
+from utils.utilidades_logs import setup_logger
 
 # Crear log
 logger_bot_controlador = setup_logger("bot_controlado","registros_bot_controlador.txt")

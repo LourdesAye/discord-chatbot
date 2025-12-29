@@ -1,7 +1,7 @@
 import os
 from langchain_chroma import Chroma
 from embeddings.extraer_preguntas import obtener_preguntas_y_metadatos
-from utils_for_all.utilidades_logs import setup_logger
+from utils.utilidades_logs import setup_logger
 
 class GestorBaseVectorial:
     def __init__(self, modelo, persist_directory="./chroma"):
@@ -65,6 +65,8 @@ class GestorBaseVectorial:
             if not resultados_ordenados:
                 self.logger_embeddings.error(f"❌ No hay resultados de preguntas parecidas a la pregunta: \n  ❓'{pregunta}' ❓")
                 return None
+            else:
+                return resultados_ordenados
         
         except Exception as e:
             self.logger_embeddings.error(f"❌ Error en la búsqueda: {str(e)}")
