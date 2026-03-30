@@ -1,0 +1,7 @@
+2025-12-29 17:43:19,142 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2025-12-29 17:43:19,579 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González
+2025-12-29 17:51:46,302 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T17:51:46.302000. Guilds activos=1, latencia=inf
+2025-12-29 17:51:46,524 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T17:51:46.524144. Guilds activos=1, latencia=inf
+2025-12-29 17:51:50,657 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T17:51:50.657381. Guilds activos=1, latencia=inf
+2025-12-29 17:51:59,098 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2025-12-29 17:51:59,877 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González

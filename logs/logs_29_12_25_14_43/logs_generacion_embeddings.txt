@@ -1,0 +1,18 @@
+2025-12-29 14:44:31,214 - INFO - ✅ Usando base vectorial existente
+2025-12-29 17:13:52,304 - DEBUG - 
+❓PREGUNTA NUEVA: hola, qué es git?
+2025-12-29 17:13:52,304 - DEBUG - 🔝 MÁS PARECIDA:
+2025-12-29 17:13:52,304 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-12-29 17:13:52,305 - DEBUG - Metadatos: {'id': 297}
+2025-12-29 17:13:52,305 - DEBUG - Similitud: 0.3067
+2025-12-29 17:13:52,305 - DEBUG - ----------------------------------------
+2025-12-29 17:13:52,305 - DEBUG - 🔍 Resultado #2:
+2025-12-29 17:13:52,305 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-12-29 17:13:52,306 - DEBUG - Metadatos: {'id': 296}
+2025-12-29 17:13:52,307 - DEBUG - Similitud: 0.2602
+2025-12-29 17:13:52,307 - DEBUG - ----------------------------------------
+2025-12-29 17:13:52,307 - DEBUG - 🔍 Resultado #3:
+2025-12-29 17:13:52,307 - DEBUG - Pregunta: esta ventana decis? no me doy cuenta que tendria que poner
+2025-12-29 17:13:52,307 - DEBUG - Metadatos: {'id': 170}
+2025-12-29 17:13:52,307 - DEBUG - Similitud: 0.1264
+2025-12-29 17:13:52,308 - DEBUG - ----------------------------------------

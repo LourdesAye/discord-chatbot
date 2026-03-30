@@ -1,0 +1,35 @@
+2025-12-29 18:27:00,200 - INFO - ✅ Usando base vectorial existente
+2025-12-29 18:28:07,564 - DEBUG - 
+❓PREGUNTA NUEVA: hola! qué es git?
+2025-12-29 18:28:07,564 - DEBUG - 🔝 MÁS PARECIDA:
+2025-12-29 18:28:07,565 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-12-29 18:28:07,565 - DEBUG - Metadatos: {'id': 297}
+2025-12-29 18:28:07,565 - DEBUG - Similitud: 0.2815
+2025-12-29 18:28:07,565 - DEBUG - ----------------------------------------
+2025-12-29 18:28:07,565 - DEBUG - 🔍 Resultado #2:
+2025-12-29 18:28:07,566 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-12-29 18:28:07,569 - DEBUG - Metadatos: {'id': 296}
+2025-12-29 18:28:07,569 - DEBUG - Similitud: 0.2420
+2025-12-29 18:28:07,569 - DEBUG - ----------------------------------------
+2025-12-29 18:28:07,569 - DEBUG - 🔍 Resultado #3:
+2025-12-29 18:28:07,569 - DEBUG - Pregunta: ahhh eso es algo que se puede configurar? lo voy a estar mirando. gracias!
+2025-12-29 18:28:07,570 - DEBUG - Metadatos: {'id': 64}
+2025-12-29 18:28:07,570 - DEBUG - Similitud: 0.1345
+2025-12-29 18:28:07,570 - DEBUG - ----------------------------------------
+2025-12-29 18:29:46,300 - DEBUG - 
+❓PREGUNTA NUEVA: hola! qué es git?
+2025-12-29 18:29:46,301 - DEBUG - 🔝 MÁS PARECIDA:
+2025-12-29 18:29:46,301 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-12-29 18:29:46,301 - DEBUG - Metadatos: {'id': 297}
+2025-12-29 18:29:46,301 - DEBUG - Similitud: 0.2815
+2025-12-29 18:29:46,301 - DEBUG - ----------------------------------------
+2025-12-29 18:29:46,301 - DEBUG - 🔍 Resultado #2:
+2025-12-29 18:29:46,302 - DEBUG - Pregunta: hola! tengo una pregunta, instalé github desktop y estoy tratando de probar los comandos de git que aparecen en el video, pero no me reconoce el comando "git". quería saber si debo instalar algo más?
+2025-12-29 18:29:46,302 - DEBUG - Metadatos: {'id': 296}
+2025-12-29 18:29:46,302 - DEBUG - Similitud: 0.2420
+2025-12-29 18:29:46,302 - DEBUG - ----------------------------------------
+2025-12-29 18:29:46,302 - DEBUG - 🔍 Resultado #3:
+2025-12-29 18:29:46,302 - DEBUG - Pregunta: ahhh eso es algo que se puede configurar? lo voy a estar mirando. gracias!
+2025-12-29 18:29:46,302 - DEBUG - Metadatos: {'id': 64}
+2025-12-29 18:29:46,303 - DEBUG - Similitud: 0.1345
+2025-12-29 18:29:46,303 - DEBUG - ----------------------------------------

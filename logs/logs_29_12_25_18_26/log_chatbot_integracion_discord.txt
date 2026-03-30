@@ -1,0 +1,9 @@
+2025-12-29 18:27:05,849 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2025-12-29 18:27:06,402 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González
+2025-12-29 18:28:05,309 - DEBUG - 📩 Nuevo mensaje en canal principal del chatbot de lourdesayelengonzalez: hola! qué es git?
+2025-12-29 18:28:05,310 - DEBUG - 🔖 Creando hilo para la consulta de Lourdes González...
+2025-12-29 18:28:06,586 - DEBUG - 🔖 Hilo creado: Consulta de Lourdes González (ID: 1455311435646369969)
+2025-12-29 18:28:06,587 - DEBUG - 📩 Procesando mensaje de Lourdes González en el hilo...
+2025-12-29 18:29:46,223 - DEBUG - 📩 Procesando mensaje de Lourdes González en el hilo...
+2025-12-29 18:34:06,519 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T18:34:06.519662. Guilds activos=1, latencia=inf
+2025-12-29 18:34:07,348 - INFO - 🔄 Bot reconectado a las 2025-12-29T18:34:07.348379. Guilds activos=1, latencia=0.22776969999540597

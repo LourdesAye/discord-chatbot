@@ -14,6 +14,9 @@ from processing.procesamiento_tiempo_real import ProcesadorTiempoReal
 from utils.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio 
 from embeddings.gestor_vectores import GestorBaseVectorial
 from langchain.embeddings import HuggingFaceEmbeddings
+from psycopg2 import connect, sql, errors
+from psycopg2.extras import RealDictCursor, DictCursor
+from utils.conexion_bdd import config
 
 log_real_time = setup_logger('log_real_time', 'log_procesamiento_mensaje_tiempo_real.txt'
                              )
@@ -63,6 +66,34 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
         # intenta cargar/crear base al iniciar
         self.vectordb = self.gestor_vectorial.crear_si_no_existe()
 
+    def obtener_interaccion_completa_pregunta_respuestas(query, id_pregunta):
+        conn = connect(**config)
+        cursor = conn.cursor(cursor_factory=DictCursor)
+
+        cursor.execute(query, (id_pregunta,))
+
+        datos = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+
+        return datos
+    
+    def formar_mensaje_discord(pregunta, filas):
+        mensaje = f"**Pregunta original:**\n> {pregunta}\n\n"
+        mensaje += "**Respuestas:**\n"
+
+        for fila in filas:
+            etiqueta = "👩‍🏫 Docente" if fila["es_docente"] else "👤 Alumno"
+            mensaje += (
+                f"\n{etiqueta} — *{fila['nombre_autor']}*\n"
+                f"{fila['respuesta']}\n"
+                "─" * 20
+            )
+
+        return mensaje
+
+
     def setup_events(self):
         @self.bot.event
         # mensaje que se da cuando el bot se autentica en discord (cuando comienza a funcionar): No cada vez que se une a un servidor
@@ -98,55 +129,165 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
             # --- Caso 1: mensaje en el canal principal del chatbot ---
             # por aquí se deben crear filtros y no crear hilo si no corresponde o genrar hilo indicando que su pegunta no es valida y cerarrlo
             if isinstance(canal, discord.TextChannel) and canal_nombre == self.nombre_canal_del_chatbot:
+                self.logger_chatbot_discord.debug(f"📩 Nuevo mensaje en canal principal del chatbot de {message.author}: {message.content}" )
+                self.logger_chatbot_discord.debug(f"🔖 Creando hilo para la consulta de {message.author.display_name}...")
+                
+                mensaje_consulta= message  # alias para mayor claridad
+                mention_autor = message.author.mention  # mención del autor para notificarlo en el hilo
+                autor = message.author.display_name  # nombre para mensajes
+
                 thread = await canal.create_thread(
-                    name=f"Consulta de {message.author.display_name}",
-                    message=message,
+                    name=f"Consulta de {autor}",
+                    message=mensaje_consulta,
                     auto_archive_duration=60
                 )
+
                 # Mensaje informando en el canal principal
                 await canal.send(
-                    f"📬 Hola {message.author.mention}! Creé un hilo para tu consulta. "
+                    f"📬 Hola {mention_autor}! Creé un hilo para tu consulta. "
                     "Hacé clic en él para continuar nuestra conversación."
                 )
+
+                self.logger_chatbot_discord.debug(f"🔖 Hilo creado: {thread.name} (ID: {thread.id})")
+                self.logger_chatbot_discord.debug(f"📩 Procesando mensaje de {message.author.display_name} en el hilo...")
 
                 # Mensaje automático dentro del hilo
                 await thread.send("🕓 Estoy procesando tu mensaje...")
 
-                texto = message.content
-
-                # Si aún no existe, crearla (lazy init : si no existe crearla en el momento en que se necesita)
                 if not self.vectordb:
-                    self.vectordb = self.gestor_vectorial.crear_si_no_existe()
-
-                if not self.vectordb:
-                    await message.channel.send("Todavía no tengo preguntas cargadas para buscar 😕. Intentalo más tarde")
+                    await thread.send("Todavía no tengo preguntas cargadas para buscar 😕. Intentalo más tarde")
+                    self.logger_chatbot_discord.debug("❌ No existe base de datos relacional para construir base vectorial cargada; se informa al usuario.")
                     return
 
+                texto = message.content or ""
                 las_tres_preguntas_mas_parecidas = self.gestor_vectorial.buscar(texto, k=3)
 
                 if not las_tres_preguntas_mas_parecidas:
-                    await message.channel.send("No encontré algo parecido. Podrías preguntar en el canal 🙂")
+                    await thread.send("No encontré algo parecido. Podrías preguntar en el canal 🙂")
+                    self.logger_chatbot_discord.debug("❌ No se encontraron preguntas parecidas; se informa al usuario.")
                     return
 
-                # Se elige la pregunta más parecida
-                doc, similitud = las_tres_preguntas_mas_parecidas[0]
+                query_respuestas_a_pregunta = """
+                SELECT 
+                    p.texto AS pregunta,
+                    r.texto AS respuesta,
+                    r.orden,
+                    r.es_validada,
+                    a.nombre_autor,
+                    a.es_docente
+                FROM preguntas p
+                JOIN respuestas r ON r.pregunta_id = p.id_pregunta
+                JOIN mensajes m ON m.id_mensaje = r.mensaje_id
+                JOIN autores a ON a.id_autor = m.autor_id
+                WHERE p.id_pregunta = %s
+                ORDER BY r.orden NULLS LAST, r.id_respuesta;
+                """
 
-                pregunta_mas_parecida = (
-                    f"Creo que ya habían preguntado algo parecido 👇\n\n"
-                    f"**Pregunta:** {doc.page_content}\n"
+                # Se elige la pregunta más parecida
+                resultados_busqueda_semantica, similitud = las_tres_preguntas_mas_parecidas[0]
+                pregunta = resultados_busqueda_semantica.page_content
+                id_pregunta = resultados_busqueda_semantica.metadata["id"]
+
+                datos = self.obtener_interaccion_completa_pregunta_respuestas(query_respuestas_a_pregunta,id_pregunta)
+                mensaje = self.formar_mensaje_discord(pregunta, datos)
+
+                self.logger_chatbot_discord.debug(f"📩 Enviando respuesta al hilo de {autor}...")
+
+                await thread.send(mensaje)
+
+                self.logger_chatbot_discord.debug(f"✅ Respuesta enviada al hilo de {autor}.")
+
+                # Mandar el mensaje de cierre de hilo
+                await thread.send(
+                    "Tu consulta ya fue respondida 😊\n"
+                    "Cerramos el hilo para mantener el canal ordenado.\n"
+                    "Si necesitás volver sobre el tema, abrí un hilo nuevo."
                 )
 
-                await message.channel.send(pregunta_mas_parecida)
+                self.logger_chatbot_discord.debug(f"🔖 Cerrando hilo de {autor}...")
 
-                respuesta_pregunta_mas_parecida = doc.metadata
-
-                return  # ya manejado, evitamos seguir
+                # Archivar y bloquear hilo
+                await thread.edit(archived=True, locked=True)
+                self.logger_chatbot_discord.debug(f"✅ Hilo de {autor} cerrado y archivado.")
+                return  # se evita seguir
 
             # --- Caso 2: mensaje dentro de un hilo del canal principal ---
             if isinstance(canal, discord.Thread) and canal.parent.name == self.nombre_canal_del_chatbot:
 
-                await canal.send("Estoy procesando tu mensaje en el hilo...")
-                return
+                # Mensaje automático dentro del hilo
+                # notar que aquí ya está dentro del hilo, el canal es el hilo
+                await  canal.send("🕓 Estoy procesando tu mensaje...")
+                mensaje_consulta= message  # alias para mayor claridad
+                autor = message.author.display_name  # nombre para mensajes
+                self.logger_chatbot_discord.debug(f"📩 Procesando mensaje de {message.author.display_name} en el hilo...")
+                # Si aún no existe, crearla (lazy init : si no existe crearla en el momento en que se necesita)
+
+                if not self.vectordb:
+                    self.logger_chatbot_discord.debug("Entrando en no existe base vectorial")
+                    await canal.send("Todavía no tengo preguntas cargadas para buscar 😕. Intentalo más tarde")
+                    self.logger_chatbot_discord.debug("❌ No existe base de datos relacional para construir base vectorial cargada; se informa al usuario.")
+                    return
+                
+                self.logger_chatbot_discord.debug("Entrando en existe base vectorial")
+                texto = message.content or ""
+                self.logger_chatbot_discord.debug(f"📩 Texto del mensaje a procesar: {texto}")
+                self.logger_chatbot_discord.debug("🔎 Iniciando búsqueda semántica...")
+                las_tres_preguntas_mas_parecidas = self.gestor_vectorial.buscar(texto, k=3)
+                self.logger_chatbot_discord.debug("✅ Búsqueda semántica finalizada")
+
+                if not las_tres_preguntas_mas_parecidas: 
+                    self.logger_chatbot_discord.debug("No se encontraron preguntas parecidas") 
+                else: 
+                    self.logger_chatbot_discord.debug("Se encontraron:", las_tres_preguntas_mas_parecidas)
+
+                if not las_tres_preguntas_mas_parecidas:
+                    await canal.send("No encontré algo parecido. Podrías preguntar en el canal 🙂")
+                    self.logger_chatbot_discord.debug("❌ No se encontraron preguntas parecidas; se informa al usuario.")
+                    return
+
+                query_respuestas_a_pregunta = """
+                SELECT 
+                    p.texto AS pregunta,
+                    r.texto AS respuesta,
+                    r.orden,
+                    r.es_validada,
+                    a.nombre_autor,
+                    a.es_docente
+                FROM preguntas p
+                JOIN respuestas r ON r.pregunta_id = p.id_pregunta
+                JOIN mensajes m ON m.id_mensaje = r.mensaje_id
+                JOIN autores a ON a.id_autor = m.autor_id
+                WHERE p.id_pregunta = %s
+                ORDER BY r.orden NULLS LAST, r.id_respuesta;
+                """
+
+                # Se elige la pregunta más parecida
+                resultados_busqueda_semantica, similitud = las_tres_preguntas_mas_parecidas[0]
+                pregunta = resultados_busqueda_semantica.page_content
+                id_pregunta = resultados_busqueda_semantica.metadata["id"]
+
+                datos = self.obtener_interaccion_completa_pregunta_respuestas(query_respuestas_a_pregunta,id_pregunta)
+                mensaje_para_discord = self.formar_mensaje_discord(pregunta, datos)
+
+                self.logger_chatbot_discord.debug(f"📩 Enviando respuesta al hilo de {autor}...")
+
+                await canal.send(mensaje_para_discord)
+
+                self.logger_chatbot_discord.debug(f"✅ Respuesta enviada al hilo de {autor}.")
+
+                # Mandar el mensaje de cierre de hilo
+                await thread.send(
+                    "Tu consulta ya fue respondida 😊\n"
+                    "Cerramos el hilo para mantener el canal ordenado.\n"
+                    "Si necesitás volver sobre el tema, abrí un hilo nuevo."
+                )
+
+                self.logger_chatbot_discord.debug(f"🔖 Cerrando hilo de {autor}...")
+
+                # Archivar y bloquear hilo
+                await canal.edit(archived=True, locked=True)
+                self.logger_chatbot_discord.debug(f"✅ Hilo de {autor} cerrado y archivado.")
+                return  # se evita seguir
 
             # --- Caso 3: mensaje en un canal de consulta ---
             # (por nombre o por ID)

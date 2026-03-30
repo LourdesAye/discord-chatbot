@@ -1,0 +1,19 @@
+2025-12-29 19:14:15,344 - INFO - 📊 Total de preguntas obtenidas de la base de datos relacional para generar embeddings : 1428
+2025-12-29 19:14:53,267 - INFO - 🔄 Base vectorial creada con 1428 preguntas
+2025-12-29 19:15:01,127 - DEBUG - 
+❓PREGUNTA NUEVA: hola, qué es git?
+2025-12-29 19:15:01,127 - DEBUG - 🔝 MÁS PARECIDA:
+2025-12-29 19:15:01,128 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-12-29 19:15:01,128 - DEBUG - Metadatos: {'id': 776}
+2025-12-29 19:15:01,129 - DEBUG - Similitud: 0.3067
+2025-12-29 19:15:01,129 - DEBUG - ----------------------------------------
+2025-12-29 19:15:01,129 - DEBUG - 🔍 Resultado #2:
+2025-12-29 19:15:01,129 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-12-29 19:15:01,131 - DEBUG - Metadatos: {'id': 297}
+2025-12-29 19:15:01,131 - DEBUG - Similitud: 0.3067
+2025-12-29 19:15:01,131 - DEBUG - ----------------------------------------
+2025-12-29 19:15:01,132 - DEBUG - 🔍 Resultado #3:
+2025-12-29 19:15:01,132 - DEBUG - Pregunta: tenes git instalado? porque quizás es eso lo que falta
+2025-12-29 19:15:01,132 - DEBUG - Metadatos: {'id': 1255}
+2025-12-29 19:15:01,132 - DEBUG - Similitud: 0.3067
+2025-12-29 19:15:01,132 - DEBUG - ----------------------------------------

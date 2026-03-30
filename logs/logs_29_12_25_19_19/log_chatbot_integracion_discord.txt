@@ -1,0 +1,35 @@
+2025-12-29 19:19:46,441 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2025-12-29 19:19:47,090 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González
+2025-12-29 19:21:06,457 - DEBUG - 📩 Nuevo mensaje en canal principal del chatbot de lourdesayelengonzalez: hola, qué es git?
+2025-12-29 19:21:06,457 - DEBUG - 🔖 Creando hilo para la consulta de Lourdes González...
+2025-12-29 19:21:08,806 - DEBUG - 🔖 Hilo creado: Consulta de Lourdes González (ID: 1455324777588985886)
+2025-12-29 19:21:08,806 - DEBUG - 📩 Procesando mensaje de Lourdes González en el hilo...
+2025-12-29 19:32:17,280 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T19:32:17.280025. Guilds activos=1, latencia=inf
+2025-12-29 19:32:17,691 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T19:32:17.690876. Guilds activos=1, latencia=inf
+2025-12-29 19:32:18,354 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T19:32:18.354225. Guilds activos=1, latencia=inf
+2025-12-29 19:32:19,683 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T19:32:19.683031. Guilds activos=1, latencia=inf
+2025-12-29 19:32:22,073 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T19:32:22.073159. Guilds activos=1, latencia=inf
+2025-12-29 19:32:27,714 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T19:32:27.714722. Guilds activos=1, latencia=inf
+2025-12-29 19:32:43,811 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T19:32:43.811878. Guilds activos=1, latencia=inf
+2025-12-29 19:32:51,477 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2025-12-29 19:32:52,012 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González
+2025-12-29 22:42:56,689 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T22:42:56.689310. Guilds activos=1, latencia=inf
+2025-12-29 22:42:57,809 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T22:42:57.808989. Guilds activos=1, latencia=inf
+2025-12-29 23:16:29,854 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T23:16:29.854714. Guilds activos=1, latencia=inf
+2025-12-29 23:16:31,508 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T23:16:31.508623. Guilds activos=1, latencia=inf
+2025-12-29 23:16:33,304 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T23:16:33.304662. Guilds activos=1, latencia=inf
+2025-12-29 23:16:34,239 - WARNING - ⚠️ Bot desconectado a las 2025-12-29T23:16:34.239638. Guilds activos=1, latencia=inf
+2025-12-30 05:19:39,839 - WARNING - ⚠️ Bot desconectado a las 2025-12-30T05:19:39.839548. Guilds activos=1, latencia=inf
+2025-12-30 05:19:41,019 - WARNING - ⚠️ Bot desconectado a las 2025-12-30T05:19:41.019534. Guilds activos=1, latencia=inf
+2025-12-30 05:19:41,412 - WARNING - ⚠️ Bot desconectado a las 2025-12-30T05:19:41.411910. Guilds activos=1, latencia=inf
+2025-12-30 05:19:45,563 - WARNING - ⚠️ Bot desconectado a las 2025-12-30T05:19:45.563146. Guilds activos=1, latencia=inf
+2025-12-30 05:19:53,419 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2025-12-30 05:19:53,907 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González
+2026-01-01 14:01:14,719 - WARNING - ⚠️ Bot desconectado a las 2026-01-01T14:01:14.719719. Guilds activos=1, latencia=inf
+2026-01-01 14:01:14,763 - WARNING - ⚠️ Bot desconectado a las 2026-01-01T14:01:14.763525. Guilds activos=1, latencia=inf
+2026-01-01 14:01:15,212 - WARNING - ⚠️ Bot desconectado a las 2026-01-01T14:01:15.212138. Guilds activos=1, latencia=inf
+2026-01-01 14:01:15,711 - WARNING - ⚠️ Bot desconectado a las 2026-01-01T14:01:15.711331. Guilds activos=1, latencia=inf
+2026-01-01 14:01:22,908 - WARNING - ⚠️ Bot desconectado a las 2026-01-01T14:01:22.908211. Guilds activos=1, latencia=inf
+2026-01-01 14:01:34,378 - WARNING - ⚠️ Bot desconectado a las 2026-01-01T14:01:34.378890. Guilds activos=1, latencia=inf
+2026-01-01 14:01:40,502 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
+2026-01-01 14:01:41,667 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González
