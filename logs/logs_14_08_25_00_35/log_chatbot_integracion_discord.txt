@@ -1,2 +1,0 @@
-2025-08-14 00:36:08,484 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
-2025-08-14 00:36:09,093 - DEBUG - ✅ Mensaje enviado al canal #consultas-bot en El servidor de Lourdes González
