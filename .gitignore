@@ -16,3 +16,7 @@ chroma/
 # OS
 .DS_Store
 desktop.ini
+
+#json
+json/
+
