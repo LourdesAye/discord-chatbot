@@ -1,8 +1,0 @@
-2025-11-27 16:08:40,132 - DEBUG -  🗂️ Cantidad de archivos JSON encontrados: 3
-2025-11-27 16:08:40,139 - DEBUG -  
- ✉️ Cantidad de mensajes en el json: 601
-2025-11-27 16:08:40,149 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_vacios': 15
-2025-11-27 16:08:40,153 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_emojis_stickers_gifs': 2
-2025-11-27 16:08:40,157 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_numeros_signos': 0
-2025-11-27 16:08:40,161 - DEBUG -  🟡 Cantidad de mensajes filtrados por 'mensajes_solo_simbolos': 0
-2025-11-27 16:08:40,162 - DEBUG -  🟢 Cantidad de mensajes finales luego de todos los filtros: 584

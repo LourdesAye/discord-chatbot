@@ -1,4 +1,0 @@
-2025-08-18 18:00:27,175 - DEBUG - ✅ Bot conectado como chatbot-Diseño-De-Sistemas#1291
-2025-08-18 18:00:27,451 - DEBUG - ✅ Mensaje de autenticación exitosa enviado al canal #consultas-bot en El servidor de Lourdes González
-2025-08-18 19:24:24,514 - WARNING - ⚠️ Bot desconectado a las 2025-08-18T19:24:24.513852. Guilds activos=1, latencia=inf
-2025-08-18 19:24:24,907 - INFO - 🔄 Bot reconectado a las 2025-08-18T19:24:24.907379. Guilds activos=1, latencia=0.14650040000014997
