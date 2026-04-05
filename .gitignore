@@ -1,4 +1,18 @@
-# Ignorar configuración sensible
+# entorno
 .env
 .env.*
 venv/
+
+# python
+__pycache__/
+*.pyc
+
+# logs
+logs/
+
+# bases de datos locales
+chroma/
+
+# OS
+.DS_Store
+desktop.ini
