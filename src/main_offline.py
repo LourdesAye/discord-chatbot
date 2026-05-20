@@ -25,7 +25,7 @@ from database.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.clase_cargar_bdd import GestorBD
 from processing.procesamiento_json import procesar_archivos_json
 from utils.utilidades_logs import setup_logger
-from utils.config_rutas import BuscadorArchivos
+from utils.config_paths import FileSearcher
 from embeddings.gestor_vectores import GestorBaseVectorial
 from langchain_huggingface import HuggingFaceEmbeddings
 
@@ -34,8 +34,8 @@ def main():
     logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
     # PROCESAMIENTO de los JSONs
-    buscador_archivos = BuscadorArchivos()
-    rutas_json = buscador_archivos.obtener_rutas_json() #  ⚠️🚨❗REFACTOR  ⚠️🚨❗, ver qué pasa si no hay jsons (si funciona)
+    buscador_archivos = FileSearcher()
+    rutas_json = buscador_archivos.get_json_paths() #  ⚠️🚨❗REFACTOR  ⚠️🚨❗, ver qué pasa si no hay jsons (si funciona)
 
     logger_proc.debug(f" 🗂️ Cantidad de archivos JSON encontrados: {len(rutas_json)}")
     if len(rutas_json) == 0:

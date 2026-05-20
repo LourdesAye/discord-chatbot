@@ -2,7 +2,7 @@ import logging
 import os
 from datetime import datetime
 from dotenv import load_dotenv
-from utils.config_rutas import LOG_DIR_ABS
+from utils.config_paths import LOG_DIR_ABS
 import pandas as pd
 
 # === Configuración inicial ===
