@@ -1,7 +1,7 @@
 from processing.procesamiento_completo import ProcesadorBase
 from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierreTiempoReal
 from psycopg2 import connect, sql, errors
-from utils.conexion_bdd import config
+from utils.conexion_bdd import CONFIG
 from utils.utilidades_logs import setup_logger
 from psycopg2.extras import RealDictCursor
 # Estor sería del preguntasRepository
@@ -22,7 +22,7 @@ class ProcesadorTiempoReal(ProcesadorBase):
         super().__init__(nombre_log, estrategias)
         self.estrategia_cierre = EstrategiaCierreTiempoReal()  # estrategia de cierre para tiempo real
         # se agregan atributos para conexión a base de datos
-        self.config = config
+        self.config = CONFIG
         self.conn = self.connect_to_database()
 
     def connect_to_database(self):

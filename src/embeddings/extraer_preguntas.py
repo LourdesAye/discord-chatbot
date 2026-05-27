@@ -1,4 +1,4 @@
-from utils.conexion_bdd import config
+from utils.conexion_bdd import CONFIG
 from utils.utilidades_logs import setup_logger,guardar_pregunta
 import psycopg2 
 from psycopg2.extras import DictCursor
@@ -8,7 +8,7 @@ def obtener_preguntas_y_metadatos():
     preguntas, metadatos = [], []
 
     try:
-        conn = psycopg2.connect(**config) # es la conexión a la base de datos PostgreSQL.
+        conn = psycopg2.connect(**CONFIG) # es la conexión a la base de datos PostgreSQL.
         # DictCursor hace que los resultados sean accesibles por nombre de columna (ej. fila["texto"]).
         cursor = conn.cursor(cursor_factory=DictCursor) # permite ejecutar consultas SQL y recorrer los resultados.
         cursor.execute("""

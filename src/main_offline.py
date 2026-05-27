@@ -20,7 +20,7 @@ la información base del chatbot a partir de los archivos JSON exportados de Dis
 
 Este main termina y se cierra; no queda corriendo en segundo plano.
 """
-from utils.conexion_bdd import config
+from utils.conexion_bdd import CONFIG
 from database.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.clase_cargar_bdd import GestorBD
 from processing.procesamiento_json import procesar_archivos_json
@@ -42,13 +42,19 @@ def main():
         logger_proc.debug(" ❌ No se encontraron archivos JSON para procesar. Finalizando ejecución.")
         exit(1)  # Salir del programa si no hay archivos JSON   
     
+    # STOP TEMPORAL: Ver si llega a detectar carpeta jsons y archivos, si es así, quitar este stop
+    logger_proc.debug(" 🚧 STOP TEMPORAL: Verificar detección de archivos")
+    rutas_json = rutas_json[:1]
+    logger_proc.debug(f" 🚧 Procesando solo el primer archivo JSON por ahora: {rutas_json[0].nombre_ruta}")
+    exit(0)  # Salir después de verificar detección de archivos
+    
     procesadores = procesar_archivos_json(rutas_json) # función para procesar todos los archivos JSON
     logger_proc.debug(f" 🔍 Cantidad de procesadores generados: {len(procesadores)}")
     logger_proc.debug(" 🗃️ Conectándose a la base de datos...") 
 
     # PERSISTENCIA EN BASE DE DATOS
     # configuración y conexión con BDD
-    bd = GestorBD(config) 
+    bd = GestorBD(CONFIG) 
 
     # contador de respuestas de todos los json
     cant_total_resp = 0 

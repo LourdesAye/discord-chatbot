@@ -16,7 +16,7 @@ from embeddings.gestor_vectores import GestorBaseVectorial
 from langchain.embeddings import HuggingFaceEmbeddings
 from psycopg2 import connect, sql, errors
 from psycopg2.extras import RealDictCursor, DictCursor
-from utils.conexion_bdd import config
+from utils.conexion_bdd import CONFIG
 
 log_real_time = setup_logger('log_real_time', 'log_procesamiento_mensaje_tiempo_real.txt'
                              )
@@ -67,7 +67,7 @@ class DiscordChatbot: # encapsula lógica del funcionamiento del chatbot
         self.vectordb = self.gestor_vectorial.crear_si_no_existe()
 
     def obtener_interaccion_completa_pregunta_respuestas(query, id_pregunta):
-        conn = connect(**config)
+        conn = connect(**CONFIG)
         cursor = conn.cursor(cursor_factory=DictCursor)
 
         cursor.execute(query, (id_pregunta,))
