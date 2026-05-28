@@ -3,15 +3,17 @@ from utils.utilidades_logs import guardar_resultados_en_csvs
 from processing.procesamiento_completo import ProcesadorBatch
 from utils.utilidades_logs import setup_logger
 from utils.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio
+from database.models.clase_ruta import Ruta
+from utils.filtros_de_mensajes import EstrategiaFiltro
 
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
 # Función para procesar el archivo JSON y convertirlo a DataFrame
-def procesar_json(ruta_json):
-    datos = ruta_json.leer_json() # abre el JSON y lo pasa a un diccionario (pra clave-valor)
-    df = pd.DataFrame(datos)  # Convierte el diccionario a DataFrame
-    return df # devueñlve un dataframe (estructura de fila : datos o valor y columna: clave o nombre del atributo) con los datos del json
+def cargar_json_como_dataframe(ruta_json : Ruta) -> pd.DataFrame : 
+    datos = ruta_json.leer_json() # abre el JSON y lo pasa a un diccionario (par clave-valor)
+    mensajes_crudos_df = pd.DataFrame(datos)  # Convierte el diccionario a DataFrame
+    return mensajes_crudos_df # devuelve un dataframe (estructura de fila : datos o valor y columna: clave o nombre del atributo) con los datos del json
 
 # Función oara aplicar las estrategias (filtros o algoritmos) en el dataframe
 def aplicar_filtros_mensajes_json(df, estrategias):
@@ -27,23 +29,23 @@ def aplicar_filtros_mensajes_json(df, estrategias):
     logger_proc.debug(f" 🟢 Cantidad de mensajes finales luego de todos los filtros: {len(df)}") # trazabilidad de cada filtro aplicado a los registros
     return df, mensajes_filtrados # devuelve el dataframe a procesar y los dataframes filtrados (con los registros indeseables)
 
-def procesar_archivos_json(rutas_json):
+def procesar_archivos_json(rutas_json : list[Ruta]) -> list[ProcesadorBatch]:
     procesadores = []  # Lista para guardar cada Procesador
     for idx, ruta_json in enumerate(rutas_json, start=1): # recorre cada directorio
-        df = procesar_json(ruta_json) # Cargar de cada directorio el JSON y lo convierte a DataFrame
-        nombre_base = f"chat_{idx}"  # Obtener nombre base para los archivos
-        estrategias = [ FiltroContenidoVacio(),FiltroContenidoIrrelevanteVisual(), FiltroSoloNumerosSignos(),FiltroSoloSimbolos()]  # definiendo lista de estrategias para aplicar sobre el DataFrame 
-        df, filtrados = aplicar_filtros_mensajes_json(df, estrategias) # Filtrar 5 dataframes: mensajes con todos los filtros aplicados, con solo mensajes vacios, con mensajes irrelevantes (solo gifs,sticker o emoticón), con mensjaes que son solo número con signo, o mensajes con solo signo
-        guardar_resultados_en_csvs(df, filtrados ,nombre_base)# Guardar los dataframes en CSVs para su control visual
+        mensajes_crudos_df = cargar_json_como_dataframe(ruta_json) # Cargar de cada directorio el JSON y lo convierte a DataFrame
+        prefijo_archivos_csv = f"chat_{idx}"  # Obtener nombre base para los archivos
+        filtros_mensajes : list[EstrategiaFiltro]= [ FiltroContenidoVacio(),FiltroContenidoIrrelevanteVisual(), FiltroSoloNumerosSignos(),FiltroSoloSimbolos()]  # definiendo lista de estrategias para aplicar sobre el DataFrame 
+        mensajes_filtrados_df, filtrados = aplicar_filtros_mensajes_json(mensajes_crudos_df, filtros_mensajes) # Filtrar 5 dataframes: mensajes con todos los filtros aplicados, con solo mensajes vacios, con mensajes irrelevantes (solo gifs,sticker o emoticón), con mensjaes que son solo número con signo, o mensajes con solo signo
+        guardar_resultados_en_csvs(mensajes_filtrados_df, filtrados ,prefijo_archivos_csv)# Guardar los dataframes en CSVs para su control visual
         nombre_log = f"log_json_{idx:02d}.txt" # se va a tener un log por cada archivo json procesado
 
         # ACA VOLVER CUANDO TERMINER DE HACER EL REFACTOR DEL PROCESAMIENTO BATCH Y TIEMPO REAL
         # VER CÓMO SERÁ LA NUEVA INSTANCIACIÓN DEL PROCESADOR
         procesador = ProcesadorBatch(nombre_log) # Crear procesador por cada archivo json procesador
         
-        df = df.sort_values(by='timestamp', ascending=True)  # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)
-        df = df.reset_index(drop=True)  # se reinicia el índice del Dataframe para que quede ordenado y no haya saltos en los índices
-        procesador.procesar_dataframe(df,str(ruta_json)) # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas
+        mensajes_crudos_df = mensajes_crudos_df.sort_values(by='timestamp', ascending=True)  # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)
+        mensajes_crudos_df = mensajes_crudos_df.reset_index(drop=True)  # se reinicia el índice del Dataframe para que quede ordenado y no haya saltos en los índices
+        procesador.procesar_dataframe(mensajes_crudos_df,str(ruta_json)) # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas
         procesadores.append(procesador) # se deben guardar los procesadores en una lista ya que se crea uno por cada JSON que se analiza
 
         # Registrar resultados del procesamiento

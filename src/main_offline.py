@@ -42,11 +42,15 @@ def main():
         logger_proc.debug(" ❌ No se encontraron archivos JSON para procesar. Finalizando ejecución.")
         exit(1)  # Salir del programa si no hay archivos JSON   
     
-    # STOP TEMPORAL: Ver si llega a detectar carpeta jsons y archivos, si es así, quitar este stop
+    # STOP TEMPORAL: Ver si llega a detectar carpeta jsons y archivos
     logger_proc.debug(" 🚧 STOP TEMPORAL: Verificar detección de archivos")
-    rutas_json = rutas_json[:1]
-    logger_proc.debug(f" 🚧 Procesando solo el primer archivo JSON por ahora: {rutas_json[0].nombre_ruta}")
+    logger_proc.debug(f" 🚧 Rutas de los JSON a procesar:")
+    for num_ruta,ruta in enumerate(rutas_json,start=1):
+        logger_proc.debug(f" 🚧 Ruta {num_ruta} detectada: {ruta}")
+    logger_proc.debug(" 🚧 STOP TEMPORAL: Verificar detección de archivos - FIN")
     exit(0)  # Salir después de verificar detección de archivos
+
+    #ACA SE CORTA POR AHORA
     
     procesadores = procesar_archivos_json(rutas_json) # función para procesar todos los archivos JSON
     logger_proc.debug(f" 🔍 Cantidad de procesadores generados: {len(procesadores)}")
