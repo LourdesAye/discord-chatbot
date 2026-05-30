@@ -165,31 +165,6 @@ Los logs con los resultados se encuentran en la carpeta `logs/`.
 
 ---
 
-### 🐛 Errores conocidos (Telemetría - Julio 2024)
-#### ⚠️ Mensajes de telemetría en consola
-Desde el **4 de julio de 2024**, aparecieron los siguientes mensajes en la consola al ejecutar el sistema:  
-```bash
-Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
-Failed to send telemetry event ClientCreateCollectionEvent: capture() takes 1 positional argument but 3 were given
-Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
-```
-Estos mensajes fueron generados internamente por `ChromaDB` y `LangChain`, que utilizan herramientas de telemetría como `OpenTelemetry` y `PostHog` para recolectar métricas de uso. Actualmente se encuentran en proceso de actualización de esas funcionalidades.
-
-##### 🔍 **Importante:**  
-Estos errores **no afectan la ejecución ni la funcionalidad del sistema**. Se pueden ignorar sin inconvenientes.
-
-##### ✅ Alternativa (opcional):
-- Utilizar versiones estables: 
-  ```bash 
-  chromadb==0.4.22  
-  langchain==0.1.13 
-  ```   
-##### 📝 Referencias oficiales:  
-- [Issue #917](https://github.com/vanna-ai/vanna/issues/917)   
-- [Issue #2235](https://github.com/chroma-core/chroma/issues/2235)   
-
----
-
 ## ✅ Resultados actuales
 
 - Archivos `.json` son cargados y consolidados en un único DataFrame.
