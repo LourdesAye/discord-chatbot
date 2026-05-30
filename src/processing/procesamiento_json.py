@@ -2,9 +2,8 @@ import pandas as pd
 from utils.utilidades_logs import guardar_resultados_en_csvs
 from processing.procesamiento_completo import ProcesadorBatch
 from utils.utilidades_logs import setup_logger
-from utils.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio
+from utils.filtros_de_mensajes import EstrategiaFiltro,FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio
 from database.models.clase_ruta import Ruta
-from utils.filtros_de_mensajes import EstrategiaFiltro
 
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -15,42 +14,42 @@ def cargar_json_como_dataframe(ruta_json : Ruta) -> pd.DataFrame :
     mensajes_crudos_df = pd.DataFrame(datos)  # Convierte el diccionario a DataFrame
     return mensajes_crudos_df # devuelve un dataframe (estructura de fila : datos o valor y columna: clave o nombre del atributo) con los datos del json
 
-# Función oara aplicar las estrategias (filtros o algoritmos) en el dataframe
-def aplicar_filtros_mensajes_json(df, estrategias):
-    logger_proc.debug(f" \n ✉️ Cantidad de mensajes en el json: {len(df)}") # para mantener la trazabilidad de la cantidad de registros que se analizan
-    df["content"] = df["content"].astype(str).str.strip() # asegura que valor de esa columna content sea string y quita espacios vacios al inicio y al final
-    mensajes_filtrados = {} # para tener un diccionario de dataframes que se obtienen por cada filtro aplicado
-    for estrategia in estrategias: # estartegia es cada uno de los filtros que se aplican al dataframe
-        nombre = estrategia.nombre() # se capta nombre de la estrategia para que sea la clave del diccionario junto con su dataframe filtrado
-        filtrados_df = df[df["content"].apply(estrategia.aplicar)] # se aplica el filtro en la columna content del dataframe
-        mensajes_filtrados[nombre] = filtrados_df # se asocia el dataframe filtrado(valor) con el nombre de la estrategia(clave)
-        logger_proc.debug(f" 🟡 Cantidad de mensajes filtrados por '{nombre}': {len(filtrados_df)}") # para trazabilidad de mensajes filtrados de acuerdo a la estrategia
-        df = df[~df["content"].apply(estrategia.aplicar)] # al dataframe base se le quitan los registros que fueron filtrados (no deseados)
-    logger_proc.debug(f" 🟢 Cantidad de mensajes finales luego de todos los filtros: {len(df)}") # trazabilidad de cada filtro aplicado a los registros
-    return df, mensajes_filtrados # devuelve el dataframe a procesar y los dataframes filtrados (con los registros indeseables)
+def aplicar_filtros_mensajes_json(mensajes_crudos_df: pd.DataFrame, filtros_mensajes: list[EstrategiaFiltro]) -> tuple[pd.DataFrame, dict[str, pd.DataFrame]]:
+    logger_proc.debug(f" \n ✉️ Cantidad de mensajes en el json: {len(mensajes_crudos_df)}")
+    mensajes_crudos_df["content"] = (mensajes_crudos_df["content"].astype(str).str.strip())
+    mensajes_limpios_df = mensajes_crudos_df.copy()
+    mensajes_descartados = {}
+    for estrategia in filtros_mensajes:
+        nombre_filtro = estrategia.nombre()
+        mensajes_descartados_df = mensajes_limpios_df[mensajes_limpios_df["content"].apply(estrategia.aplicar)]
+        mensajes_descartados[nombre_filtro] = mensajes_descartados_df
+        logger_proc.debug( f" 🟡 Cantidad de mensajes filtrados por {nombre_filtro} : {len(mensajes_descartados_df)}")
+        mensajes_limpios_df = mensajes_limpios_df[~mensajes_limpios_df["content"].apply(estrategia.aplicar)]
+    logger_proc.debug( f" 🟢 Cantidad de mensajes finales luego de todos los filtros:{len(mensajes_limpios_df)}")
+    return mensajes_limpios_df, mensajes_descartados
 
 def procesar_archivos_json(rutas_json : list[Ruta]) -> list[ProcesadorBatch]:
     procesadores = []  # Lista para guardar cada Procesador
-    for idx, ruta_json in enumerate(rutas_json, start=1): # recorre cada directorio
+    for numero_json, ruta_json in enumerate(rutas_json, start=1): # recorre cada directorio
         mensajes_crudos_df = cargar_json_como_dataframe(ruta_json) # Cargar de cada directorio el JSON y lo convierte a DataFrame
-        prefijo_archivos_csv = f"chat_{idx}"  # Obtener nombre base para los archivos
+        prefijo_archivos_csv = f"chat_{numero_json}"  # Obtener nombre base para los archivos
         filtros_mensajes : list[EstrategiaFiltro]= [ FiltroContenidoVacio(),FiltroContenidoIrrelevanteVisual(), FiltroSoloNumerosSignos(),FiltroSoloSimbolos()]  # definiendo lista de estrategias para aplicar sobre el DataFrame 
-        mensajes_filtrados_df, filtrados = aplicar_filtros_mensajes_json(mensajes_crudos_df, filtros_mensajes) # Filtrar 5 dataframes: mensajes con todos los filtros aplicados, con solo mensajes vacios, con mensajes irrelevantes (solo gifs,sticker o emoticón), con mensjaes que son solo número con signo, o mensajes con solo signo
-        guardar_resultados_en_csvs(mensajes_filtrados_df, filtrados ,prefijo_archivos_csv)# Guardar los dataframes en CSVs para su control visual
-        nombre_log = f"log_json_{idx:02d}.txt" # se va a tener un log por cada archivo json procesado
+        mensajes_limpios_df, mensajes_descartados = aplicar_filtros_mensajes_json(mensajes_crudos_df, filtros_mensajes) # Filtrar 5 dataframes: mensajes con todos los filtros aplicados, con solo mensajes vacios, con mensajes irrelevantes (solo gifs,sticker o emoticón), con mensjaes que son solo número con signo, o mensajes con solo signo
+        guardar_resultados_en_csvs(mensajes_limpios_df, mensajes_descartados ,prefijo_archivos_csv)# Guardar los dataframes en CSVs para su control visual
+        nombre_log = f"log_json_{numero_json:02d}.txt" # se va a tener un log por cada archivo json procesado
 
         # ACA VOLVER CUANDO TERMINER DE HACER EL REFACTOR DEL PROCESAMIENTO BATCH Y TIEMPO REAL
         # VER CÓMO SERÁ LA NUEVA INSTANCIACIÓN DEL PROCESADOR
         procesador = ProcesadorBatch(nombre_log) # Crear procesador por cada archivo json procesador
         
-        mensajes_crudos_df = mensajes_crudos_df.sort_values(by='timestamp', ascending=True)  # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)
-        mensajes_crudos_df = mensajes_crudos_df.reset_index(drop=True)  # se reinicia el índice del Dataframe para que quede ordenado y no haya saltos en los índices
-        procesador.procesar_dataframe(mensajes_crudos_df,str(ruta_json)) # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas
+        mensajes_limpios_df = mensajes_limpios_df.sort_values(by='timestamp', ascending=True)  # Ordenar dataframe por la columna 'timestamp' de más antiguo a más nuevo (ascendente)
+        mensajes_limpios_df = mensajes_limpios_df.reset_index(drop=True)  # se reinicia el índice del Dataframe para que quede ordenado y no haya saltos en los índices
+        procesador.procesar_dataframe(mensajes_limpios_df,str(ruta_json)) # se le pasa a la instancia procesador el Dataframe ya filtrado para la identificación de preguntas y respuestas
         procesadores.append(procesador) # se deben guardar los procesadores en una lista ya que se crea uno por cada JSON que se analiza
 
         # Registrar resultados del procesamiento
         logger_proc.debug(f" ")
-        logger_proc.debug(f" \n ✅ Procesamiento completado para el archivo JSON {idx}")
+        logger_proc.debug(f" \n ✅ Procesamiento completado para el archivo JSON {numero_json}")
         logger_proc.debug(f" 📊 Resultados de procesamiento:")
         logger_proc.debug(f" \n 📊 Análisis de las listas de preguntas una vez finalizado el procesamiento:")
         logger_proc.debug(f"       📊 {len(procesador.preguntas_abiertas)} preguntas abiertas")
