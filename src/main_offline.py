@@ -43,16 +43,18 @@ def main():
         exit(1)  # Salir del programa si no hay archivos JSON   
     
     # STOP TEMPORAL: Ver si llega a detectar carpeta jsons y archivos
-    logger_proc.debug(" 🚧 STOP TEMPORAL: Verificar detección de archivos")
-    logger_proc.debug(f" 🚧 Rutas de los JSON a procesar:")
+    logger_proc.debug(" 🚧 STOP TEMPORAL 1 : Verificar detección de archivos")
+    logger_proc.debug(f"📎 Rutas de los JSON a procesar:")
     for num_ruta,ruta in enumerate(rutas_json,start=1):
-        logger_proc.debug(f" 🚧 Ruta {num_ruta} detectada: {ruta}")
-    logger_proc.debug(" 🚧 STOP TEMPORAL: Verificar detección de archivos - FIN")
-    exit(0)  # Salir después de verificar detección de archivos
-
-    #ACA SE CORTA POR AHORA
-    
+        logger_proc.debug(f" 📌 Ruta {num_ruta} detectada: {ruta}")
+    logger_proc.debug(" 🚧 STOP TEMPORAL 1 : Verificar detección de archivos - FIN")
+    logger_proc.debug("")
+    logger_proc.debug(" 🚧 STOP TEMPORAL 2 : Verificar aplicación de filtros")
     procesadores = procesar_archivos_json(rutas_json) # función para procesar todos los archivos JSON
+    logger_proc.debug(" 🚧 STOP TEMPORAL 2 : Verificar aplicación de filtros - FIN")
+    #ACA SE CORTA POR AHORA
+    exit(0)  # Salir después de verificar la detección de archivos y aplicación de filtros
+
     logger_proc.debug(f" 🔍 Cantidad de procesadores generados: {len(procesadores)}")
     logger_proc.debug(" 🗃️ Conectándose a la base de datos...") 
 

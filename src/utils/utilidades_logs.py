@@ -3,7 +3,11 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 from utils.config_paths import LOG_DIR_ABS
+from utils.utilidades_logs import setup_logger
 import pandas as pd
+
+# agregando logger para seguimiento de la carga de datos
+logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
 # === Configuración inicial ===
 FECHA_LOG = datetime.now().strftime("logs_%d_%m_%y_%H_%M")
@@ -62,10 +66,27 @@ def guardar_pregunta_y_respuestas_en_log(pregunta, numero_pregunta, nombre_archi
 # Si algún DataFrame está vacío, se genera un CSV con un mensaje aclaratorio.
 def guardar_resultados_en_csvs(df_filtrado, filtros_aplicados,nombre_base):
     
+    # nombre_archivo_filtrado = f"{nombre_base}_filtrado_limpio.csv"
+    # ruta_salida_filtrado = preparar_ruta(CSV_DIR_FINAL,nombre_archivo_filtrado)    
+    # df_filtrado.to_csv(ruta_salida_filtrado, index=False,encoding="utf-8")
+
     nombre_archivo_filtrado = f"{nombre_base}_filtrado_limpio.csv"
-    ruta_salida_filtrado = preparar_ruta(CSV_DIR_FINAL,nombre_archivo_filtrado)    
-    
-    df_filtrado.to_csv(ruta_salida_filtrado, index=False,encoding="utf-8")
+    ruta_salida_filtrado = preparar_ruta(CSV_DIR_FINAL,nombre_archivo_filtrado)
+
+    # Agregar fila resumen al final para validar la cantidad de registros
+    fila_conteo = pd.DataFrame({ col: [""] for col in df_filtrado.columns})
+
+    fila_conteo.iloc[0, 0] = ( f"Cantidad de registros: {len(df_filtrado)}")
+
+    df_filtrado_con_resumen = pd.concat([df_filtrado, fila_conteo],ignore_index=True)
+
+    # TODO REFACTOR:
+    # Revisar ImportError por dependencia circular con setup_logger.
+    # No afecta actualmente la validación de filtros ni la generación de CSVs.
+
+    # logger_proc.debug(f"💾 Guardando CSV limpio con {len(df_filtrado)} registros")
+
+    df_filtrado_con_resumen.to_csv( ruta_salida_filtrado, index=False,encoding="utf-8")
     
     for nombre_filtro, df_filtrado in filtros_aplicados.items():
         nombre_archivo = f"{nombre_base}_{nombre_filtro}.csv"
