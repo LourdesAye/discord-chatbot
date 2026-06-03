@@ -3,11 +3,9 @@ import os
 from datetime import datetime
 from dotenv import load_dotenv
 from utils.config_paths import LOG_DIR_ABS
-from utils.utilidades_logs import setup_logger
 import pandas as pd
 
 # agregando logger para seguimiento de la carga de datos
-logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
 # === Configuración inicial ===
 FECHA_LOG = datetime.now().strftime("logs_%d_%m_%y_%H_%M")

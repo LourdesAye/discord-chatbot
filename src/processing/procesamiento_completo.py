@@ -3,7 +3,7 @@ from database.models.clase_preguntas import Pregunta
 from utils.utilidades_logs import setup_logger, guardar_pregunta_y_respuestas_en_log
 from database.utilidades_conversiones import convertir_a_datetime, tiempo_transcurrido
 from datetime import timedelta
-from database.estrategias_procesamiento import ProcesamientoAlumnoStrategy,ProcesamientoDocenteStrategy
+from database.estrategias_procesamiento import ProcesamientoStrategy,ProcesamientoAlumnoStrategy,ProcesamientoDocenteStrategy
 from database.models.clase_autores import lista_docentes
 from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierreBatch
 from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierre
@@ -26,7 +26,7 @@ class ProcesadorBase(ABC): # importante heredar de ABC
     def __init__(self, nombre_log, estrategias=None):
         """Constructor común para ambos procesadores (batch y tiempo real)."""
         self.nombre_log = nombre_log
-        self.preguntas_abiertas = []
+        self._preguntas_abiertas = []
         self.preguntas_cerradas = []
         self.estrategias = estrategias or {
             'docente': ProcesamientoDocenteStrategy(),
@@ -61,7 +61,7 @@ class ProcesadorBase(ABC): # importante heredar de ABC
         self.cerrar_por_reglas(mensaje)
 
         # delegar a la estrategia según tipo de autor
-        tipo = 'docente' if mensaje.es_autor_docente() else 'alumno'
+        tipo= 'docente' if mensaje.es_autor_docente() else 'alumno'
         self.estrategias[tipo].procesar(self, mensaje)
 
 
@@ -131,7 +131,7 @@ class ProcesadorBatch(ProcesadorBase):
      # esto es lo que se esta borrando o cambiando 
     def procesar_dataframe(self, df, ruta_json):
         logger_msj.debug(" 🔵 Iniciando procesamiento del DataFrame...")
-        for _, row in df.iterrows():
+        for _, row in df.iterrows(): # obtener índice específico que no siempre es número y fila completa del Dataframe
             mensaje = Mensaje.from_dataframe_row(row, ruta_json)
             self.contador_mensajes += 1
             logger_msj.debug(f" ... PROCESANDO MENSAJE {self.contador_mensajes}: '{mensaje.contenido}' ")

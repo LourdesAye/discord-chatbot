@@ -6,7 +6,7 @@ from database.utilidades_conversiones import tiempo_transcurrido,convertir_a_dat
 
 class Pregunta:
     def __init__(self, mensaje: Mensaje):
-        self.id_pregunta = mensaje.id_discord
+        self.id_pregunta = mensaje.id_mensaje_discord
         self.autor = mensaje.autor
         self.contenido = mensaje.contenido
         self.timestamp = mensaje.timestamp

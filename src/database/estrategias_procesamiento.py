@@ -115,7 +115,7 @@ class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):# ProcesamientoAlumnoSt
                 # con el analisis del json con una serie de mensajes que se pasaron a un dataframe
                 # en tiempor real se deben traer las últimas dos preguntas cerradas de la base de datos
                     procesador.asociar_respuesta_a_preguntas_cerradas(mensaje,lista_docentes)
-                     # existe en batch y coniste en contar el mensaje como respuesta
+                    # existe en batch y coniste en contar el mensaje como respuesta
                     # y asociar la respuesta a la última o las dos últimas preguntas cerradas
                     # que estan en memoria en la lista de preguntas cerrradas
                     # y también hacer un log de que se asoció la respuesta a la pregunta cerrada

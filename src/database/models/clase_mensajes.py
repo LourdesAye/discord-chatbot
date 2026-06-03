@@ -19,7 +19,7 @@ class Mensaje:
     def from_dataframe_row(cls, row, ruta_json): # 'cls' es la clase, es como self para una instancia
         #se crea una nueva instancia de la clase usando una fila (row) (objeto serie) de un DataFrame como fuente de datos.
         return cls(   # Esto llama al constructor de la clase (es como hacer Clase(...)) para crear una nueva instancia.
-            id_mensaje_discord=row["id"], # row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
+            id_mensaje=row["id"],# row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
             autor=row["author"],
             contenido=row["content"],
             timestamp=row["timestamp"],

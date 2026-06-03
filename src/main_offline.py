@@ -52,9 +52,8 @@ def main():
     logger_proc.debug(" 🚧 STOP TEMPORAL 2 : Verificar aplicación de filtros")
     procesadores = procesar_archivos_json(rutas_json) # función para procesar todos los archivos JSON
     logger_proc.debug(" 🚧 STOP TEMPORAL 2 : Verificar aplicación de filtros - FIN")
-    #ACA SE CORTA POR AHORA
-    exit(0)  # Salir después de verificar la detección de archivos y aplicación de filtros
-
+    logger_proc.debug(" 🚧 STOP TEMPORAL 3 : Verificar procesamiento y persistencia en base de datos")
+   
     logger_proc.debug(f" 🔍 Cantidad de procesadores generados: {len(procesadores)}")
     logger_proc.debug(" 🗃️ Conectándose a la base de datos...") 
 
@@ -85,6 +84,10 @@ def main():
     bd.cerrar_conexion() # cerrar conexión con bdd
     logger_proc.debug(f" ")
     logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
+    logger_proc.debug(" 🚧 STOP TEMPORAL 3 : Verificar procesamiento y persistencia en base de datos - FIN")
+
+    #ACA SE CORTA POR AHORA
+    exit(0)  # Salir después de verificar la detección de archivos y aplicación de filtros
 
 
     # PROBABLEMENTE ESTO SE QUITE CUANDO EL CHATBOT ESTÉ FUNCIONANDO CORRECTAMENTE
