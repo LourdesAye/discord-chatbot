@@ -158,6 +158,12 @@ class GestorBD:
 
     def es_docente(self, nombre_usuario):
         return nombre_usuario in self.docentes
+    
+    def tiene_datos(self):
+        with self.conn.cursor() as cur:
+            cur.execute("SELECT COUNT(*) FROM preguntas")
+            cantidad = cur.fetchone()[0]
+            return cantidad > 0
 
     def insertar_o_obtener_autor(self, nombre_autor):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:

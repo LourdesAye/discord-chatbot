@@ -31,8 +31,7 @@ def aplicar_filtros_mensajes_json(mensajes_crudos_df: pd.DataFrame, filtros_mens
     logger_proc.debug( f" 🟢 Cantidad de mensajes luego aplicar todos los filtros:{len(mensajes_limpios_df)}")
     return mensajes_limpios_df, mensajes_descartados
 
-def procesar_archivos_json(rutas_json : list[Ruta]) : 
-# -> list[ProcesadorBatch]:
+def procesar_archivos_json(rutas_json : list[Ruta]) -> list[ProcesadorBatch]:
     procesadores = []  # Lista para guardar cada Procesador
     for numero_json, ruta_json in enumerate(rutas_json, start=1): # recorre cada directorio
         logger_proc.debug("")

@@ -3,6 +3,7 @@ from database.models.clase_autores import lista_docentes
 import os
 import re
 from utils.utilidades_logs import setup_logger
+import pandas as pd
 from database.models.utilidades_modelo_dominio import FRASES_CLAVE_PREGUNTAS,FRASES_CIERRE_ALUMNOS,FRASES_CIERRE_DOCENTE,contar_palabras,primeras_cinco_palabras
 
 class Mensaje:
@@ -16,14 +17,14 @@ class Mensaje:
         self.origen = origen
 
     @classmethod # para indicar que es un método de clase, afecta a la clase no a la instancia
-    def from_dataframe_row(cls, row, ruta_json): # 'cls' es la clase, es como self para una instancia
+    def convertir_fila_a_mensaje(cls, fila_df : pd.Series, ruta_json : str): # 'cls' es la clase, es como self para una instancia
         #se crea una nueva instancia de la clase usando una fila (row) (objeto serie) de un DataFrame como fuente de datos.
         return cls(   # Esto llama al constructor de la clase (es como hacer Clase(...)) para crear una nueva instancia.
-            id_mensaje=row["id"],# row es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
-            autor=row["author"],
-            contenido=row["content"],
-            timestamp=row["timestamp"],
-            attachments=cls._procesar_attachments(row.get("attachments", [])), # Busca "attachments" en el diccionario row. Si existe, devuelve su valor sino [] (una lista vacía).
+            id_mensaje=fila_df["id"],# fila_df es un objeto serie, que se accede de forma similar a un diccionario, pero no lo es
+            autor=fila_df["author"],
+            contenido=fila_df["content"],
+            timestamp=fila_df["timestamp"],
+            attachments=cls._procesar_attachments(fila_df.get("attachments", [])), # Busca "attachments" en el diccionario fila_df. Si existe, devuelve su valor sino [] (una lista vacía).
             origen=ruta_json)
     
     @classmethod

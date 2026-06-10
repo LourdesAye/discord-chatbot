@@ -32,7 +32,7 @@ class Procesador:
     def procesar_dataframe(self, df, ruta_json):
         logger_msj.debug(" 🔵 Iniciando procesamiento del DataFrame...")
         for _, row in df.iterrows():
-            mensaje = Mensaje.from_dataframe_row(row, ruta_json)
+            mensaje = Mensaje.convertir_fila_a_mensaje(row, ruta_json)
             self.contador_mensajes += 1
             logger_msj.debug(f" ... PROCESANDO MENSAJE {self.contador_mensajes}: '{mensaje.contenido}' ")
             self.cerrar_por_reglas(mensaje)

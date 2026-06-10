@@ -61,6 +61,12 @@ def main():
     # configuración y conexión con BDD
     bd = GestorBD(CONFIG) 
 
+    # Verificar si la base de datos ya contiene preguntas para evitar duplicados
+    if bd.tiene_datos():
+        logger_proc.debug( "⚠️ La base de datos ya contiene preguntas. Se cancela la carga para evitar duplicados.")
+        bd.cerrar_conexion()
+        return
+
     # contador de respuestas de todos los json
     cant_total_resp = 0 
     # contador de preguntas de todos los json

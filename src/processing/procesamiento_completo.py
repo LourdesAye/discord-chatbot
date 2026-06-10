@@ -8,6 +8,7 @@ from database.models.clase_autores import lista_docentes
 from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierreBatch
 from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierre
 from abc import ABC, abstractmethod
+import pandas as pd
 
 logger_msj = setup_logger('procesamiento_de_mensajes', 'logs_procesar_mensajes.txt')
 MAX_RESPUESTAS = 7
@@ -129,10 +130,10 @@ class ProcesadorBatch(ProcesadorBase):
         logger_msj.debug(f"🟢 PREGUNTA CERRADA por {motivo}")
 
      # esto es lo que se esta borrando o cambiando 
-    def procesar_dataframe(self, df, ruta_json):
+    def procesar_dataframe(self, mensajes_limpios_df : pd.DataFrame, ruta_json : str):
         logger_msj.debug(" 🔵 Iniciando procesamiento del DataFrame...")
-        for _, row in df.iterrows(): # obtener índice específico que no siempre es número y fila completa del Dataframe
-            mensaje = Mensaje.from_dataframe_row(row, ruta_json)
+        for _, fila_df in mensajes_limpios_df.iterrows(): # obtener índice específico que no siempre es número y fila completa del Dataframe
+            mensaje = Mensaje.convertir_fila_a_mensaje(fila_df, ruta_json)
             self.contador_mensajes += 1
             logger_msj.debug(f" ... PROCESANDO MENSAJE {self.contador_mensajes}: '{mensaje.contenido}' ")
             self.procesar_mensaje(mensaje)
