@@ -1,10 +1,12 @@
 from utils.utilidades_logs import setup_logger
 from database.models.utilidades_modelo_dominio import FRASES_ADMINISTRATIVAS
+from database.models.clase_preguntas import Pregunta
+from typing import List
 
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
 class AnalizadorPreguntasCerradas:
-    def __init__(self, preguntas):
+    def __init__(self, preguntas : list[Pregunta]):
         self.cant_preg_sin_contexto =0 
         self.cant_preg_cerradas = 0
         self.cant_respuestas = 0
@@ -15,12 +17,12 @@ class AnalizadorPreguntasCerradas:
             pregunta.marcar_sin_contexto_si_corta()
         return self.preguntas
 
-    def agregar_es_administrativa (self,preguntas_a_marcar):
+    def agregar_es_administrativa (self,preguntas_a_marcar: List[Pregunta]):
         for pregunta in preguntas_a_marcar:
             pregunta.marcar_administrativa(FRASES_ADMINISTRATIVAS)
         return preguntas_a_marcar
 
-    def marcar_respuestas_cortas(self,preguntas_a_marcar):
+    def marcar_respuestas_cortas(self,preguntas_a_marcar: List[Pregunta]):
         for pregunta in preguntas_a_marcar:
             for respuesta in pregunta.respuestas:
                 respuesta.marcar_como_corta()
@@ -33,7 +35,7 @@ class AnalizadorPreguntasCerradas:
         logger_proc.debug(f" 🔢 Analizando el json número : {num_procesador} ... ")
         logger_proc.debug(f" ✅ Preguntas cerradas: {len(self.preguntas)} ")
 
-        preguntas_con_contexto = self.marcar_preguntas_sin_contexto()
+        preguntas_con_contexto :list[Pregunta] = self.marcar_preguntas_sin_contexto()
         for pregunta in preguntas_con_contexto:
             if pregunta.sin_contexto:
                 self.cant_preg_sin_contexto=self.cant_preg_sin_contexto +1

@@ -25,7 +25,7 @@ from database.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.clase_cargar_bdd import GestorBD
 from processing.procesamiento_json import procesar_archivos_json
 from utils.utilidades_logs import setup_logger
-from utils.config_paths import FileSearcher
+from utils.config_paths import BuscadorArchivos
 from embeddings.gestor_vectores import GestorBaseVectorial
 from langchain_huggingface import HuggingFaceEmbeddings
 
@@ -34,26 +34,17 @@ def main():
     logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
     # PROCESAMIENTO de los JSONs
-    buscador_archivos = FileSearcher()
-    rutas_json = buscador_archivos.get_json_paths() #  ⚠️🚨❗REFACTOR  ⚠️🚨❗, ver qué pasa si no hay jsons (si funciona)
+    buscador_archivos = BuscadorArchivos()
+    rutas_json = buscador_archivos.obtener_rutas_json() 
 
     logger_proc.debug(f" 🗂️ Cantidad de archivos JSON encontrados: {len(rutas_json)}")
     if len(rutas_json) == 0:
         logger_proc.debug(" ❌ No se encontraron archivos JSON para procesar. Finalizando ejecución.")
         exit(1)  # Salir del programa si no hay archivos JSON   
-    
-    # STOP TEMPORAL: Ver si llega a detectar carpeta jsons y archivos
-    logger_proc.debug(" 🚧 STOP TEMPORAL 1 : Verificar detección de archivos")
     logger_proc.debug(f"📎 Rutas de los JSON a procesar:")
     for num_ruta,ruta in enumerate(rutas_json,start=1):
         logger_proc.debug(f" 📌 Ruta {num_ruta} detectada: {ruta}")
-    logger_proc.debug(" 🚧 STOP TEMPORAL 1 : Verificar detección de archivos - FIN")
-    logger_proc.debug("")
-    logger_proc.debug(" 🚧 STOP TEMPORAL 2 : Verificar aplicación de filtros")
-    procesadores = procesar_archivos_json(rutas_json) # función para procesar todos los archivos JSON
-    logger_proc.debug(" 🚧 STOP TEMPORAL 2 : Verificar aplicación de filtros - FIN")
-    logger_proc.debug(" 🚧 STOP TEMPORAL 3 : Verificar procesamiento y persistencia en base de datos")
-   
+    procesadores = procesar_archivos_json(rutas_json) # función para procesar todos los archivos JSON   
     logger_proc.debug(f" 🔍 Cantidad de procesadores generados: {len(procesadores)}")
     logger_proc.debug(" 🗃️ Conectándose a la base de datos...") 
 
@@ -65,38 +56,32 @@ def main():
     if bd.tiene_datos():
         logger_proc.debug( "⚠️ La base de datos ya contiene preguntas. Se cancela la carga para evitar duplicados.")
         bd.cerrar_conexion()
-        return
+    else:
 
-    # contador de respuestas de todos los json
-    cant_total_resp = 0 
-    # contador de preguntas de todos los json
-    cant_total_preg =0 
+        # contador de respuestas de todos los json
+        cant_total_resp = 0 
+        # contador de preguntas de todos los json
+        cant_total_preg =0 
 
-    # Análisis y persistencia de preguntas cerradas por cada procesador
-    for indice,proc in enumerate(procesadores,start=1): # por cada procesador 
-        analizador = AnalizadorPreguntasCerradas(proc.preguntas_cerradas)
-        #se aplica analisis de preguntas sin contexto, preguntas administrativas y respuestas validadas
-        cantidad_preguntas_json, cantidad_respuestas_json, preguntas_a_procesar = analizador.aplicar_analisis_preguntas(indice)
-        # contador de preguntas y respuestas que va acumulando por cada json
-        cant_total_preg = cant_total_preg + cantidad_preguntas_json
-        cant_total_resp = cant_total_resp + cantidad_respuestas_json
-        # persistencia de datos de la lista de preguntas cerradas con el analisis aplicado
-        bd.persistir_preguntas(preguntas_a_procesar,indice)
+        # Análisis y persistencia de preguntas cerradas por cada procesador
+        for indice,proc in enumerate(procesadores,start=1): # por cada procesador 
+            analizador = AnalizadorPreguntasCerradas(proc.preguntas_cerradas)
+            #se aplica analisis de preguntas sin contexto, preguntas administrativas y respuestas validadas
+            cantidad_preguntas_json, cantidad_respuestas_json, preguntas_a_procesar = analizador.aplicar_analisis_preguntas(indice)
+            # contador de preguntas y respuestas que va acumulando por cada json
+            cant_total_preg = cant_total_preg + cantidad_preguntas_json
+            cant_total_resp = cant_total_resp + cantidad_respuestas_json
+            # persistencia de datos de la lista de preguntas cerradas con el analisis aplicado
+            bd.persistir_preguntas(preguntas_a_procesar,indice)
 
-    # Resumen final de la carga de datos
-    logger_proc.debug(f" ")
-    logger_proc.debug(f" ✅ La cantidad total de preguntas generadas : {cant_total_preg}")
-    logger_proc.debug(f" ✅ La cantidad total de respuestas generadas : {cant_total_resp}")
-    bd.cerrar_conexion() # cerrar conexión con bdd
-    logger_proc.debug(f" ")
-    logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
-    logger_proc.debug(" 🚧 STOP TEMPORAL 3 : Verificar procesamiento y persistencia en base de datos - FIN")
+        # Resumen final de la carga de datos
+        logger_proc.debug(f" ")
+        logger_proc.debug(f" ✅ La cantidad total de preguntas generadas : {cant_total_preg}")
+        logger_proc.debug(f" ✅ La cantidad total de respuestas generadas : {cant_total_resp}")
+        bd.cerrar_conexion() # cerrar conexión con bdd
+        logger_proc.debug(f" ")
+        logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
 
-    #ACA SE CORTA POR AHORA
-    exit(0)  # Salir después de verificar la detección de archivos y aplicación de filtros
-
-
-    # PROBABLEMENTE ESTO SE QUITE CUANDO EL CHATBOT ESTÉ FUNCIONANDO CORRECTAMENTE
     # GESTIÓN DE LA BASE VECTORIAL DE EMBEDDINGS
     # configuración del modelo de embeddings y gestor de base vectorial
     modelo = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2") # modelo liviano y rápido
@@ -118,8 +103,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-# Ejecutarlo por consola con
-# python main_offline.py
-# para construir o actualizar la base de conocimiento.
 

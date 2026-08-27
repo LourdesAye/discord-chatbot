@@ -6,14 +6,14 @@
 # Si en el futuro se requiere usar imágenes, PDF, etc., revisar esta parte.
 
 from collections import Counter
-from utils.config_paths import FileSearcher
+from utils.config_paths import BuscadorArchivos
 import pandas as pd
 import os
 
 conteo_total = Counter()
 conteo_por_carpeta = {}
 
-buscador_archivos = FileSearcher()
+buscador_archivos = BuscadorArchivos()
 rutas_json, rutas_imagen = buscador_archivos.encontrar_archivos()
 
 from utils.utilidades_logs import setup_logger

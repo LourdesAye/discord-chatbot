@@ -3,13 +3,13 @@
 # Python 3.11.x
 # =========================
 
-# Discord y entorno
+# Discord y configuración
 discord.py==2.5.2
 python-dotenv==1.1.0
 
 # LangChain y ChromaDB
 langchain==0.3.26
-langchain-chroma==0.2.4
+langchain-chroma==0.2.6
 langchain-huggingface==0.3.0
 
 # Embeddings
@@ -18,14 +18,9 @@ sentence-transformers==4.1.0
 # PostgreSQL
 psycopg2-binary==2.9.10
 
-# Dataframes
-pandas==3.0.0
+# Dataframes y fechas
+pandas==3.0.3
+python-dateutil==2.9.0.post0
 
-# Requests
+# HTTP
 requests==2.32.3
-charset-normalizer==3.4.2
-
-# Utilidades base
-certifi>=2025.4.26
-requests>=2.32.3
-urllib3>=2.4.0

@@ -9,6 +9,7 @@ from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import E
 from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierre
 from abc import ABC, abstractmethod
 import pandas as pd
+from typing import Optional
 
 logger_msj = setup_logger('procesamiento_de_mensajes', 'logs_procesar_mensajes.txt')
 MAX_RESPUESTAS = 7
@@ -26,14 +27,14 @@ TIEMPO_CIERRE_HORAS = 8
 class ProcesadorBase(ABC): # importante heredar de ABC
     def __init__(self, nombre_log, estrategias=None):
         """Constructor común para ambos procesadores (batch y tiempo real)."""
-        self.nombre_log = nombre_log
-        self._preguntas_abiertas = []
-        self.preguntas_cerradas = []
-        self.estrategias = estrategias or {
+        self.nombre_log :str = nombre_log
+        self._preguntas_abiertas : list[Pregunta] = []
+        self.preguntas_cerradas : list[Pregunta] = []
+        self.estrategias : dict[str, ProcesamientoStrategy] = estrategias or {
             'docente': ProcesamientoDocenteStrategy(),
             'alumno': ProcesamientoAlumnoStrategy()
         }
-        self.estrategia_cierre = None # se define en las subclases
+        self.estrategia_cierre : Optional[EstrategiaCierre]= None # se define en las subclases
     
     @property # para que se interprete como atributo y no como método ( self.preguntas_abiertas y no: self.preguntas_abiertas() )
     @abstractmethod # obligaa definir este método en las subclases
@@ -45,7 +46,7 @@ class ProcesadorBase(ABC): # importante heredar de ABC
     
     def cerrar_por_reglas(self, mensaje: Mensaje):
         ahora = convertir_a_datetime(mensaje.timestamp)
-        for pregunta in self.preguntas_abiertas[:]: # en lo que es tiempo real la lista debe ser el resultado de una consulta a la base de datos de preguntas abiertas
+        for pregunta in list(self._preguntas_abiertas): # en lo que es tiempo real la lista debe ser el resultado de una consulta a la base de datos de preguntas abiertas
             tiempo = tiempo_transcurrido(convertir_a_datetime(pregunta.timestamp), ahora)
             if pregunta.tiene_respuesta_validada(): # en tiempo real se debe tomar la pregunta con su id, buscarlo en la base de datos en la tabla respuestas, de las respuestas obtengo un id de usuario y por cada id de susuario hay que ir a al tabla autor para saber si es o no docente y por lo tanto si esta validada
                 if tiempo > timedelta(hours=TIEMPO_CIERRE_HORAS):

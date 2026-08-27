@@ -13,7 +13,7 @@ from database.models.clase_mensajes import Mensaje
 from processing.procesamiento_tiempo_real import ProcesadorTiempoReal
 from utils.filtros_de_mensajes import FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio 
 from embeddings.gestor_vectores import GestorBaseVectorial
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from psycopg2 import connect, sql, errors
 from psycopg2.extras import RealDictCursor, DictCursor
 from utils.conexion_bdd import CONFIG

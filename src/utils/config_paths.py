@@ -1,8 +1,9 @@
+
 """
-Project environment setup and directory configuration.
-Provides functions to locate files, load environment variables,
-and define absolute paths for project directories.
-Provides methods to search for JSON files. 
+Configuración del entorno del proyecto y de los directorios.
+Proporciona funciones para localizar archivos, cargar variables de entorno
+y definir rutas absolutas de los directorios del proyecto.
+También proporciona métodos para buscar archivos JSON.
 """
 
 from pathlib import Path
@@ -12,155 +13,173 @@ from typing import List, Optional
 from database.models.clase_ruta import Ruta
 
 
-def find_file_in_parents(file_name: str, start: Optional[Path] = None) -> Path:
+def buscar_archivo_en_padres(nombre_archivo: str, directorio_inicio: Optional[Path] = None) -> Path:
     """
-    Search for a file by climbing up the directory tree.
+    Busca un archivo recorriendo los directorios padres.
 
     Args:
-        file_name (str): Name of the file to search for.
-        start (Path, optional): Starting directory. Defaults to the script location or current working directory.
+        nombre_archivo (str): Nombre del archivo a buscar.
+        directorio_inicio (Path, opcional): Directorio desde el cual comenzar la búsqueda.
+            Si no se especifica, utiliza la ubicación del script o el
+            directorio de trabajo actual.
 
     Returns:
-        Path: The full path to the file if found.
+        Path: Ruta completa del archivo encontrado.
 
     Raises:
-        FileNotFoundError: If the file is not found in any parent directory.
+        FileNotFoundError: Si el archivo no se encuentra en ningún directorio padre.
     """
-    if start is None:
+    if directorio_inicio is None:
         try:
-            start = Path(__file__).resolve().parent
+            directorio_inicio = Path(__file__).resolve().parent
         except NameError:
-            start = Path.cwd()
+            directorio_inicio = Path.cwd()
 
-    current_dir = start
+    directorio_actual = directorio_inicio
 
     while True:
-        candidate_path = current_dir / file_name
-        if candidate_path.exists() and candidate_path.is_file():
-            return candidate_path
-        if current_dir.parent == current_dir:
+        ruta_candidata = directorio_actual / nombre_archivo
+        if ruta_candidata.exists() and ruta_candidata.is_file():
+            return ruta_candidata
+        if directorio_actual.parent == directorio_actual:
             raise FileNotFoundError(
-                f" ❌ Could not find {file_name} in any parent directory of {start}"
+                f" ❌ No se pudo encontrar {nombre_archivo} en ningún directorio padre de {directorio_inicio}"
             )
-        current_dir = current_dir.parent
+        directorio_actual = directorio_actual.parent
 
 
-def setup_environment(
-    file_name: str = ".env",
-) -> Path:
+def configurar_entorno(nombre_archivo: str = ".env") -> Path:
     """
-    Initialize the project environment by loading variables from a .env file.
+    Inicializa el entorno del proyecto cargando las variables definidas
+    en un archivo .env.
 
     Args:
-        file_name (str, optional): Name of the environment file. Defaults to ".env".
+        nombre_archivo (str, opcional): Nombre del archivo de variables de entorno.
+            Por defecto es ".env".
 
     Returns:
-        Path: The root directory of the project (parent of the .env file).
+        Path: Directorio raíz del proyecto (directorio padre del archivo .env).
 
     Raises:
-        FileNotFoundError: If the .env file is not found in any parent directory.
+        FileNotFoundError: Si el archivo .env no se encuentra en ningún
+            directorio padre.
     """
-    env_file_path = find_file_in_parents(file_name)
-    load_dotenv(dotenv_path=env_file_path)
-    return env_file_path.parent
+    ruta_archivo_env = buscar_archivo_en_padres(nombre_archivo)
+    load_dotenv(dotenv_path=ruta_archivo_env)
+    return ruta_archivo_env.parent
 
 
-PROJECT_ROOT = setup_environment()
+CARPETA_PROYECTO = configurar_entorno()
 
-LOG_DIR = os.getenv("LOG_DIR", "logs")  
+LOG_DIR = os.getenv("LOG_DIR", "logs")
 JSON_DIR = os.getenv("JSON_DIR", "json")
 CHROMA_DIR = os.getenv("CHROMA_DIR", "chroma")
 DOCS_DIR = os.getenv("DOCS_DIR", "docs")
 
-LOG_DIR_ABS = PROJECT_ROOT / LOG_DIR
-JSON_DIR_ABS = PROJECT_ROOT / JSON_DIR
-CHROMA_DIR_ABS = PROJECT_ROOT / CHROMA_DIR
+LOG_DIR_ABS = CARPETA_PROYECTO / LOG_DIR
+JSON_DIR_ABS = CARPETA_PROYECTO / JSON_DIR
+CHROMA_DIR_ABS = CARPETA_PROYECTO / CHROMA_DIR
 
-def get_files_by_pattern(base_dir: Path, search_pattern: str) -> List[Path]:
+
+def obtener_archivos_por_patron(directorio_base: Path, patron_busqueda: str) -> List[Path]:
     """
-    Find all files in base_dir and subdirectories that match the search pattern.
+    Busca todos los archivos dentro de un directorio y sus subdirectorios
+    que coincidan con un patrón de búsqueda.
 
     Args:
-        base_dir (Path): The directory to search in.
-        search_pattern (str): The pattern to match against file names.
+        directorio_base (Path): Directorio donde realizar la búsqueda.
+        patron_busqueda (str): Patrón que deben cumplir los nombres de los archivos.
 
     Returns:
-        List[Path]: A list of file paths that match the search pattern.
+        List[Path]: Lista de rutas de los archivos encontrados.
     """
-    return list(base_dir.rglob(search_pattern))
+    return list(directorio_base.rglob(patron_busqueda))
 
-def is_regular_file(file: Path) -> bool:
+
+def es_archivo_regular(archivo: Path) -> bool:
     """
-    Check if the given path is a regular file (not a directory or symlink).
+    Verifica si la ruta corresponde a un archivo regular
+    (no un directorio ni un enlace simbólico).
 
     Args:
-        file (Path): The path to check.
-    
-    Returns:
-        bool: True if it's a regular file, False otherwise.
-    """
-    return file.is_file()
-
-def get_relative_path(file: Path, base_dir: Path) -> Path:
-    """
-    Get the relative path of a file with respect to the base directory.
-
-    Args:
-        file (Path) : The file path.
-        base_dir (Path) : base directory to calculate relative path from. 
-    """
-    return file.relative_to(base_dir)
-
-
-def calculate_depth(relative_path: Path) -> int:
-    """
-    Calculate the depth of a relative path (number of parent directories).
-
-    Args:
-        relative_path (Path): The relative path to calculate depth for.
+        archivo (Path): Ruta a verificar.
 
     Returns:
-        int: The depth of the relative path.
-
+        bool: True si es un archivo regular; False en caso contrario.
     """
-    return len(relative_path.parents)
+    return archivo.is_file()
 
-class FileSearcher:
+
+def obtener_ruta_relativa(archivo: Path, directorio_base: Path) -> Path:
     """
-    Class allow to search files inside project structure.
+    Obtiene la ruta relativa de un archivo respecto del directorio base.
+
+    Args:
+        archivo (Path): Ruta del archivo.
+        directorio_base (Path): Directorio base desde el cual calcular la ruta relativa.
+
+    Returns:
+        Path: Ruta relativa del archivo.
+    """
+    return archivo.relative_to(directorio_base)
+
+
+def calcular_profundidad(ruta_relativa: Path) -> int:
+    """
+    Calcula la profundidad de una ruta relativa.
+
+    La profundidad corresponde a la cantidad de directorios que separan
+    el archivo del directorio base.
+
+    Args:
+        ruta_relativa (Path): Ruta relativa cuya profundidad se desea calcular.
+
+    Returns:
+        int: Profundidad de la ruta.
+    """
+    return len(ruta_relativa.parents)
+
+
+class BuscadorArchivos:
+    """
+    Clase que permite buscar archivos dentro de la estructura del proyecto.
     """
 
-    def get_json_paths(self, base_dir: Path = None) -> List[Ruta]:
+    def obtener_rutas_json(self, directorio_base: Path = None) -> List[Ruta]:
         """
-        Retrieve all JSON file paths within the given directory.
+        Obtiene las rutas de todos los archivos JSON encontrados dentro
+        del directorio especificado.
 
         Args:
-            base_dir (Path, optional): The base directory to search for JSON files.
-                                        If not provided, defaults to JSON_DIR_ABS.
-        
-        Returns: 
-            List[Ruta]: A list of Ruta objects representing the found JSON file paths.
+            directorio_base (Path, opcional): Directorio base donde buscar los
+                archivos JSON. Si no se especifica, se utiliza JSON_DIR_ABS.
+
+        Returns:
+            List[Ruta]: Lista de objetos Ruta correspondientes a los archivos encontrados.
+
+        Raises:
+            FileNotFoundError: Si el directorio base no existe.
         """
-        base_dir = base_dir or JSON_DIR_ABS
-        if not base_dir.exists():
-            raise FileNotFoundError(f"Directory does not exist: {base_dir}")
+        directorio_base = directorio_base or JSON_DIR_ABS
+        if not directorio_base.exists():
+            raise FileNotFoundError(f"El directorio no existe: {directorio_base}")
 
-        results: List[Ruta] = []
-        search_pattern = os.getenv("FILE_NAME", "chat.json")
-        max_depth = int(os.getenv("MAX_DEPTH", 999))
+        resultados: List[Ruta] = []
+        patron_de_busqueda = os.getenv("FILE_NAME", "chat.json")
+        profundidad_maxima = int(os.getenv("MAX_DEPTH", 999))
 
-        files = get_files_by_pattern(base_dir, search_pattern)
+        lista_rutas_archivos = obtener_archivos_por_patron(directorio_base, patron_de_busqueda)
 
-        for file in files:
-            if not is_regular_file(file):
+        for ruta_archivo in lista_rutas_archivos:
+            if not es_archivo_regular(ruta_archivo):
                 continue
 
-            relative_path = get_relative_path(file, base_dir)
-            depth = calculate_depth(relative_path)
+            ruta_relativa = obtener_ruta_relativa(ruta_archivo, directorio_base)
+            profundidad = calcular_profundidad(ruta_relativa)
 
-            if depth <= max_depth:
-                ruta_obj = Ruta(file)
-                if ruta_obj.existe(): 
-                    results.append(ruta_obj)
+            if profundidad <= profundidad_maxima:
+                ruta_obj = Ruta(ruta_archivo)
+                if ruta_obj.existe():
+                    resultados.append(ruta_obj)
 
-        return results
+        return resultados

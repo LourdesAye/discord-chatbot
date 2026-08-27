@@ -12,7 +12,7 @@ class Pregunta:
         self.timestamp = mensaje.timestamp
         self.attachments = mensaje.attachments
         self.origen = mensaje.origen
-        self.respuestas = []
+        self.respuestas :list[Respuesta] = []
         self.cerrada = False
         self.sin_contexto = False
         self.es_administrativa = False
