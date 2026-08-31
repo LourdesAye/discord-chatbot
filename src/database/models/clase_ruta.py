@@ -1,22 +1,24 @@
-# wrapper (envoltorio) alrededor de pathlib.Path que añade funcionalidad específica para tu proyecto 
-# (como leer JSONs y verificar existencia).
-
 from pathlib import Path
 import json
 
 class Ruta:
-    def __init__(self, nombre_ruta):
-        self.nombre_ruta = Path(nombre_ruta) # Convierte string/Path a objeto Path
+    """Wrapper profesional alrededor de pathlib.Path para operaciones específicas del dominio."""
 
-    def existe(self):
-        return self.nombre_ruta.exists() # True si la ruta existe en el filesystem
+    def __init__(self, nombre_ruta):
+        self.nombre_ruta = Path(nombre_ruta)
+
+    def existe(self) -> bool:
+        return self.nombre_ruta.exists()
 
     def leer_json(self):
-        with open(self.nombre_ruta, "r", encoding="utf-8") as f: # abrir el archivo json (nombre_ruta), modo lectura (r) y considerando caracteres especiales
-            return json.load(f) # si el json es clave-valor: load devuelve un diccionario (este caso), si el json es secuencia de valores: devuelve lista
+        """Lee y parsea un archivo JSON de forma segura controlando posibles errores."""
+        try:
+            with open(self.nombre_ruta, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"❌ Error al decodificar el JSON en {self.nombre_ruta}: {e}")
+        except IOError as e:
+            raise IOError(f"❌ Error de E/S al leer el archivo {self.nombre_ruta}: {e}")
 
-    def __str__(self):
-        # definir cómo se representa un objeto cuando se lo convierte en una cadena
-        # devolver self.nombre_ruta convertido en una cadena
+    def __str__(self) -> str:
         return str(self.nombre_ruta)
-    # self.nombre_ruta es un objeto Path, la conversión con str(self.nombre_ruta) devuelve la ruta en formato de texto.

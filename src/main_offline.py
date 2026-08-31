@@ -1,25 +1,3 @@
-"""
-MAIN OFFLINE — Pipeline inicial para construir la base de conocimiento.
-
-Este archivo se ejecuta solamente cuando quiero generar o actualizar desde cero
-la información base del chatbot a partir de los archivos JSON exportados de Discord.
-
-¿Qué hace este proceso?
-1. Busca los archivos JSON.
-2. Filtra mensajes irrelevantes (vacíos, stickers, GIFs, etc.).
-3. Identifica preguntas, respuestas y sus asociaciones.
-4. Cierra preguntas y aplica análisis adicional.
-5. Persiste toda la información procesada en la base de datos relacional.
-6. Genera los embeddings y crea/actualiza la base vectorial.
-
-¿Por qué existe este main por separado?
-- Porque este procesamiento es "pesado" y ocurre una sola vez o cada cierto tiempo.
-- No necesita conexión a Discord.
-- No debe ejecutarse cada vez que inicio el bot.
-- Deja lista la base de conocimiento para el funcionamiento del chatbot.
-
-Este main termina y se cierra; no queda corriendo en segundo plano.
-"""
 from utils.conexion_bdd import CONFIG
 from database.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.clase_cargar_bdd import GestorBD
@@ -30,10 +8,9 @@ from embeddings.gestor_vectores import GestorBaseVectorial
 from langchain_huggingface import HuggingFaceEmbeddings
 
 def main(): 
-    # LOGGER para seguimiento de la carga de datos
     logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
 
-    # PROCESAMIENTO de los JSONs
+    # OBTENER RUTAS DE ARCHIVOS JSON
     buscador_archivos = BuscadorArchivos()
     rutas_json = buscador_archivos.obtener_rutas_json() 
 
@@ -41,6 +18,8 @@ def main():
     if len(rutas_json) == 0:
         logger_proc.debug(" ❌ No se encontraron archivos JSON para procesar. Finalizando ejecución.")
         exit(1)  # Salir del programa si no hay archivos JSON   
+
+    # PROCESAMIENTO DE ARCHIVOS JSON
     logger_proc.debug(f"📎 Rutas de los JSON a procesar:")
     for num_ruta,ruta in enumerate(rutas_json,start=1):
         logger_proc.debug(f" 📌 Ruta {num_ruta} detectada: {ruta}")
@@ -49,20 +28,13 @@ def main():
     logger_proc.debug(" 🗃️ Conectándose a la base de datos...") 
 
     # PERSISTENCIA EN BASE DE DATOS
-    # configuración y conexión con BDD
     bd = GestorBD(CONFIG) 
-
-    # Verificar si la base de datos ya contiene preguntas para evitar duplicados
     if bd.tiene_datos():
         logger_proc.debug( "⚠️ La base de datos ya contiene preguntas. Se cancela la carga para evitar duplicados.")
         bd.cerrar_conexion()
     else:
-
-        # contador de respuestas de todos los json
         cant_total_resp = 0 
-        # contador de preguntas de todos los json
         cant_total_preg =0 
-
         # Análisis y persistencia de preguntas cerradas por cada procesador
         for indice,proc in enumerate(procesadores,start=1): # por cada procesador 
             analizador = AnalizadorPreguntasCerradas(proc.preguntas_cerradas)
@@ -83,18 +55,10 @@ def main():
         logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
 
     # GESTIÓN DE LA BASE VECTORIAL DE EMBEDDINGS
-    # configuración del modelo de embeddings y gestor de base vectorial
-    modelo = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2") # modelo liviano y rápido
-    gestor_base_vectorial = GestorBaseVectorial(modelo) # gestor de base vectorial para realizar operaciones: crear, buscar y eliminar
-
-    # crear base de datos de vectores una vez persistidos los datos
+    modelo = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2") 
+    gestor_base_vectorial = GestorBaseVectorial(modelo)
     vectordb = gestor_base_vectorial.crear_si_no_existe()
 
-    # Opción 2: Forzar actualización si hay cambios en BDD
-    #if gestor.existe_base() and gestor.verificar_consistencia():
-    #    gestor.crear_si_no_existe(forzar_actualizacion=True)
-
-    # probar búsqueda semántica en embeddings
     if vectordb:
         gestor_base_vectorial.buscar("¿Qué es Github?")
         gestor_base_vectorial.buscar("¿Cómo se usa el patrón state?")

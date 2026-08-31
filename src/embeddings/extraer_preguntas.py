@@ -49,15 +49,3 @@ def obtener_preguntas_y_metadatos():
     # Log de resumen final
     logger_preguntas.info(f"📊 Total de preguntas obtenidas de la base de datos relacional para generar embeddings : {len(preguntas)}")
     return preguntas, metadatos
-
-    # cursor = conn.cursor(cursor_factory=DictCursor)
-    # para devolver objeto de tipo DictRow, que se comporta como un diccionario, pero también como una tupla. Es decir:
-        # Podés acceder por clave: fila["texto"]
-        # Pero también por índice: fila[1]
-    # Y cuando lo imprimís como una lista: print(list(fila)) → te devuelve algo como [228, 'entonces, ¿cómo...']
-        # print(type(resultados[0]))
-        # print(resultados[0]) #  Se ven como listas porque DictRow se imprime así, pero siguen siendo accesibles por claves.
-    # print(resultados)
-        # print(type(resultados[0])) # <class 'psycopg2.extras.DictRow'>
-    # print(resultados[0]) #  Se ven como listas porque DictRow se imprime así, pero siguen siendo accesibles por claves.
-    # print(resultados)

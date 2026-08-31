@@ -13,8 +13,6 @@ from datetime import datetime
 
 logger_db_cargada = setup_logger('cargando_datos_desde_bdd', 'log_cargando_datos_desde_base_de_datos_existente.txt')
 
-# sería el Repository
-
 class ProcesadorTiempoReal(ProcesadorBase):
     # definición explícita solo por claridad del constructor aunque no hace falta
     def __init__(self, nombre_log, estrategias=None):
@@ -61,29 +59,6 @@ class ProcesadorTiempoReal(ProcesadorBase):
         WHERE p.esta_cerrada = FALSE
         ORDER BY p.id_pregunta;
         """
-        # ANALIZAR SI SE NECESITA REALMENTE: 
-            # p.sin_contexto, p.es_administrativa
-            # m.id_mensaje_discord, m.origen
-            # a.is_autor, a.nombre_autor, a.es_docente
-        # NO NECESITO m.es_pregunta porque ya se sabe que son preguntas abiertas el join se hace con la tabla preguntas
-
-        # conn (connection) → es la conexión a la base de datos PostgreSQL (puente entre código de Python y la base de datos).
-        # cursor → es un objeto que permite ejecutar consultas SQL y recuperar resultados.
-        # RealDictCursor → tipo especial de cursor que devuelve cada fila de una consulta PostgreSQL como diccionarios {nombre_columnas: datos} 
-        # en lugar de tupla (datos sueltos sin nombre_columna). Esto hace que cada fila devuelta sea un diccionario, no una tupla.
-        # execute() → método para enviar la consulta SQL a la base de datos
-        # fetchall() → devuelve una lista de filas donde fila es un diccionario (porque se usa RealDictCursor)
-            # ejemplo: [
-                # {
-                    # 'id_pregunta': 1, 
-                    # 'mensaje_id': 1, 
-                    # 'texto': 'buenas, que tal? no pude acceder al repo del equipo, intente entrando desde https://github.com/dds-utn/2024-tpa-mi-no-grupo-15 la clase que se unieron al repo no pude asistir, y cuando intente despues no pude', 
-                    # 'esta_cerrada': True,
-                    # 'sin_contexto': False,
-                    # 'es_administrativa': False,},
-                    # {...},
-                    # {...}]
-
         with self.conn.cursor(cursor_factory=RealDictCursor) as cur:  # se establece conexión con la base de datos y se crea un cursor para ejecutar la consulta
             cur.execute(query) # enviar la consulta SQL a la base de datos
             rows = cur.fetchall() # obtener todas las filas resultantes de la consulta

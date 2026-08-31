@@ -12,15 +12,8 @@ import pandas as pd
 from typing import Optional
 
 logger_msj = setup_logger('procesamiento_de_mensajes', 'logs_procesar_mensajes.txt')
-MAX_RESPUESTAS = 7
-TIEMPO_CIERRE_HORAS = 8
 
-# ABC : Abstract Base Class (Clase Base Abstracta):  
-    # Cuando tu clase hereda de ABC: 
-        # no se puede instanciar la clase base directamente.
-        # puede contener métodos abstractos (@abstractmethod) que no tienen implementación.
-        # que las subclases deben implementar esos métodos abstractos antes de poder crearlas.
-
+# Constantes globales del sistema de procesamiento 
 MAX_RESPUESTAS = 7
 TIEMPO_CIERRE_HORAS = 8
 
@@ -36,10 +29,10 @@ class ProcesadorBase(ABC): # importante heredar de ABC
         }
         self.estrategia_cierre : Optional[EstrategiaCierre]= None # se define en las subclases
     
-    @property # para que se interprete como atributo y no como método ( self.preguntas_abiertas y no: self.preguntas_abiertas() )
-    @abstractmethod # obligaa definir este método en las subclases
+    @property 
+    @abstractmethod 
     def preguntas_abiertas(self):
-        pass # para que se implemente en las subclases
+        pass
     
     def cerrar_pregunta(self, pregunta: Pregunta, mensaje: Mensaje, motivo=None):
         self.estrategia_cierre.cerrar(pregunta, mensaje, motivo) # FALTA CERRAR PREGUNTA PARA REAL TIME
@@ -55,53 +48,10 @@ class ProcesadorBase(ABC): # importante heredar de ABC
                     self.cerrar_pregunta(pregunta, mensaje, motivo='cantidad')
 
 
-    # Se procesa un único mensaje (común para batch y tiempo real)
     def procesar_mensaje(self, mensaje: Mensaje):
-        """Maneja la clasificación de un único mensaje (común para batch y tiempo real)."""
-
-        # primero aplicar reglas de cierre (basadas en tiempo/cantidad)
         self.cerrar_por_reglas(mensaje)
-
-        # delegar a la estrategia según tipo de autor
         tipo= 'docente' if mensaje.es_autor_docente() else 'alumno'
         self.estrategias[tipo].procesar(self, mensaje)
-
-
-    # va como método o va como atributo? 
-    # @abstractmethod
-    # def obtener_preguntas_abiertas(self) -> list[Pregunta]:
-    #     pass
-
-    # va como método o va como atributo?
-    # @abstractmethod
-    # def obtener_preguntas_cerradas(self) -> list[Pregunta]:
-    #     pass
-
-
-    # en tiempo real es distinto, se debe persistir la nueva prengunta en la base de datos relacional 
-    # @abstractmethod
-    # def guardar_pregunta(self, pregunta: Pregunta):
-    #     pass
-
-    # en batch es convertir el mensaje en un objeto Respuesta, 
-    # ver si es de un docente para marcarla como validada, analizar si es corta para marcarla como tal, 
-    # y agregarla a la lista de respuestas de la pregunta
-    # en tiempo real necesito que se convierta en un objeto respuesta, para ver ver si es de docente
-    # para marcarla como validada, ver si es corta para marcarla como tal, 
-    # y también se necesita que se asociie a la pregunta pero con el id de la pregunta que se obtiene de la base de datos 
-    # porque esta respuesta no queda en una lista, se debe persistir como mensaje y como respuesta en la base de datos con su id pregunta 
-    # @abstractmethod
-    # def guardar_respuesta(self, respuesta):
-    #     pass
-
-    # en el procesamiento batch cerrar_pregunta es marcar el objeto Pregunta como cerrrada, 
-    # quitarla de la lista de preguntas abiertas
-    # agregarla a la lista de preguntas cerradas y aumentar el contador de preguntas cerradas
-    # y también hacer un log de que se cerró la pregunta
-    # en tiempo real se debe marcar la pregunta como cerrada en la base de datos
-    # @abstractmethod
-    # def cerrar_pregunta(self, pregunta, mensaje, motivo):
-    #     pass
 
 
 class ProcesadorBatch(ProcesadorBase):
@@ -118,9 +68,9 @@ class ProcesadorBatch(ProcesadorBase):
         self.contador_mensaje_respuesta = 0
         self.cant_mens_cierre_alumnos = 0
         self.cant_mens_cierre_docente = 0
-        self.estrategia_cierre = EstrategiaCierreBatch(self)  # se pasa self directamente para no hacer referencia circular 
+        self.estrategia_cierre = EstrategiaCierreBatch(self)  
 
-    @property # para que se interprete como atributo y no como método ( self.preguntas_abiertas y no: self.preguntas_abiertas() )
+    @property 
     def preguntas_abiertas(self):
         return self._preguntas_abiertas
 
@@ -130,7 +80,6 @@ class ProcesadorBatch(ProcesadorBase):
         self.contador_preguntas_cerradas += 1
         logger_msj.debug(f"🟢 PREGUNTA CERRADA por {motivo}")
 
-     # esto es lo que se esta borrando o cambiando 
     def procesar_dataframe(self, mensajes_limpios_df : pd.DataFrame, ruta_json : str):
         logger_msj.debug(" 🔵 Iniciando procesamiento del DataFrame...")
         for _, fila_df in mensajes_limpios_df.iterrows(): # obtener índice específico que no siempre es número y fila completa del Dataframe
@@ -168,3 +117,32 @@ class ProcesadorBatch(ProcesadorBase):
             pregunta.agregar_respuesta(mensaje, lista_docentes)
             logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
             logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
+
+    def obtener_preguntas_abiertas(self):
+        return self._preguntas_abiertas
+
+    def obtener_preguntas_cerradas_recientes(self, limite=2):
+        cantidad = len(self.preguntas_cerradas)
+        if cantidad == 0:
+            return []
+        return self.preguntas_cerradas[-limite:]
+
+    def agregar_respuesta_a_pregunta(self, pregunta, mensaje, lista_docentes):
+        pregunta.agregar_respuesta(mensaje, lista_docentes)
+        self.contador_mensaje_respuesta += 1
+
+    def concatenar_a_pregunta(self, pregunta, mensaje):
+        pregunta.concatenar_contenido(mensaje.contenido)
+        self.cant_concatenaciones += 1
+        logger_msj.debug(f"📌 Se concatenó la pregunta: \n{pregunta.contenido}\n con el mensaje: {mensaje.contenido}")
+
+    def crear_nueva_pregunta(self, mensaje):
+        nueva = Pregunta(mensaje)
+        self._preguntas_abiertas.append(nueva)
+        self.contador_preguntas_nuevas += 1
+        logger_msj.debug(f"🟡 NUEVA PREGUNTA: {nueva.contenido}")
+
+    def asociar_respuesta_a_multiples(self, preguntas_cerradas, mensaje, lista_docentes):
+        for pregunta in preguntas_cerradas:
+            pregunta.agregar_respuesta(mensaje, lista_docentes)
+            logger_msj.debug(f"🔶 RESPUESTA A PREGUNTA CERRADA: '{pregunta.contenido}'")

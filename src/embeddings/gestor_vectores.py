@@ -14,7 +14,11 @@ class GestorBaseVectorial:
         self.vectordb = None
 
     def existe_base(self):
-        return os.path.exists(self.persist_directory) and os.listdir(self.persist_directory)
+        if not os.path.exists(self.persist_directory):
+            return False
+        # Verifica que la carpeta contenga al menos un archivo o subdirectorio real de persistencia
+        archivos = os.listdir(self.persist_directory)
+        return len(archivos) > 0
     
     def crear_si_no_existe(self, forzar_actualizacion=False):
         if self.existe_base() and not forzar_actualizacion:
@@ -88,33 +92,45 @@ class GestorBaseVectorial:
         
         try:
             resultados = self.vectordb.similarity_search_with_score(query=pregunta, k=k)
+            
+            if not resultados:
+                self.logger_embeddings.error(f"❌ No hay resultados de preguntas parecidas a la pregunta: \n ❓'{pregunta}' ❓")
+                return None
+
             resultados_con_similitud = [(doc, 1 - score) for doc, score in resultados]
             resultados_filtrados = [(doc, sim) for doc, sim in resultados_con_similitud if sim > 0]
             resultados_ordenados = sorted(resultados_filtrados, key=lambda x: x[1], reverse=True)
-            # def obtener_segundo(x):return x[1] y ordenados = sorted(lista, key=obtener_segundo)
-            # lambda reemplaza la definición con def
-            # sorted (secuencia_a_ordenar,criterio_de_orden,reverse= orden_ascendente_true_o_decendente_false)
             
-            self.logger_embeddings.debug(f"\n❓PREGUNTA NUEVA: {pregunta}")
+            self.logger_embeddings.debug(f"\n❓ PREGUNTA NUEVA: {pregunta}")
+            
             for i, (doc, sim) in enumerate(resultados_ordenados, start=1):
                 etiqueta = f"🔝 PREGUNTA NÚMERO {i}, LA MÁS PARECIDA:" if i == 1 else f"🔍 PREGUNTA MÁS PARECIDA #{i}:"
-                self.logger_embeddings.debug(f"\n {etiqueta}")
+                self.logger_embeddings.debug(f"\n{etiqueta}")
                 self.logger_embeddings.debug(f"Pregunta: {doc.page_content}")
                 self.logger_embeddings.debug(f"Metadatos: {doc.metadata}")
                 self.logger_embeddings.debug(f"Similitud: {sim:.4f}")
-                respuestas_recuperadas= self.obtener_respuestas_a_pregunta_con(doc.metadata["id"])
-                for respuesta in respuestas_recuperadas:
-                    self.logger_embeddings.debug(f"\n ✉️ Respuesta Número: {respuesta['orden']}")
-                    self.logger_embeddings.debug(f"Texto: {respuesta['texto']}")
-                    self.logger_embeddings.debug(f"Nombre del Autor: {respuesta['nombre_autor']}")
-                    self.logger_embeddings.debug(f"Condición del Autor: {respuesta['condicion_docente']}")
-                self.logger_embeddings.debug(f"\n{'-' * 80}")
-            if not resultados_ordenados:
-                self.logger_embeddings.error(f"❌ No hay resultados de preguntas parecidas a la pregunta: \n  ❓'{pregunta}' ❓")
-                return None
-            else:
-                return resultados_ordenados
-        
+                
+                # Validación segura por si el diccionario no trae la clave id
+                pregunta_id = doc.metadata.get("id")
+                if not pregunta_id:
+                    self.logger_embeddings.warning(f"⚠️ El documento no contiene un 'id' válido en sus metadatos.")
+                    continue
+
+                respuestas_recuperadas = self.obtener_respuestas_a_pregunta_con(pregunta_id)
+                
+                if respuestas_recuperadas:
+                    for respuesta in respuestas_recuperadas:
+                        self.logger_embeddings.debug(f"\n ✉️ Respuesta Número: {respuesta['orden']}")
+                        self.logger_embeddings.debug(f"Texto: {respuesta['texto']}")
+                        self.logger_embeddings.debug(f"Nombre del Autor: {respuesta['nombre_autor']}")
+                        self.logger_embeddings.debug(f"Condición del Autor: {respuesta['condicion_docente']}")
+                else:
+                    self.logger_embeddings.debug("⚠️ No hay respuestas registradas para esta pregunta.")
+                    
+                self.logger_embeddings.debug(f"\n{'-'*80}")
+
+            return resultados_ordenados
+      
         except Exception as e:
             self.logger_embeddings.error(f"❌ Error en la búsqueda: {str(e)}")
             return None

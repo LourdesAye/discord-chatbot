@@ -28,27 +28,22 @@ class AnalizadorPreguntasCerradas:
                 respuesta.marcar_como_corta()
         return preguntas_a_marcar
     
-    # necesito que devuelva : total de respuestas, total de preguntas, preguntas_a_procesar
-    def aplicar_analisis_preguntas(self,num_procesador):
+def aplicar_analisis_preguntas(self, num_procesador):
+        logger_proc.debug(f"\n")
+        logger_proc.debug(f"\n🔢 Analizando el json número : {num_procesador} ... ")
+        logger_proc.debug(f"\n✅ Preguntas cerradas: {len(self.preguntas)}\n")
 
-        logger_proc.debug(f" ")
-        logger_proc.debug(f" 🔢 Analizando el json número : {num_procesador} ... ")
-        logger_proc.debug(f" ✅ Preguntas cerradas: {len(self.preguntas)} ")
+        # Aplicamos los filtros secuencialmente
+        self.marcar_preguntas_sin_contexto()
+        self.agregar_es_administrativa(self.preguntas)
+        self.marcar_respuestas_cortas(self.preguntas)
 
-        preguntas_con_contexto :list[Pregunta] = self.marcar_preguntas_sin_contexto()
-        for pregunta in preguntas_con_contexto:
-            if pregunta.sin_contexto:
-                self.cant_preg_sin_contexto=self.cant_preg_sin_contexto +1
+        # Calculamos métricas en una sola pasada limpia
+        self.cant_preg_sin_contexto = sum(1 for p in self.preguntas if p.sin_contexto)
+        self.cant_respuestas = sum(len(p.respuestas) for p in self.preguntas)
 
-        logger_proc.debug(f" ✅ Preguntas sin contexto: {self.cant_preg_sin_contexto} ")
+        logger_proc.debug(f"\n✅ Preguntas sin contexto: {self.cant_preg_sin_contexto}\n")
+        logger_proc.debug(f"\n✅ Cantidad de Respuestas: {self.cant_respuestas}")
 
-        preguntas_con_estado = self.agregar_es_administrativa (preguntas_con_contexto)
-        preguntas_marcadas_respuestas_cortas = self.marcar_respuestas_cortas(preguntas_con_estado)
-
-        total_reg_preguntas= len(preguntas_marcadas_respuestas_cortas) # cantidad de preguntas cerradas en cada procesamiento de archivo
-        
-        for index,pregunta in enumerate(preguntas_marcadas_respuestas_cortas,start=1): # se van acumulando la cantidad de respuestas totales
-            self.cant_respuestas = self.cant_respuestas +len(pregunta.respuestas)
-        
-        logger_proc.debug(f" ✅ Cantidad de Respuestas: {self.cant_respuestas}")
-        return total_reg_preguntas, self.cant_respuestas, preguntas_marcadas_respuestas_cortas
+        total_reg_preguntas = len(self.preguntas)
+        return total_reg_preguntas, self.cant_respuestas, self.preguntas

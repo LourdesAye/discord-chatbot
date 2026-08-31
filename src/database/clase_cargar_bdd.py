@@ -251,30 +251,31 @@ class GestorBD:
     def convertir_a_datetime(self, timestamp_str):
         return isoparse(timestamp_str)
 
-    def persistir_preguntas(self, preguntas_cerradas: list[Pregunta],index):
-        logger_db.debug(" 🗄️ Persistencia de datos")
-        logger_db.debug (f" 📁 se va a procesar en JSON {index} ... ")
-        cont_preg_sin_resp=0
-        nombre_ruta = (f"log_preg_sin_respuestas_{index}")
-        preguntas_a_persistir =[]
+    def persistir_preguntas(self, preguntas_cerradas: list[Pregunta], index):
+        logger_db.debug("🗄️ Persistencia de datos")
+        logger_db.debug(f"📁 se va a procesar en JSON {index} ... ")
+        cont_preg_sin_resp = 0
+        nombre_ruta = f"log_preg_sin_respuestas_{index}"
+        preguntas_a_persistir = []
 
-        for indice,pregunta in enumerate(preguntas_cerradas, start=1):
+        for indice, pregunta in enumerate(preguntas_cerradas, start=1):
             if len(pregunta.respuestas) == 0:
-                cont_preg_sin_resp= cont_preg_sin_resp +1
-                self.guardar_pregunta_sin_respuesta_en_log(pregunta,indice,nombre_ruta,cont_preg_sin_resp,)
+                cont_preg_sin_resp = cont_preg_sin_resp + 1
+                self.guardar_pregunta_sin_respuesta_en_log(pregunta, indice, nombre_ruta, cont_preg_sin_resp)
             else:
                 preguntas_a_persistir.append(pregunta)
 
-        ruta_preg_persistidas = (f"log_preguntas_efectivamente_pesistidas_{index}.txt")
-        logger_db.debug(f" 🗄️ Se van a persistir {len(preguntas_a_persistir)} preguntas cerradas")
+        ruta_preg_persistidas = f"log_preguntas_efectivamente_pesistidas_{index}.txt"
+        logger_db.debug(f"🗄️ Se van a persistir {len(preguntas_a_persistir)} preguntas cerradas")
+        
         try:
             for idx, pregunta in enumerate(preguntas_a_persistir, start=1):
-                guardar_pregunta_y_respuestas_en_log(pregunta,idx,ruta_preg_persistidas)
+                guardar_pregunta_y_respuestas_en_log(pregunta, idx, ruta_preg_persistidas)
             
-                logger_db.debug(f"\n📌 [{idx}/{len(preguntas_a_persistir)}] Procesando un mensaje que es pregunta: \n{pregunta.contenido} \n Autor: {pregunta.autor}")
+                logger_db.debug(f"\n📌 [{idx}/{len(preguntas_a_persistir)}] Procesando un mensaje que es pregunta: \n{pregunta.contenido}\n Autor: {pregunta.autor}")
                 autor_id = self.insertar_o_obtener_autor(pregunta.autor)
-                logger_db.debug(f"👤 Se obtuvo un el id para el autor: {autor_id} ")
-               
+                logger_db.debug(f"👤 Se obtuvo un el id para el autor: {autor_id} \n")
+                
                 mensaje_id = self.insertar_mensaje(
                     id_mensaje_discord=pregunta.id_pregunta,
                     autor_id=autor_id,
@@ -283,22 +284,22 @@ class GestorBD:
                     es_pregunta=True,
                     origen=pregunta.origen
                 )
-                logger_db.debug(f" ✉️ se obtuvo un mensaje_id (para la pregunta): {mensaje_id}")
+                logger_db.debug(f"✉️ se obtuvo un mensaje_id (para la pregunta): {mensaje_id}")
                 
-                for nombre_archivo, tipo in pregunta.attachments: 
+                for nombre_archivo, tipo in pregunta.attachments:
                     self.insertar_attachment(mensaje_id, nombre_archivo, tipo)
                 
-                logger_db.debug(f" 📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
+                logger_db.debug(f"📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
 
                 id_pregunta = self.insertar_pregunta(pregunta, mensaje_id)
-                logger_db.debug(f" 💾 Se persiste pregunta en la base de datos")
+                logger_db.debug(f"💾 Se persiste pregunta en la base de datos")
 
-                # se ordenan las preguntas por fecha de la más antigua a la más actual
-                logger_db.debug(f" 📩 Se ordenan sus respuestas para ser persistidas")
+                logger_db.debug(f"📩 Se ordenan sus respuestas para ser persistidas")
                 respuestas_ordenadas = sorted(pregunta.respuestas, key=lambda r: self.convertir_a_datetime(r.timestamp))
-                for orden, respuesta in enumerate(respuestas_ordenadas,start=1): # por defecto empieza en 0
+                
+                for orden, respuesta in enumerate(respuestas_ordenadas, start=1):
                     logger_db.debug(f"")
-                    logger_db.debug(f" 📩 respuesta {orden} : {respuesta.contenido}")
+                    logger_db.debug(f"📩 respuesta {orden} : {respuesta.contenido}")
                     autor_id_r = self.insertar_o_obtener_autor(respuesta.autor)
                     mensaje_id_r = self.insertar_mensaje(
                         id_mensaje_discord=respuesta.id_respuesta,
@@ -308,20 +309,30 @@ class GestorBD:
                         es_pregunta=False,
                         origen=respuesta.origen
                     )
-                    logger_db.debug(f" ✉️ se obtuvo un mensaje_id (para la respuesta): {mensaje_id_r}")
+                    logger_db.debug(f"✉️ se obtuvo un mensaje_id (para la respuesta): {mensaje_id_r}")
                     for nombre_archivo, tipo in respuesta.attachments:
                         self.insertar_attachment(mensaje_id_r, nombre_archivo, tipo)
-                    logger_db.debug(f" 📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
+                    logger_db.debug(f"📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
                     self.insertar_respuesta(respuesta, mensaje_id_r, id_pregunta, orden)
-                    logger_db.debug(f" 💾 Se persiste al repuesta en la base de datos")
+                    logger_db.debug(f"💾 Se persiste al repuesta en la base de datos")
+            
+            # Commit exitoso por bloque de archivo JSON procesado
             self.conn.commit()
+            logger_db.info(f"✅ Transacción confirmada exitosamente para el JSON {index}.")
+
         except Exception as e:
-            logger_db.debug(f"❌ Error al persistir las preguntas y respuestas: {e}")
-            logger_db.debug(traceback.format_exc())
+            logger_db.error(f"❌ Error al persistir las preguntas y respuestas: {e}")
+            logger_db.error(traceback.format_exc())
             if self.conn:
                 self.conn.rollback()
-                logger_db.debug("⛔ Transacción revertida debido al error.")
+                logger_db.warning("⛔ Transacción revertida debido al error.")
+            raise e # Relanzamos para que el script principal sepa que falló
 
     def cerrar_conexion(self):
-        self.conn.commit()
-        self.conn.close()
+        try:
+            if self.conn and not self.conn.closed:
+                self.conn.commit()
+                self.conn.close()
+                logger_db.info("🔌 Conexión con la base de datos cerrada correctamente.")
+        except Exception as e:
+            logger_db.error(f"Error al cerrar la conexión a la base de datos: {e}")
