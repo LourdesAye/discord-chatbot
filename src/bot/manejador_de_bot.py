@@ -1,28 +1,29 @@
-import os
 import logging
+import os
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import discord
-from discord.ext import commands
-from discord import Embed, Colour
-from dotenv import load_dotenv
 
-from utils.utilidades_logs import setup_logger
-from bot.Edicion_mensajes import MessageDiff
-from database.models.clase_mensajes import Mensaje
-from processing.procesamiento_tiempo_real import ProcesadorTiempoReal
-from utils.filtros_de_mensajes import (
-    FiltroContenidoIrrelevanteVisual,
-    FiltroSoloNumerosSignos,
-    FiltroSoloSimbolos,
-    FiltroContenidoVacio
-)
-from embeddings.gestor_vectores import GestorBaseVectorial
+import discord
+from discord import Colour, Embed
+from discord.ext import commands
+from dotenv import load_dotenv
 from langchain_huggingface import HuggingFaceEmbeddings
 from psycopg2 import connect
 from psycopg2.extras import DictCursor
+
+from bot.Edicion_mensajes import MessageDiff
+from database.models.clase_mensajes import Mensaje
+from embeddings.gestor_vectores import GestorBaseVectorial
+from processing.procesamiento_tiempo_real import ProcesadorTiempoReal
 from utils.conexion_bdd import CONFIG
 from utils.config_paths import LOG_DIR_ABS
+from utils.filtros_de_mensajes import (
+    FiltroContenidoIrrelevanteVisual,
+    FiltroContenidoVacio,
+    FiltroSoloNumerosSignos,
+    FiltroSoloSimbolos,
+)
+from utils.utilidades_logs import setup_logger
 
 log_real_time = setup_logger('log_real_time', 'log_procesamiento_mensaje_tiempo_real.txt')
 
@@ -76,7 +77,7 @@ class DiscordChatbot:
             mensaje += (
                 f"\n{etiqueta} — *{fila['nombre_autor']}*\n"
                 f"{fila['respuesta']}\n"
-                f"{"─"*20}"
+                f"{'─' * 20}"
             )
         return mensaje
 
@@ -112,7 +113,7 @@ class DiscordChatbot:
             ORDER BY r.orden NULLS LAST, r.id_respuesta;
         """
 
-        resultados_busqueda_semantica, similitud = las_tres_preguntas_mas_parecidas[0]
+        resultados_busqueda_semantica, _ = las_tres_preguntas_mas_parecidas[0]
         pregunta = resultados_busqueda_semantica.page_content
         id_pregunta = resultados_busqueda_semantica.metadata["id"]
 

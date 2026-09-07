@@ -1,15 +1,19 @@
-from processing.procesamiento_completo import ProcesadorBase
-from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierreTiempoReal
-from psycopg2 import connect, sql, errors
-from utils.conexion_bdd import CONFIG
-from utils.utilidades_logs import setup_logger
+
+from psycopg2 import connect, errors
 from psycopg2.extras import RealDictCursor
+
+from database.models.clase_autores import Autores
+
 # Estor sería del preguntasRepository
 from database.models.clase_mensajes import Mensaje
 from database.models.clase_preguntas import Pregunta
 from database.models.clase_respuestas import Respuesta
-from database.models.clase_autores import Autores
-from datetime import datetime
+from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import (
+    EstrategiaCierreTiempoReal,
+)
+from processing.procesamiento_completo import ProcesadorBase
+from utils.conexion_bdd import CONFIG
+from utils.utilidades_logs import setup_logger
 
 logger_db_cargada = setup_logger('cargando_datos_desde_bdd', 'log_cargando_datos_desde_base_de_datos_existente.txt')
 
