@@ -9,6 +9,7 @@ from processing.procesamiento_json import procesar_archivos_json
 from utils.conexion_bdd import CONFIG
 from utils.config_paths import BuscadorArchivos
 from utils.utilidades_logs import setup_logger
+from database.crear_bdd_e_inicializarla import CrearBaseDeDatos, CargarDatosInicialesBaseDeDatos
 
 
 def main(): 
@@ -32,8 +33,17 @@ def main():
     logger_proc.debug(" 🗃️ Conectándose a la base de datos...") 
 
     # PERSISTENCIA EN BASE DE DATOS
+    # Validar si existe BDD o crearla
+    validador_existencia_bdd = CrearBaseDeDatos(CONFIG)
+    validador_existencia_bdd.crear_base_de_datos_si_no_existe()
+    # Esquema de base de datos establecido con Alembic
+
+    # Cargar datos iniciales en la base de datos si las tablas están vacías
+    cargador_datos_iniciales = CargarDatosInicialesBaseDeDatos(CONFIG)
+    cargador_datos_iniciales.insertar_datos_inciales()
+
     bd = GestorBD(CONFIG) 
-    if bd.tiene_datos():
+    if bd.tiene_preguntas():
         logger_proc.debug( "⚠️ La base de datos ya contiene preguntas. Se cancela la carga para evitar duplicados.")
         bd.cerrar_conexion()
     else:

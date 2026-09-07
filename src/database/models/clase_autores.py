@@ -5,7 +5,7 @@ class Autores:
         self.es_docente= es_docente
 
 # DOCENTE DETECTADOS EN CONVERSACIONES
-lista_docentes = [
+LISTA_DOCENTES = [
         "ezequieloescobar", "aylenmsandoval",
         "lucassaclier", "facuherrera_8", "ryan129623","facundopiaggio",
         "valentinaalberio","nacho_borda"
