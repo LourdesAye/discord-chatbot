@@ -25,28 +25,29 @@ class EstrategiaCierreBatch(EstrategiaCierre):
         self.procesador.registrar_cierre(pregunta, motivo) 
 
 class EstrategiaCierreTiempoReal(EstrategiaCierre):
+    def __init__(self, conn):
+        self.conn = conn
 
-    def cerrar(self, pregunta: Pregunta, mensaje: Mensaje, motivo: str):
-        """Cierra una pregunta en la base de datos de forma segura."""
+    def cerrar(self, pregunta: Pregunta, mensaje: Mensaje, motivo: str) -> bool:
+        """Cierra una pregunta en la base de datos de forma segura (bloqueo optimista)."""
         query = """
-        UPDATE preguntas
-        SET esta_cerrada = TRUE
-        WHERE id_pregunta = %s AND esta_cerrada = FALSE;
+            UPDATE preguntas
+            SET esta_cerrada = TRUE
+            WHERE id_pregunta = %s AND esta_cerrada = FALSE;
         """
-
         try:
-            with self.conn: # with para atomicidad, todo el código dentro del bloque se ejecuta sin errores, se hace commit, caso contrario rollback. 
-                with self.conn.cursor() as cur: # para que cursor se cierre automáticamente al salir del bloque with
-                    cur.execute(query, (pregunta.id_pregunta,)) 
-                    if cur.rowcount == 0: # si no se actualizó ninguna fila, significa que la pregunta ya estaba cerrada
-                        logger_db_cargada.warning( f"⚠️ La pregunta {pregunta.id_pregunta} ya fue cerrada por otro proceso.")
+            with self.conn:
+                with self.conn.cursor() as cur:
+                    cur.execute(query, (pregunta.id_pregunta,))
+                    if cur.rowcount == 0:
+                        logger_db_cargada.warning(
+                            f"⚠️ La pregunta {pregunta.id_pregunta} ya fue cerrada por otro proceso."
+                        )
                         return False
                     logger_db_cargada.info(
                         f"🟢 Pregunta {pregunta.id_pregunta} cerrada correctamente (motivo: {motivo})."
                     )
                     return True
         except Exception as e:
-            logger_db_cargada.error(
-                f"❌ Error al cerrar la pregunta {pregunta.id_pregunta}: {e}"
-            )
+            logger_db_cargada.error(f"❌ Error al cerrar la pregunta {pregunta.id_pregunta}: {e}")
             return False

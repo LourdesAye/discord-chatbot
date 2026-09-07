@@ -14,14 +14,11 @@ from datetime import datetime
 logger_db_cargada = setup_logger('cargando_datos_desde_bdd', 'log_cargando_datos_desde_base_de_datos_existente.txt')
 
 class ProcesadorTiempoReal(ProcesadorBase):
-    # definición explícita solo por claridad del constructor aunque no hace falta
     def __init__(self, nombre_log, estrategias=None):
-        # mismos atributos que clase base
         super().__init__(nombre_log, estrategias)
-        self.estrategia_cierre = EstrategiaCierreTiempoReal()  # estrategia de cierre para tiempo real
-        # se agregan atributos para conexión a base de datos
         self.config = CONFIG
         self.conn = self.connect_to_database()
+        self.estrategia_cierre = EstrategiaCierreTiempoReal(self.conn) 
 
     def connect_to_database(self):
         """Establece conexión con la base de datos"""

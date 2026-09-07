@@ -22,6 +22,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from psycopg2 import connect
 from psycopg2.extras import DictCursor
 from utils.conexion_bdd import CONFIG
+from utils.config_paths import LOG_DIR_ABS
 
 log_real_time = setup_logger('log_real_time', 'log_procesamiento_mensaje_tiempo_real.txt')
 
