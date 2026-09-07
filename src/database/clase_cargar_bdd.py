@@ -1,13 +1,14 @@
-from psycopg2 import connect, sql, errors
+import traceback
+
+from dateutil.parser import isoparse
+from psycopg2 import connect, errors, sql
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+from psycopg2.extras import RealDictCursor
+
+from database.models.clase_autores import lista_docentes
 from database.models.clase_preguntas import Pregunta
 from database.models.clase_respuestas import Respuesta
-from dateutil.parser import isoparse
-from psycopg2.extras import RealDictCursor
-from utils.utilidades_logs import setup_logger
-import traceback
-from database.models.clase_autores import lista_docentes 
-from utils.utilidades_logs import guardar_pregunta_y_respuestas_en_log
-from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+from utils.utilidades_logs import guardar_pregunta_y_respuestas_en_log, setup_logger
 
 # agregando logger para seguimiento de la carga de datos
 logger_db= setup_logger('carga_db','log_persistencia_de_datos.txt')
@@ -289,16 +290,16 @@ class GestorBD:
                 for nombre_archivo, tipo in pregunta.attachments:
                     self.insertar_attachment(mensaje_id, nombre_archivo, tipo)
                 
-                logger_db.debug(f"📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
+                logger_db.debug("📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
 
                 id_pregunta = self.insertar_pregunta(pregunta, mensaje_id)
-                logger_db.debug(f"💾 Se persiste pregunta en la base de datos")
+                logger_db.debug("💾 Se persiste pregunta en la base de datos")
 
-                logger_db.debug(f"📩 Se ordenan sus respuestas para ser persistidas")
+                logger_db.debug("📩 Se ordenan sus respuestas para ser persistidas")
                 respuestas_ordenadas = sorted(pregunta.respuestas, key=lambda r: self.convertir_a_datetime(r.timestamp))
                 
                 for orden, respuesta in enumerate(respuestas_ordenadas, start=1):
-                    logger_db.debug(f"")
+                    logger_db.debug("")
                     logger_db.debug(f"📩 respuesta {orden} : {respuesta.contenido}")
                     autor_id_r = self.insertar_o_obtener_autor(respuesta.autor)
                     mensaje_id_r = self.insertar_mensaje(
@@ -312,9 +313,9 @@ class GestorBD:
                     logger_db.debug(f"✉️ se obtuvo un mensaje_id (para la respuesta): {mensaje_id_r}")
                     for nombre_archivo, tipo in respuesta.attachments:
                         self.insertar_attachment(mensaje_id_r, nombre_archivo, tipo)
-                    logger_db.debug(f"📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
+                    logger_db.debug("📁 Se insertaron en la base de datos los nombres archivos adjuntos asociados")
                     self.insertar_respuesta(respuesta, mensaje_id_r, id_pregunta, orden)
-                    logger_db.debug(f"💾 Se persiste al repuesta en la base de datos")
+                    logger_db.debug("💾 Se persiste al repuesta en la base de datos")
             
             # Commit exitoso por bloque de archivo JSON procesado
             self.conn.commit()

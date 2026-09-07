@@ -1,5 +1,6 @@
 from dateutil.parser import isoparse
 
+
 # convertir texto a datetime
 def convertir_a_datetime(cadena_fecha):
       return isoparse(cadena_fecha) # convierte la cadena en un objeto datetime

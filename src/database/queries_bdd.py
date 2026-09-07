@@ -41,17 +41,5 @@ query_crear_tablas= """
                         es_corta BOOLEAN DEFAULT FALSE
                     );
 
-                    CREATE TABLE IF NOT EXISTS fragmentos_preguntas (
-                        id_fragmento SERIAL PRIMARY KEY,
-                        pregunta_id INTEGER NOT NULL REFERENCES preguntas(id_pregunta) ON DELETE CASCADE,
-                        texto_fragmento TEXT NOT NULL,
-                        orden INTEGER NOT NULL
-                    );
-
-                    CREATE TABLE IF NOT EXISTS embeddings (
-                        id_embedding SERIAL PRIMARY KEY,
-                        fragmento_id INTEGER NOT NULL REFERENCES fragmentos_preguntas(id_fragmento) ON DELETE CASCADE,
-                        id_chroma_db TEXT NOT NULL
-                    );
             """
 

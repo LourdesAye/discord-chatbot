@@ -1,9 +1,15 @@
 import pandas as pd
-from utils.utilidades_logs import guardar_resultados_en_csvs
-from processing.procesamiento_completo import ProcesadorBatch
-from utils.utilidades_logs import setup_logger
-from utils.filtros_de_mensajes import EstrategiaFiltro,FiltroContenidoIrrelevanteVisual,FiltroSoloNumerosSignos,FiltroSoloSimbolos,FiltroContenidoVacio
+
 from database.models.clase_ruta import Ruta
+from processing.procesamiento_completo import ProcesadorBatch
+from utils.filtros_de_mensajes import (
+    EstrategiaFiltro,
+    FiltroContenidoIrrelevanteVisual,
+    FiltroContenidoVacio,
+    FiltroSoloNumerosSignos,
+    FiltroSoloSimbolos,
+)
+from utils.utilidades_logs import guardar_resultados_en_csvs, setup_logger
 
 # agregando logger para seguimiento de la carga de datos
 logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -40,11 +46,11 @@ def _registrar_estadisticas_finales(logger, procesador, numero_json):
     del reporte de métricas y estadísticas finales del procesamiento."""
     logger.debug("")
     logger.debug(f"\n✅ Procesamiento completado para el archivo JSON {numero_json}")
-    logger.debug(f"📊 Resultados de procesamiento:")
-    logger.debug(f"\n📊 Análisis de las listas de preguntas una vez finalizado el procesamiento:")
+    logger.debug("📊 Resultados de procesamiento:")
+    logger.debug("\n📊 Análisis de las listas de preguntas una vez finalizado el procesamiento:")
     logger.debug(f"     📊 {len(procesador.preguntas_abiertas)} preguntas abiertas")
     logger.debug(f"     📊 {len(procesador.preguntas_cerradas)} preguntas cerradas")
-    logger.debug(f"\n📊 Análisis de los mensajes procesados:")
+    logger.debug("\n📊 Análisis de los mensajes procesados:")
     logger.debug(f"     📊 {len(procesador.mensajes_sueltos)} mensajes sueltos")
     logger.debug(f"     📊 {procesador.cant_concatenaciones} mensajes concatenados")
     logger.debug(f"     📊 {procesador.cant_mens_cierre_alumnos} mensajes de cierre de alumnos")
@@ -64,9 +70,9 @@ def _registrar_estadisticas_finales(logger, procesador, numero_json):
 
     if len(procesador.mensajes_sueltos) >= 1:
         for indice, mensaje_suelto in enumerate(procesador.mensajes_sueltos, start=1):
-            logger.debug(f"\n✉️ Listado de mensajes sueltos: ")
+            logger.debug("\n✉️ Listado de mensajes sueltos: ")
             logger.debug(f"✉️ El mensaje suelto {indice}: '{mensaje_suelto.contenido}'")
-    logger.debug(f"")
+    logger.debug("")
 
 def procesar_archivos_json(rutas_json: list[Ruta]) -> list[ProcesadorBatch]:
     procesadores = []

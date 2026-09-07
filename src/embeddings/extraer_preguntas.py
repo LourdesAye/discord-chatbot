@@ -1,7 +1,9 @@
-from utils.conexion_bdd import CONFIG
-from utils.utilidades_logs import setup_logger,guardar_pregunta
-import psycopg2 
+import psycopg2
 from psycopg2.extras import DictCursor
+
+from utils.conexion_bdd import CONFIG
+from utils.utilidades_logs import setup_logger
+
 
 def obtener_preguntas_y_metadatos():
     logger_preguntas = setup_logger("logger_embeddings", "logs_preguntas_para_embeddings.txt")

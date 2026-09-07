@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
+
+from database.models.clase_autores import lista_docentes
 from database.models.clase_mensajes import Mensaje
 from utils.utilidades_logs import setup_logger
-from database.models.clase_autores import lista_docentes
 
 logger_msj = setup_logger('procesamiento_de_mensajes', 'logs_procesar_mensajes.txt')
 MAX_DELTA_SEGUNDOS_MSJ = 360

@@ -1,5 +1,7 @@
-from dotenv import load_dotenv
 import os
+
+from dotenv import load_dotenv
+
 from utils.utilidades_logs import setup_logger
 
 # Inicializar logger para esta parte del sistema

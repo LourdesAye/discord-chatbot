@@ -1,15 +1,21 @@
+from abc import ABC, abstractmethod
+from datetime import timedelta
+
+import pandas as pd
+
+from database.estrategias_procesamiento import (
+    ProcesamientoAlumnoStrategy,
+    ProcesamientoDocenteStrategy,
+    ProcesamientoStrategy,
+)
 from database.models.clase_mensajes import Mensaje
 from database.models.clase_preguntas import Pregunta
-from utils.utilidades_logs import setup_logger, guardar_pregunta_y_respuestas_en_log
 from database.utilidades_conversiones import convertir_a_datetime, tiempo_transcurrido
-from datetime import timedelta
-from database.estrategias_procesamiento import ProcesamientoStrategy,ProcesamientoAlumnoStrategy,ProcesamientoDocenteStrategy
-from database.models.clase_autores import lista_docentes
-from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierreBatch
-from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import EstrategiaCierre
-from abc import ABC, abstractmethod
-import pandas as pd
-from typing import Optional
+from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import (
+    EstrategiaCierre,
+    EstrategiaCierreBatch,
+)
+from utils.utilidades_logs import guardar_pregunta_y_respuestas_en_log, setup_logger
 
 logger_msj = setup_logger('procesamiento_de_mensajes', 'logs_procesar_mensajes.txt')
 
@@ -27,7 +33,7 @@ class ProcesadorBase(ABC): # importante heredar de ABC
             'docente': ProcesamientoDocenteStrategy(),
             'alumno': ProcesamientoAlumnoStrategy()
         }
-        self.estrategia_cierre : Optional[EstrategiaCierre]= None # se define en las subclases
+        self.estrategia_cierre : EstrategiaCierre | None= None # se define en las subclases
     
     @property 
     @abstractmethod 

@@ -1,8 +1,10 @@
 import logging
 import os
 from datetime import datetime
-from utils.config_paths import LOG_DIR_ABS
+
 import pandas as pd
+
+from utils.config_paths import LOG_DIR_ABS
 
 # agregando logger para seguimiento de la carga de datos
 
@@ -48,33 +50,31 @@ def guardar_pregunta_y_respuestas_en_log(pregunta, numero_pregunta, nombre_archi
         f.write("═══════════════════════════════════════════════════════\n\n")
 
 
-def guardar_resultados_en_csvs(df_filtrado, filtros_aplicados,nombre_base):
-    
+def guardar_resultados_en_csvs(df_filtrado, filtros_aplicados, nombre_base):   
     nombre_archivo_filtrado = f"{nombre_base}_filtrado_limpio.csv"
-    ruta_salida_filtrado = preparar_ruta(CSV_DIR_FINAL,nombre_archivo_filtrado)
+    ruta_salida_filtrado = preparar_ruta(CSV_DIR_FINAL, nombre_archivo_filtrado)
 
     fila_conteo = pd.DataFrame({ col: [""] for col in df_filtrado.columns})
-    fila_conteo.iloc[0, 0] = ( f"Cantidad de registros: {len(df_filtrado)}")
-    df_filtrado_con_resumen = pd.concat([df_filtrado, fila_conteo],ignore_index=True)
+    fila_conteo.iloc[0, 0] = (f"Cantidad de registros: {len(df_filtrado)}")
+    df_filtrado_con_resumen = pd.concat([df_filtrado, fila_conteo], ignore_index=True)
 
-    df_filtrado_con_resumen.to_csv( ruta_salida_filtrado, index=False,encoding="utf-8")
+    df_filtrado_con_resumen.to_csv(ruta_salida_filtrado, index=False, encoding="utf-8")
     
-    for nombre_filtro, df_filtrado in filtros_aplicados.items():
+    for nombre_filtro, df_subfiltrado in filtros_aplicados.items():
         nombre_archivo = f"{nombre_base}_{nombre_filtro}.csv"
-        ruta_final = preparar_ruta(CSV_DIR_FINAL,nombre_archivo)
-        if df_filtrado.empty:
+        ruta_final = preparar_ruta(CSV_DIR_FINAL, nombre_archivo)
+        
+        if df_subfiltrado.empty:
             mensaje = pd.DataFrame({"info": [f"No se encontraron mensajes que cumplan con el filtro: {nombre_filtro}"]})
-            mensaje.to_csv(ruta_final, index=False,encoding="utf-8")
+            mensaje.to_csv(ruta_final, index=False, encoding="utf-8")
         else:
-
             fila_conteo = pd.DataFrame({
-                col: [""] for col in df_filtrado.columns # toma las mismas columnas que df_filtrado con una única fila que rellena con una cadena vacia
+                col: [""] for col in df_subfiltrado.columns 
             })
-            fila_conteo.iloc[0, 0] = f"Cantidad de registros: {len(df_filtrado)}" # iloc[fila, columna] , iloc[0, 0] = primera fila, primera columna
-            # Concatenar el DataFrame filtrado con la fila resumen
-            df_con_fila_extra = pd.concat([df_filtrado, fila_conteo], ignore_index=True)
+            fila_conteo.iloc[0, 0] = f"Cantidad de registros: {len(df_subfiltrado)}" 
+            
+            df_con_fila_extra = pd.concat([df_subfiltrado, fila_conteo], ignore_index=True)
             df_con_fila_extra.to_csv(ruta_final, index=False, encoding="utf-8")
-    
 
 def guardar_pregunta(pregunta, numero_pregunta, ruta_archivo):
     ruta = preparar_ruta(LOG_DIR_FINAL,ruta_archivo)

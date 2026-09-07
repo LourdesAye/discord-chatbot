@@ -1,5 +1,7 @@
-import discord
 from zoneinfo import ZoneInfo
+
+import discord
+
 
 class MessageDiff:
     def __init__(self, before: discord.Message, after: discord.Message):

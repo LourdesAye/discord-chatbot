@@ -1,6 +1,6 @@
 import discord
-from discord.ext import commands
 import pandas as pd
+
 
 class CapturadorMensajes:
     def __init__(self, nombre_canal):

@@ -60,7 +60,7 @@ FRASES_ADMINISTRATIVAS = ["hacerlo de forma individual","que version de java ten
                           "las fechas de los recuperatorios también coinciden con las fechas de los finales de diseño",
                           "formulario para atender el recuperatorio","fechas de primeros y segundos recuperatorios",
                           "está disponible el repositorio del ejercicio del seminario", "la clase de consultas va a estar grabada",
-                          "yo aprobo el primer parcial y el parte de persistencia de segundo parcial", "n el caso que tenga que recuperar los dos parciales"
+                          "yo aprobo el primer parcial y el parte de persistencia de segundo parcial", "n el caso que tenga que recuperar los dos parciales",
                           "cuando va a ser la fecha de recuperatorio del primer parcial", "para el parcial la teoría que podemos llevar tiene que ser si o si",
                           "no pude entrar a la clase de consultas","no encuetro mi cuaderno", " manera de descargar el der del seminario",
                           "no pude entrar a la clase de consultas","cuando va a ser la fecha de recuperatorio del primer parcial",

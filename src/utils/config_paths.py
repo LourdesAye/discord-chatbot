@@ -2,14 +2,15 @@
 Configuración del entorno del proyecto y de los directorios.
 Utiliza pathlib para la gestión robusta de rutas y dotenv para el entorno.
 """
-from pathlib import Path
-from dotenv import load_dotenv
 import os
-from typing import List, Optional
+from pathlib import Path
+
+from dotenv import load_dotenv
+
 from database.models.clase_ruta import Ruta
 
 
-def buscar_archivo_en_padres(nombre_archivo: str, directorio_inicio: Optional[Path] = None) -> Path:
+def buscar_archivo_en_padres(nombre_archivo: str, directorio_inicio: Path | None = None) -> Path:
     """Busca un archivo recorriendo los directorios padres hacia arriba."""
     if directorio_inicio is None:
         try:
@@ -51,14 +52,14 @@ CHROMA_DIR_ABS = CARPETA_PROYECTO / CHROMA_DIR
 class BuscadorArchivos:
     """Clase responsable de localizar y filtrar los archivos JSON en la estructura del proyecto."""
 
-    def obtener_rutas_json(self, directorio_base: Optional[Path] = None) -> List[Ruta]:
+    def obtener_rutas_json(self, directorio_base: Path | None = None) -> list[Ruta]:
         """Obtiene las rutas validadas de todos los archivos JSON encontrados."""
         directorio_base = directorio_base or JSON_DIR_ABS
         
         if not directorio_base.exists():
             raise FileNotFoundError(f"El directorio no existe: {directorio_base}")
 
-        resultados: List[Ruta] = []
+        resultados: list[Ruta] = []
         patron_de_busqueda = os.getenv("FILE_NAME", "chat.json")
         profundidad_maxima = int(os.getenv("MAX_DEPTH", 999))
 

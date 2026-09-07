@@ -1,11 +1,15 @@
-from utils.conexion_bdd import CONFIG
+import sys
+
+from langchain_huggingface import HuggingFaceEmbeddings
+
 from database.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.clase_cargar_bdd import GestorBD
-from processing.procesamiento_json import procesar_archivos_json
-from utils.utilidades_logs import setup_logger
-from utils.config_paths import BuscadorArchivos
 from embeddings.gestor_vectores import GestorBaseVectorial
-from langchain_huggingface import HuggingFaceEmbeddings
+from processing.procesamiento_json import procesar_archivos_json
+from utils.conexion_bdd import CONFIG
+from utils.config_paths import BuscadorArchivos
+from utils.utilidades_logs import setup_logger
+
 
 def main(): 
     logger_proc= setup_logger('carga_procesador','log_procesamiento_con_preguntas_cerradas.txt')
@@ -17,10 +21,10 @@ def main():
     logger_proc.debug(f" 🗂️ Cantidad de archivos JSON encontrados: {len(rutas_json)}")
     if len(rutas_json) == 0:
         logger_proc.debug(" ❌ No se encontraron archivos JSON para procesar. Finalizando ejecución.")
-        exit(1)  # Salir del programa si no hay archivos JSON   
+        sys.exit(1)  # Salir del programa si no hay archivos JSON   
 
     # PROCESAMIENTO DE ARCHIVOS JSON
-    logger_proc.debug(f"📎 Rutas de los JSON a procesar:")
+    logger_proc.debug("📎 Rutas de los JSON a procesar:")
     for num_ruta,ruta in enumerate(rutas_json,start=1):
         logger_proc.debug(f" 📌 Ruta {num_ruta} detectada: {ruta}")
     procesadores = procesar_archivos_json(rutas_json) # función para procesar todos los archivos JSON   
@@ -47,11 +51,11 @@ def main():
             bd.persistir_preguntas(preguntas_a_procesar,indice)
 
         # Resumen final de la carga de datos
-        logger_proc.debug(f" ")
+        logger_proc.debug(" ")
         logger_proc.debug(f" ✅ La cantidad total de preguntas generadas : {cant_total_preg}")
         logger_proc.debug(f" ✅ La cantidad total de respuestas generadas : {cant_total_resp}")
         bd.cerrar_conexion() # cerrar conexión con bdd
-        logger_proc.debug(f" ")
+        logger_proc.debug(" ")
         logger_proc.debug(" 💾 Conexión cerrada y datos guardados.")
 
     # GESTIÓN DE LA BASE VECTORIAL DE EMBEDDINGS

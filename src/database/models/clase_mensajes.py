@@ -1,10 +1,18 @@
 # ESTRUCTURAS BASES PARA CLASIFICAR MENSAJES + funciones auxiliares +  CLASE MENSAJE 
-from database.models.clase_autores import lista_docentes
 import os
 import re
-from utils.utilidades_logs import setup_logger
+
 import pandas as pd
-from database.models.utilidades_modelo_dominio import FRASES_CLAVE_PREGUNTAS,FRASES_CIERRE_ALUMNOS,FRASES_CIERRE_DOCENTE,contar_palabras,primeras_cinco_palabras
+
+from database.models.clase_autores import lista_docentes
+from database.models.utilidades_modelo_dominio import (
+    FRASES_CIERRE_ALUMNOS,
+    FRASES_CIERRE_DOCENTE,
+    FRASES_CLAVE_PREGUNTAS,
+    contar_palabras,
+    primeras_cinco_palabras,
+)
+
 
 class Mensaje:
     def __init__(self, id_mensaje, autor, contenido, timestamp,attachments,origen):

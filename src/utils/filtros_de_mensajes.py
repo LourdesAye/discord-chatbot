@@ -1,5 +1,7 @@
 import re
-from abc import ABC, abstractmethod 
+from abc import ABC, abstractmethod
+
+
 class EstrategiaFiltro(ABC): 
     
     @abstractmethod 

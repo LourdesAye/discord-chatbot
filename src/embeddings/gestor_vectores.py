@@ -1,10 +1,13 @@
 import os
+
+import psycopg2
 from langchain_chroma import Chroma
-from embeddings.extraer_preguntas import obtener_preguntas_y_metadatos
-from utils.utilidades_logs import setup_logger
-import psycopg2 
 from psycopg2.extras import DictCursor
+
+from embeddings.extraer_preguntas import obtener_preguntas_y_metadatos
 from utils.conexion_bdd import CONFIG
+from utils.utilidades_logs import setup_logger
+
 
 class GestorBaseVectorial:
     def __init__(self, modelo, persist_directory="./chroma"):
@@ -113,7 +116,7 @@ class GestorBaseVectorial:
                 # Validación segura por si el diccionario no trae la clave id
                 pregunta_id = doc.metadata.get("id")
                 if not pregunta_id:
-                    self.logger_embeddings.warning(f"⚠️ El documento no contiene un 'id' válido en sus metadatos.")
+                    self.logger_embeddings.warning("⚠️ El documento no contiene un 'id' válido en sus metadatos.")
                     continue
 
                 respuestas_recuperadas = self.obtener_respuestas_a_pregunta_con(pregunta_id)
@@ -132,7 +135,7 @@ class GestorBaseVectorial:
             return resultados_ordenados
       
         except Exception as e:
-            self.logger_embeddings.error(f"❌ Error en la búsqueda: {str(e)}")
+            self.logger_embeddings.error(f"❌ Error en la búsqueda: {e!s}")
             return None
 
 
