@@ -1,7 +1,5 @@
 import sys
-
 from langchain_huggingface import HuggingFaceEmbeddings
-
 from database.analizador_preguntas_cerradas import AnalizadorPreguntasCerradas
 from database.clase_cargar_bdd import GestorBD
 from embeddings.gestor_vectores import GestorBaseVectorial
@@ -36,7 +34,10 @@ def main():
     # Validar si existe BDD o crearla
     validador_existencia_bdd = CrearBaseDeDatos(CONFIG)
     validador_existencia_bdd.crear_base_de_datos_si_no_existe()
-    # Esquema de base de datos establecido con Alembic
+
+    # Aplicar migraciones con Alembic
+    # alembic_cfg = Config("alembic.ini")   # lee tu archivo alembic.ini
+    # command.upgrade(alembic_cfg, "head")  # aplica todas las migraciones hasta la última versión
 
     # Cargar datos iniciales en la base de datos si las tablas están vacías
     cargador_datos_iniciales = CargarDatosInicialesBaseDeDatos(CONFIG)

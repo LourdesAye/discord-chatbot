@@ -24,3 +24,7 @@ python-dateutil==2.9.0.post0
 
 # HTTP
 requests==2.32.3
+
+# Alembic para migraciones de base de datos
+sqlalchemy==2.0.50
+alembic==1.19.2
