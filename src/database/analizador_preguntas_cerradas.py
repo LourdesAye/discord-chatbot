@@ -1,4 +1,3 @@
-
 from database.models.clase_preguntas import Pregunta
 from database.models.utilidades_modelo_dominio import FRASES_ADMINISTRATIVAS
 from utils.utilidades_logs import setup_logger

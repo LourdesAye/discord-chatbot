@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from database.models.clase_autores import lista_docentes
+from database.models.clase_autores import LISTA_DOCENTES
 from database.models.clase_mensajes import Mensaje
 from utils.utilidades_logs import setup_logger
 
@@ -19,39 +19,48 @@ class ProcesamientoDocenteStrategy(ProcesamientoStrategy):
         
         if preguntas_abiertas:
             for pregunta in preguntas_abiertas:
-                procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, lista_docentes)
+                procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, LISTA_DOCENTES)
                 logger_msj.debug(f"✅️ Se ha agregado respuesta docente: {mensaje.contenido}")
                 
                 if mensaje.es_cierre_docente():
                     procesador.cerrar_pregunta(pregunta, mensaje, motivo='docente')
         else:
-            # Si no hay abiertas, delegamos la búsqueda de cerradas al procesador
+            # Si no hay abiertas, delegar la búsqueda de cerradas al procesador
             preguntas_cerradas_recientes = procesador.obtener_preguntas_cerradas_recientes(limite=2)
             if preguntas_cerradas_recientes:
-                procesador.asociar_respuesta_a_multiples(preguntas_cerradas_recientes, mensaje, lista_docentes)
+                procesador.asociar_respuesta_a_multiples(preguntas_cerradas_recientes, mensaje, LISTA_DOCENTES)
             else:
                 procesador.registrar_mensaje_suelto(mensaje)
 
 class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):
     def procesar(self, procesador, mensaje: Mensaje):
-        pregunta_activa_autor = procesador.buscar_pregunta_abierta_por_autor(mensaje.autor)
-        
-        if pregunta_activa_autor and pregunta_activa_autor.es_extensible_con(mensaje, MAX_DELTA_SEGUNDOS_MSJ):
-            procesador.concatenar_a_pregunta(pregunta_activa_autor, mensaje)
-        elif pregunta_activa_autor and mensaje.es_cierre_alumno() and pregunta_activa_autor.tiene_respuesta_validada():
-            procesador.cerrar_pregunta(pregunta_activa_autor, mensaje, motivo='alumno')
-        elif mensaje.es_pregunta():
-            procesador.crear_nueva_pregunta(mensaje)
-        else:
-            # Mensaje interpretado como respuesta a preguntas abiertas existentes
-            preguntas_abiertas = procesador.obtener_preguntas_abiertas()
-            if preguntas_abiertas:
-                for pregunta in preguntas_abiertas:
-                    procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, lista_docentes)
+        if procesador.preguntas_abiertas:
+            preguntas_activas_autor = procesador.obtener_preguntas_abiertas_por_autor(mensaje.autor)
+            if preguntas_activas_autor:
+                for pregunta in preguntas_activas_autor:
+                    if pregunta.es_extensible_con(mensaje, MAX_DELTA_SEGUNDOS_MSJ):
+                        procesador.concatenar_a_pregunta(pregunta, mensaje)
+                        logger_msj.debug(f"📌 Se concatenó la pregunta: {pregunta.contenido} con el mensaje: {mensaje.contenido}")
+                    elif mensaje.es_cierre_alumno() and pregunta.tiene_respuesta_validada():
+                        procesador.cerrar_pregunta(pregunta, mensaje, motivo='alumno')
+                        logger_msj.debug(f"❌ Se cerró la pregunta por cierre de alumno: {pregunta.contenido}")
+                    else:
+                        procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, LISTA_DOCENTES)
+                        logger_msj.debug(f"✅️ Se ha agregado respuesta alumno: {mensaje.contenido}")
             else:
+                if mensaje.es_pregunta():
+                    procesador.crear_nueva_pregunta(mensaje)
+                else:
+                    for pregunta in procesador.preguntas_abiertas[:]:
+                        procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, LISTA_DOCENTES)
+                        logger_msj.debug(f"✅️ Se ha agregado respuesta alumno: {mensaje.contenido}")
+        else:
+            if mensaje.es_pregunta():
+                procesador.crear_nueva_pregunta(mensaje)
+            else: 
                 preguntas_cerradas_recientes = procesador.obtener_preguntas_cerradas_recientes(limite=2)
                 if preguntas_cerradas_recientes:
-                    procesador.asociar_respuesta_a_multiples(preguntas_cerradas_recientes, mensaje, lista_docentes)
+                    procesador.asociar_respuesta_a_multiples(preguntas_cerradas_recientes, mensaje, LISTA_DOCENTES)
                 else:
                     procesador.registrar_mensaje_suelto(mensaje)
 
@@ -60,7 +69,7 @@ class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):
 # from database.models.clase_mensajes import Mensaje
 # from database.models.clase_preguntas import Pregunta
 # from utils.utilidades_logs import setup_logger
-# from database.models.clase_autores import lista_docentes
+# from database.models.clase_autores import LISTA_DOCENTES
 
 # # tengo dudas si agregar id de preguntas o respuestas en tiempo real cuando se cargan d ela base de datos y tambien cuando se ponene en logs
 # # tal vez deba porque los logs permiten el seguimiento de cada pregunta o respuesta, daria trazabilidad

@@ -16,6 +16,7 @@ from processing.estrategias_cierre_mensajes.estrategias_cierre_mensajes import (
     EstrategiaCierreBatch,
 )
 from utils.utilidades_logs import guardar_pregunta_y_respuestas_en_log, setup_logger
+from typing import List
 
 logger_msj = setup_logger('procesamiento_de_mensajes', 'logs_procesar_mensajes.txt')
 
@@ -38,6 +39,10 @@ class ProcesadorBase(ABC): # importante heredar de ABC
     @property 
     @abstractmethod 
     def preguntas_abiertas(self):
+        pass
+
+    @abstractmethod 
+    def obtener_preguntas_abiertas_por_autor(self, autor):
         pass
     
     def cerrar_pregunta(self, pregunta: Pregunta, mensaje: Mensaje, motivo=None):
@@ -133,22 +138,29 @@ class ProcesadorBatch(ProcesadorBase):
             return []
         return self.preguntas_cerradas[-limite:]
 
-    def agregar_respuesta_a_pregunta(self, pregunta, mensaje, lista_docentes):
+    def agregar_respuesta_a_pregunta(self, pregunta : Pregunta, mensaje : Mensaje, lista_docentes):
         pregunta.agregar_respuesta(mensaje, lista_docentes)
         self.contador_mensaje_respuesta += 1
 
-    def concatenar_a_pregunta(self, pregunta, mensaje):
+    def concatenar_a_pregunta(self, pregunta : Pregunta, mensaje : Mensaje):
         pregunta.concatenar_contenido(mensaje.contenido)
         self.cant_concatenaciones += 1
         logger_msj.debug(f"📌 Se concatenó la pregunta: \n{pregunta.contenido}\n con el mensaje: {mensaje.contenido}")
 
-    def crear_nueva_pregunta(self, mensaje):
+    def crear_nueva_pregunta(self, mensaje : Mensaje):
         nueva = Pregunta(mensaje)
         self._preguntas_abiertas.append(nueva)
         self.contador_preguntas_nuevas += 1
         logger_msj.debug(f"🟡 NUEVA PREGUNTA: {nueva.contenido}")
 
-    def asociar_respuesta_a_multiples(self, preguntas_cerradas, mensaje, lista_docentes):
+    def asociar_respuesta_a_multiples(self, preguntas_cerradas :List[Pregunta], mensaje : Mensaje, lista_docentes):
         for pregunta in preguntas_cerradas:
             pregunta.agregar_respuesta(mensaje, lista_docentes)
             logger_msj.debug(f"🔶 RESPUESTA A PREGUNTA CERRADA: '{pregunta.contenido}'")
+
+    def obtener_preguntas_abiertas_por_autor(self, autor)-> List[Pregunta] : 
+        lista_preguntas = [pregunta for pregunta in self.preguntas_abiertas if pregunta.autor == autor]
+        return lista_preguntas
+
+
+    

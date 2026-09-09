@@ -8,6 +8,7 @@ from utils.utilidades_logs import guardar_pregunta_y_respuestas_en_log, setup_lo
 from database.crear_bdd_e_inicializarla import CrearBaseDeDatos,CargarDatosInicialesBaseDeDatos
 from database.conector_bdd import ConectarBD
 from database.models.clase_preguntas import Pregunta
+from database.models.clase_autores import LISTA_DOCENTES
 
 # agregando logger para seguimiento de la carga de datos
 logger_db = setup_logger("carga_db", "log_persistencia_de_datos.txt")
@@ -20,7 +21,7 @@ class GestorBD:
         self.conexion_bdd = self.conector_a_base_de_datos.conectar_a_base_de_datos_existente()
 
     def es_docente(self, nombre_usuario):
-        return nombre_usuario in self.docentes
+        return nombre_usuario in LISTA_DOCENTES
 
     def tiene_preguntas(self):
         with self.conexion_bdd.cursor() as cur:

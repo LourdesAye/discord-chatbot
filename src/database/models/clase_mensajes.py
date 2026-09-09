@@ -4,7 +4,7 @@ import re
 
 import pandas as pd
 
-from database.models.clase_autores import lista_docentes
+from database.models.clase_autores import LISTA_DOCENTES
 from database.models.utilidades_modelo_dominio import (
     FRASES_CIERRE_ALUMNOS,
     FRASES_CIERRE_DOCENTE,
@@ -96,7 +96,7 @@ class Mensaje:
         return "?" in self.contenido or "\u00bf" in self.contenido # ¿ es "\u00bf"
 
     def es_autor_docente(self) -> bool:
-        return self.autor in lista_docentes
+        return self.autor in LISTA_DOCENTES
 
     def es_pregunta(self):
         return self.contiene_signo_interrogacion() or self.contiene_frase_clave()

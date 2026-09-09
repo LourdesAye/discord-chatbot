@@ -8,6 +8,7 @@ from utils.conexion_bdd import CONFIG
 from utils.config_paths import BuscadorArchivos
 from utils.utilidades_logs import setup_logger
 from database.crear_bdd_e_inicializarla import CrearBaseDeDatos, CargarDatosInicialesBaseDeDatos
+from migraciones_automaticas.aplicar_migraciones_automaticas import aplicar_migraciones_automaticas 
 
 
 def main(): 
@@ -36,8 +37,7 @@ def main():
     validador_existencia_bdd.crear_base_de_datos_si_no_existe()
 
     # Aplicar migraciones con Alembic
-    # alembic_cfg = Config("alembic.ini")   # lee tu archivo alembic.ini
-    # command.upgrade(alembic_cfg, "head")  # aplica todas las migraciones hasta la última versión
+    aplicar_migraciones_automaticas()
 
     # Cargar datos iniciales en la base de datos si las tablas están vacías
     cargador_datos_iniciales = CargarDatosInicialesBaseDeDatos(CONFIG)
