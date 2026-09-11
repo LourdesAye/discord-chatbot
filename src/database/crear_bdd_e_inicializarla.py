@@ -74,15 +74,22 @@ class CargarDatosInicialesBaseDeDatos:
     # IMPORTANTE: Esta función debe llamarse después de crear la base de datos y establecer el esquema con Alembic
     def insertar_datos_inciales(self):
         """Inserta datos iniciales si las tablas están vacías"""
+        conexion = self.conector_a_base_de_datos.conectar_a_base_de_datos_existente()
         try:
-            with self.conector_a_base_de_datos.conectar_a_base_de_datos_existente().cursor() as cur:
+            with conexion.cursor() as cur:
                 # Verificar si la tabla autores está vacía
                 if not self.hay_autores_en_base_de_datos(cur) and self.hay_docentes_para_insertar():
                     logger_db.info("Insertando datos iniciales de autores...")
                     for docente in self.docentes_a_insertar():
                         self.insertar_docente(cur, docente)
-                    self.conector_a_base_de_datos.conectar_a_base_de_datos_existente().commit()
+                    conexion.commit()
                     logger_db.info("Datos iniciales de autores insertados")
         except errors.DatabaseError as e:
             logger_db.error(f"Error al insertar datos iniciales: {e}")
-            self.conector_a_base_de_datos.conectar_a_base_de_datos_existente().rollback()
+            conexion.rollback()
+        finally:
+            conexion.close()
+
+
+
+

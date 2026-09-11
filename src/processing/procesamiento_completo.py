@@ -89,6 +89,10 @@ class ProcesadorBatch(ProcesadorBase):
         self.preguntas_abiertas.remove(pregunta)
         self.preguntas_cerradas.append(pregunta)
         self.contador_preguntas_cerradas += 1
+        if motivo == 'alumno':
+            self.cant_mens_cierre_alumnos += 1
+        elif motivo == 'docente':
+            self.cant_mens_cierre_docente += 1
         logger_msj.debug(f"🟢 PREGUNTA CERRADA por {motivo}")
 
     def procesar_dataframe(self, mensajes_limpios_df : pd.DataFrame, ruta_json : str):
@@ -102,14 +106,6 @@ class ProcesadorBatch(ProcesadorBase):
         for numero_pregunta,pregunta in enumerate(self.preguntas_cerradas,start=1):
             guardar_pregunta_y_respuestas_en_log(pregunta, numero_pregunta,self.nombre_log)
         logger_msj.debug(f"Total mensajes: {self.contador_mensajes}, Preguntas nuevas: {self.contador_preguntas_nuevas}, Cerradas: {self.contador_preguntas_cerradas}")
-
-
-    def cerrar_pregunta(self, pregunta: Pregunta, mensaje: Mensaje, motivo=None):
-        pregunta.cerrar()
-        self.preguntas_abiertas.remove(pregunta)
-        self.preguntas_cerradas.append(pregunta)
-        self.contador_preguntas_cerradas += 1
-        logger_msj.debug(f"🟢 PREGUNTA CERRADA por {motivo}")
 
     def registrar_mensaje_suelto(self, mensaje: Mensaje):
         self.mensajes_sueltos.append(mensaje)
