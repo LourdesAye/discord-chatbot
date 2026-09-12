@@ -136,6 +136,8 @@ class ProcesadorBatch(ProcesadorBase):
 
     def agregar_respuesta_a_pregunta(self, pregunta : Pregunta, mensaje : Mensaje, lista_docentes):
         pregunta.agregar_respuesta(mensaje, lista_docentes)
+
+    def contar_mensaje_como_respuesta(self):
         self.contador_mensaje_respuesta += 1
 
     def concatenar_a_pregunta(self, pregunta : Pregunta, mensaje : Mensaje):
@@ -150,13 +152,16 @@ class ProcesadorBatch(ProcesadorBase):
         logger_msj.debug(f"🟡 NUEVA PREGUNTA: {nueva.contenido}")
 
     def asociar_respuesta_a_multiples(self, preguntas_cerradas :List[Pregunta], mensaje : Mensaje, lista_docentes):
+        self.contador_mensaje_respuesta += 1
         for pregunta in preguntas_cerradas:
             pregunta.agregar_respuesta(mensaje, lista_docentes)
             logger_msj.debug(f"🔶 RESPUESTA A PREGUNTA CERRADA: '{pregunta.contenido}'")
 
+
     def obtener_preguntas_abiertas_por_autor(self, autor)-> List[Pregunta] : 
         lista_preguntas = [pregunta for pregunta in self.preguntas_abiertas if pregunta.autor == autor]
         return lista_preguntas
+
 
 
     

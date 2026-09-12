@@ -15,10 +15,16 @@ class ProcesamientoStrategy(ABC):
 class ProcesamientoDocenteStrategy(ProcesamientoStrategy):
     def procesar(self, procesador, mensaje: Mensaje):
         # El procesador encapsula si busca en memoria (batch) o en DB (tiempo real)
+        # Devuelve lista real interna del procesador 
         preguntas_abiertas = procesador.obtener_preguntas_abiertas()
         
         if preguntas_abiertas:
-            for pregunta in preguntas_abiertas:
+
+            # Se cuenta el mensaje UNA sola vez, aunque después se lo asocie a varias preguntas abiertas
+            procesador.contar_mensaje_como_respuesta()
+            # Se itera sobre una copia: cerrar_pregunta() remueve elementos de la lista real de preguntas abiertas, 
+            # y modificar una lista mientras se la recorre hace que se salteen elementos.
+            for pregunta in list(preguntas_abiertas):
                 procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, LISTA_DOCENTES)
                 logger_msj.debug(f"✅️ Se ha agregado respuesta docente: {mensaje.contenido}")
                 
@@ -34,7 +40,8 @@ class ProcesamientoDocenteStrategy(ProcesamientoStrategy):
 
 class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):
     def procesar(self, procesador, mensaje: Mensaje):
-        if procesador.preguntas_abiertas:
+        preguntas_abiertas = procesador.obtener_preguntas_abiertas()
+        if preguntas_abiertas:
             preguntas_activas_autor = procesador.obtener_preguntas_abiertas_por_autor(mensaje.autor)
             if preguntas_activas_autor:
                 for pregunta in preguntas_activas_autor:
@@ -46,12 +53,17 @@ class ProcesamientoAlumnoStrategy(ProcesamientoStrategy):
                         logger_msj.debug(f"❌ Se cerró la pregunta por cierre de alumno: {pregunta.contenido}")
                     else:
                         procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, LISTA_DOCENTES)
+                        procesador.contar_mensaje_como_respuesta()
                         logger_msj.debug(f"✅️ Se ha agregado respuesta alumno: {mensaje.contenido}")
             else:
                 if mensaje.es_pregunta():
                     procesador.crear_nueva_pregunta(mensaje)
                 else:
-                    for pregunta in procesador.preguntas_abiertas[:]:
+                    # un solo mensaje que será respuesta de varias preguntas abiertas
+                    procesador.contar_mensaje_como_respuesta() 
+                    # Se itera sobre una copia porque modificar una lista mientras se la recorre 
+                    # hace que se salteen elementos.
+                    for pregunta in list(preguntas_abiertas):
                         procesador.agregar_respuesta_a_pregunta(pregunta, mensaje, LISTA_DOCENTES)
                         logger_msj.debug(f"✅️ Se ha agregado respuesta alumno: {mensaje.contenido}")
         else:
