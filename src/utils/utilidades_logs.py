@@ -5,6 +5,7 @@ from datetime import datetime
 import pandas as pd
 
 from utils.config_paths import LOG_DIR_ABS
+import pandas as pd
 
 # agregando logger para seguimiento de la carga de datos
 

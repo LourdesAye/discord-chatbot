@@ -28,3 +28,7 @@ requests==2.32.3
 # Alembic para migraciones de base de datos
 sqlalchemy==2.0.50
 alembic==1.19.2
+
+#PyYAML para leer archivos YAML
+PyYAML==6.0.3
+rapidfuzz==3.14.6

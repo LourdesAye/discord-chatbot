@@ -5,7 +5,7 @@ from database.clase_cargar_bdd import GestorBD
 from embeddings.gestor_vectores import GestorBaseVectorial
 from processing.procesamiento_json import procesar_archivos_json
 from utils.conexion_bdd import CONFIG
-from utils.config_paths import BuscadorArchivos
+from utils.file_searcher import BuscadorArchivos
 from utils.utilidades_logs import setup_logger
 from database.crear_bdd_e_inicializarla import CrearBaseDeDatos, CargarDatosInicialesBaseDeDatos
 from migraciones_automaticas.aplicar_migraciones_automaticas import aplicar_migraciones_automaticas 
