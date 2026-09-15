@@ -3,12 +3,30 @@ import yaml
 from src.utils.config_paths import CONFIG_DIR_ABS
 from src.utils.utilidades_logs import setup_logger
 
+
 class GeneradorYAML:
+    """ 
+    Clase para convertir listas de cadenas en archivos YAML y validar su contenido.
+    Encapsula el comportamiento de:
+    - Crear la carpeta de destino para los archivos YAML si no existe.
+    - Guardar cada lista de cadenas en un archivo YAML independiente.
+    - Validar los archivos generados mostrando un resumen de su contenido.
+
+    """
     def __init__(self, diccionario_con_datos_a_convertir_a_yaml,logger_generacion_yaml):
-        self.diccionario_con_datos_a_convertir_a_yaml = diccionario_con_datos_a_convertir_a_yaml
+        """
+        Inicializa la clase con un diccionario de datos y un logger.
+        - Diccionario que contiene las listas de cadenas a convertir, con nombres como claves.
+        - Logger configurado para registrar eventos de generación y validación.
+        """
+        self.diccionario_con_datos_a_convertir_a_yaml = diccionario_con_datos_a_convertir_a_yaml 
         self.logger_generacion_yaml = logger_generacion_yaml
 
     def generar_yaml(self):
+        """ 
+        Convierte cada lista del diccionario en un archivo YAML dentro de la carpeta `config/yaml`.
+        Registra en el logger si el archivo fue creado correctamente o si ocurrió un error.
+        """ 
         yaml_dir = CONFIG_DIR_ABS / "yaml"
         try:
             # Crear la carpeta yaml si no existe
@@ -28,6 +46,11 @@ class GeneradorYAML:
                 self.logger_generacion_yaml.error(f"❌ Error al guardar {archivo_yaml}: {e}")
 
     def validar_yaml(self):
+        """
+        Recorre los archivos YAML generados, los carga y muestra un resumen:
+        - nombre de la lista y cantidad de frases contenidas.
+        Registra en el logger los resultados de la validación.
+        """
         yaml_dir = CONFIG_DIR_ABS / "yaml"
 
         self.logger_generacion_yaml.info("\n🔎 Validación de archivos YAML:")
