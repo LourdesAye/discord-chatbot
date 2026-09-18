@@ -112,7 +112,7 @@ class ProcesadorBatch(ProcesadorBase):
         autor_tipo = "DOCENTE" if mensaje.es_autor_docente() else "ALUMNO"
         logger_msj.debug(f" 🔴 MENSAJE SUELTO: '{mensaje.contenido}' de {autor_tipo} : {mensaje.autor} ")
 
-    def asociar_respuesta_a_preguntas_cerradas(self, mensaje, lista_docentes):
+    def asociar_respuesta_a_preguntas_cerradas(self, mensaje):
         self.contador_mensaje_respuesta += 1
         cantidad = len(self.preguntas_cerradas)
         preguntas_a_asociar = (
@@ -121,7 +121,7 @@ class ProcesadorBatch(ProcesadorBase):
             else self.preguntas_cerradas[-2:]
         )
         for pregunta in preguntas_a_asociar:
-            pregunta.agregar_respuesta(mensaje, lista_docentes)
+            pregunta.agregar_respuesta(mensaje)
             logger_msj.debug(f" 🔶 RESPUESTA QUE LLEGA SIN PREGUNTAS ABIERTAS: '{mensaje.contenido}'")
             logger_msj.debug(f" 🔶 SE ASOCIA A LA PREGUNTA CERRADA: '{pregunta.contenido}'")
 
@@ -134,8 +134,8 @@ class ProcesadorBatch(ProcesadorBase):
             return []
         return self.preguntas_cerradas[-limite:]
 
-    def agregar_respuesta_a_pregunta(self, pregunta : Pregunta, mensaje : Mensaje, lista_docentes):
-        pregunta.agregar_respuesta(mensaje, lista_docentes)
+    def agregar_respuesta_a_pregunta(self, pregunta : Pregunta, mensaje : Mensaje):
+        pregunta.agregar_respuesta(mensaje)
 
     def contar_mensaje_como_respuesta(self):
         self.contador_mensaje_respuesta += 1
@@ -151,10 +151,10 @@ class ProcesadorBatch(ProcesadorBase):
         self.contador_preguntas_nuevas += 1
         logger_msj.debug(f"🟡 NUEVA PREGUNTA: {nueva.contenido}")
 
-    def asociar_respuesta_a_multiples(self, preguntas_cerradas :List[Pregunta], mensaje : Mensaje, lista_docentes):
+    def asociar_respuesta_a_multiples(self, preguntas_cerradas :List[Pregunta], mensaje : Mensaje):
         self.contador_mensaje_respuesta += 1
         for pregunta in preguntas_cerradas:
-            pregunta.agregar_respuesta(mensaje, lista_docentes)
+            pregunta.agregar_respuesta(mensaje)
             logger_msj.debug(f"🔶 RESPUESTA A PREGUNTA CERRADA: '{pregunta.contenido}'")
 
 

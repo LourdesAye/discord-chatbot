@@ -12,6 +12,8 @@ from database.models.utilidades_modelo_dominio import (
     contar_palabras,
     primeras_cinco_palabras,
 )
+from yaml_a_elementos_en_memoria import GestorYAML
+from normalizador_usuarios_discord import NormalizadorUsuariosDiscord
 
 
 class Mensaje:
@@ -97,6 +99,10 @@ class Mensaje:
 
     def es_autor_docente(self) -> bool:
         return self.autor in LISTA_DOCENTES
+        # convertidor_de_yaml_a_elemento_en_memoria = GestorYAML
+        # lista_docentes = convertidor_de_yaml_a_elemento_en_memoria.cargar_datos_yaml("docentes","docentes")
+        # normalizador_autor = NormalizadorUsuariosDiscord()
+        # autor_respuesta_normalizado= normalizador_autor.normalizar_usuario(autor_respuesta)
 
     def es_pregunta(self):
         return self.contiene_signo_interrogacion() or self.contiene_frase_clave()
